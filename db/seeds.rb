@@ -7,3 +7,33 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+DENIS_PASSWARD = ENV['DENIS_PASSWARD']
+JURY_PASSWARD = ENV['JURY_PASSWARD']
+
+
+puts "Destroying existing Users..."
+User.destroy_all
+
+puts "Creating new Users..."
+puts "................................................................"
+
+# Create admin and jury users for the application.
+User.create(
+  email: 'denis@entrelace.com',
+  password: DENIS_PASSWARD,
+  role: 'admin',
+  name: 'Denis',
+  last_name: 'Lamaj'
+)
+
+User.create(
+  email: 'jury@entrelace.com',
+  password: JURY_PASSWARD,
+  role: 'jury',
+  name: 'Edi',
+  last_name: 'Blloshmi'
+)
+
+
+puts "................................................................"
+puts "Users created successfully!"
