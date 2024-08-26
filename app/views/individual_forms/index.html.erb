@@ -1,0 +1,199 @@
+<div class="container">
+  <h1 style="text-align:center"><%= current_user.name %>'s Forms</h1>
+  <div class="individual-forms">
+    <% if current_user.role == "competitor" && current_user.individual_forms.present?%>
+      <table class="table-form mx-auto">
+        <caption style="color:white">Individual Forms</caption>
+        <thead>
+          <tr style="width:50px">
+            <th>Attribute</th>
+              <% current_user.individual_forms.each_with_index do |form, index| %>
+                <th>Individual Form <%= index + 1 %></th>
+              <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= current_user.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.last_name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.birth_date %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.address %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Name</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.teacher_name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Dance School</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.dance_school %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Phone</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.teacher_phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Email</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.teacher_email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Category</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.category %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Style</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.style %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Level</td>
+            <% current_user.individual_forms.each do |form| %>
+              <td><%= form.level %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    <% elsif current_user.role == "admin" %>
+      <table class="table-form mx-auto">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <% @individual_forms.each_with_index do |form, index| %>
+              <th>Form <%= index + 1 %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>User Id</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.user_id %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>First Name</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.first_name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.last_name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.birth_date %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.address %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Name</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.teacher_name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Dance School</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.dance_school %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Phone</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.teacher_phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Teacher Email</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.teacher_email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Category</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.category %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Style</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.style %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Level</td>
+            <% @individual_forms.each do |form| %>
+              <td><%= form.level %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="d-flex justify-content-center">
+        <h3 style="color:white">You have not submitted any individual forms yet</h3>
+      </div>
+    <% end %>
+  </div>
+</div>

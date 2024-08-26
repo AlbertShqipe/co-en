@@ -1,12 +1,28 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  # Different pages for the website
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'regulation' => 'pages#regulation'
+  get 'media' => 'pages#media'
+  get 'who_are_we' => 'pages#who_are_we'
+  get 'practical_info' => 'pages#practical_info'
+  get 'contact' => 'pages#contact'
+  get 'our_partners' => 'pages#our_partners'
+  get 'apply' => 'pages#apply'
+  get 'profile' => 'pages#profile'
+  get 'contact' => 'pages#contact'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Devise authentication routes
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # User form application routes
+  resources :group_forms, only: [:index, :show, :new, :create] do
+    collection do
+      # get '/group_forms/:id/info', to: 'groups#info'
+      get 'info' # This will create a route for group_forms/info
+    end
+    resources :participants, only: [:create, :destroy]
+  end
+  resources :individual_forms, only: [:index, :new, :create]
+
 end

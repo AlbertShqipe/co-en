@@ -1,0 +1,107 @@
+.section-regulation {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $orange;
+  background-color: $light-gray;
+  position: relative;
+  padding: 100px 0 50px 0;
+
+
+  .content-regulation {
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    background-image: url("LogoNeroContinuo1") ; /* Color for the full screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    color: #000000;
+  }
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: #000000;
+    padding-top: 50px;
+  }
+  h6 {
+    text-align: center !important;
+    color: #000000;
+  }
+  .table-regulation {
+    width: 50%;
+    border-collapse: collapse;
+    margin: auto;
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      color:black;
+    }
+    th {
+      background-color: transparent;
+      color: black;
+      text-align: center;
+    }
+  }
+  .table-regulation-ordre {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      color:black;
+    }
+    th {
+      background-color: transparent;
+      color: black;
+      text-align: center;
+    }
+  }
+    p {
+    padding-top: 26px;
+    color: #000000;
+    font-size: 18px;
+  }
+}
+.table-regulation {
+  width:1000px;
+  margin:auto;
+
+  th {
+    color: $orange !important;
+    padding: 12px;
+  }
+}
+
+.ul-regulation {
+  list-style-type: disc !important;
+  li {
+    color: black;
+  }
+}
+
+.list {
+  font-size: 18px;
+  color: black;
+  padding-top: 26px;
+}
+
+.warning {
+  background-color: #ffff99;
+  padding: 0.2em;
+  border-radius: 3px;
+  width: 12%;
+  margin: auto;
+}

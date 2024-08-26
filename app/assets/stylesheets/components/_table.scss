@@ -1,0 +1,32 @@
+.table-form {
+  width: 60%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+
+  th, td {
+    border: 2px solid orange;
+    padding: 12px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    text-align: left;
+    color: black;
+  }
+
+  td {
+    text-align: left;
+  }
+
+  tbody tr td:hover {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  caption {
+    caption-side: top; /* Ensures the caption is at the top */
+    font-weight: bold;
+    margin-bottom: 10px; /* Adds space between caption and table */
+    color: $light-gray;
+  }
+}

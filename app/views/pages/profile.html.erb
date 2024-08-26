@@ -1,0 +1,15 @@
+<div class="portfolio-container" data-controller="tabs">
+  <div class="portfolio-tab-bar">
+    <select id="group-select">
+      <option value="">Select a Group</option>
+      <% @groups.each do |group| %>
+        <option value="<%= group.id %>"><%= group.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div id="group-info" data-tabs-target="groupInfo" class="portfolio-content">
+    <!-- This will be dynamically populated based on the selected group -->
+    <p>Please select a group to view its information.</p>
+  </div>
+</div>
+<%= render "shared/footer_fixed" %>

@@ -1,0 +1,118 @@
+<div class=" container registration-form">
+  <div class="registration-form-inner">
+    <h1 class="text-center">REGISTRATION FORM</h1>
+    <h2 class="text-center">Group Candidation</h2>
+    <h3 class="text-center">Fill out one form per group</h3>
+    <div class="container">
+      <%= form_with(
+                      model: @group_form,
+                      url: group_forms_path,
+                      local: true,
+                      method: :post,
+                      data: { controller: "flatpickr" }
+                    ) do |f| %>
+        <div class="d-flex justify-content-around mt-5">
+          <div class="field">
+            <%# <%= f.label :name %>
+            <%= f.text_field :name, placeholder: "Name of Group", class: "input-form" %>
+          </div>
+          <div>
+            <%# <%= form.label :responsable %>
+            <%= f.text_field :responsable, placeholder: "Responsable of Group", class: "input-form" %>
+          </div>
+          <div>
+            <%# <%= f.label :address %>
+            <%= f.text_field :address, placeholder: "Address", class: "input-form" %>
+          </div>
+          <div>
+            <%# <%= f.label :phone %>
+            <%= f.text_field :phone, placeholder: "Phone", class: "input-form" %>
+          </div>
+          <div>
+            <%# <%= f.label :email %>
+            <%= f.text_field :email, placeholder: "Email", class: "input-form" %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around ">
+          <div>
+            <%# <%= f.label :title_of_piece %>
+            <%= f.text_field :title_of_music, placeholder: "Title of the piece", class: "input-form" %>
+          </div>
+
+          <div>
+            <%= f.text_field :composer, placeholder: "Composer", class: "input-form" %>
+          </div>
+
+        <div>
+          <%# <%= f.label :length_of_piece, "Length of Piece in minutes", class: "label" %>
+          <%= f.number_field :length_of_piece, placeholder: "Length of Piece", class: "input-form", step: 1, min: 0 %>
+        </div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <div id="style">
+            <%# <%= f.label :discipline %>
+            <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain']), prompt: "Select Style", placeholder: "Discipline", class: "input-session" %>
+          </div>
+          <div id="level">
+            <%# <%= f.label :level %>
+            <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation']), prompt: "Select Level", placeholder: "Level", class: "input-session", id:"category"%>
+          </div>
+        </div>
+        <div data-controller="participant">
+          <div class="d-flex">
+            <h3 style="text-align:left">Participants</h3>
+            <span style="color:gray; font-size:15px;padding-top:8px; margin-left:8px">(Add the partecipants of the group)</span>
+          </div>
+          <div id="participants">
+          <%= f.fields_for :participants do |p| %>
+            <div class="d-flex justify-content-between participant-fields">
+              <div>
+                <%= p.text_field :name, placeholder: "Name of Participant", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.text_field :last_name, placeholder: "Last Name of Participant", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.date_field :birth_date, placeholder: "Birthday", id:"myID", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.number_field :age, placeholder: "Age today", class: "input-form" %>
+              </div>
+              <div style="padding-top:13px">
+                <button type="button" class="remove-participant btn btn-danger">Remove</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Hidden template for participant fields -->
+        <template id="participant-template">
+          <%= f.fields_for :participants do |p| %>
+            <div class="d-flex justify-content-between participant-fields">
+              <div>
+                <%= p.text_field :name, placeholder: "Name of Participant", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.text_field :last_name, placeholder: "Last Name of Participant", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.date_field :birth_date, placeholder: "Birthday", id:"myID", class: "input-form" %>
+              </div>
+              <div>
+                <%= p.number_field :age, placeholder: "Age today", class: "input-form" %>
+              </div>
+              <div style="padding-top:13px">
+                <button type="button" class="remove-participant">Remove</button>
+              </div>
+            </div>
+          <% end %>
+        </template>
+
+        <button type="button" id="add-participant" class="btn btn-secondary">Add Participant</button>
+        <div class="mx-auto" style="width:200px">
+          <%= f.submit "Create Group", class: "input-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

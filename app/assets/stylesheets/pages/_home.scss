@@ -1,1 +1,362 @@
-// Specific CSS for your home-page
+// Home sections Style
+.first-container-home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  background-image: url('https://images.unsplash.com/photo-1595348514401-eca68a3bea33?q=80&w=2372&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: 60px -90px;
+  background-repeat: no-repeat;
+
+  .full-div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent; /* Color for the full screen */
+    z-index: 5;
+  }
+
+  .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: $light-gray;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+
+    .text {
+      svg {
+        margin-top: 130px;
+        margin-right: 20px;
+      }
+      text-align: center;
+      // font-family: Georgia, serif !important;
+      font-family: 'Times New Roman', Times, serif !important;
+    }
+  }
+
+}
+
+.second-section-home-regulation {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $orange;
+  background-color: $light-gray;
+
+  .second-section-home-regulation-image {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .second-section-home-regulation-content {
+    width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    padding-top: 50px;
+    color: #000000;
+  }
+
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: #000000;
+  }
+
+  p {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+}
+
+.second-section-home-whoAreWe {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $light-gray !important;
+  background-color: $black;
+  border-left: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+
+  .second-section-home-whoAreWe-image {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+
+  }
+
+  .second-section-home-whoAreWe-content {
+    width: 1000px;
+    margin: auto;
+
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    padding-top: 50px;
+    color: $light-gray !important;
+  }
+
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: $light-gray !important;
+  }
+
+  p {
+    padding-top: 50px;
+    color: $light-gray !important;
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+}
+
+.second-section-home-practicalInfo {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $orange;
+  background-color: $light-gray;
+
+  .second-section-home-practicalInfo-image {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .second-section-home-practicalInfo-content {
+    width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    padding-top: 50px;
+    color: #000000;
+  }
+
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: #000000;
+  }
+
+  p {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+}
+
+.second-section-home-ourPartners {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $light-gray !important;
+  background-color: $black;
+  border-left: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+
+
+  .second-section-home-ourPartners-image {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .second-section-home-ourPartners-content {
+    width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    padding-top: 50px;
+    color: $light-gray !important;
+  }
+
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: $light-gray !important;
+  }
+
+  p {
+    padding-top: 50px;
+    color: $light-gray !important;
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 50px;
+    color: $light-gray !important;
+    font-size: 18px;
+  }
+}
+
+.second-section-home-media {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  display: block;
+  color: $orange;
+  background-color: $light-gray;
+
+  .second-section-home-media-image {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .second-section-home-media-content {
+    width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-family: Georgia, serif !important;
+    text-align: center;
+    padding-top: 50px;
+    color: #000000;
+  }
+
+  h5 {
+    text-indent: 30px;
+    text-decoration: underline;
+    color: #000000;
+  }
+
+  p {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+}
+
+// Icon to get the top of the page
+#backToTop {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 1010;
+  padding: 20px;
+  background-color: rgba(235, 67, 1, 0.6);
+  color: $light-gray;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 0;
+
+  &:hover {
+    background-color: $black;
+  }
+
+  a {
+    color: $light-gray;
+    text-decoration: none;
+  }
+}
+
+
+// .left, .right {
+//   width: 50%;
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+// }
+
+// .left {
+//   left: 0;
+//   background-color: $black; /* Color for the left side */
+//   padding: 10px 0px 0px 10px;
+// }
+
+// .right {
+//   right: 0;
+//   background-color: $black; /* Color for the right side */
+// }
+
+// .divider {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 100vh;
+//   width: 100vw;
+//   z-index: 1;
+//   background-color: transparent;
+// }
+
+// .divider path {
+//   fill: none;
+//   stroke: $orange;
+//   stroke-width: 0.2;
+// }
+// .first-section {
+//   width: 100vw;
+//   height: 100vh;
+// }

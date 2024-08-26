@@ -1,0 +1,93 @@
+<div class=" container registration-form">
+  <div class="registration-form-inner">
+    <div style="z-index:1000">
+      <h1 class="text-center">REGISTRATION FORM</h1>
+      <h2 class="text-center">Individual Candidate</h2>
+      <h3 class="text-center">Fill out one form per discipline</h3>
+      <div class="container">
+        <%= form_with(
+                      model: @individual_form,
+                      class: "form",
+                      url: individual_forms_path,
+                      local: true, data: {
+                      controller: "flatpickr",
+                      }) do |f| %>
+          <div class="d-flex justify-content-between align-items-center mx-5 mt-4">
+            <div>
+              <%# <%= f.label :first_name, "First Name" %>
+              <%= f.text_field :first_name, placeholder: "First Name", class: "input-form" %>
+            </div>
+            <div>
+              <%# <%= f.label :last_name, "Last Name"  %>
+              <%= f.text_field :last_name, placeholder: "Last Name", class: "input-form" %>
+            </div>
+            <div>
+              <%# <%= f.label :birth_date, "Birthday" %>
+              <%= f.date_field :birth_date, id:"myID", placeholder: "Birthday", class: "input-form birthday" %> <br>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mx-5 ">
+            <div>
+              <%# <%= f.label :phone  %>
+              <%= f.text_field :phone, class: "input-form", placeholder:"Phone" %>
+            </div>
+            <div>
+              <%# <%= f.label :email %>
+              <%= f.email_field :email, class: "input-form", placeholder:"Email" %>
+            </div>
+            <div>
+              <%# <%= f.label :address, class: "address" %>
+              <%= f.text_field :address, class: "input-form", placeholder:"Address" %>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mx-5 mt-4">
+            <div>
+              <%# <%= f.label :dance_school %>
+              <%= f.text_field :dance_school, class: "input-form", placeholder:"Dance School Name" %>
+            </div>
+            <div>
+              <%# <%= f.label :teacher_name %>
+              <%= f.text_field :teacher_name, class: "input-form", placeholder:"Teacher Name" %>
+            </div>
+            <div>
+              <%# <%= f.label :teacher_phone %>
+              <%= f.text_field :teacher_phone, class: "input-form", placeholder:"Teacher Phone" %>
+            </div>
+            <div>
+              <%# <%= f.label :teacher_email %>
+              <%= f.email_field :teacher_email, class: "input-form", placeholder:"Teacher Email" %>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4 ">
+            <div id="category">
+              <%# <%= f.label :category, class: "label" %>
+              <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle']), prompt: "Select a category", class: "input-session" %> <br>
+            </div>
+
+            <div id="style">
+              <%# <%= f.label :style, class: "label" %>
+              <%= f.select :style, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain']), prompt: "Select a style", class: "input-session", id:"style" %><br>
+            </div>
+
+            <div id="level">
+              <%# <%= f.label :level, class: "label" %>
+              <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: "Select a level", class: "input-session", id:"level" %> <br>
+            </div>
+          </div>
+          <div class="mx-auto" style="width:250px">
+            <%= f.submit 'Create Candidate', class: "input-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById("photo-input").addEventListener("change", function() {
+  const fileName = this.files[0] ? this.files[0].name : "No file selected";
+  document.getElementById("file-name").textContent = fileName;
+});
+</script>

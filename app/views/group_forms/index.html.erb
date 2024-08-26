@@ -1,0 +1,184 @@
+<div class="group-forms">
+  <% if current_user.role == "competitor" && current_user.group_forms.present? %>
+    <table class="table-form mx-auto">
+      <caption>Group Forms</caption>
+      <thead>
+        <tr style="width:50px">
+          <th>Attribute</th>
+          <% current_user.group_forms.each_with_index do |group, index| %>
+            <th>Group Form <%= index + 1 %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name of Group</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.name %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Responsable of Group</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.responsable %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Group Address</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.address %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.phone %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.email %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Group Discipline</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.discipline %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Level</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.level %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Title of Music</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.title_of_music %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Compositor of Music</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.composer %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Length of Piece</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.length_of_piece %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>N of Participants</td>
+          <% current_user.group_forms.each do |group| %>
+            <td><%= group.participants.count %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  <% elsif current_user.role == "admin" %>
+    <table class="table-form mx-auto">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <% @group_forms.each_with_index do |form, index| %>
+            <th>Group Form <%= index + 1 %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User Id</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.user_id %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>First Name</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.first_name %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.last_name %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Birth Date</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.birth_date %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.address %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.phone %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.email %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Teacher Name</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.teacher_name %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Dance School</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.dance_school %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Teacher Phone</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.teacher_phone %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Teacher Email</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.teacher_email %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.category %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Style</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.style %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Level</td>
+          <% @group_forms.each do |form| %>
+            <td><%= form.level %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="d-flex justify-content-center">
+      <h3 style="color:white">You have not submitted any group forms yet</h3>
+    </div>
+  <% end %>
+</div>

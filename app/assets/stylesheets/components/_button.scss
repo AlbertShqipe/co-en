@@ -1,0 +1,125 @@
+.button-home {
+  width: 280px;
+  margin: auto;
+  text-decoration: none;
+  display:  inline-block;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: $black;
+  border: 0.5px solid rgba(255, 255, 255, 0.774);
+  outline: 0.5px solid rgba(0, 0, 0, 0.241);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 50px;
+  text-align: center;
+  z-index: 10;
+  margin-top:50px;
+  box-shadow: 0px 21px 44px -12px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    box-shadow: 0px -11px 44px -12px rgba(0, 0, 0, 0.35);
+    background-color: rgba(235, 67, 1, 0.6);
+    color: $light-gray;
+  }
+}
+
+.button {
+  text-decoration: none;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: $black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+
+  z-index: 10;
+
+  &:hover {
+    background-color: $orange;
+    color: $light-gray;
+  }
+}
+
+.button-light-gray {
+  text-decoration: none;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $light-gray;
+  color: black;
+  // border: 1.5px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 21px 44px -12px rgba(222, 222, 212, 0.35);
+  z-index: 10;
+
+  &:hover {
+    background-color: $orange;
+    color: $light-gray;
+  }
+}
+
+.button-home-gray {
+  width: 280px;
+  margin: auto;
+  text-decoration: none;
+  display:  inline-block;
+  background-color: rgba(196, 196, 196, 0.35);
+  color: white;
+  border: 0.5px solid rgba(0, 0, 0, 0.241);
+  outline: 0.5px solid rgba(255, 255, 255, 0.774);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 50px;
+  text-align: center;
+  z-index: 10;
+  margin-top:50px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 21px 44px -12px rgba(255, 255, 255, 0.35);
+  &:hover {
+    box-shadow: 0px -21px 44px -12px rgba(255, 255, 255, 0.35);
+    background-color: rgba(235, 67, 1, 0.6);
+    color: $light-gray;
+  }
+}
+
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: $black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  &:hover {
+
+    color: $black;
+  }
+}
+
+.remove-participant {
+  background-color: $red !important;
+  border: 0.5px solid rgb(53, 0, 0) !important;
+  margin-top: 3px;
+}

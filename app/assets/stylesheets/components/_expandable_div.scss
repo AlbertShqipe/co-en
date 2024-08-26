@@ -1,0 +1,96 @@
+.expandable-div-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 500px;
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(235, 67, 1, 0.6);
+  transition: width 0.3s ease-in-out;
+  overflow: hidden; /* Ensure contents are hidden */
+  z-index: 1100;
+
+  .container-expandable {
+    padding: 0 10px 0 10px;
+  }
+
+  &:hover {
+    width: 200px;
+  }
+
+  .content {
+    // margin: auto;
+    opacity: 0; /* Hide content initially */
+    transition: opacity 0.3s ease-in-out;
+    padding: 10px; /* Adjust padding as needed */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    width: 190px;
+    border-radius: 0 5px 5px 0;
+    height: 490px;
+    // border-top: 5px solid rgba(235, 67, 1, 0.6);
+    // border-right: 5px solid rgba(235, 67, 1, 0.6);
+    // border-bottom: 5px solid rgba(235, 67, 1, 0.6);
+
+    p > a {
+      color: $light-gray;
+      text-decoration: none;
+      border-bottom: 1 px solid transparent;
+      padding-bottom: 5px;
+      font-size: 20px;
+      &:hover {
+        color: $light-gray;
+        border-bottom: 1px solid $white;
+      }
+    }
+    &:hover  {
+      opacity: 1; /* Show content on hover */
+    }
+  }
+}
+
+.expandable-div-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 650px;
+  border-radius:  5px 0 0 5px ;
+  background-color: rgba(235, 67, 1, 0.6);
+  transition: width 0.3s ease-in-out;
+  overflow: hidden; /* Ensure contents are hidden */
+  z-index: 1100;
+
+  .container-expandable {
+    padding: 10px 0 10px 0;
+  }
+
+  &:hover {
+    width: 50%;
+  }
+
+  .content {
+    // opacity: 0; /* Hide content initially */
+    transition: opacity 0.3s ease-in-out;
+    // padding: 10px; /* Adjust padding as needed */
+    text-align: center;
+    background-image: url('affiche_2025.png');
+    background-position: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1000px;
+    height: 80% !important;
+    // border-top: 5px solid rgba(235, 67, 1, 0.6);
+    // border-right: 5px solid rgba(235, 67, 1, 0.6);
+    // border-bottom: 5px solid rgba(235, 67, 1, 0.6);
+
+  }
+}
