@@ -19,7 +19,7 @@ class GroupFormsController < ApplicationController
     @group_form.user_id = current_user.id
     logger.debug "Received parameters: #{params.inspect}"
     if @group_form.save
-      redirect_to @group_forms, notice: 'Group form was successfully created.'
+      redirect_to root_path, notice: 'Group form was successfully created.'
     else
       render :new
     end
