@@ -5,7 +5,7 @@ export default class extends Controller {
   static target = "groupInfo"
   connect() {
     const groupSelect = document.getElementById("group-select");
-    console.log(groupSelect)
+    // console.log(groupSelect)
 
     // if (groupSelect) {
     //   // Set up event listener for changes in the select element
@@ -33,7 +33,7 @@ export default class extends Controller {
       // Set up event listener for changes in the select element
       groupSelect.addEventListener('change', (event) => {
         const selectedGroupId = event.target.value;
-        console.log("Selected Group ID:", selectedGroupId);
+        // console.log("Selected Group ID:", selectedGroupId);
         this.fetchGroupInfo(selectedGroupId);
       });
     }
@@ -46,8 +46,8 @@ export default class extends Controller {
       fetch(`/group_forms/${selectedGroupId}/info`) // Modify this route as necessary
         .then(response => response.json())
         .then(data => {
-          console.log("Fetched data:", data);
-          console.log(data.participants);
+          // console.log("Fetched data:", data);
+          // console.log(data.participants);
           // Populate the HTML with the fetched data
           groupInfoDiv.innerHTML = `
             <h1>Group ${data.id}</h1>
