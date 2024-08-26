@@ -17,12 +17,11 @@ Rails.application.routes.draw do
 
   # User form application routes
   resources :group_forms, only: [:index, :show, :new, :create] do
-    collection do
-      # get '/group_forms/:id/info', to: 'groups#info'
-      get 'info' # This will create a route for group_forms/info
-    end
     resources :participants, only: [:create, :destroy]
   end
+  # Info of a specific group form
+  get '/group_forms/:id/info', to: 'group_forms#info'
+
   resources :individual_forms, only: [:index, :new, :create]
 
 end

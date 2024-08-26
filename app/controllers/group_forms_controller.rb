@@ -28,21 +28,21 @@ class GroupFormsController < ApplicationController
   def info
     @group_form = current_user.group_forms.find(params[:id])
     render json: {
-      id: group.id,
-      name: group.name,
-      responsable: group.responsable,
-      address: group.address,
-      phone: group.phone,
-      email: group.email,
-      discipline: group.discipline,
-      level: group.level,
-      title_of_music: group.title_of_music,
-      composer: group.composer,
-      length_of_piece: group.length_of_piece,
-      participants: group.participants.map { |participant| { id: participant.id, name: participant.name, last_name: participant.last_name, birth_date: participant.birth_date, age: participant.age } }
+      id: @group_form.id,
+      name: @group_form.name,
+      responsable: @group_form.responsable,
+      address: @group_form.address,
+      phone: @group_form.phone,
+      email: @group_form.email,
+      discipline: @group_form.discipline,
+      level: @group_form.level,
+      title_of_music: @group_form.title_of_music,
+      composer: @group_form.composer,
+      length_of_piece: @group_form.length_of_piece,
+      participants: @group_form.participants.map { |participant| { id: participant.id, name: participant.name, last_name: participant.last_name, birth_date: participant.birth_date, age: participant.age } }
     }
-  rescue ActiveRecord::RecordNotFound
-    render json: { error: "Group not found" }, status: :not_found
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Group not found" }, status: :not_found
   end
 
   private
