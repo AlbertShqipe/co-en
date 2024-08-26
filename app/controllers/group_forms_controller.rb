@@ -18,10 +18,10 @@ class GroupFormsController < ApplicationController
     @group_form = GroupForm.new(group_form_params)
     @group_form.user_id = current_user.id
     logger.debug "Received parameters: #{params.inspect}"
-    if @group_form.save
+    if @group_form.participants.size > 1 && @group_form.save
       redirect_to root_path, notice: 'Group form was successfully created.'
     else
-      render :new
+      redirect_to new_group_form_path, alert: 'At least two participants are required'
     end
   end
 
