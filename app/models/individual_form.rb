@@ -1,6 +1,8 @@
 class IndividualForm < ApplicationRecord
   belongs_to :user
 
+  has_one_attached :photo
+
   validates :first_name, :last_name, :birth_date, :address, :phone, :email,
             :teacher_name, :dance_school, :teacher_phone, :teacher_email,
             :category, :style, :level, presence: true

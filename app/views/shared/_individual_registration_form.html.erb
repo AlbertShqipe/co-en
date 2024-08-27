@@ -76,7 +76,14 @@
               <%# <%= f.label :level, class: "label" %>
               <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: "Select a level", class: "input-session", id:"level" %> <br>
             </div>
+
+            <div class="custom-file-input">
+              <%= f.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
+              <label for="photo-input" id="photo-label" class="file-label">Choose a file</label>
+              <span id="file-name">No file selected</span>
+            </div>
           </div>
+
           <div class="mx-auto" style="width:250px">
             <%= f.submit 'Create Candidate', class: "input-btn" %>
           </div>

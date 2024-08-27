@@ -68,16 +68,21 @@
           <%= f.fields_for :participants do |p| %>
             <div class="d-flex justify-content-between participant-fields">
               <div>
-                <%= p.text_field :name, placeholder: "Name of Participant", class: "input-form" %>
+                <%= p.text_field :name, placeholder: "Name", class: "input-form-group" %>
               </div>
               <div>
-                <%= p.text_field :last_name, placeholder: "Last Name of Participant", class: "input-form" %>
+                <%= p.text_field :last_name, placeholder: "Last Name", class: "input-form-group" %>
               </div>
               <div>
-                <%= p.date_field :birth_date, placeholder: "Birthday", id:"myID", class: "input-form" %>
+                <%= p.date_field :birth_date, placeholder: "Birthday", id:"myID", class: "input-form-group" %>
               </div>
               <div>
-                <%= p.number_field :age, placeholder: "Age today", class: "input-form" %>
+                <%= p.number_field :age, placeholder: "Age today", class: "input-form-group" %>
+              </div>
+              <div class="custom-file-input">
+                <%= f.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
+                <label for="photo-input" id="photo-label" class="file-label">Choose a file</label>
+                <span id="file-name">No file selected</span>
               </div>
               <div style="padding-top:13px">
                 <button type="button" class="remove-participant btn btn-danger">Remove</button>
@@ -90,17 +95,22 @@
         <template id="participant-template">
           <div class="d-flex justify-content-between participant-fields">
             <div>
-              <input type="text" name="group_form[participants_attributes][NEW_RECORD][name]" placeholder="Name of Participant" class="input-form">
+              <input type="text" name="group_form[participants_attributes][NEW_RECORD][name]" placeholder="Name of Participant" class="input-form-group">
             </div>
             <div>
-              <input type="text" name="group_form[participants_attributes][NEW_RECORD][last_name]" placeholder="Last Name of Participant" class="input-form">
+              <input type="text" name="group_form[participants_attributes][NEW_RECORD][last_name]" placeholder="Last Name of Participant" class="input-form-group">
             </div>
             <div>
-              <input type="date" name="group_form[participants_attributes][NEW_RECORD][birth_date]" placeholder="Birthday" class="input-form" id="myID">
+              <input type="date" name="group_form[participants_attributes][NEW_RECORD][birth_date]" placeholder="Birthday" class="input-form-group" id="myID">
             </div>
             <div>
-              <input type="number" name="group_form[participants_attributes][NEW_RECORD][age]" placeholder="Age today" class="input-form">
+              <input type="number" name="group_form[participants_attributes][NEW_RECORD][age]" placeholder="Age today" class="input-form-group">
             </div>
+            <div class="custom-file-input">
+                <input type="file" name="group_form[participants_attributes][NEW_RECORD][photo]" class="file-input">
+                <label for="photo-input" id="photo-label" class="file-label">Choose a file</label>
+                <span id="file-name">No file selected</span>
+              </div>
             <div style="padding-top:13px">
               <button type="button" class="remove-participant btn btn-danger">Remove</button>
             </div>
