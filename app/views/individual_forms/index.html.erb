@@ -91,6 +91,17 @@
               <td><%= form.level %></td>
             <% end %>
           </tr>
+          <tr>
+            <td>Profile Pic</td>
+            <% current_user.individual_forms.each do |form| %>
+              <% if form.photo.attached? %>
+                <td style="text-align:center"><%= cl_image_tag form.photo.key, height: 50, width: 40 %></td>
+              <% else %>
+                <td></td>
+              <% end %>
+            <% end %>
+          </tr>
+
         </tbody>
       </table>
     <% elsif current_user.role == "admin" %>

@@ -45,6 +45,32 @@
   }
 }
 
+.input-form-group {
+  z-index: 100;
+  width: 120px;
+  padding: 12px;
+  border: none;
+  border-bottom: 1.5px solid #000000;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 16px;
+  transition: 0.3s;
+  display: block;
+  color: black !important;
+
+  // &::placeholder {
+  //   color: $light-gray;
+  // }
+
+
+  &:hover {
+    border: 1.5px solid $light-gray;
+  }
+}
+
 .custom-hint {
   color: white;
   font-size: 12px;
@@ -154,7 +180,7 @@
     left: 0;
     top: 0;
     opacity: 0;
-    width: 100%;
+    width: 50%;
     height: 48.5px;
     cursor: pointer;
 
