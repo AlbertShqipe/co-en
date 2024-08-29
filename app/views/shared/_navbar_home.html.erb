@@ -109,7 +109,7 @@
           </li>
           <li class="nav-item dropdown" style="margin-right:50px;margin-left:10px">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if current_user.photo.present? %>
+              <% if current_user.photo.present? && current_user.photo.key.present? %>
                 <%= cl_image_tag current_user.photo.key, class:"avatar" %>
               <% else %>
                 <%= image_tag "logoLightGray.png", class: "avatar", alt: "dropdown menu" %>
