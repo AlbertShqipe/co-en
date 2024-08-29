@@ -12,7 +12,7 @@ class IndividualFormsController < ApplicationController
 
       # Code that shoul run only in production
       @results = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
-    # raise
+    raise
   end
 
   def new
