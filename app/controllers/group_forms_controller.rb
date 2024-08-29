@@ -39,7 +39,7 @@ class GroupFormsController < ApplicationController
       title_of_music: @group_form.title_of_music,
       composer: @group_form.composer,
       length_of_piece: @group_form.length_of_piece,
-      participants: @group_form.participants.map { |participant| { id: participant.id, name: participant.name, last_name: participant.last_name, birth_date: participant.birth_date, age: participant.age, photo: participant.photo.key } }
+      participants: @group_form.participants.map { |participant| { id: participant.id, name: participant.name, last_name: participant.last_name, birth_date: participant.birth_date, age: participant.age, photo: participant.photo.key, participant.file} }
     }
     rescue ActiveRecord::RecordNotFound
       render json: { error: "Group not found" }, status: :not_found

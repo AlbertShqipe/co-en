@@ -1,8 +1,29 @@
-<div class="container mt-5">
-  <div class="d-flex justify-content-between ">
-    <%= link_to "Back", :back, style:"color:white" %>
-    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf">Download AUTORISATION DE PARTICIPATION CANDIDAT MAJEUR</a>
-    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf">Download AUTORISATION DE PARTICIPATION CANDIDAT MINEUR</a>
+<div class="container mt-2">
+  <%= link_to "Back", :back, style:"color:white" %>
+  <%# <div style="color:white">
+    <h4>Informations Importantes pour la Soumission des Formulaires</h4>
+    <p>Pour chaque formulaire individuel et chaque participant d'un groupe, vous devez fournir le formulaire d'autorisation approprié en fonction de l'âge du participant au moment de la soumission de l'inscription :</p>
+    <ul>
+      <li>Si le participant a 18 ans ou plus : Vous devez télécharger, remplir et téléverser le formulaire "Autorisation de Participation Candidat Majeur".</li>
+      <li>Si le participant a moins de 18 ans : Vous devez télécharger, remplir et téléverser le formulaire "Autorisation de Participation Candidat Mineur".</li>
+    </ul>
+    <p>Ces formulaires doivent être téléversés au moment de la soumission de votre inscription individuelle ou de groupe.</p>
+    <p>Veuillez vous assurer que le bon formulaire est rempli et téléversé pour chaque participant afin de garantir leur éligibilité. Les soumissions incomplètes ou incorrectes peuvent entraîner des retards ou une disqualification.</p>
+  </div> %>
+  <div class="important-information mt-4">
+    <h4>Important Information for Form Submission</h4>
+    <p>For each individual form and each participant in a group, you must provide the appropriate authorization form based on the participant's age at the time of submission:</p>
+    <ul>
+      <li>If the participant is 18 years old or older: You must download, complete, and upload the "Authorization for Participation - Adult Candidate" form.</li>
+      <li>If the participant is under 18 years old: You must download, complete, and upload the "Authorization for Participation - Minor Candidate" form.</li>
+    </ul>
+    <p>These forms must be uploaded at the time of submitting your individual or group registration. Please ensure that the correct form is completed and uploaded for each participant to ensure their eligibility. Incomplete or incorrect submissions may result in delays or disqualification.</p>
+  </div>
+  <div class="d-flex justify-content-around d-links">
+    <%# <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf">Autorisation de Participation - Candidat Majeur</a>
+    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf">Autorisation de Participation - Candidat Mineur</a> %>
+    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf">Authorization for Participation - Adult Candidate</a>
+    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf">Authorization for Participation - Minor Candidate</a>
   </div>
   <div class="row mt-3 d-flex justify-content-center">
       <div class="col-md-4 mb-3 m-auto text-center">
