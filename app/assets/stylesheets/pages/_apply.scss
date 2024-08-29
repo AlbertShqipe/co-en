@@ -42,3 +42,14 @@
     }
   }
 }
+
+.important-information {
+  color: $light-gray;
+}
+
+.d-links {
+  a {
+    color: $orange !important;
+    text-decoration: underline;
+  }
+}
