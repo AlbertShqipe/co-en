@@ -9,6 +9,7 @@
                       model: @individual_form,
                       class: "form",
                       url: individual_forms_path,
+                      multipart: true,
                       local: true, data: {
                       controller: "flatpickr",
                       }) do |f| %>
@@ -82,6 +83,11 @@
               <label for="photo-input" id="photo-label" class="file-label">Choose a file</label>
               <span id="file-name">No file selected</span>
             </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :file %> <!-- Add a label for the file field -->
+            <%= f.file_field :file, class: "form-control" %> <!-- Add a file field -->
           </div>
 
           <div class="mx-auto" style="width:250px">

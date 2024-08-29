@@ -101,6 +101,17 @@
               <% end %>
             <% end %>
           </tr>
+          <tr>
+            <td>Authorization for Participation</td>
+            <% current_user.individual_forms.each do |form| %>
+              <% if form.file.attached? %>
+                <td><%= link_to "Download", rails_blob_path(form.file, disposition: "attachment") %></td>
+                <%= cl_image_tag form.file.url %>
+              <% else %>
+                <p>No image attached</p>
+              <% end %>
+            <% end %>
+          </tr>
 
         </tbody>
       </table>
