@@ -1,8 +1,13 @@
 class IndividualFormsController < ApplicationController
+  require 'cloudinary'
   before_action :authenticate_user!
 
   def index
     @individual_forms = IndividualForm.all
+    @current_user = current_user
+    # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
+    @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    # raise
   end
 
   def new
