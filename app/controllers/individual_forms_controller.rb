@@ -6,14 +6,12 @@ class IndividualFormsController < ApplicationController
     @individual_forms = IndividualForm.all
     @current_user = current_user
     # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
-    if Rails.env.development?
-      # Code that runs only in development
-      @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
-    end
-    if Rails.env.production?
-      # Code that runs only in production
+
+    #   # Code that runs only in development
+    #   @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+      # Code that shoul run only in production
       @results = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
-    end
     # raise
   end
 
