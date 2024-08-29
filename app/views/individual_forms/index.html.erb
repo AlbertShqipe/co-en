@@ -104,17 +104,19 @@
           <tr>
             <td>Authorization for Participation</td>
             <% current_user.individual_forms.each do |form| %>
-              <% if form.file.attached? %>
                 <td>
-                  <% key = form.file.key %>
-                  <% matching_file =  @results.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                  <% matching_file_public_id =  matching_file["public_id"].sub('production/', '') %>
-                  <% matching_file_public_id == key %>
-                  <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
+                  <% if form.file.attached? %>
+                    <% key = form.file.key %>
+                    <% matching_file =  @results.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                    <% matching_file_public_id =  matching_file["public_id"].sub('production/', '') %>
+                    <% matching_file_public_id == key %>
+                    <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
                   <%# " %>
                 </td>
               <% else %>
+              <td>
                 <p>No image attached</p>
+              </td>
               <% end %>
             <% end %>
           </tr>
