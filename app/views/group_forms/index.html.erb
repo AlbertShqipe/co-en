@@ -77,6 +77,31 @@
             <td><%= group.participants.count %></td>
           <% end %>
         </tr>
+        <tr>
+          <td><b>Participants Name-Last Name</b></td>
+          <% current_user.group_forms.each do |group| %>
+            <% group.participants.each do |participant| %>
+              <td>
+                <% if participant.photo.attached? %>
+                  <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                <% else %>
+                  <%= participant.name %> <%= participant.last_name %>
+                <% end %>
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Participants Age</td>
+          <% current_user.group_forms.each do |group| %>
+            <% group.participants.each do |participant| %>
+              <td>
+                Birthday: <%= participant.birth_date %><br>
+                <%= calculate_age(participant.birth_date) %> years old
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
       </tbody>
     </table>
   <% elsif current_user.role == "admin" %>

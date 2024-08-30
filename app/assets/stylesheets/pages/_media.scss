@@ -38,7 +38,7 @@
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    user-select: none;
+    // user-select: none;
   }
   /* Position the "next button" to the right */
   .next {
@@ -76,6 +76,29 @@
     }
     @media only screen and (max-width: 500px) {
     .prev, .next,.text {font-size: 14px}
+    }
+  }
+}
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+
+  .thumbnail {
+    margin: 0 5px;
+    cursor: pointer;
+
+    .img {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+      height: auto;
+    }
+
+    &:hover .img {
+      border-color: #777;
     }
   }
 }

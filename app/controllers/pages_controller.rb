@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :regulation, :media, :who_are_we, :practical_info, :contact, :our_partners ]
+  skip_before_action :authenticate_user!, only: [ :home, :regulation, :media, :who_we_are, :practical_info, :contact, :our_partners ]
 
   def profile
     @groups = current_user.group_forms
@@ -17,10 +17,12 @@ class PagesController < ApplicationController
   end
 
   def media
-    @images = [""]
+    @images = Cloudinary::Api.resources(type: "upload", prefix: "production/dance_images", max_results: 500)['resources']
+    # raise
+    # @images = ['affiche_2025.png', 'DA1.jpg', 'espaceAlbertCamus1.jpeg']
   end
 
-  def who_are_we
+  def who_we_are
   end
 
   def practical_info

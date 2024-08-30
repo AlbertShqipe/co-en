@@ -1,44 +1,52 @@
 // In this file we set the style for the application form page and the style for the forms themselves.
-.registration-form {
-  background-color: $light-gray;
-  padding: 20px 20px;
+.main-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .registration-form-inner {
-    position: relative;
-    border: 2px solid $orange;
+  .registration-form {
     background-color: $light-gray;
     padding: 20px 20px;
-    background-image: url('LogoNeroContinuo1');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: 0.5s;
 
-    h1, h2, h3, h4, h5, h6 {
-      color: $orange;
+    .registration-form-inner {
+      position: relative;
+      border: 2px solid $orange;
+      background-color: $light-gray;
+      padding: 20px 20px;
+      background-image: url('LogoNeroContinuo1');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: 0.5s;
+
+      h1, h2, h3, h4, h5, h6 {
+        color: $orange;
+        text-align: center;
+        text-decoration: underline;
+        font-family: Georgia, serif !important;
+      }
+
+      .birthday {
+        margin-top: 33px !important;
+        width: 223px;
+      }
+
+      .form {
+        background-color: transparent;
+        z-index: 100;
+      }
+    }
+    .input-btn {
+      margin-top: 20px;
+      margin-left: 48px;
       text-align: center;
-      text-decoration: underline;
-      font-family: Georgia, serif !important;
-    }
 
-    .birthday {
-      margin-top: 33px !important;
-      width: 223px;
-    }
-
-    .form {
-      background-color: transparent;
-      z-index: 100;
-    }
-  }
-  .input-btn {
-    margin-top: 20px;
-    margin-left: 48px;
-    text-align: center;
-
-    &:hover {
-      background-color: $black;
-      color: $light-gray !important;
+      &:hover {
+        background-color: $black;
+        color: $light-gray !important;
+      }
     }
   }
 }

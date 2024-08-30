@@ -1,0 +1,20 @@
+<div data-controller="slideshow">
+  <div class="slideshow-container">
+    <% @images.each_with_index do |image, index| %>
+      <div class="mySlides" data-slideshow-target="slide">
+        <div class="numbertext"><%= index + 1 %> / <%= @images.size %></div>
+        <%= image_tag image["secure_url"], width:'50%', class:'img' %>
+        <!--
+          <div class="text">Caption Text for image <%= index + 1 %></div>
+        -->
+      </div>
+    <% end %>
+  </div>
+  <div class="thumbnail-container container">
+    <% @images.each_with_index do |image, index| %>
+      <div class="thumbnail" data-action="click->slideshow#selectSlide">
+        <%= image_tag image["secure_url"], style:"width:30px !important;height:40px", data: { index: index + 1 }, class: 'img' %>
+      </div>
+    <% end %>
+  </div>
+</div>

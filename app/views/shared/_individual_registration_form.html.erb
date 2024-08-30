@@ -1,4 +1,5 @@
-<div class=" container registration-form">
+<div class="main-container">
+  <div class=" container registration-form">
   <div class="registration-form-inner">
     <div style="z-index:1000">
       <h1 class="text-center">REGISTRATION FORM</h1>
@@ -77,18 +78,20 @@
               <%# <%= f.label :level, class: "label" %>
               <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: "Select a level", class: "input-session", id:"level" %> <br>
             </div>
-
+          </div>
+          <div class="d-flex justify-content-around mt-4 ">
             <div class="custom-file-input">
-              <%= f.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
-              <label for="photo-input" id="photo-label" class="file-label">Choose a file</label>
+              <%= f.file_field :photo, as: :file, id:"photo-input", class: "file-input" %>
+              <label for="photo-input" id="photo-label" class="file-label">Candidate Picture</label>
+              <span id="photo-name">No picture selected</span>
+            </div>
+            <div class="custom-file-input">
+              <%= f.file_field :file, as: :file, id:"file-input", class:"file-input" %>
+              <label for="file-input" id="file-label" class="file-label">Authorization Form Filled</label>
               <span id="file-name">No file selected</span>
             </div>
           </div>
 
-          <div class="form-group">
-            <%= f.label :file %> <!-- Add a label for the file field -->
-            <%= f.file_field :file, class: "form-control" %> <!-- Add a file field -->
-          </div>
 
           <div class="mx-auto" style="width:250px">
             <%= f.submit 'Create Candidate', class: "input-btn" %>
@@ -97,10 +100,15 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
 <script>
   document.getElementById("photo-input").addEventListener("change", function() {
-  const fileName = this.files[0] ? this.files[0].name : "No file selected";
-  document.getElementById("file-name").textContent = fileName;
-});
+    const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    document.getElementById("photo-name").textContent = photoName;
+  });
+  document.getElementById("file-input").addEventListener("change", function() {
+    const fileName = this.files[0] ? this.files[0].name : "No file selected";
+    document.getElementById("file-name").textContent = fileName;
+  });
 </script>

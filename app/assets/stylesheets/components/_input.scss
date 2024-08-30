@@ -181,17 +181,13 @@
     top: 0;
     opacity: 0;
     width: 50%;
-    height: 48.5px;
+    height: 28.5px;
     cursor: pointer;
-
-        &:hover {
-          background-color: #0056b3 !important;
-        }
   }
 
   .file-label {
     z-index: 100;
-    height: 50px;
+    height: 37px;
     display: inline-block;
     padding: 10px 20px;
     background-color: #ffffff;
@@ -200,12 +196,10 @@
     border-bottom: 1.5px solid #000000;
     border-radius: 3px;
     box-sizing: border-box;
-    margin-top: 8px;
+    margin-top: 15px;
     cursor: pointer;
     font-size: 16px;
-    // box-shadow:
-    // inset 3px 0px 0px rgba(0, 0, 0, 0.1),  /* Left side shadow */
-    // inset -3px 0px 0px rgba(0, 0, 0, 0.1); /* Right side shadow */
+    line-height: 1;
     box-shadow:
     inset 1.5px 0px 15px rgba(0, 0, 0, 0.3),   /* Darker shadow near edge on the left */
     inset 1px 0px 10px rgba(255, 255, 255, 0), /* Middle shadow on the left */
@@ -215,7 +209,7 @@
     inset -0.5px 0px 5px rgba(255, 255, 255, 1);  /* Lighter shadow on the right */;
   }
 
-  #file-name {
+  #file-name, #photo-name {
     margin-left: 10px;
     font-size: 16px;
     color: #666;
