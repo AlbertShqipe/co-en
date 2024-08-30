@@ -16,7 +16,7 @@
           <tr>
             <td>First Name</td>
             <% current_user.individual_forms.each do |form| %>
-              <td><%= current_user.name %></td>
+              <td><%= form.first_name %></td>
             <% end %>
           </tr>
           <tr>
@@ -104,23 +104,21 @@
           <tr>
             <td>Authorization for Participation</td>
             <% current_user.individual_forms.each do |form| %>
-                <td>
-                  <% if form.file.attached? %>
-                    <% key = form.file.key %>
-                    <% matching_file =  @results.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                    <% matching_file_public_id =  matching_file["public_id"].sub('production/', '') %>
-                    <% matching_file_public_id == key %>
-                    <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
-                  <%# " %>
-                </td>
-              <% else %>
               <td>
-                <p>No image attached</p>
+                <% if form.file.attached? %>
+                  <% key = form.file.key %>
+                  <% matching_file =  @results.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                  <% matching_file_public_id =  matching_file["public_id"].sub('production/', '') %>
+                  <%# <% matching_file =  @results.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <%# <% matching_file_public_id =  matching_file["public_id"].sub('development/', '') %>
+                  <% matching_file_public_id == key %>
+                  <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
+                <% else %>
+                  <p>No file attached to the form</p>
+                <% end %>
               </td>
-              <% end %>
             <% end %>
           </tr>
-
         </tbody>
       </table>
     <% elsif current_user.role == "admin" %>
