@@ -16,7 +16,7 @@
 
     <style>
       body {
-        position: relative;
+        /* position: relative; */
         color: white;
         /* background-color: black; */
       }
@@ -52,7 +52,7 @@
       </a>
     </div>
     <%= render "shared/footer" unless current_page?(profile_path) ||
-                                      current_page?(our_partners_path) ||
+                                      # current_page?(our_partners_path) ||
                                       current_page?(new_group_form_path) ||
                                       current_page?(new_individual_form_path) ||
                                       current_page?(new_user_session_path) ||
