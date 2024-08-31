@@ -1,5 +1,5 @@
 .button-home {
-  width: 280px;
+  width: 20%;
   margin: auto;
   text-decoration: none;
   display:  inline-block;
@@ -9,7 +9,7 @@
   outline: 0.5px solid rgba(0, 0, 0, 0.241);
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
   margin-top: 50px;
   text-align: center;
@@ -17,7 +17,7 @@
   margin-top:50px;
   box-shadow: 0px 21px 44px -12px rgba(0, 0, 0, 0.35);
   position: absolute;
-  bottom: 5%;
+  bottom: 5px;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -61,7 +61,7 @@
   // border: 1.5px solid white;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
   box-shadow: 0px 21px 44px -12px rgba(222, 222, 212, 0.35);
@@ -84,14 +84,14 @@
   outline: 0.5px solid rgba(255, 255, 255, 0.774);
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
   margin-top: 50px;
   text-align: center;
   z-index: 10;
   margin-top:50px;
   position: absolute;
-  bottom: 5%;
+  bottom: 5px;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 21px 44px -12px rgba(255, 255, 255, 0.35);
