@@ -1,9 +1,9 @@
 <div class="container">
-  <h1 style="text-align:center"><%= current_user.name %>'s Forms</h1>
+  <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Individual Forms</h1>
   <div class="individual-forms">
     <% if current_user.role == "competitor" && current_user.individual_forms.present?%>
       <table class="table-form mx-auto">
-        <caption style="color:white">Individual Forms</caption>
+        <caption style="color:white"></caption>
         <thead>
           <tr style="width:50px">
             <th>Attribute</th>
@@ -16,13 +16,13 @@
           <tr>
             <td>First Name</td>
             <% current_user.individual_forms.each do |form| %>
-              <td><%= form.first_name %></td>
+              <td><%= form.first_name.capitalize %></td>
             <% end %>
           </tr>
           <tr>
             <td>Last Name</td>
             <% current_user.individual_forms.each do |form| %>
-              <td><%= form.last_name %></td>
+              <td><%= form.last_name.capitalize %></td>
             <% end %>
           </tr>
           <tr>
