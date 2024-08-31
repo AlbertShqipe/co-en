@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Individual Forms</h1>
+  <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Individual Forms</h1>
   <div class="individual-forms">
     <% if current_user.role == "competitor" && current_user.individual_forms.present?%>
       <table class="table-form mx-auto">
