@@ -364,15 +364,15 @@ en:
         </div>
 
     media:
-    title: "MEDIA"
-    content: |
-      <div class="second-section-home-media container" id="media">
-        <div class="second-section-home-media-image">
-          <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+      title: "MEDIA"
+      content: |
+        <div class="second-section-home-media container" id="media">
+          <div class="second-section-home-media-image">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+          </div>
+          <div class="second-section-home-media-content d-flex flex-column">
+            <h1>MEDIA</h1>
+            <p>ConcoursEntrelace is a platform that allows you to participate in various contests and win prizes. We offer a wide range of contests, from photography to writing, and even coding. We are a community of passionate people who want to share their work and get feedback from others. Join us now and start participating in contests!</p>
+            <a href="media" class='button-home'>MEDIA</a>
+          </div>
         </div>
-        <div class="second-section-home-media-content d-flex flex-column">
-          <h1>MEDIA</h1>
-          <p>ConcoursEntrelace is a platform that allows you to participate in various contests and win prizes. We offer a wide range of contests, from photography to writing, and even coding. We are a community of passionate people who want to share their work and get feedback from others. Join us now and start participating in contests!</p>
-          <a href="media" class='button-home'>MEDIA</a>
-        </div>
-      </div>

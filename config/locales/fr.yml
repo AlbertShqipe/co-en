@@ -330,15 +330,15 @@ fr:
         </div>
 
     media:
-    title: "Média"
-    content: |
-      <div class="second-section-home-media container" id="media">
-        <div class="second-section-home-media-image">
-          <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+      title: "Média"
+      content: |
+        <div class="second-section-home-media container" id="media">
+          <div class="second-section-home-media-image">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+          </div>
+          <div class="second-section-home-media-content d-flex flex-column">
+            <h1>MÉDIA</h1>
+            <p>ConcoursEntrelace est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
+            <a href="media?locale=fr" class='button-home'>MÉDIA</a>
+          </div>
         </div>
-        <div class="second-section-home-media-content d-flex flex-column">
-          <h1>MÉDIA</h1>
-          <p>ConcoursEntrelace est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
-          <a href="media?locale=fr" class='button-home'>MÉDIA</a>
-        </div>
-      </div>
