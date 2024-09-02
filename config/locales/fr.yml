@@ -234,9 +234,9 @@ fr:
       <div class="expandable-div-left">
         <div class="content">
           <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" style="width:90px">
-          <p style="padding-top:30px"><a href="/">Accueil</a></p>
-          <p><a href="/apply">S'inscrire</a></p>
-          <p style="padding-bottom:30px"><a href="/contact">Contacts</a></p>
+          <p style="padding-top:30px"><a href="/?locale=fr">Accueil</a></p>
+          <p><a href="/apply?locale=fr">S'inscrire</a></p>
+          <p style="padding-bottom:30px"><a href="/contact?locale=fr">Contacts</a></p>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" style="width:150px">
         </div>
       </div>
@@ -244,7 +244,7 @@ fr:
   home:
     info:
       link: |
-        <a href="/apply" class='button-light-gray'>S'INSCRIRE</a>
+        <a href="/apply?locale=fr" class='button-light-gray'>S'INSCRIRE</a>
 
       text: |
         <div>
@@ -277,7 +277,7 @@ fr:
               <li>Article 10 : Modalités d'Inscription</li>
               <li>Merci de votre participation et bonne chance à tous les candidats !</li>
             </ul>
-            <a href="regulation" class="button-home">RÈGLEMENT COMPLET</a>
+            <a href="regulation?locale=fr" class="button-home">RÈGLEMENT COMPLET</a>
           </div>
         </div>
 
@@ -293,7 +293,7 @@ fr:
             <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png" style="width:40%; position:absolute; z-index:1000; left:50%; top:70%;transform:translate(-50%, -50%)">
             <p>Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz et contemporaine. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
             <p>Il offre également aux danseurs de diverses disciplines un espace pour s'exprimer à travers leur art et leur passion, en acquérant des compétences fondamentales, des connaissances et une expérience scénique pour leur développement en tant que danseurs.</p>
-            <a href="who_we_are" class='button-home-gray'>QUI SOMMES-NOUS</a>
+            <a href="who_we_are?locale=fr" class='button-home-gray'>QUI SOMMES-NOUS</a>
           </div>
         </div>
 
@@ -311,7 +311,7 @@ fr:
               <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public" style="width:40%;">
               <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Scène" style="width:40%;">
             </div>
-            <a href="practical_info" class='button-home'>INFORMATIONS PRATIQUES</a>
+            <a href="practical_info?locale=fr" class='button-home'>INFORMATIONS PRATIQUES</a>
           </div>
         </div>
 
@@ -325,7 +325,7 @@ fr:
           <div class="second-section-home-ourPartners-content d-flex flex-column">
             <h1>NOS PARTENAIRES</h1>
             <p>Le Concours International de Danse Entrelacé est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
-            <a href="our_partners" class='button-home-gray'>NOS PARTENAIRES</a>
+            <a href="our_partners?locale=fr" class='button-home-gray'>NOS PARTENAIRES</a>
           </div>
         </div>
 
@@ -339,6 +339,6 @@ fr:
         <div class="second-section-home-media-content d-flex flex-column">
           <h1>MÉDIA</h1>
           <p>ConcoursEntrelace est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
-          <a href="media" class='button-home'>MÉDIA</a>
+          <a href="media?locale=fr" class='button-home'>MÉDIA</a>
         </div>
       </div>

@@ -6,7 +6,6 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to "English", url_for(locale: 'en') %> | <%= link_to "Français", url_for(locale: 'fr') %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -77,6 +76,9 @@
           </li>
         <% end %>
       </ul>
+      <div style="margin-left:-100px; margin-right:-30px">
+        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
+      </div>
     </div>
   </div>
 </div>

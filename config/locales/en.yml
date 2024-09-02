@@ -163,7 +163,7 @@ en:
         link8: |
           <a href="/group_forms" class="dropdown-item">My Group Forms</a>
         link10: |
-          <a href="/?locale=fr" class= "navbar-brand">
+          <a href="/" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
               <defs>
                 <clipPath id="1a5b67ca4d">
