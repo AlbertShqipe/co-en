@@ -12,11 +12,11 @@ fr:
         link5: |
           <a href="#media" class="nav-link">MÉDIAS</a>
         link6: |
-          <a href="/profile" class="dropdown-item">Mon Profil</a>
+          <a href="/profile?locale=fr" class="dropdown-item">Mon Profil</a>
         link7: |
-          <a href="/individual_forms" class="dropdown-item">Mes Formulaires Individuels</a>
+          <a href="/individual_forms?locale=fr" class="dropdown-item">Mes Formulaires Individuels</a>
         link8: |
-          <a href="/group_forms" class="dropdown-item">Mes Formulaires de Groupe</a>
+          <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupe</a>
         link10: |
           <a href="/?locale=fr" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -129,9 +129,9 @@ fr:
       link6: |
         <a href="/profile?locale=fr">Mon Profil</a>
       link7: |
-        <a href="/individual_forms" class="dropdown-item">Mes Formulaires Individuels</a>
+        <a href="/individual_forms?locale=fr" class="dropdown-item">Mes Formulaires Individuels</a>
       link8: |
-        <a href="/group_forms" class="dropdown-item">Mes Formulaires de Groupes</a>
+        <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupes</a>
       link10: |
           <a href="/?locale=fr" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
