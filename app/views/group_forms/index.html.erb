@@ -1,3 +1,4 @@
+<%= render "shared/navbar"%>
 <div class="group-forms">
   <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Group Forms</h1>
   <% if current_user.role == "competitor" && current_user.group_forms.present? %>

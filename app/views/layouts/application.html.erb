@@ -33,9 +33,6 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" unless current_page?(root_path) ||
-                                      current_page?(new_individual_form_path) ||
-                                      current_page?(new_group_form_path)%>
     <%= render "shared/flashes" %>
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||
                                                     current_page?(new_user_password_path) ||

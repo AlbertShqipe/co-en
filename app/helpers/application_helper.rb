@@ -6,4 +6,5 @@ module ApplicationHelper
     age -= 1 if today < birthdate + age.years
     age
   end
+
 end
