@@ -7,7 +7,7 @@
   left: 0;
   transform: translateY(-50%);
   width: 20px;
-  height: 500px;
+  height: 400px;
   border-radius: 0 5px 5px 0;
   background-color: rgba(235, 67, 1, 0.6);
   transition: width 0.3s ease-in-out;
@@ -31,10 +31,23 @@
     background-color: rgba(0, 0, 0, 0.95);
     width: 190px;
     border-radius: 0 5px 5px 0;
-    height: 490px;
+    height: 390px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    // justify-content: space-around;
     // border-top: 5px solid rgba(235, 67, 1, 0.6);
     // border-right: 5px solid rgba(235, 67, 1, 0.6);
     // border-bottom: 5px solid rgba(235, 67, 1, 0.6);
+
+    .logo {
+      width: 90px;
+    }
+
+    .divider{
+      width: 150px;
+    }
 
     p > a {
       color: $light-gray;
@@ -46,6 +59,12 @@
         color: $light-gray;
         border-bottom: 1px solid $white;
       }
+    }
+    p.padT {
+      padding-top:30px;
+    }
+    p.padB {
+      padding-bottom:30px;
     }
     &:hover  {
       opacity: 1; /* Show content on hover */

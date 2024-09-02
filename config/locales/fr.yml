@@ -114,6 +114,7 @@ fr:
         link15: |
           <a href="#media" class="nav-link">MÉDIAS</a>
 
+
   navbar:
     content:
       link1: |
@@ -229,23 +230,26 @@ fr:
       link15: |
         <a href="/media?locale=fr" class="nav-link">MÉDIAS</a>
 
+
   expandable_div_left:
     content: |
       <div class="expandable-div-left">
         <div class="content">
-          <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" style="width:90px">
-          <p style="padding-top:30px"><a href="/?locale=fr">Accueil</a></p>
-          <p><a href="/apply?locale=fr">S'inscrire</a></p>
-          <p style="padding-bottom:30px"><a href="/contact?locale=fr">Contacts</a></p>
-          <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" style="width:150px">
+          <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+            <div class="mt-4 mb-4">
+              <p><a href="/?locale=fr">Accueil</a></p>
+              <p><a href="/apply?locale=fr">S'inscrire</a></p>
+              <p><a href="/contact?locale=fr">Contacts</a></p>
+            </div>
+          <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
         </div>
       </div>
+
 
   home:
     info:
       link: |
         <a href="/apply?locale=fr" class='button-light-gray'>S'INSCRIRE</a>
-
       text: |
         <div>
           <h2>Individuels / Duos / Groupes </h2>
@@ -258,10 +262,12 @@ fr:
       content: |
         <div class="second-section-home-regulation container" id="regulation">
           <div class="second-section-home-regulation-image">
-            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <h1>Règlement</h1>
-            <img src="/assets/regulationGreen-8b8585e97a7f6088f694fc15370a37a83a5e580af294f0340d8269728137b6a3.png" style="width:350px;opacity:0.3;position:absolute;right:100px;top:300px">
+          <div class="image">
+            <img src="/assets/regulationGreen-8b8585e97a7f6088f694fc15370a37a83a5e580af294f0340d8269728137b6a3.png" >
+          </div>
           <div class="second-section-home-regulation-content d-flex flex-column">
             <p>Bienvenue au <b>Concours Entrelacé !</b> Ce document contient l'ensemble des règles et règlements du concours. En complétant le formulaire d'inscription pour participer en solo, duo, ou en groupe, vous acceptez automatiquement toutes les conditions énoncées dans ce règlement. Votre participation implique que vous avez lu, compris et accepté les articles suivants :</p>
             <ul>
@@ -286,11 +292,13 @@ fr:
       content: |
         <div class="second-section-home-whoAreWe container" id="who_we_are">
           <div class="second-section-home-whoAreWe-image">
-            <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" style="padding-top:30px; width:300px;margin:auto">
+            <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png">
           </div>
           <div class="second-section-home-whoAreWe-content d-flex flex-column">
             <h1>Qui sommes-nous ?</h1>
-            <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png" style="width:40%; position:absolute; z-index:1000; left:50%; top:70%;transform:translate(-50%, -50%)">
+            <div class="image">
+              <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png">
+            </div>
             <p>Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz et contemporaine. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
             <p>Il offre également aux danseurs de diverses disciplines un espace pour s'exprimer à travers leur art et leur passion, en acquérant des compétences fondamentales, des connaissances et une expérience scénique pour leur développement en tant que danseurs.</p>
             <a href="who_we_are?locale=fr" class='button-home-gray'>QUI SOMMES-NOUS</a>
@@ -302,14 +310,14 @@ fr:
       content: |
         <div class="second-section-home-practicalInfo container" id="practical_info">
           <div class="second-section-home-practicalInfo-image">
-            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <div class="second-section-home-practicalInfo-content d-flex flex-column">
             <h1>Informations Pratiques</h1>
             <p>Le concours se tient chaque année à l'Espace Albert Camus, situé au <a href="https://www.google.com/maps/place/Espace+Albert+Camus/@45.7273879,4.9197999,17z/data=!4m15!1m8!3m7!1s0x47f4c17b532fc0d7:0xb394020d98c0e480!2s1+Rue+Maryse+Bastié,+69500+Bron,+France!3b1!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F11bw40vgnq!3m5!1s0x47f4c16358c1b3d9:0x4f658474936298b8!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F1tdjqh83?entry=ttu">1 rue Maryse Bastié, 69500 BRON</a>. Inauguré officiellement en janvier 1989 et désigné « Scène régionale Rhône-Alpes » en mars 2006, l'Espace Albert-Camus est un lieu de spectacle avec une capacité de 478 places fixes en gradins. Depuis plus de 30 ans, il propose une programmation artistique riche et variée pour tous les publics, jeunes et adultes.</p>
-            <div class="d-flex justify-content-around mt-4">
-              <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public" style="width:40%;">
-              <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Scène" style="width:40%;">
+            <div class="d-flex justify-content-around mt-4 images">
+              <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public">
+              <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Scène">
             </div>
             <a href="practical_info?locale=fr" class='button-home'>INFORMATIONS</a>
           </div>
@@ -320,7 +328,7 @@ fr:
       content: |
         <div class="second-section-home-ourPartners container" id="our_partners">
           <div class="second-section-home-ourPartners-image">
-            <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" style="padding-top:30px; width:300px;margin:auto">
+            <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png">
           </div>
           <div class="second-section-home-ourPartners-content d-flex flex-column">
             <h1>NOS PARTENAIRES</h1>
@@ -334,7 +342,7 @@ fr:
       content: |
         <div class="second-section-home-media container" id="media">
           <div class="second-section-home-media-image">
-            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png" style="padding-top:30px; width:300px;margin:auto">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <div class="second-section-home-media-content d-flex flex-column">
             <h1>MÉDIA</h1>
@@ -342,3 +350,38 @@ fr:
             <a href="media?locale=fr" class='button-home'>MÉDIA</a>
           </div>
         </div>
+
+
+  group_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+      h2: |
+        <h2 class="text-center">Candidature de Groupe</h2>
+      h3: |
+        <h3 class="text-center">Remplissez un formulaire par groupe</h3>
+      group:
+        placeholders:
+          name: "Nom du Groupe"
+          responsable: "Nom du Responsable"
+          address: "Adresse"
+          phone: "Numéro de Téléphone"
+          email: "Adresse Email"
+          title_of_music: "Titre de la Musique"
+          composer: "Compositeur"
+          length_of_piece: "Longeur de la Piece"
+        prompts:
+          discipline: "Disciplines"
+          level: "Niveau"
+        participant:
+          placeholders:
+            name: "Prenom"
+            last_name: "Nom"
+            birthday: "Anniversaire"
+            age: "Age Aujourd'hui"
+          input_text:
+            pic: "Image de Profile"
+            file: "Formulaire d'Authorisation Rempli"
+          btn:
+            remove: "Effaser"
+            add: "Rajouter un/e Participant/e"

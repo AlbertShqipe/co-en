@@ -58,10 +58,26 @@
   color: $orange;
   background-color: $light-gray;
 
+  .image {
+    img {
+      width: 350px;
+      opacity: 0.3;
+      position: absolute;
+      right: 100px;
+      top: 300px;
+    }
+  }
+
   .second-section-home-regulation-image {
     width: 60%;
     margin: auto;
     text-align: center;
+
+    img {
+      padding-top: 30px;
+      width: 300px;
+      margin:auto;
+    }
   }
 
   .second-section-home-regulation-content {
@@ -112,13 +128,30 @@
     margin: auto;
     text-align: center;
 
+    img {
+      padding-top: 30px;
+      width: 300px;
+      margin: auto;
+    }
+
   }
 
   .second-section-home-whoAreWe-content {
     width: 1000px;
     margin: auto;
 
+    .image {
+      img {
+        width: 40%;
+        position: absolute;
+        z-index: 1000;
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
+
 
   h1 {
     font-family: Georgia, serif !important;
@@ -160,11 +193,23 @@
     width: 60%;
     margin: auto;
     text-align: center;
+
+    img {
+      padding-top: 30px;
+      width: 300px;
+      margin:auto;
+    }
   }
 
   .second-section-home-practicalInfo-content {
     width: 1000px;
     margin: auto;
+
+    .images {
+      img {
+        width: 40%;
+      }
+    }
   }
 
   h1 {
@@ -210,6 +255,12 @@
     width: 60%;
     margin: auto;
     text-align: center;
+
+    img {
+      padding-top: 30px;
+      width: 300px;
+      margin :auto;
+    }
   }
 
   .second-section-home-ourPartners-content {
@@ -257,6 +308,12 @@
     width: 60%;
     margin: auto;
     text-align: center;
+
+    img {
+      padding-top: 30px;
+      width: 300px;
+      margin:auto;
+    }
   }
 
   .second-section-home-media-content {
