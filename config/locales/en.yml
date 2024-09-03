@@ -386,13 +386,13 @@ en:
       h1: |
         <h1 class="text-center">REGISTRATION FORM</h1>
       h2: |
-        <h2 class="text-center">Group Candidation</h2>
+        <h2 class="text-center">Group Candidature</h2>
       h3: |
         <h3 class="text-center">Fill out one form per group</h3>
       group:
         placeholders:
           name: "Name of the Group"
-          responsable: "Group Responsable"
+          responsable: "Group Responsible"
           address: "Address"
           phone: "Phone Number"
           email: "Email Address"
@@ -403,14 +403,19 @@ en:
           discipline: "Disciplines"
           level: "Levels"
         participant:
+          participants: "Participants"
+          add_participants: "Add the partecipants of the group, min 2 candidates"
           placeholders:
             name: "First Name"
             last_name: "Last Name"
             birthday: "Birthday"
             age: "Age Today"
+          span:
+            no_file: "No file selected"
           input_text:
             pic: "Profile Picture"
             file: "Authorization Form Filled"
           btn:
             remove: "Remove"
             add: "Add Participant"
+            create: "Create Group"

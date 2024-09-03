@@ -363,7 +363,7 @@ fr:
       group:
         placeholders:
           name: "Nom du Groupe"
-          responsable: "Personne Responsable du Groupe"
+          responsable: "Responsable du Groupe"
           address: "Adresse"
           phone: "Numéro de Téléphone"
           email: "Adresse Email"
@@ -374,14 +374,19 @@ fr:
           discipline: "Disciplines"
           level: "Niveaux"
         participant:
+          participants: "Participant·e·s"
+          add_participants: "Ajoutez les participant·e·s du groupe, minimum 2 candidat·e·s."
           placeholders:
             name: "Prénom"
             last_name: "Nom de Famille"
             birthday: "Date de Naissance"
             age: "Âge Aujourd'hui"
+          span:
+            no_file: "Aucun fichier sélectionné."
           input_text:
             pic: "Photo de Profil"
             file: "Formulaire d'Autorisation Rempli"
           btn:
             remove: "Retirer"
-            add: "Ajouter un·e Participant·e"
+            add: "Ajouter un·e participant·e"
+            create: "Créer un groupe"
