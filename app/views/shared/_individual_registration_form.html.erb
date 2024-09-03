@@ -1,10 +1,11 @@
 <div class="main-container">
   <div class=" container registration-form">
-  <div class="registration-form-inner">
+  <div class="registration-form-inner text-center">
     <div style="z-index:1000">
-      <h1 class="text-center">REGISTRATION FORM</h1>
-      <h2 class="text-center">Individual Candidate</h2>
-      <h3 class="text-center">Fill out one form per discipline</h3>
+      <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px", class:"text-center"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px", class:"text-center"), url_for(locale: 'fr') %>
+      <%= t('individual_registration_form.registration_form_inner_text.h1').html_safe %>
+      <%= t('individual_registration_form.registration_form_inner_text.h2').html_safe %>
+      <%= t('individual_registration_form.registration_form_inner_text.h3').html_safe %>
       <div class="container">
         <%= form_with(
                       model: @individual_form,
@@ -17,84 +18,84 @@
           <div class="d-flex justify-content-between align-items-center mx-5 mt-4">
             <div>
               <%# <%= f.label :first_name, "First Name" %>
-              <%= f.text_field :first_name, placeholder: "First Name", class: "input-form" %>
+              <%= f.text_field :first_name, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :last_name, "Last Name"  %>
-              <%= f.text_field :last_name, placeholder: "Last Name", class: "input-form" %>
+              <%= f.text_field :last_name, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :birth_date, "Birthday" %>
-              <%= f.date_field :birth_date, id:"myID", placeholder: "Birthday", class: "input-form birthday" %> <br>
+              <%= f.date_field :birth_date, id:"myID", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday'), class: "input-form birthday" %> <br>
             </div>
           </div>
 
           <div class="d-flex justify-content-between mx-5 ">
             <div>
               <%# <%= f.label :phone  %>
-              <%= f.text_field :phone, class: "input-form", placeholder:"Phone" %>
+              <%= f.text_field :phone, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
             </div>
             <div>
               <%# <%= f.label :email %>
-              <%= f.email_field :email, class: "input-form", placeholder:"Email" %>
+              <%= f.email_field :email, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
             </div>
             <div>
               <%# <%= f.label :address, class: "address" %>
-              <%= f.text_field :address, class: "input-form", placeholder:"Address" %>
+              <%= f.text_field :address, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
             </div>
           </div>
 
           <div class="d-flex justify-content-between mx-5 mt-4">
             <div>
               <%# <%= f.label :dance_school %>
-              <%= f.text_field :dance_school, class: "input-form", placeholder:"Dance School Name" %>
+              <%= f.text_field :dance_school, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
             </div>
             <div>
               <%# <%= f.label :teacher_name %>
-              <%= f.text_field :teacher_name, class: "input-form", placeholder:"Teacher Name" %>
+              <%= f.text_field :teacher_name, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
             </div>
             <div>
               <%# <%= f.label :teacher_phone %>
-              <%= f.text_field :teacher_phone, class: "input-form", placeholder:"Teacher Phone" %>
+              <%= f.text_field :teacher_phone, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
             </div>
             <div>
               <%# <%= f.label :teacher_email %>
-              <%= f.email_field :teacher_email, class: "input-form", placeholder:"Teacher Email" %>
+              <%= f.email_field :teacher_email, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
             </div>
           </div>
 
           <div class="d-flex justify-content-between mt-4 ">
             <div id="category">
               <%# <%= f.label :category, class: "label" %>
-              <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle']), prompt: "Select a category", class: "input-session" %> <br>
+              <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session" %> <br>
             </div>
 
             <div id="style">
               <%# <%= f.label :style, class: "label" %>
-              <%= f.select :style, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain']), prompt: "Select a style", class: "input-session", id:"style" %><br>
+              <%= f.select :style, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id:"style" %><br>
             </div>
 
             <div id="level">
               <%# <%= f.label :level, class: "label" %>
-              <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: "Select a level", class: "input-session", id:"level" %> <br>
+              <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id:"level" %> <br>
             </div>
           </div>
           <div class="d-flex justify-content-around mt-4 ">
             <div class="custom-file-input">
               <%= f.file_field :photo, as: :file, id:"photo-input", class: "file-input" %>
-              <label for="photo-input" id="photo-label" class="file-label">Candidate Picture</label>
-              <span id="photo-name">No picture selected</span>
+              <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
+              <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <%= f.file_field :file, as: :file, id:"file-input", class:"file-input" %>
-              <label for="file-input" id="file-label" class="file-label">Authorization Form Filled</label>
-              <span id="file-name">No file selected</span>
+              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
+              <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
           </div>
 
 
-          <div class="mx-auto" style="width:250px">
-            <%= f.submit 'Create Candidate', class: "input-btn" %>
+          <div class="mx-auto">
+            <%= f.submit "#{t('individual_registration_form.registration_form_inner_text.individual.btn.create')}", class: "input-btn" %>
           </div>
         <% end %>
       </div>

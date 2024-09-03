@@ -55,6 +55,6 @@ class GroupFormsController < ApplicationController
   private
 
   def group_form_params
-    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age])
+    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :file, :photo])
   end
 end

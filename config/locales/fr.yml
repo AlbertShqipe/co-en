@@ -352,6 +352,38 @@ fr:
         </div>
 
 
+  individual_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+      h2: |
+        <h2 class="text-center">Candidature Individuelle</h2>
+      h3: |
+        <h3 class="text-center">Remplissez un formulaire par candidat·e</h3>
+      individual:
+        placeholders:
+          name: "Prénom"
+          last_name: "Nom de Famille"
+          birthday: "Date de Naissance"
+          phone: "Numéro de Téléphone"
+          email: "Adresse Email"
+          address: "Adresse"
+          school: "Nom de l'École de Danse"
+          teacher: "Nom de l'enseignant·e"
+          teacher_phone: "Téléphone enseignant·e"
+          teacher_email: "Email de l'enseignant·e"
+        input_text:
+          pic: "Photo du·de la candidat·e"
+          file: "Formulaire d'Autorisation Rempli"
+        span:
+          no_file: "Aucun fichier sélectionné"
+        prompts:
+          discipline: "Disciplines"
+          level: "Niveaux"
+          category: "Catégories"
+        btn:
+          create: "Soumettre la Candidature"
+
   group_registration_form:
     registration_form_inner_text:
       h1: |

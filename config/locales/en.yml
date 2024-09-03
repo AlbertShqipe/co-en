@@ -381,6 +381,39 @@ en:
           </div>
         </div>
 
+
+  individual_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">REGISTRATION FORM</h1>
+      h2: |
+        <h2 class="text-center">Individual Candidature</h2>
+      h3: |
+        <h3 class="text-center">Fill out one form per candidate</h3>
+      individual:
+        placeholders:
+          name: "First Name"
+          last_name: "Last Name"
+          birthday: "Birthday"
+          phone: "Phone Number"
+          email: "Email Address"
+          address: "Address"
+          school: "Dance School Name"
+          teacher: "Teacher's Name"
+          teacher_phone: "Teacher's Phone Number"
+          teacher_email: "Teacher's Email"
+        input_text:
+          pic: "Candidate Picture"
+          file: "Authorization Form Filled"
+        span:
+          no_file: "No file selected"
+        prompts:
+          discipline: "Disciplines"
+          level: "Levels"
+          category: "Categories"
+        btn:
+            create: "Submit Candidature"
+
   group_registration_form:
     registration_form_inner_text:
       h1: |
@@ -413,7 +446,7 @@ en:
           span:
             no_file: "No file selected"
           input_text:
-            pic: "Profile Picture"
+            pic: "Participant Picture"
             file: "Authorization Form Filled"
           btn:
             remove: "Remove"

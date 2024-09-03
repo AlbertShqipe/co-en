@@ -83,12 +83,12 @@
                   </div>
                   <div class="d-flex justify-content-around">
                     <div class="custom-file-input">
-                      <%= f.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
+                      <%= p.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
                       <label for="photo-input" id="photo-label" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.pic') %></label>
                       <span id="file-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <%= f.file_field :file, as: :file, id: "file-input", class: "file-input" %>
+                      <%= p.file_field :file, as: :file, id: "file-input", class: "file-input" %>
                       <label for="file-input" id="file-label" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label>
                       <span id="file-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                     </div>
@@ -103,7 +103,7 @@
 
           <!-- Hidden template for participant fields -->
           <template id="participant-template">
-            <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
+            <div class="participant-fields mb-3 pb-3" data-controller="age" style="border-bottom:1px solid red">
               <div class="d-flex justify-content-around">
                 <div>
                   <input type="text" name="group_form[participants_attributes][NEW_RECORD][name]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.name')%>" class="input-form-group">
@@ -115,7 +115,7 @@
                   <input type="date" name="group_form[participants_attributes][NEW_RECORD][birth_date]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.birthday')%>" class="input-form-group" id="myID">
                 </div>
                 <div>
-                  <input type="number" name="group_form[participants_attributes][NEW_RECORD][age]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.age')%>" class="input-form-group"  id="age-input" readonly>
+                  <input type="number" name="group_form[participants_attributes][NEW_RECORD][age]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.age')%>" class="input-form-group" id="age-input" readonly>
                 </div>
               </div>
               <div class="d-flex justify-content-around">
@@ -125,7 +125,7 @@
                   <span id="file-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
                 <div class="custom-file-input">
-                  <%= f.file_field :file, as: :file, id: "file-input", class: "file-input" %>
+                  <input type="file" name="group_form[participants_attributes][NEW_RECORD][file]" class="file-input">
                   <label for="file-input" id="file-label" class="file-label">Authorization Form Filled</label>
                   <span id="file-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
@@ -135,7 +135,6 @@
               </div>
             </div>
           </template>
-
           <button type="button" id="add-participant" class="btn btn-secondary"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.add') %></button>
           <div  style="width:200px">
             <%= f.submit "#{t('group_registration_form.registration_form_inner_text.group.participant.btn.create')}", class: "input-btn" %>
