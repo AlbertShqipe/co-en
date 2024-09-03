@@ -363,25 +363,25 @@ fr:
       group:
         placeholders:
           name: "Nom du Groupe"
-          responsable: "Nom du Responsable"
+          responsable: "Personne Responsable du Groupe"
           address: "Adresse"
           phone: "Numéro de Téléphone"
           email: "Adresse Email"
           title_of_music: "Titre de la Musique"
-          composer: "Compositeur"
-          length_of_piece: "Longeur de la Piece"
+          composer: "Compositeur·rice"
+          length_of_piece: "Durée de la Pièce"
         prompts:
           discipline: "Disciplines"
-          level: "Niveau"
+          level: "Niveaux"
         participant:
           placeholders:
-            name: "Prenom"
-            last_name: "Nom"
-            birthday: "Anniversaire"
-            age: "Age Aujourd'hui"
+            name: "Prénom"
+            last_name: "Nom de Famille"
+            birthday: "Date de Naissance"
+            age: "Âge Aujourd'hui"
           input_text:
-            pic: "Image de Profile"
-            file: "Formulaire d'Authorisation Rempli"
+            pic: "Photo de Profil"
+            file: "Formulaire d'Autorisation Rempli"
           btn:
-            remove: "Effaser"
-            add: "Rajouter un/e Participant/e"
+            remove: "Retirer"
+            add: "Ajouter un·e Participant·e"
