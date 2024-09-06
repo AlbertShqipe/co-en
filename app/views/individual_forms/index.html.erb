@@ -7,93 +7,93 @@
         <caption style="color:white"></caption>
         <thead>
           <tr style="width:50px">
-            <th>Attribute</th>
+            <th><%= t('index_individuals.th.attributes') %></th>
               <% current_user.individual_forms.each_with_index do |form, index| %>
-                <th>Individual Form <%= index + 1 %></th>
+                <th><%= t('index_individuals.th.inidividual_form') %> <%= index + 1 %></th>
               <% end %>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>First Name</td>
+            <td><%= t('index_individuals.td.first_name') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.first_name.capitalize %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Last Name</td>
+            <td><%= t('index_individuals.td.last_name') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.last_name.capitalize %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Birth Date</td>
+            <td><%= t('index_individuals.td.birthday') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.birth_date %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Address</td>
+            <td><%= t('index_individuals.td.address') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.address %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Phone</td>
+            <td><%= t('index_individuals.td.phone') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.phone %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Email</td>
+            <td><%= t('index_individuals.td.email') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.email %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Teacher Name</td>
+            <td><%= t('index_individuals.td.teacher') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.teacher_name %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Dance School</td>
+            <td><%= t('index_individuals.td.dance_school') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.dance_school %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Teacher Phone</td>
+            <td><%= t('index_individuals.td.techer_phone') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.teacher_phone %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Teacher Email</td>
+            <td><%= t('index_individuals.td.email') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.teacher_email %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Category</td>
+            <td><%= t('index_individuals.td.category') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.category %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Style</td>
+            <td><%= t('index_individuals.td.style') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.style %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Level</td>
+            <td><%= t('index_individuals.td.level') %></td>
             <% current_user.individual_forms.each do |form| %>
               <td><%= form.level %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Profile Pic</td>
+            <td><%= t('index_individuals.td.profile_pic') %></td>
             <% current_user.individual_forms.each do |form| %>
               <% if form.photo.attached? %>
                 <td style="text-align:center"><%= cl_image_tag form.photo.key, height: 50, width: 40 %></td>

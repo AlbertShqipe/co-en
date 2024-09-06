@@ -452,3 +452,44 @@ en:
             remove: "Remove"
             add: "Add Participant"
             create: "Create Group"
+
+
+  index_groups:
+    th:
+      attributes: "Attributes"
+      group_form: "Group Form"
+    td:
+      name_of_group: "Name of Group"
+      responsable: "Responsable of Group"
+      group_address: "Address of Group"
+      phone: "Phone"
+      email: "Email of Group"
+      discipline: "Group discipline"
+      leve: "Group level"
+      music: "Music"
+      composer: "Composer"
+      length_of_piece: "Length of Piece"
+      participants_n: "N of Participants"
+      participant_name_lastName: "Full name of Participant"
+      participant_age: "Age of Participant"
+
+
+  index_individuals:
+    th:
+      attributes: "Attributs"
+      individual_form: "Formulaire Individuel"
+    td:
+      first_name: "Prénom"
+      last_name: "Nom"
+      birthday: "Date de Naissance"
+      address: "Adresse"
+      phone: "Téléphone"
+      email: "Adresse Email"
+      teacher: "Nom de l'Enseignant·e"
+      teacher_phone: "Téléphone de l'Enseignant·e"
+      teacher_email: "Email de l'Enseignant·e"
+      dance_school: "École de Danse"
+      category: "Catégorie"
+      style: "Style"
+      level: "Niveau"
+      profile_pic: "Photo de Profil"

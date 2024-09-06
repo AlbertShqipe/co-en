@@ -5,81 +5,81 @@
     <table class="table-form mx-auto">
       <thead>
         <tr style="width:50px">
-          <th>Attribute</th>
+          <th><%= t('index_groups.th.attributes') %></th>
           <% current_user.group_forms.each_with_index do |group, index| %>
-            <th>Group Form <%= index + 1 %></th>
+            <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
           <% end %>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Name of Group</td>
+          <td><%= t('index_groups.td.name_of_group') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.name %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Responsable of Group</td>
+          <td><%= t('index_groups.td.responsable') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.responsable %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Group Address</td>
+          <td><%= t('index_groups.td.group_address') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.address %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Phone</td>
+          <td><%= t('index_groups.td.phone') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.phone %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Email</td>
+          <td><%= t('index_groups.td.email') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.email %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Group Discipline</td>
+          <td><%= t('index_groups.td.discipline') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.discipline %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Level</td>
+          <td><%= t('index_groups.td.level') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.level %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Title of Music</td>
+          <td><%= t('index_groups.td.music') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.title_of_music %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Compositor of Music</td>
+          <td><%= t('index_groups.td.composer') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.composer %></td>
           <% end %>
         </tr>
         <tr>
-          <td>Length of Piece</td>
+          <td><%= t('index_groups.td.length_of_piece') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.length_of_piece %></td>
           <% end %>
         </tr>
         <tr>
-          <td>N of Participants</td>
+          <td><%= t('index_groups.td.participants_n') %></td>
           <% current_user.group_forms.each do |group| %>
             <td><%= group.participants.count %></td>
           <% end %>
         </tr>
         <tr>
-          <td><b>Participants Name-Last Name</b></td>
+          <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
           <% current_user.group_forms.each do |group| %>
             <% group.participants.each do |participant| %>
               <td>
@@ -93,7 +93,7 @@
           <% end %>
         </tr>
         <tr>
-          <td>Participants Age</td>
+          <td><%= t('index_groups.td.participant_age') %></td>
           <% current_user.group_forms.each do |group| %>
             <% group.participants.each do |participant| %>
               <td>

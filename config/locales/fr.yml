@@ -422,3 +422,43 @@ fr:
             remove: "Retirer"
             add: "Ajouter un·e participant·e"
             create: "Créer un groupe"
+
+
+  index_groups:
+    th:
+      attributes: "Attributes"
+      group_form: "Formulaire du Groupe"
+    td:
+      name_of_group: "Nom du Groupe"
+      responsable: "Responsable du Groupe"
+      group_address: "Adresse du Groupe"
+      phone: "Numéro de Téléphone"
+      email: "Adresse Email"
+      discipline: "Discipline du Groupe"
+      leve: "Nivau du Groupe"
+      music: "Titre de la Musique"
+      composer: "Compositeur·rice"
+      length_of_piece: "Durée de la Pièce"
+      participants_n: "N de Participant·e·s"
+      participant_name_lastName: "Participant·e·s"
+      participant_age: "Âge des Participant·e·s"
+
+  index_individuals:
+    th:
+      attributes: "Attributes"
+      individual_form: "Formulaire Individuel"
+    td:
+      first_name: "Prénom"
+      last_name: "Nom"
+      birthday: "Date de Naissance"
+      address: "Adresse"
+      phone: "Numéro de Téléphone"
+      email: "Email"
+      teacher: "Enseignant·e"
+      teacher_phone: "Téléphone enseignant·e"
+      teacher_email: "Email de l'enseignant·e"
+      dance_school: "Nom de l'École de Danse"
+      category: "Catégorie"
+      style: "Style"
+      level: "Level"
+      profile_pic: "Photo Profile"
