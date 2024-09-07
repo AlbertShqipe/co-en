@@ -41,13 +41,13 @@ en:
         link5: |
           <a href="#media" class="nav-link">MEDIA</a>
         link6: |
-          <a href="/profile" class="dropdown-item">My Profile</a>
+          <a href="/profile?locale=en" class="dropdown-item">My Profile</a>
         link7: |
-          <a href="/individual_forms" class="dropdown-item">My Individual Forms</a>
+          <a href="/individual_forms?locale=en" class="dropdown-item">My Individual Forms</a>
         link8: |
-          <a href="/group_forms" class="dropdown-item">My Group Forms</a>
+          <a href="/group_forms?locale=en" class="dropdown-item">My Group Forms</a>
         link10: |
-          <a href="/" class= "navbar-brand">
+          <a href="/?locale=en" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
               <defs>
                 <clipPath id="1a5b67ca4d">
@@ -147,23 +147,23 @@ en:
   navbar:
     content:
         link1: |
-          <a href="/regulation" class="nav-link">REGULATION</a>
+          <a href="/regulation?locale=en" class="nav-link">REGULATION</a>
         link2: |
-          <a href="/who_we_are" class="nav-link">WHO WE ARE</a>
+          <a href="/who_we_are?locale=en" class="nav-link">WHO WE ARE</a>
         link3: |
-          <a href="/practical_info" class="nav-link">PRACTICAL INFO</a>
+          <a href="/practical_info?locale=en" class="nav-link">PRACTICAL INFO</a>
         link4: |
-          <a href="/our_partners" class="nav-link">OUR PARTNERS</a>
+          <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
         link5: |
-          <a href="/media" class="nav-link">MEDIA</a>
+          <a href="/media?locale=en" class="nav-link">MEDIA</a>
         link6: |
-          <a href="/profile" class="dropdown-item">My Profile</a>
+          <a href="/profile?locale=en" class="dropdown-item">My Profile</a>
         link7: |
-          <a href="/individual_forms" class="dropdown-item">My Individual Forms</a>
+          <a href="/individual_forms?locale=en" class="dropdown-item">My Individual Forms</a>
         link8: |
-          <a href="/group_forms" class="dropdown-item">My Group Forms</a>
+          <a href="/group_forms?locale=en" class="dropdown-item">My Group Forms</a>
         link10: |
-          <a href="/" class= "navbar-brand">
+          <a href="/?locale=en" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
               <defs>
                 <clipPath id="1a5b67ca4d">
@@ -249,15 +249,15 @@ en:
             </svg>
           </a>
         link11: |
-          <a href="/regulation" class="nav-link">REGULATION</a>
+          <a href="/regulation?locale=en" class="nav-link">REGULATION</a>
         link12: |
-          <a href="/who_we_are" class="nav-link">WHO WE ARE</a>
+          <a href="/who_we_are?locale=en" class="nav-link">WHO WE ARE</a>
         link13: |
-          <a href="/practical_info" class="nav-link">PRACTICAL INFO</a>
+          <a href="/practical_info?locale=en" class="nav-link">PRACTICAL INFO</a>
         link14: |
-          <a href="/our_partners" class="nav-link">OUR PARTNERS</a>
+          <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
         link15: |
-          <a href="/media" class="nav-link">MEDIA</a>
+          <a href="/media?locale=en" class="nav-link">MEDIA</a>
 
 
   expandable_div_left:
@@ -266,9 +266,9 @@ en:
         <div class="content">
           <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
           <div class="mt-4 mb-4">
-            <p><a href="/">Home</a></p>
-            <p><a href="/apply">Apply</a></p>
-            <p><a href="/contact">Contacts</a></p>
+            <p><a href="/?locale=en">Home</a></p>
+            <p><a href="/apply?locale=en">Apply</a></p>
+            <p><a href="/contact?locale=en">Contacts</a></p>
           </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
         </div>
@@ -279,7 +279,7 @@ en:
 
     info:
       link: |
-        <a href="/apply" class='button-light-gray'>REGISTER</a>
+        <a href="/apply?locale=en" class='button-light-gray'>REGISTER</a>
       text: |
         <div>
           <h2>Solos / Duos / Groups</h2>
@@ -313,7 +313,7 @@ en:
               <li>Article 10: Registration Modalities</li>
               <li>Thank you for your participation and good luck to all the candidates!</li>
             </ul>
-            <a href="regulation" class="button-home">FULL REGULATION</a>
+            <a href="regulation?locale=en" class="button-home">FULL REGULATION</a>
           </div>
         </div>
 
@@ -331,7 +331,7 @@ en:
             </div>
             <p>The Entrelacé International Dance Competition is open to classical, modern jazz, and contemporary dance disciplines. Its aim is to promote, share, and celebrate the art of dance, as well as to encourage the meeting and "interweaving" of students, dancers, teachers, and dance professionals in France and abroad.</p>
             <p>It also provides dancers from various disciplines with a space to express themselves through their art and passion, acquiring foundational skills, knowledge, and stage experience for their development as dancers.</p>
-            <a href="who_we_are" class='button-home-gray'>WHO WE ARE</a>
+            <a href="who_we_are?locale=en" class='button-home-gray'>WHO WE ARE</a>
           </div>
         </div>
 
@@ -349,7 +349,7 @@ en:
               <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public">
               <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Stage">
             </div>
-            <a href="practical_info" class='button-home'>PRACTICAL INFO</a>
+            <a href="practical_info?locale=en" class='button-home'>PRACTICAL INFO</a>
           </div>
         </div>
 
@@ -363,7 +363,7 @@ en:
           <div class="second-section-home-ourPartners-content d-flex flex-column">
             <h1>OUR PARTNERS</h1>
             <p>The Entrelacé International Dance Competition is a platform that allows you to participate in various contests and win prizes. We offer a wide range of contests, from photography to writing, and even coding. We are a community of passionate people who want to share their work and get feedback from others. Join us now and start participating in contests!</p>
-            <a href="our_partners" class='button-home-gray'>OUR PARTNERS</a>
+            <a href="our_partners?locale=en" class='button-home-gray'>OUR PARTNERS</a>
           </div>
         </div>
 
@@ -377,7 +377,7 @@ en:
           <div class="second-section-home-media-content d-flex flex-column">
             <h1>MEDIA</h1>
             <p>ConcoursEntrelace is a platform that allows you to participate in various contests and win prizes. We offer a wide range of contests, from photography to writing, and even coding. We are a community of passionate people who want to share their work and get feedback from others. Join us now and start participating in contests!</p>
-            <a href="media" class='button-home'>MEDIA</a>
+            <a href="media?locale=en" class='button-home'>MEDIA</a>
           </div>
         </div>
 
