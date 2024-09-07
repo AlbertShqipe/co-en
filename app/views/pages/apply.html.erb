@@ -1,4 +1,3 @@
-<%= render "shared/navbar"%>
 <div class="container mt-2">
   <%= link_to "Back", :back, style:"color:white" %>
   <%# <div style="color:white">
@@ -23,8 +22,8 @@
   <div class="d-flex justify-content-around d-links">
     <%# <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf">Autorisation de Participation - Candidat Majeur</a>
     <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf">Autorisation de Participation - Candidat Mineur</a> %>
-    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf">Authorization for Participation - Adult Candidate</a>
-    <a href="/pdfs/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf" download="AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf">Authorization for Participation - Minor Candidate</a>
+    <%= link_to 'Authorization for Participation - Adult Candidate', '/pdf/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf' %>
+    <%= link_to 'Authorization for Participation - Minor Candidate', '/pdf/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf' %>
   </div>
   <div class="row mt-3 d-flex justify-content-center">
       <div class="col-md-4 mb-3 m-auto text-center">
