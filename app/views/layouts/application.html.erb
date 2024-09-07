@@ -33,6 +33,14 @@
   </head>
 
   <body>
+    <div data-controller="welcome-popup">
+      <div data-welcome-popup-target="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+          <div class="popup-img"></div>
+          <button id="close-popup" data-action="click->welcome-popup#dismissPopup">x</button>
+        </div>
+      </div>
+    </div>
     <%= render "shared/flashes" %>
 
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||

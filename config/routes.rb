@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile'
   get 'contact' => 'pages#contact'
 
+  # Popup
+  get 'dismiss_welcome_popup', to: 'pages#dismiss_welcome_popup'
+
   # Devise authentication routes
   devise_for :users, controllers: { registrations: 'registrations' }
 

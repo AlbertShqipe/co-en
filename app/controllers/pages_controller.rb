@@ -11,6 +11,12 @@ class PagesController < ApplicationController
   end
 
   def home
+    @show_welcome_popup = session[:first_visit].nil?
+  end
+
+  def dismiss_welcome_popup
+    session[:first_visit] = false
+    head :ok # Respond with a successful status without rendering a view
   end
 
   def regulation
