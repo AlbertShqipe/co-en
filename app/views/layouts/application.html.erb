@@ -34,14 +34,16 @@
 
   <body>
     <%= render "shared/flashes" %>
+
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||
                                                     current_page?(new_user_password_path) ||
                                                     current_page?(new_user_registration_path) %>
+
     <%= render "shared/expandable_div_right" unless current_page?(new_user_session_path) ||
                                                     current_page?(new_user_password_path) ||
                                                     current_page?(new_user_registration_path) ||
                                                     current_page?(new_individual_form_path) ||
-                                                    current_page?(new_group_form_path)%>
+                                                    current_page?(new_group_form_path) %>
     <%= yield %>
     <div id="backToTop" title="Back to the top" data-controller="back-to-top">
       <a href="#top" class="material-symbols-outlined">
@@ -52,6 +54,8 @@
                                       current_page?(new_group_form_path) ||
                                       current_page?(new_individual_form_path) ||
                                       current_page?(new_user_session_path) ||
-                                      current_page?(new_user_password_path)%>
+                                      current_page?(new_user_password_path) ||
+                                      current_page?(new_individual_form_path) ||
+                                      current_page?(new_group_form_path) %>
   </body>
 </html>
