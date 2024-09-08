@@ -36,6 +36,7 @@
         z-index: 100;
       }
     }
+
     .input-btn {
       margin-top: 20px;
       // margin-left: 48px;
@@ -58,4 +59,9 @@
     color: $orange !important;
     text-decoration: underline;
   }
+}
+
+.card-button {
+  background-color: black !important;
+  color: white;
 }

@@ -17,7 +17,6 @@ class GroupFormsController < ApplicationController
   def create
     @group_form = GroupForm.new(group_form_params)
     @group_form.user_id = current_user.id
-    logger.debug "Received parameters: #{params.inspect}"
     if @group_form.participants.size > 1 && @group_form.save
       redirect_to root_path, notice: 'Group form was successfully created.'
     else

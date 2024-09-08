@@ -414,6 +414,46 @@ en:
         btn:
             create: "Submit Candidature"
 
+
+  duo_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">REGISTRATION FORM</h1>
+      h2: |
+        <h2 class="text-center">Duo Candidature</h2>
+      h3: |
+        <h3 class="text-center">Fill out one form per duo</h3>
+      duo:
+        placeholders:
+          name: "Name of the Duo"
+          responsable: "Duo Responsible"
+          address: "Address"
+          phone: "Phone Number"
+          email: "Email Address"
+          title_of_music: "Title of the Music"
+          composer: "Composer"
+          length_of_piece: "Length of Piece"
+        prompts:
+          discipline: "Disciplines"
+          level: "Levels"
+        participant:
+          participants: "Participants"
+          add_participants: "Add the partecipants of the duo"
+          placeholders:
+            name: "First Name"
+            last_name: "Last Name"
+            birthday: "Birthday"
+            age: "Age Today"
+          span:
+            no_file: "No file selected"
+          input_text:
+            pic: "Participant Picture"
+            file: "Authorization Form Filled"
+          btn:
+            remove: "Remove"
+            add: "Add Participant"
+            create: "Create Duo"
+
   group_registration_form:
     registration_form_inner_text:
       h1: |
@@ -493,3 +533,43 @@ en:
       style: "Style"
       level: "Niveau"
       profile_pic: "Photo de Profil"
+
+
+  apply:
+    important_information:
+      title: "Important Information for Form Submission"
+      paragraph1: "For each individual form and each participant in a group, you must provide the appropriate authorization form based on the participant's age at the time of submission:"
+      list:
+        li1: "If the participant is 18 years old or older: You must download, complete, and upload the 'Authorization for Participation - Adult Candidate' form."
+        li2: "If the participant is under 18 years old: You must download, complete, and upload the 'Authorization for Participation - Minor Candidate' form."
+      paragraph2: "These forms must be uploaded at the time of submitting your individual or group registration. Please ensure that the correct form is completed and uploaded for each participant to ensure their eligibility. Incomplete or incorrect submissions may result in delays or disqualification."
+      pdf1:  "Authorization for Participation - Adult Candidate"
+      pdf2: "Authorization for Participation - Minor Candidate"
+    cards:
+      group_registration_form: |
+        <div class="card-body" >
+          <h5 class="card-title">Group Registration Form</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Min 4 partecipants, max 15</p>
+            <p class="card-text mb-0" >Please make sure to fill up all the boxes</p><br>
+            <a href="/group_forms/new" class="btn card-button">View</a>
+          </div>
+        </div>
+      duo: |
+        <div class="card-body">
+          <h5 class="card-title">Duo Registration Form</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Duo</p>
+            <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
+            <a href="/group_forms/new?partial=duo" class="btn card-button">View</a>
+          </div>
+        </div>
+      individual_registration_form: |
+        <div class="card-body">
+          <h5 class="card-title">Individual Registration Form</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text" >Solo</p>
+            <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
+            <a href="/individual_forms/new" class="btn card-button">View</a>
+          </div>
+        </div>

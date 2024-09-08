@@ -384,6 +384,47 @@ fr:
         btn:
           create: "Soumettre la Candidature"
 
+
+  duo_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+      h2: |
+        <h2 class="text-center">Candidature Duo</h2>
+      h3: |
+        <h3 class="text-center">Remplissez un formulaire par duo</h3>
+      duo:
+        placeholders:
+          name: "Nom du Duo"
+          responsable: "Responsable du Duo"
+          address: "Adresse"
+          phone: "Numéro de Téléphone"
+          email: "Adresse Email"
+          title_of_music: "Titre de la Musique"
+          composer: "Compositeur·trice"
+          length_of_piece: "Durée de l'Oeuvre"
+        prompts:
+          discipline: "Disciplines"
+          level: "Niveaux"
+        participant:
+          participants: "Participant·e·s"
+          add_participants: "Ajouter les participant·e·s du duo"
+          placeholders:
+            name: "Prénom"
+            last_name: "Nom"
+            birthday: "Date de Naissance"
+            age: "Âge Aujourd'hui"
+          span:
+            no_file: "Aucun fichier sélectionné"
+          input_text:
+            pic: "Photo du Participant"
+            file: "Formulaire d'Autorisation Rempli"
+          btn:
+            remove: "Supprimer"
+            add: "Ajouter un·e Participant·e"
+            create: "Créer le Duo"
+
+
   group_registration_form:
     registration_form_inner_text:
       h1: |
@@ -462,3 +503,43 @@ fr:
       style: "Style"
       level: "Level"
       profile_pic: "Photo Profile"
+
+
+  apply:
+    important_information:
+      title: "Informations importantes pour la soumission du formulaire"
+      paragraph1: "Pour chaque formulaire individuel et chaque participant dans un groupe, vous devez fournir le formulaire d'autorisation approprié en fonction de l'âge du participant au moment de la soumission :"
+      list:
+        li1: "Si le participant a 18 ans ou plus : Vous devez télécharger, remplir, et téléverser le formulaire 'Autorisation de participation - Candidat Majeur'."
+        li2: "Si le participant a moins de 18 ans : Vous devez télécharger, remplir, et téléverser le formulaire 'Autorisation de participation - Candidat Mineur'."
+      paragraph2: "Ces formulaires doivent être téléversés au moment de la soumission de votre inscription individuelle ou de groupe. Veuillez vous assurer que le formulaire correct est rempli et téléversé pour chaque participant afin de garantir leur éligibilité. Les soumissions incomplètes ou incorrectes peuvent entraîner des retards ou une disqualification."
+      pdf1: "Autorisation de participation - Candidat Majeur"
+      pdf2: "Autorisation de participation - Candidat Mineur"
+    cards:
+      group_registration_form: |
+        <div class="card-body">
+          <h5 class="card-title">Formulaire d'Inscription de Groupe</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Min 4 participant·e·s, max 15</p>
+            <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
+            <a href="/group_forms/new" class="btn card-button">Voir</a>
+          </div>
+        </div>
+      duo: |
+        <div class="card-body">
+          <h5 class="card-title">Formulaire d'inscription Duo</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Duo</p>
+            <p class="card-text mb-0">Veuillez vous assurer de remplir toutes les cases</p><br>
+            <a href="/group_forms/new?partial=duo?locale=fr" class="btn card-button">Voir</a>
+          </div>
+        </div>
+      individual_registration_form: |
+        <div class="card-body">
+          <h5 class="card-title">Formulaire d'Inscription Individuelle</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Solo</p>
+            <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
+            <a href="/group_forms/new" class="btn card-button">Voir</a>
+          </div>
+        </div>
