@@ -16,6 +16,10 @@ fr:
         link7: |
           <a href="/individual_forms?locale=fr" class="dropdown-item">Mes Formulaires Individuels</a>
         link8: |
+          <a href="/duo?locale=fr" class="dropdown-item">Mes Formulaires de Duo</a>
+        link8-5: |
+          <a href="/trios?locale=en" class="dropdown-item">My Trio Forms</a>
+        link9: |
           <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupe</a>
         link10: |
           <a href="/?locale=fr" class= "navbar-brand">

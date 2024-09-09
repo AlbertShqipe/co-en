@@ -45,6 +45,10 @@ en:
         link7: |
           <a href="/individual_forms?locale=en" class="dropdown-item">My Individual Forms</a>
         link8: |
+          <a href="/duo?locale=en" class="dropdown-item">My Duo Forms</a>
+        link8-5: |
+          <a href="/trios?locale=en" class="dropdown-item">My Trio Forms</a>
+        link9: |
           <a href="/group_forms?locale=en" class="dropdown-item">My Group Forms</a>
         link10: |
           <a href="/?locale=en" class= "navbar-brand">
