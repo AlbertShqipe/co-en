@@ -208,4 +208,4 @@
       </div>
     <% end %>
   </div>
-<%= render "shared/footer" %>
+<%= current_user.duos.empty? ? render("shared/footer_fixed") : render("shared/footer") %>
