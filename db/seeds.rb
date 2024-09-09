@@ -34,6 +34,13 @@ User.create(
   last_name: 'Blloshmi'
 )
 
+User.create(
+  email: 'albert@gmail.com',
+  password: ENV['ALBERT_PASSWARD'],
+  role: 'competitor',
+  name: 'Albert',
+  last_name: 'Nikolli'
+)
 
 puts "................................................................"
-puts "Users created successfully!"
+puts "`#{User.count}` Users created successfully!"

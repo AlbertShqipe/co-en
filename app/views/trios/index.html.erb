@@ -1,0 +1,131 @@
+<%= render "shared/navbar"%>
+  <div class="trio-forms">
+    <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Trio Forms</h1>
+    <% if current_user.role == "admin" && current_user.trios.present? %>
+      <table class="table-form mx-auto">
+        <thead>
+          <tr style="width:50px">
+            <th><%= t('index_groups.th.attributes') %></th>
+            <% current_user.trios.each_with_index do |trio, index| %>
+              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= t('index_groups.td.name_of_group') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.responsable') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.responsable %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.group_address') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.address %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.phone') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.email') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.discipline') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.discipline %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.level') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.level %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.music') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.title_of_music %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.composer') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.composer %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.length_of_piece') %></td>
+            <% current_user.trios.each do |trio| %>
+              <td><%= trio.length_of_piece %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+            <% current_user.trios.each do |trio| %>
+              <% trio.trio_participants.each do |participant| %>
+                <td>
+                  <% if participant.photo.attached? %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                  <% else %>
+                    <%= participant.name %> <%= participant.last_name %>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.participant_age') %></td>
+            <% current_user.trios.each do |trio| %>
+              <% trio.trio_participants.each do |participant| %>
+                <td>
+                  Birthday: <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %> years old
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Authorization for Participation</td>
+            <% current_user.trios.each do |trio| %>
+              <% trio.trio_participants.each do |participant| %>
+                <% if participant.files.attached? %>
+                  <% participant.files.each do |f| %>
+                    <% key = f.key %>
+                    <% matching_file =  @results.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% matching_file_public_id =  matching_file["public_id"].sub('development/', '') %>
+                    <td>
+                      <% if matching_file_public_id == key %>
+                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
+                      <% end %>
+                    </td>
+                  <% end %>
+                <% else %>
+                  <td>
+                    <p>File not found</p>
+                  </td>
+                <% end %>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="d-flex justify-content-center">
+        <h3 style="color:white">You have not submitted any Trio forms yet</h3>
+      </div>
+    <% end %>
+  </div>
+<%= current_user.trios.empty? ? render("shared/footer_fixed") : render("shared/footer") %>

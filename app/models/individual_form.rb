@@ -2,7 +2,7 @@ class IndividualForm < ApplicationRecord
   belongs_to :user
 
   has_one_attached :photo
-  has_one_attached :file
+  has_many_attached :files
 
   validates :first_name, :last_name, :birth_date, :address, :phone, :email,
             :teacher_name, :dance_school, :teacher_phone, :teacher_email,
