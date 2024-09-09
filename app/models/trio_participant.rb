@@ -1,5 +1,5 @@
-class Participant < ApplicationRecord
-  belongs_to :group_form, class_name: 'GroupForm', foreign_key: 'group_id'
+class TrioParticipant < ApplicationRecord
+  belongs_to :trio, class_name: 'Trio', foreign_key: 'trio_id'
   validates :name, :last_name, :birth_date, :age, presence: true
 
   has_one_attached :photo

@@ -17,12 +17,18 @@ class GroupFormsController < ApplicationController
   def create
     @group_form = GroupForm.new(group_form_params)
     @group_form.user_id = current_user.id
-    if @group_form.participants.size > 1 && @group_form.save
+    if @group_form.participants.size < 4
+      redirect_to new_group_form_path, alert: 'At least four participants are required'
+    elsif @group_form.participants.size > 15
+      redirect_to new_group_form_path, alert: 'A group can have a maximum of 15 participants'
+    elsif @group_form.save
       redirect_to root_path, notice: 'Group form was successfully created.'
     else
-      redirect_to new_group_form_path, alert: 'At least two participants are required'
+      render :new, alert: 'There was an issue creating the group form.'
     end
   end
+
+
 
   def info
     @group_form = current_user.group_forms.find(params[:id])
@@ -44,7 +50,7 @@ class GroupFormsController < ApplicationController
                                                                     birth_date: participant.birth_date,
                                                                     age: participant.age,
                                                                     photo: participant.photo.key,
-                                                                    file: participant.file }
+                                                                    file: participant.files }
                                                                   }
     }
     rescue ActiveRecord::RecordNotFound
@@ -54,6 +60,6 @@ class GroupFormsController < ApplicationController
   private
 
   def group_form_params
-    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :file, :photo])
+    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :files, :photo])
   end
 end

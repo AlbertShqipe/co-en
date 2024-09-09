@@ -18,10 +18,21 @@ Rails.application.routes.draw do
   # Devise authentication routes
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  # User form application routes
+  # User form application group
   resources :group_forms, only: [:index, :show, :new, :create] do
     resources :participants, only: [:create, :destroy]
   end
+
+  # User form application duo
+  resources :duo, only: [:index, :show, :new, :create] do
+    resources :duo_participants, only: [:create, :destroy]
+  end
+
+  # User form application trio
+  resources :trios, only: [:index, :show, :new, :create] do
+    resources :trio_participants, only: [:create, :destroy]
+  end
+
   # Info of a specific group form
   get '/group_forms/:id/info', to: 'group_forms#info'
 

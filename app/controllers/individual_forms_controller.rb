@@ -7,11 +7,11 @@ class IndividualFormsController < ApplicationController
     @current_user = current_user
     # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
 
-    #   # Code that runs only in development
-      # @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    #   # Code that runs only in development since it charges the assets uploaded in development
+      @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
 
-      # Code that shoul run only in production
-      @results = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+      # Code that shoul run only in production since it charges the assets uploaded in production
+      # @results = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
     # raise
   end
 
@@ -36,6 +36,6 @@ class IndividualFormsController < ApplicationController
   end
 
   def individual_form_params
-    params.require(:individual_form).permit(:first_name, :last_name, :birth_date, :address, :phone, :email, :teacher_name, :dance_school, :teacher_phone, :teacher_email, :category, :style, :level, :photo, :file)
+    params.require(:individual_form).permit(:first_name, :last_name, :birth_date, :address, :phone, :email, :teacher_name, :dance_school, :teacher_phone, :teacher_email, :category, :style, :level, :photo, :files)
   end
 end

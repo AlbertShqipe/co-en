@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :individual_forms, dependent: :destroy
   has_many :group_forms, dependent: :destroy
+  has_many :duos, dependent: :destroy
+  has_many :trios, dependent: :destroy
 
   enum role: { admin: 0, competitor: 1, jury: 2 }
 end
