@@ -22,7 +22,7 @@ class GroupFormsController < ApplicationController
     elsif @group_form.participants.size > 15
       redirect_to new_group_form_path, alert: 'A group can have a maximum of 15 participants'
     elsif @group_form.save
-      redirect_to root_path, notice: 'Group form was successfully created.'
+      redirect_to apply_path, notice: 'Group form was successfully created.'
     else
       render :new, alert: 'There was an issue creating the group form.'
     end

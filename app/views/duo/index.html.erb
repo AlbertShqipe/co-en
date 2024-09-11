@@ -1,5 +1,5 @@
 <%= render "shared/navbar"%>
-  <div class="duo-forms">
+  <div class="trio-forms">
     <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Duo Forms</h1>
     <% if current_user.role == "competitor" && current_user.duos.present? %>
       <table class="table-form mx-auto">
@@ -80,7 +80,7 @@
                   <% if participant.photo.attached? %>
                     <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
                   <% else %>
-                    <%= participant.name %> <%= participant.last_name %>
+                    <p>Participant has no picture attached</p>
                   <% end %>
                 </td>
               <% end %>
@@ -103,20 +103,26 @@
               <% duo.duo_participants.each do |participant| %>
                 <% if participant.files.attached? %>
                   <% participant.files.each do |f| %>
-                    <td>
-                      <% key = f.key %>
+                    <% key = f.key %>
                       <% matching_file =  @results.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
                       <% matching_file_public_id =  matching_file["public_id"].sub('development/', '') %>
                       <% if matching_file_public_id == key %>
-                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
-                      <% else %>
-                        <p>No match in the cloud assets </p>
+                        <td>
+                          <p><%= participant.name %><%= participant.last_name %></p>
+                          <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
+                        </td>
                       <% end %>
-                    </td>
+                      <% else %>
+                        <td>
+                          <p>File not found</p>
+                        </td>
+                    <% end %>
                   <% end %>
                 <% end %>
               <% end %>
             <% end %>
+
           </tr>
         </tbody>
       </table>

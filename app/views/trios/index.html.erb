@@ -1,7 +1,7 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
     <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Trio Forms</h1>
-    <% if current_user.role == "admin" && current_user.trios.present? %>
+    <% if current_user.role == "competitor" && current_user.trios.present? %>
       <table class="table-form mx-auto">
         <thead>
           <tr style="width:50px">

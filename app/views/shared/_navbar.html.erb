@@ -29,11 +29,11 @@
               <%= image_tag "logoLightGray.png", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= t('navbar.content.link6').html_safe %>
-              <%= t('navbar.content.link7').html_safe %>
-              <%= t('navbar.content.link8').html_safe %>
-              <%= t('navbar.content.link8-5').html_safe %>
-              <%= t('navbar.content.link9').html_safe %>
+              <%= t('navbar_home.content.link6').html_safe %>
+              <%= t('navbar_home.content.link7').html_safe %>
+              <%= t('navbar_home.content.link8').html_safe %>
+              <%= t('navbar_home.content.link8-5').html_safe %>
+              <%= t('navbar_home.content.link9').html_safe %>
               <% if I18n.locale == :en %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               <% elsif I18n.locale == :fr %>

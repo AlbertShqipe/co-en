@@ -20,7 +20,7 @@ class TriosController < ApplicationController
     @trio = Trio.new(trio_params)
     @trio.user_id = current_user.id
     if @trio.save
-      redirect_to @trio, notice: 'Trio was successfully created.'
+      redirect_to apply_path, notice: 'Trio was successfully created.'
     else
       render :new
     end

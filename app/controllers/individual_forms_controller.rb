@@ -29,7 +29,7 @@ class IndividualFormsController < ApplicationController
     @individual_form = current_user.individual_forms.new(individual_form_params)
 
     if @individual_form.save
-      redirect_to root_path, notice: 'Individual Form successfully created.'
+      redirect_to apply_path, notice: 'Individual Form successfully created.'
     else
       render :new
     end
