@@ -303,7 +303,7 @@ fr:
             <div class="image">
               <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png">
             </div>
-            <p>Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz et contemporaine. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
+            <p>Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz, contemporaine et danse de caractère. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
             <p>Il offre également aux danseurs de diverses disciplines un espace pour s'exprimer à travers leur art et leur passion, en acquérant des compétences fondamentales, des connaissances et une expérience scénique pour leur développement en tant que danseurs.</p>
             <a href="who_we_are?locale=fr" class='button-home-gray'>QUI SOMMES-NOUS</a>
           </div>
@@ -336,7 +336,8 @@ fr:
           </div>
           <div class="second-section-home-ourPartners-content d-flex flex-column">
             <h1>NOS PARTENAIRES</h1>
-            <p>Le Concours International de Danse Entrelacé est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
+            <p>Le Concours International de Danse Entrelacé compte avec le soutien de partenaires clés qui partagent notre vision de promouvoir le développement artistique et de soutenir les jeunes talents. Qu'il s'agisse d'institutions culturelles, d'écoles de danse, de marques spécialisées ou de mécènes privés, chacun de nos partenaires joue un rôle essentiel dans la réussite de notre événement.</p>
+            <p>Grâce à leur engagement, le Concours International de danse Entrelacé peut offrir des plateformes uniques où les danseurs peuvent s’exprimer, progresser, et se perfectionner. Nous les remercions sincèrement pour leur contribution, qui permet à notre concours de continuer à inspirer et accompagner les artistes de demain.</p>
             <a href="our_partners?locale=fr" class='button-home-gray'>NOS PARTENAIRES</a>
           </div>
         </div>
@@ -350,7 +351,7 @@ fr:
           </div>
           <div class="second-section-home-media-content d-flex flex-column">
             <h1>MÉDIA</h1>
-            <p>ConcoursEntrelace est une plateforme qui vous permet de participer à divers concours et de gagner des prix. Nous offrons une large gamme de concours, allant de la photographie à l'écriture, en passant même par le codage. Nous sommes une communauté de passionnés qui veulent partager leur travail et recevoir des retours d'autres personnes. Rejoignez-nous dès maintenant et commencez à participer aux concours !</p>
+            <p>Le Concours International de Danse ENTRELACÉ collabore avec des médias spécialisés et des professionnels de l'image pour capturer et diffuser les moments forts de nos événements. Grâce à eux, les performances des danseurs rayonnent au-delà de la scène, que ce soit sur les réseaux sociaux, en ligne ou dans des publications dédiées. Ici, vous trouverez également les highlights des éditions précédentes, pour revivre les instants marquants du concours.</p>
             <a href="media?locale=fr" class='button-home'>MÉDIA</a>
           </div>
         </div>
