@@ -600,7 +600,7 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Duo</p>
             <p class="card-text mb-0">Veuillez vous assurer de remplir toutes les cases</p><br>
-            <a href="/group_forms/new?partial=duo?locale=fr" class="btn card-button">Voir</a>
+            <a href="/duo/new?partial=duo?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
       individual_registration_form: |
@@ -609,6 +609,6 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Solo</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
-            <a href="/group_forms/new" class="btn card-button">Voir</a>
+            <a href="/duo/new" class="btn card-button">Voir</a>
           </div>
         </div>
