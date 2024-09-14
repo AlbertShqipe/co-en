@@ -356,6 +356,21 @@ fr:
           </div>
         </div>
 
+  indi_registration_form_inner_text:
+    h1: |
+      <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+    h2: |
+      <h2 class="text-center">Candidature Individuelle</h2>
+    h3: |
+      <h3 class="text-center">Remplissez un formulaire par candidat·e</h3>
+
+  duo_registration_form_inner_text:
+    h1: |
+      <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+    h2: |
+      <h2 class="text-center">Candidature Duo</h2>
+    h3: |
+      <h3 class="text-center">Remplissez un formulaire par duo</h3>
 
   individual_registration_form:
     registration_form_inner_text:

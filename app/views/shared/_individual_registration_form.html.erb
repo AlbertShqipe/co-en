@@ -3,9 +3,9 @@
   <div class="registration-form-inner text-center">
     <div style="z-index:1000">
       <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px", class:"text-center"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px", class:"text-center"), url_for(locale: 'fr') %>
-      <%= t('individual_registration_form.registration_form_inner_text.h1').html_safe %>
-      <%= t('individual_registration_form.registration_form_inner_text.h2').html_safe %>
-      <%= t('individual_registration_form.registration_form_inner_text.h3').html_safe %>
+      <%= t('indi_registration_form_inner_text.h1').html_safe %>
+      <%= t('indi_registration_form_inner_text.h2').html_safe %>
+      <%= t('indi_registration_form_inner_text.h3').html_safe %>
       <div class="container">
         <%= form_with(
                       model: @individual_form,
