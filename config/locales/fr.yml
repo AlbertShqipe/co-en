@@ -555,8 +555,8 @@ fr:
       title: "Informations importantes pour la soumission du formulaire"
       paragraph1: "Pour chaque formulaire individuel et chaque participant dans un groupe, vous devez fournir le formulaire d'autorisation approprié en fonction de l'âge du participant au moment de la soumission :"
       list:
-        li1: "Si le participant a 18 ans ou plus : Vous devez télécharger, remplir, et téléverser le formulaire 'Autorisation de participation - Candidat Majeur'."
-        li2: "Si le participant a moins de 18 ans : Vous devez télécharger, remplir, et téléverser le formulaire 'Autorisation de participation - Candidat Mineur'."
+        li1: "Si le participant a 18 ans ou plus : Vous devez télécharger, remplir, et ajouter le formulaire 'Autorisation de participation - Candidat Majeur'."
+        li2: "Si le participant a moins de 18 ans : Vous devez télécharger, remplir, et ajouter le formulaire 'Autorisation de participation - Candidat Mineur'."
       paragraph2: "Ces formulaires doivent être téléversés au moment de la soumission de votre inscription individuelle ou de groupe. Veuillez vous assurer que le formulaire correct est rempli et téléversé pour chaque participant afin de garantir leur éligibilité. Les soumissions incomplètes ou incorrectes peuvent entraîner des retards ou une disqualification."
       pdf1: "Autorisation de participation - Candidat Majeur"
       pdf2: "Autorisation de participation - Candidat Mineur"
