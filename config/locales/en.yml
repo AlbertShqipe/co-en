@@ -386,22 +386,6 @@ en:
           </div>
         </div>
 
-  indi_registration_form_inner_text:
-    h1: |
-      <h1 class="text-center">REGISTRATION FORM</h1>
-    h2: |
-      <h2 class="text-center">Individual Candidature</h2>
-    h3: |
-      <h3 class="text-center">Fill out one form per candidate</h3>
-
-  duo_registration_form_inner_text:
-    h1: |
-      <h1 class="text-center">REGISTRATION FORM</h1>
-    h2: |
-      <h2 class="text-center">Duo Candidature</h2>
-    h3: |
-      <h3 class="text-center">Fill out one form per duo</h3>
-
   individual_registration_form:
     registration_form_inner_text:
       h1: |
@@ -612,7 +596,7 @@ en:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Min 4 partecipants</p>
             <p class="card-text mb-0" >Please make sure to fill up all the boxes</p><br>
-            <a href="/group_forms/new" class="btn card-button">View</a>
+            <a href="/group_forms/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
       trio: |
@@ -621,7 +605,7 @@ en:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Trio</p>
             <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
-            <a href="/trios/new" class="btn card-button">View</a>
+            <a href="/trios/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
       duo: |
@@ -630,7 +614,7 @@ en:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Duo</p>
             <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
-            <a href="/duo/new" class="btn card-button">View</a>
+            <a href="/duo/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
       individual_registration_form: |

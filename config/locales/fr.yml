@@ -18,7 +18,7 @@ fr:
         link8: |
           <a href="/duo?locale=fr" class="dropdown-item">Mes Formulaires de Duo</a>
         link8-5: |
-          <a href="/trios?locale=en" class="dropdown-item">My Trio Forms</a>
+          <a href="/trios?locale=fr" class="dropdown-item">My Trio Forms</a>
         link9: |
           <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupe</a>
         link10: |
@@ -356,22 +356,6 @@ fr:
           </div>
         </div>
 
-  indi_registration_form_inner_text:
-    h1: |
-      <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
-    h2: |
-      <h2 class="text-center">Candidature Individuelle</h2>
-    h3: |
-      <h3 class="text-center">Remplissez un formulaire par candidat·e</h3>
-
-  duo_registration_form_inner_text:
-    h1: |
-      <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
-    h2: |
-      <h2 class="text-center">Candidature Duo</h2>
-    h3: |
-      <h3 class="text-center">Remplissez un formulaire par duo</h3>
-
   individual_registration_form:
     registration_form_inner_text:
       h1: |
@@ -403,7 +387,6 @@ fr:
           category: "Catégories"
         btn:
           create: "Soumettre la Candidature"
-
 
   duo_registration_form:
     registration_form_inner_text:
@@ -564,7 +547,6 @@ fr:
       level: "Level"
       profile_pic: "Photo Profile"
 
-
   apply:
     important_information:
       title: "Informations importantes pour la soumission du formulaire"
@@ -582,7 +564,7 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Min 4 participant·e·s</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
-            <a href="/group_forms/new" class="btn card-button">Voir</a>
+            <a href="/group_forms/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
       trio: |
@@ -591,7 +573,7 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Trio</p>
             <p class="card-text mb-0">Veuillez vous assurer de remplir toutes les cases</p><br>
-            <a href="/trios/new" class="btn card-button">Voir</a>
+            <a href="/trios/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
       duo: |
@@ -609,6 +591,6 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Solo</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
-            <a href="/individual_forms/new" class="btn card-button">Voir</a>
+            <a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
