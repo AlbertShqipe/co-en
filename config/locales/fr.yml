@@ -609,6 +609,6 @@ fr:
           <div class="d-flex justify-content-around flex-column">
             <p class="card-text">Solo</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
-            <a href="/duo/new" class="btn card-button">Voir</a>
+            <a href="/individual_forms/new" class="btn card-button">Voir</a>
           </div>
         </div>
