@@ -1,15 +1,5 @@
-<div class="container mt-2">
+<div class="container mt-2 apply-text">
   <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
-  <%# <div style="color:white">
-    <h4>Informations Importantes pour la Soumission des Formulaires</h4>
-    <p>Pour chaque formulaire individuel et chaque participant d'un groupe, vous devez fournir le formulaire d'autorisation approprié en fonction de l'âge du participant au moment de la soumission de l'inscription :</p>
-    <ul>
-      <li>Si le participant a 18 ans ou plus : Vous devez télécharger, remplir et téléverser le formulaire "Autorisation de Participation Candidat Majeur".</li>
-      <li>Si le participant a moins de 18 ans : Vous devez télécharger, remplir et téléverser le formulaire "Autorisation de Participation Candidat Mineur".</li>
-    </ul>
-    <p>Ces formulaires doivent être téléversés au moment de la soumission de votre inscription individuelle ou de groupe.</p>
-    <p>Veuillez vous assurer que le bon formulaire est rempli et téléversé pour chaque participant afin de garantir leur éligibilité. Les soumissions incomplètes ou incorrectes peuvent entraîner des retards ou une disqualification.</p>
-  </div> %>
   <div class="important-information mt-4">
     <h4><%= t('apply.important_information.title') %></h4>
     <p><%= t('apply.important_information.paragraph1') %></p>
