@@ -35,6 +35,28 @@ class IndividualFormsController < ApplicationController
     end
   end
 
+  def info
+    @solo = IndividualForm.find(params[:id])
+    render json: {
+      id: @solo.id,
+      name: @solo.first_name,
+      last_name: @solo.last_name,
+      birth_date: @solo.birth_date.strftime("%B %d, %Y"),
+      address: @solo.address,
+      phone: @solo.phone,
+      email: @solo.email,
+      teacher_name: @solo.teacher_name,
+      teacher_phone: @solo.teacher_phone,
+      teacher_email: @solo.teacher_email,
+      dance_school: @solo.dance_school,
+      category: @solo.category,
+      style: @solo.style,
+      level: @solo.level,
+    }
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Solo not found" }, status: :not_found
+  end
+
   def individual_form_params
     params.require(:individual_form).permit(:first_name, :last_name, :birth_date, :address, :phone, :email, :teacher_name, :dance_school, :teacher_phone, :teacher_email, :category, :style, :level, :photo, :files)
   end

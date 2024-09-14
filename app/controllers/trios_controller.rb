@@ -27,7 +27,7 @@ class TriosController < ApplicationController
   end
 
   def info
-    @trio = current_user.trios.find(params[:id])
+    @trio = Trio.find(params[:id])
     render json: {
       id: @trio.id,
       name: @trio.name,

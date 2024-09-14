@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'apply' => 'pages#apply'
   get 'profile' => 'pages#profile'
   get 'contact' => 'pages#contact'
+  get 'admin' => 'pages#admin'
 
   # Popup
   get 'dismiss_welcome_popup', to: 'pages#dismiss_welcome_popup'
@@ -33,8 +34,18 @@ Rails.application.routes.draw do
     resources :trio_participants, only: [:create, :destroy]
   end
 
+  # Info of a specific solo form
+  get '/solos/:id/info', to: 'individual_forms#info'
+
+  # Info of a specific duo form
+  get '/duos/:id/info', to: 'duo#info'
+
+  # Info of a specific trio form
+  get '/trios/:id/info', to: 'trios#info'
+
   # Info of a specific group form
   get '/group_forms/:id/info', to: 'group_forms#info'
+
 
   resources :individual_forms, only: [:index, :new, :create]
 

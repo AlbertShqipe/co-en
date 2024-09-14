@@ -26,7 +26,7 @@ class DuoController < ApplicationController
   end
 
   def info
-    @duo = current_user.duos.find(params[:id])
+    @duo = Duo.find(params[:id])
     render json: {
       id: @duo.id,
       name: @duo.name,

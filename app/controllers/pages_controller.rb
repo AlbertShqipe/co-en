@@ -40,4 +40,21 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def admin
+    @users = User.all
+    @user = User.find(params[:id]) if params[:id].present?
+    @groups = GroupForm.all
+    @group = GroupForm.find(params[:id]) if params[:id].present?
+    @duos = Duo.all
+    @duo = Duo.find(params[:id]) if params[:id].present?
+    @trios = Trio.all
+    @trios = Trio.find(params[:id]) if params[:id].present?
+    @solos = IndividualForm.all
+    @solo = IndividualForm.find(params[:id]) if params[:id].present?
+    respond_to do |format|
+      format.html # for regular HTML requests
+      format.js   # for AJAX requests$
+    end
+  end
 end
