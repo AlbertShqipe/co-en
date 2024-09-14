@@ -565,7 +565,7 @@ fr:
         <div class="card-body">
           <h5 class="card-title">Formulaire d'Inscription de Groupe</h5>
           <div class="d-flex justify-content-around flex-column">
-            <p class="card-text">Min 4 participant·e·s, max 15</p>
+            <p class="card-text">Min 4 participant·e·s</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
             <a href="/group_forms/new" class="btn card-button">Voir</a>
           </div>

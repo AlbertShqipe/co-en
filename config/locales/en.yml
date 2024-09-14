@@ -595,7 +595,7 @@ en:
         <div class="card-body" >
           <h5 class="card-title">Group Registration Form</h5>
           <div class="d-flex justify-content-around flex-column">
-            <p class="card-text">Min 4 partecipants, max 15</p>
+            <p class="card-text">Min 4 partecipants</p>
             <p class="card-text mb-0" >Please make sure to fill up all the boxes</p><br>
             <a href="/group_forms/new" class="btn card-button">View</a>
           </div>

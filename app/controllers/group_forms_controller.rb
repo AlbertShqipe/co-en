@@ -19,8 +19,6 @@ class GroupFormsController < ApplicationController
     @group_form.user_id = current_user.id
     if @group_form.participants.size < 4
       redirect_to new_group_form_path, alert: 'At least four participants are required'
-    elsif @group_form.participants.size > 15
-      redirect_to new_group_form_path, alert: 'A group can have a maximum of 15 participants'
     elsif @group_form.save
       redirect_to apply_path, notice: 'Group form was successfully created.'
     else
