@@ -65,7 +65,7 @@ export default class extends Controller {
                 <td colspan="2">Solo Information</td>
               </tr>
               <tr>
-                <td colspan="2"><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/development/${data.photo}?_a=BACE6GEv', width="100px"></td>
+                <td colspan="2"><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
               </tr>
               <tr>
                 <td>Solo Name</td>
@@ -200,7 +200,7 @@ export default class extends Controller {
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/development/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
