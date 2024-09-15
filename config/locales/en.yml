@@ -147,7 +147,6 @@ en:
         link15: |
           <a href="#media" class="nav-link">MEDIA</a>
 
-
   navbar:
     content:
         link1: |
@@ -166,6 +165,8 @@ en:
           <a href="/individual_forms?locale=en" class="dropdown-item">My Individual Forms</a>
         link8: |
           <a href="/group_forms?locale=en" class="dropdown-item">My Group Forms</a>
+        link9: |
+          <a href="/apply?locale=en" class="dropdown-item">REGISTER</a>
         link10: |
           <a href="/?locale=en" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -263,7 +264,6 @@ en:
         link15: |
           <a href="/media?locale=en" class="nav-link">MEDIA</a>
 
-
   expandable_div_left:
     content: |
       <div class="expandable-div-left">
@@ -278,11 +278,11 @@ en:
         </div>
       </div>
 
-
   home:
-
     info:
-      link: |
+      link1: |
+        <a href="/apply?locale=en" class='button-light-gray'>REGISTER</a>
+      link2: |
         <a href="/apply?locale=en" class='button-light-gray'>REGISTER</a>
       text: |
         <div>
@@ -418,7 +418,6 @@ en:
         btn:
             create: "Submit Candidature"
 
-
   duo_registration_form:
     registration_form_inner_text:
       h1: |
@@ -457,7 +456,6 @@ en:
             remove: "Remove"
             add: "Add Participant"
             create: "Create Duo"
-
 
   trio_registration_form:
     registration_form_inner_text:
@@ -537,7 +535,6 @@ en:
             add: "Add Participant"
             create: "Create Group"
 
-
   index_groups:
     th:
       attributes: "Attributes"
@@ -556,7 +553,6 @@ en:
       participants_n: "N of Participants"
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
-
 
   index_individuals:
     th:
@@ -577,7 +573,6 @@ en:
       style: "Style"
       level: "Niveau"
       profile_pic: "Photo de Profil"
-
 
   apply:
     important_information:
@@ -626,3 +621,87 @@ en:
             <a href="/individual_forms/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
+
+  individual_form_index:
+    text: |
+      <h3 class="text-center">You have not submitted any Individual forms yet</h3>
+
+  duo_form_index:
+    text: |
+      <h3 class="text-center">You have not submitted any Duo forms yet</h3>
+
+  trio_form_index:
+    text: |
+      <h3 class="text-center">You have not submitted any Trio forms yet</h3>
+
+  group_form_index:
+    text: |
+      <h3 class="text-center">You have not submitted any Group forms yet</h3>
+
+  session_links:
+    link1: "Log in"
+    link2: "Sign up"
+    link3: "Forgot your password?"
+    link4: "Didn't receive confirmation instructions?"
+    link5: "Didn't receive unlock instructions?"
+    link6: "Sign in with"
+
+  devise_session:
+    confirmation:
+      new: "Resend confirmation instructions"
+    mailer:
+      text1: "Welcome"
+      text2: "You can confirm your account email through the link below:"
+      text3: "Confirm my account"
+      hello: "Hello"
+      sorry: "We're contacting you to notify you that your email is being changed to"
+    password: "We're contacting you to notify you that your password has been changed."
+    reset_password:
+      text1: "Someone has requested a link to change your password. You can do this through the link below."
+      text2: "Change my password"
+      text3: "If you didn't request this, please ignore this email."
+      text4: "Your password won't change until you access the link above and create a new one."
+      links:
+    unlock:
+      text1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      text2: "Click the link below to unlock your account:"
+      text3: "Unlock my account"
+    passwords:
+      edit:
+        text1: "Change your password"
+        text2: "New password"
+        text3: "Confirm your new password"
+      new:
+        text1: "Forgot your password?"
+        text2: "Send me reset password instructions"
+    registration:
+      edit:
+        text1: "Edit"
+        text2: "Currently waiting confirmation for:"
+        text3: "leave it blank if you don't want to change it"
+        text4: "we need your current password to confirm your changes"
+        text5: "Update"
+        text6: "Cancel my account"
+        text7: "Unhappy?"
+        text8: "Are you sure?"
+        text9: "Back"
+      new:
+        text1: "Sign up"
+        text2: "Name"
+        text3: "Last name"
+        text4: "Password"
+        text5: "Confirm Password"
+        text6: "characters minimum"
+    sessions:
+      new:
+        text1: "Log in"
+        text2: "Remember me"
+
+
+
+
+
+  footer:
+    copyright: "© 2023 - Tous droits réservés."
+    links:
+      privacy_policy: "Politique de Confidentialité"

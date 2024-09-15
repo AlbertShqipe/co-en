@@ -118,7 +118,6 @@ fr:
         link15: |
           <a href="#media" class="nav-link">MÉDIAS</a>
 
-
   navbar:
     content:
       link1: |
@@ -137,6 +136,8 @@ fr:
         <a href="/individual_forms?locale=fr" class="dropdown-item">Mes Formulaires Individuels</a>
       link8: |
         <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupes</a>
+      link9: |
+        <a href="/apply?locale=fr" class="dropdown-item">S'INSCRIRE</a>
       link10: |
           <a href="/?locale=fr" class= "navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" zoomAndPan="magnify" viewBox="0 0 222.75 89.999999" height="70" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -234,7 +235,6 @@ fr:
       link15: |
         <a href="/media?locale=fr" class="nav-link">MÉDIAS</a>
 
-
   expandable_div_left:
     content: |
       <div class="expandable-div-left">
@@ -249,10 +249,11 @@ fr:
         </div>
       </div>
 
-
   home:
     info:
-      link: |
+      link1: |
+        <a href="/apply?locale=fr" class='button-light-gray'>S'INSCRIRE</a>
+      link2: |
         <a href="/apply?locale=fr" class='button-light-gray'>S'INSCRIRE</a>
       text: |
         <div>
@@ -427,7 +428,6 @@ fr:
             add: "Ajouter un·e Participant·e"
             create: "Créer le Duo"
 
-
   trio_registration_form:
     registration_form_inner_text:
       h1: |
@@ -467,7 +467,6 @@ fr:
             add: "Ajouter un·e Participant·e"
             create: "Créer le Trio"
 
-
   group_registration_form:
     registration_form_inner_text:
       h1: |
@@ -506,7 +505,6 @@ fr:
             remove: "Retirer"
             add: "Ajouter un·e participant·e"
             create: "Créer un groupe"
-
 
   index_groups:
     th:
@@ -594,3 +592,84 @@ fr:
             <a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
+
+  individual_form_index:
+    text: |
+      <h3 class="text-center">Vous n'avez pas encore soumis de formulaires individuels</h3>
+
+  duo_form_index:
+    text: |
+      <h3 class="text-center">Vous n'avez pas encore soumis de formulaires Duo</h3>
+
+  trio_form_index:
+    text: |
+      <h3 class="text-center">Vous n'avez pas encore soumis de formulaires Trio</h3>
+
+  group_form_index:
+    text: |
+      <h3 class="text-center">Vous n'avez pas encore soumis de formulaires de groupe</h3>
+
+  session_links:
+    link1: "Se connecter"
+    link2: "S'inscrire"
+    link3: "Mot de passe oublié ?"
+    link4: "Vous n'avez pas reçu les instructions de confirmation ?"
+    link5: "Vous n'avez pas reçu les instructions de déverrouillage ?"
+    link6: "Se connecter avec"
+
+  devise_session:
+    confirmation:
+      new: "Renvoyer les instructions de confirmation"
+    mailer:
+      text1: "Bienvenue"
+      text2: "Vous pouvez confirmer votre adresse e-mail via le lien ci-dessous:"
+      text3: "Confirmer mon compte"
+      hello: "Bonjour"
+      sorry: "Nous vous contactons pour vous informer que votre adresse e-mail est en train d'être changée en"
+    password: "Nous vous contactons pour vous informer que votre mot de passe a été modifié."
+    reset_password:
+      text1: "Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez le faire via le lien ci-dessous."
+      text2: "Modifier mon mot de passe"
+      text3: "Si vous n'avez pas demandé cela, veuillez ignorer cet e-mail."
+      text4: "Votre mot de passe ne sera pas modifié tant que vous n'aurez pas accédé au lien ci-dessus et créé un nouveau mot de passe."
+    unlock:
+      text1: "Votre compte a été verrouillé en raison d'un nombre excessif de tentatives de connexion infructueuses."
+      text2: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte :"
+      text3: "Déverrouiller mon compte"
+    passwords:
+      edit:
+        text1: "Changer votre mot de passe"
+        text2: "Nouveau mot de passe"
+        text3: "Confirmez votre nouveau mot de passe"
+      new:
+        text1: "Mot de passe oublié ?"
+        text2: "Envoyez-moi les instructions pour réinitialiser mon mot de passe"
+    registration:
+      edit:
+        text1: "Modifier"
+        text2: "En attente de confirmation pour :"
+        text3: "laissez-le vide si vous ne souhaitez pas le modifier"
+        text4: "nous avons besoin de votre mot de passe actuel pour confirmer vos modifications"
+        text5: "Mettre à jour"
+        text6: "Annuler mon compte"
+        text7:  "Pas satisfait ?"
+        text8: "Êtes-vous sûr ?"
+        text9: "Retour"
+      new:
+        text1: "S'inscrire"
+        text2: "Prénom"
+        text3: "Nom"
+        text4: "Mot de passe"
+        text5: "Confirmer le mot de passe"
+        text6: "caractères minimum"
+    sessions:
+      new:
+        text1: "Se connecter"
+        text2: "Se souvenir de moi"
+
+
+
+  footer:
+    copyright: "© 2023 - Tous droits réservés."
+    links:
+      privacy_policy: "Politique de Confidentialité"

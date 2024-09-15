@@ -1,6 +1,6 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
-    <h1 style="text-align:center"><%= current_user.name %> <%= current_user.last_name %>'s Trio Forms</h1>
+    <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Trio Forms</h1>
     <% if current_user.role == "competitor" && current_user.trios.present? %>
       <table class="table-form mx-auto">
         <thead>
@@ -124,7 +124,7 @@
       </table>
     <% else %>
       <div class="d-flex justify-content-center">
-        <h3 style="color:white">You have not submitted any Trio forms yet</h3>
+        <h3 style="color:white"><%= t("trio_form_index.text").html_safe %></h3>
       </div>
     <% end %>
   </div>

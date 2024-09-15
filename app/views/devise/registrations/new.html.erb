@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 <div class="container pt-3">
-  <h2>Sign up</h2>
+  <h2><%= t("devise_session.registration.new.text1") %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -20,32 +20,36 @@
 
     <div class="form-inputs">
       <%= f.input :name,
+                  label: t("devise_session.registration.new.text2"),
                   required: true,
-                  input_html: { autocomplete: "Name", class: "input-session" } %>
+                  input_html: { autocomplete: t("devise_session.registration.new.text2"), class: "input-session" } %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :last_name,
+                  label: t("devise_session.registration.new.text3"),
                   required: true,
-                  input_html: { autocomplete: "Last name", class: "input-session" } %>
+                  input_html: { autocomplete: t("devise_session.registration.new.text3"), class: "input-session" } %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  hint: ("#{@minimum_password_length} #{t('devise_session.registration.new.text6')} " if @minimum_password_length),
                   hint_html: { class: "custom-hint" },
+                  label: t("devise_session.registration.new.text4"),
                   input_html: { autocomplete: "new-password", class: "input-session" } %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :password_confirmation,
                   required: true,
+                  label: t("devise_session.registration.new.text5"),
                   input_html: { autocomplete: "new-password", class: "input-session" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "input-btn" %>
+      <%= f.button :submit, t("devise_session.registration.new.text1"), class: "input-btn" %>
     </div>
   <% end %>
 
