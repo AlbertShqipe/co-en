@@ -1,88 +1,102 @@
-<div class="d-flex clearfix">
-  <div class="portfolio-container" data-controller="tabs">
-    <div class="portfolio-tab-bar">
-      <select id="solo-select">
-        <option value="">Select a Solo</option>
-        <% @solos.each do |solo| %>
-          <option value="<%= solo.id %>"><%= solo.first_name %></option>
-        <% end %>
-      </select>
-    </div>
-    <div id="solo-info" data-tabs-target="soloInfo" class="portfolio-content">
-      <!-- This will be dynamically populated based on the selected group -->
-      <p>Please select a solo to view its information.</p>
+<div class="portfolio-cont" data-controller="tabs-admin" data-tabs-default-value="solos">
+  <div class="portfolio-t-b" >
+    <ul>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="solos" class="active">Solos</li>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="duos">Duos</li>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="trios">Trios</li>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="group">Group Forms</li>
+    </ul>
+  </div>
+  <div class="portfolio-con" data-tabs-admin-target="tab" data-tabs-admin-type-value="solos" data-id="solos">
+    <div class="portfolio-container" data-controller="tabs">
+      <div class="portfolio-tab-bar">
+        <select id="solo-select">
+          <option value="">Select a Solo</option>
+          <% @solos.each do |solo| %>
+            <option value="<%= solo.id %>"><%= solo.first_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="solo-info" data-tabs-target="soloInfo" class="portfolio-content mx-auto">
+        <!-- This will be dynamically populated based on the selected group -->
+        <p><%= @solos.count %>
+          <% if @solos.count == 1 %>
+            <%= "Individual Form" %>
+          <% else %>
+            <%= "Individual Forms" %>
+          <% end %>
+        </p>
+        <p>Please select a solo to view its information.</p>
+      </div>
     </div>
   </div>
-  <div class="portfolio-container" data-controller="tabs">
-    <div class="portfolio-tab-bar">
-      <select id="duo-select">
-        <option value="">Select a Duo</option>
-        <% @duos.each do |duo| %>
-          <option value="<%= duo.id %>"><%= duo.name %></option>
-        <% end %>
-      </select>
-    </div>
-    <div id="duo-info" data-tabs-target="duoInfo" class="portfolio-content">
-      <!-- This will be dynamically populated based on the selected group -->
-      <p>Please select a duo to view its information.</p>
-    </div>
-  </div>
-  <div class="portfolio-container" data-controller="tabs">
-    <div class="portfolio-tab-bar">
-      <select id="trio-select">
-        <option value="">Select a Trio</option>
-        <% @trios.each do |trio| %>
-          <option value="<%= trio.id %>"><%= trio.name %></option>
-        <% end %>
-      </select>
-    </div>
-    <div id="trio-info" data-tabs-target="trioInfo" class="portfolio-content">
-      <!-- This will be dynamically populated based on the selected group -->
-      <p>Please select a duo to view its information.</p>
+  <div class="portfolio-con hidden" data-tabs-admin-target="tab" data-tabs-admin-type-value="duos" data-id="duos">
+    <div class="portfolio-container" data-controller="tabs">
+      <div class="portfolio-tab-bar">
+        <select id="duo-select">
+          <option value="">Select a Duo</option>
+          <% @duos.each do |duo| %>
+            <option value="<%= duo.id %>"><%= duo.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="duo-info" data-tabs-target="duoInfo" class="portfolio-content">
+        <!-- This will be dynamically populated based on the selected group -->
+        <p><%= @duos.count %>
+          <% if @duos.count == 1 %>
+            <%= "Duo Form" %>
+          <% else %>
+            <%= "Duo Forms" %>
+          <% end %>
+        </p>
+        <p>Please select a duo to view its information.</p>
+      </div>
     </div>
   </div>
-  <div class="portfolio-container" data-controller="tabs">
-    <div class="portfolio-tab-bar">
-      <select id="group-select">
-        <option value="">Select a Group</option>
-        <% @groups.each do |group| %>
-          <option value="<%= group.id %>"><%= group.name %></option>
-        <% end %>
-      </select>
+  <div class="portfolio-con hidden" data-tabs-admin-target="tab" data-tabs-admin-type-value="trios" data-id="trios">
+    <div class="portfolio-container" data-controller="tabs">
+      <div class="portfolio-tab-bar">
+        <select id="trio-select">
+          <option value="">Select a Trio</option>
+          <% @trios.each do |trio| %>
+            <option value="<%= trio.id %>"><%= trio.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="trio-info" data-tabs-target="trioInfo" class="portfolio-content">
+        <!-- This will be dynamically populated based on the selected group -->
+        <p><%= @trios.count %>
+          <% if @trios.count == 1 %>
+            <%= "Trio Form" %>
+          <% else %>
+            <%= "Trio Forms" %>
+          <% end %>
+        </p>
+        <p>Please select a trio to view its information.</p>
+      </div>
     </div>
-    <div id="group-info" data-tabs-target="groupInfo" class="portfolio-content">
-      <!-- This will be dynamically populated based on the selected group -->
-      <p>Please select a group to view its information.</p>
+  </div>
+  <div class="portfolio-con hidden" data-tabs-admin-target="tab" data-tabs-admin-type-value="group" data-id="group">
+    <div class="portfolio-container" data-controller="tabs">
+      <div class="portfolio-tab-bar">
+        <select id="group-select">
+          <option value="">Select a Group</option>
+          <% @groups.each do |group| %>
+            <option value="<%= group.id %>"><%= group.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="group-info" data-tabs-target="groupInfo" class="portfolio-content">
+        <!-- This will be dynamically populated based on the selected group -->
+        <p><%= @trios.count %>
+          <% if @groups.count == 1 %>
+            <%= "Group Form" %>
+          <% else %>
+            <%= "Group Forms" %>
+          <% end %>
+        </p>
+        <p>Please select a group to view its information.</p>
+      </div>
     </div>
   </div>
 </div>
-<% @solos.each do |solo| %>
-  <%= calculate_age(solo.birth_date) %>
-<% end %>
-
-<% @duos.all.each do |duo| %>
-  <% total_age = duo.duo_participants.sum { |participant| participant.age } %>
-  <% participant_count = duo.duo_participants.size %>
-  <% average_age = participant_count > 0 ? total_age.to_f / participant_count : 0 %>
-
-  <p>Duo: <%= duo.name %></p>
-  <p>Average Age: <%= average_age.round(2) %> years</p>
-<% end %>
-
-<% @trios.all.each do |trio| %>
-  <% total_age = trio.trio_participants.sum { |participant| participant.age } %>
-  <% participant_count = trio.trio_participants.size %>
-  <% average_age = participant_count > 0 ? total_age.to_f / participant_count : 0 %>
-
-  <p>Trio: <%= trio.name %></p>
-  <p>Average Age: <%= average_age.round(2) %> years</p>
-<% end %>
-
-<% @groups.all.each do |group| %>
-  <% total_age = group.participants.sum { |participant| participant.age } %>
-  <% participant_count = group.participants.size %>
-  <% average_age = participant_count > 0 ? total_age.to_f / participant_count : 0 %>
-
-  <p>Group: <%= group.name %></p>
-  <p>Average Age: <%= average_age.round(2) %> years</p>
-<% end %>

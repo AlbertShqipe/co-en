@@ -29,7 +29,11 @@ class GroupFormsController < ApplicationController
 
 
   def info
-    @group_form = current_user.group_forms.find(params[:id])
+    @group_form = GroupForm.find(params[:id])
+    total_age = @group_form.participants.sum { |participant| participant.age }
+    participant_count = @group_form.participants.size
+    average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
+    average_age.round(2)
     render json: {
       id: @group_form.id,
       name: @group_form.name,
@@ -42,6 +46,7 @@ class GroupFormsController < ApplicationController
       title_of_music: @group_form.title_of_music,
       composer: @group_form.composer,
       length_of_piece: @group_form.length_of_piece,
+      average_age: average_age.round(2),
       participants: @group_form.participants.map { |participant| { id: participant.id,
                                                                     name: participant.name,
                                                                     last_name: participant.last_name,

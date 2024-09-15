@@ -52,6 +52,7 @@ class IndividualFormsController < ApplicationController
       category: @solo.category,
       style: @solo.style,
       level: @solo.level,
+      photo: @solo.photo.key,
     }
     rescue ActiveRecord::RecordNotFound
       render json: { error: "Solo not found" }, status: :not_found

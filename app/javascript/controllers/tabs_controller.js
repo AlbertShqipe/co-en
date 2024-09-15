@@ -57,21 +57,70 @@ export default class extends Controller {
           // console.log("Fetched data:", data);
           // Populate the HTML with the fetched data
           soloInfoDiv.innerHTML = `
-            <h1>Solo ${data.id}</h1>
-            <h2>Solo Information</h2>
-            <p>Solo Name: ${data.name}</p>
-            <p>Solo Last Name: ${data.last_name}</p>
-            <p>SoloBirthday: ${data.birth_date}</p>
-            <p>Solo Address: ${data.address}</p>
-            <p>Solo Phone: ${data.phone}</p>
-            <p>Solo Email: ${data.email}</p>
-            <p>Solo Style: ${data.style}</p>
-            <p>Solo Level: ${data.level}</p>
-            <p>Category: ${data.category}</p>
-            <p>Dance School: ${data.dance_school}</p>
-            <p>Teacher: ${data.teacher_name}</p>
-            <p>Teacher Phone: ${data.teacher_phone}</p>
-            <p>Teacher Email: ${data.teacher_email}</p>`;
+            <table border="1" cellpadding="20" style="margin:auto; width:500px">
+              <tr>
+                <th colspan="2">Solo ${data.id}</th>
+              </tr>
+              <tr>
+                <td colspan="2">Solo Information</td>
+              </tr>
+              <tr>
+                <td colspan="2"><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/development/${data.photo}?_a=BACE6GEv', width="100px"></td>
+              </tr>
+              <tr>
+                <td>Solo Name</td>
+                <td>${data.name}</td>
+              </tr>
+              <tr>
+                <td>Solo Last Name</td>
+                <td>${data.last_name}</td>
+              </tr>
+              <tr>
+                <td>Solo Birthday</td>
+                <td>${data.birth_date}</td>
+              </tr>
+              <tr>
+                <td>Solo Address</td>
+                <td>${data.address}</td>
+              </tr>
+              <tr>
+                <td>Solo Phone</td>
+                <td>${data.phone}</td>
+              </tr>
+              <tr>
+                <td>Solo Email</td>
+                <td>${data.email}</td>
+              </tr>
+              <tr>
+                <td>Solo Style</td>
+                <td>${data.style}</td>
+              </tr>
+              <tr>
+                <td>Solo Level</td>
+                <td>${data.level}</td>
+              </tr>
+              <tr>
+                <td>Category</td>
+                <td>${data.category}</td>
+              </tr>
+              <tr>
+                <td>Dance School</td>
+                <td>${data.dance_school}</td>
+              </tr>
+              <tr>
+                <td>Teacher</td>
+                <td>${data.teacher_name}</td>
+              </tr>
+              <tr>
+                <td>Teacher Phone</td>
+                <td>${data.teacher_phone}</td>
+              </tr>
+              <tr>
+                <td>Teacher Email</td>
+                <td>${data.teacher_email}</td>
+              </tr>
+            </table>`;
+
         })
         .catch(error => {
           console.error("Error fetching solo data:", error);
@@ -95,22 +144,67 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           duoInfoDiv.innerHTML = `
-            <h1>Duo ${data.id}</h1>
-            <h2>Duo Information</h2>
-            <p>Duo Name: ${data.name}</p>
-            <p>Duo Responsible: ${data.responsable}</p>
-            <p>Duo Address: ${data.address}</p>
-            <p>Duo Phone: ${data.phone}</p>
-            <p>Duo Email: ${data.email}</p>
-            <p>Duo Discipline: ${data.discipline}</p>
-            <p>Duo Level: ${data.level}</p>
-            <p>Title of Music: ${data.title_of_music}</p>
-            <p>Composer: ${data.composer}</p>
-            <p>Length Of Piece: ${data.length_of_piece}</p>
-            <h3>Participants</h3>
-            <ul style="list-style-type:none; padding:0; margin:0; display:flex; justify-content:center ">
-              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name}</li>`)};
-            </ul>`;
+            <table border="1" cellpadding="20" style="margin:auto; width:500px">
+              <tr>
+                <th colspan="2">Duo ${data.id}</th>
+              </tr>
+              <tr>
+                <td colspan="2">Duo Information</td>
+              </tr>
+              <tr>
+                <td>Duo Name</td>
+                <td>${data.name}</td>
+              </tr>
+              <tr>
+                <td>Duo Responsible</td>
+                <td>${data.responsable}</td>
+              </tr>
+              <tr>
+                <td>Duo Address</td>
+                <td>${data.address}</td>
+              </tr>
+              <tr>
+                <td>Duo Phone</td>
+                <td>${data.phone}</td>
+              </tr>
+              <tr>
+                <td>Duo Email</td>
+                <td>${data.email}</td>
+              </tr>
+              <tr>
+                <td>Duo Discipline</td>
+                <td>${data.discipline}</td>
+              </tr>
+              <tr>
+                <td>Duo Level</td>
+                <td>${data.level}</td>
+              </tr>
+              <tr>
+                <td>Title of Music</td>
+                <td>${data.title_of_music}</td>
+              </tr>
+              <tr>
+                <td>Composer</td>
+                <td>${data.composer}</td>
+              </tr>
+              <tr>
+                <td>Length Of Piece</td>
+                <td>${data.length_of_piece}</td>
+              </tr>
+              <tr>
+                <td>Average Age</td>
+                <td>${data.average_age}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><strong>Participants</strong></td>
+              </tr>
+              ${data.participants.map(participant => `
+                <tr>
+                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/development/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
+                </tr>
+              `)};
+            </table>`;
         })
         .catch(error => {
           console.error("Error fetching duo data:", error);
@@ -146,9 +240,10 @@ export default class extends Controller {
             <p>Title of Music: ${data.title_of_music}</p>
             <p>Composer: ${data.composer}</p>
             <p>Length Of Piece: ${data.length_of_piece}</p>
+            <p>Average Age: ${data.average_age}</p>
             <h3>Participants</h3>
             <ul style="list-style-type:none; padding:0; margin:0; display:flex; justify-content:center ">
-              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name}</li>`)};
+              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name} ${participant.age}</li>`)};
             </ul>`;
         })
         .catch(error => {
@@ -185,9 +280,10 @@ export default class extends Controller {
             <p>Title of Music: ${data.title_of_music}</p>
             <p>Composer: ${data.composer}</p>
             <p>Length Of Piece: ${data.length_of_piece}</p>
+            <p>Average Age: ${data.average_age}</p>
             <h3>Participants</h3>
             <ul style="list-style-type:none; padding:0; margin:0; display:flex; justify-content:center ">
-              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name}</li>`)};
+              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name} ${participant.age}</li>`)};
             </ul>`;
         })
         .catch(error => {
@@ -198,5 +294,10 @@ export default class extends Controller {
       // Reset the group info content if no group is selected
       groupInfoDiv.innerHTML = "<p>Please select a group to view its information.</p>";
     }
+
   }
+}
+function capitalize(str) {
+  if (!str) return ''; // Check for empty or null strings
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }

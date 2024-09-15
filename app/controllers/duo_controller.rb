@@ -27,6 +27,10 @@ class DuoController < ApplicationController
 
   def info
     @duo = Duo.find(params[:id])
+    total_age = @duo.duo_participants.sum { |participant| participant.age }
+    participant_count = @duo.duo_participants.size
+    average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
+    average_age.round(2)
     render json: {
       id: @duo.id,
       name: @duo.name,
@@ -39,6 +43,7 @@ class DuoController < ApplicationController
       title_of_music: @duo.title_of_music,
       composer: @duo.composer,
       length_of_piece: @duo.length_of_piece,
+      average_age: average_age.round(2),
       participants: @duo.duo_participants.map { |participant| {
                                                   id: participant.id,
                                                   name: participant.name,
@@ -47,6 +52,7 @@ class DuoController < ApplicationController
                                                   age: participant.age,
                                                   photo: participant.photo.key,
                                                   file: participant.files
+
                                                 }
                                               }
     }
