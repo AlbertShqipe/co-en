@@ -53,7 +53,7 @@ class GroupFormsController < ApplicationController
                                                                     birth_date: participant.birth_date,
                                                                     age: participant.age,
                                                                     photo: participant.photo.key,
-                                                                    file: participant.file
+                                                                    file: participant.file,
                                                                     id_card: participant.id_card }
                                                                   }
     }
@@ -64,6 +64,13 @@ class GroupFormsController < ApplicationController
   private
 
   def group_form_params
-    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :file, :photo, :id_card])
+    params.require(:group_form).permit(
+      :name, :responsable, :address, :phone, :email,
+      :title_of_music, :composer, :length_of_piece,
+      :discipline, :level,
+      participants_attributes: [
+        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+      ]
+    )
   end
 end
