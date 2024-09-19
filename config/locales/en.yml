@@ -453,6 +453,7 @@ en:
           input_text:
             pic: "Participant Picture"
             file: "Authorization Form Filled"
+            file1: "Identity Card"
           btn:
             remove: "Remove"
             add: "Add Participant"
@@ -492,6 +493,7 @@ en:
           input_text:
             pic: "Participant Picture"
             file: "Authorization Form Filled"
+            file1: "Identity Card"
           btn:
             remove: "Remove"
             add: "Add Participant"
@@ -531,6 +533,7 @@ en:
           input_text:
             pic: "Participant Picture"
             file: "Authorization Form Filled"
+            file1: "Identity Card"
           btn:
             remove: "Remove"
             add: "Add Participant"
