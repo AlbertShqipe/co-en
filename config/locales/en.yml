@@ -409,6 +409,7 @@ en:
         input_text:
           pic: "Candidate Picture"
           file: "Authorization Form Filled"
+          file1: "Identity Card"
         span:
           no_file: "No file selected"
         prompts:

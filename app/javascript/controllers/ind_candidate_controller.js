@@ -13,5 +13,10 @@ export default class extends Controller {
       document.getElementById(`file-name`).textContent = fileName;
       console.log(fileName);
     });
+    document.getElementById(`file1-input`).addEventListener("change", function() {
+      const file1Name = this.files[0] ? this.files[0].name : "No file selected";
+      document.getElementById(`file1-name`).textContent = file1Name;
+      console.log(file1Name);
+    });
   }
 }

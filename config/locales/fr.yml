@@ -380,6 +380,7 @@ fr:
         input_text:
           pic: "Photo du·de la candidat·e"
           file: "Formulaire d'Autorisation Rempli"
+          file1: "Carte d'Identité"
         span:
           no_file: "Aucun fichier sélectionné"
         prompts:
