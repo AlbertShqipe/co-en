@@ -3,6 +3,7 @@ class GroupFormsController < ApplicationController
   def index
     @group_forms = current_user.group_forms
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
+    @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
   end
 
   def show
