@@ -53,7 +53,8 @@ class GroupFormsController < ApplicationController
                                                                     birth_date: participant.birth_date,
                                                                     age: participant.age,
                                                                     photo: participant.photo.key,
-                                                                    file: participant.files }
+                                                                    file: participant.file
+                                                                    id_card: participant.id_card }
                                                                   }
     }
     rescue ActiveRecord::RecordNotFound
@@ -63,6 +64,6 @@ class GroupFormsController < ApplicationController
   private
 
   def group_form_params
-    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :files, :photo])
+    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :file, :photo, :id_card])
   end
 end

@@ -3,5 +3,6 @@ class TrioParticipant < ApplicationRecord
   validates :name, :last_name, :birth_date, :age, presence: true
 
   has_one_attached :photo
-  has_many_attached :files
+  has_one_attached :file
+  has_one_attached :id_card
 end

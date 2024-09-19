@@ -53,6 +53,8 @@ class IndividualFormsController < ApplicationController
       style: @solo.style,
       level: @solo.level,
       photo: @solo.photo.key,
+      file: @solo.file,
+      id_card: @solo.id_card
     }
     rescue ActiveRecord::RecordNotFound
       render json: { error: "Solo not found" }, status: :not_found

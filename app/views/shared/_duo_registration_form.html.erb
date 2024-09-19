@@ -87,9 +87,14 @@
                       <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <%= p.file_field :files, as: :file, id: "file-input", class: "file-input" %>
+                      <%= p.file_field :file, as: :file, id: "file-input", class: "file-input" %>
                       <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
                       <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
+                    </div>
+                    <div class="custom-file-input">
+                      <%= p.file_field :id_card, as: :file, id: "id-input", class: "file-input" %>
+                      <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                      <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                   </div>
                 </div>
@@ -116,9 +121,14 @@
                     <span id="photo-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
                   <div class="custom-file-input">
-                    <input type="file" name="duo[duo_participants_attributes][1][files]" id="file-input1" class="file-input">
+                    <input type="file" name="duo[duo_participants_attributes][1][file]" id="file-input1" class="file-input">
                     <label for="file-input1" id="file-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
                     <span id="file-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
+                  </div>
+                  <div class="custom-file-input">
+                    <input type="file" name="duo[duo_participants_attributes][1][id_card]" id="id-input1" class="file-input">
+                    <label for="id-input1" id="id-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                    <span id="id-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
                 </div>
               </div>

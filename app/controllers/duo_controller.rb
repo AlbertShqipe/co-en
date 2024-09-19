@@ -51,8 +51,8 @@ class DuoController < ApplicationController
                                                   birth_date: participant.birth_date,
                                                   age: participant.age,
                                                   photo: participant.photo.key,
-                                                  file: participant.files
-
+                                                  file: participant.file,
+                                                  id_card: participant.id_card
                                                 }
                                               }
     }
@@ -64,8 +64,12 @@ class DuoController < ApplicationController
 
   def duo_params
     params.require(:duo).permit(
-      :name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece,
-      duo_participants_attributes: [:name, :last_name, :birth_date, :age, :photo, :files]
+      :name, :responsable, :address, :phone, :email,
+      :title_of_music, :composer, :length_of_piece,
+      :discipline, :level,
+      duo_participants_attributes: [
+        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+      ]
     )
   end
 end
