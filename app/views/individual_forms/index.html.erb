@@ -196,8 +196,8 @@
             </tr>
             <tr>
               <td>Authorization for Participation</td>
-                <td>
               <% @individual_forms.each do |form| %>
+                <td>
                   <% if form.file.attached? %>
                       <% key = form.file.key %>
                       <% matching_file =  @results.find { |hash| hash["public_id"] == "production/#{key}" } %>
@@ -210,8 +210,8 @@
                   <% else %>
                     <p>No file attached to the form</p>
                   <% end %>
-                <% end %>
               </td>
+                <% end %>
             </tr>
           </tbody>
         </table>
