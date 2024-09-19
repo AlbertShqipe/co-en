@@ -424,6 +424,7 @@ fr:
           input_text:
             pic: "Photo du Participant"
             file: "Formulaire d'Autorisation Rempli"
+            file1: "Carte d'Identité"
           btn:
             remove: "Supprimer"
             add: "Ajouter un·e Participant·e"
@@ -463,6 +464,7 @@ fr:
           input_text:
             pic: "Photo du Participant"
             file: "Formulaire d'Autorisation Rempli"
+            file1: "Carte d'Identité"
           btn:
             remove: "Supprimer"
             add: "Ajouter un·e Participant·e"
@@ -502,6 +504,7 @@ fr:
           input_text:
             pic: "Photo de Profil"
             file: "Formulaire d'Autorisation Rempli"
+            file1: "Carte d'Identité"
           btn:
             remove: "Retirer"
             add: "Ajouter un·e participant·e"

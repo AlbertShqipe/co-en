@@ -36,7 +36,7 @@ User.create(
 
 User.create(
   email: 'albert@gmail.com',
-  password: ALBERT_PASSWARD,
+  password: ENV['ALBERT_PASSWARD'],
   role: 'competitor',
   name: 'Albert',
   last_name: 'Nikolli'

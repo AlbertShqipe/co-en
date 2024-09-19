@@ -11,6 +11,12 @@ export default class extends Controller {
       const fileName = this.files[0] ? this.files[0].name : "No file selected";
       document.getElementById("file-name").textContent = fileName;
     });
+    document.getElementById("id-input").addEventListener("change", function() {
+      const idName = this.files[0] ? this.files[0].name : "No file selected";
+      document.getElementById("id-name").textContent = idName;
+    });
+
+
     document.getElementById("photo-input1").addEventListener("change", function() {
       const photoName = this.files[0] ? this.files[0].name : "No file selected";
       document.getElementById("photo-name1").textContent = photoName;
@@ -18,6 +24,10 @@ export default class extends Controller {
     document.getElementById("file-input1").addEventListener("change", function() {
       const fileName = this.files[0] ? this.files[0].name : "No file selected";
       document.getElementById("file-name1").textContent = fileName;
+    });
+    document.getElementById("id-input1").addEventListener("change", function() {
+      const idName = this.files[0] ? this.files[0].name : "No file selected";
+      document.getElementById("id-name1").textContent = idName;
     });
   }
 }

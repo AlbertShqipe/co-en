@@ -3,6 +3,7 @@ class GroupFormsController < ApplicationController
   def index
     @group_forms = current_user.group_forms
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
+    @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
   end
 
   def show
@@ -53,7 +54,8 @@ class GroupFormsController < ApplicationController
                                                                     birth_date: participant.birth_date,
                                                                     age: participant.age,
                                                                     photo: participant.photo.key,
-                                                                    file: participant.files }
+                                                                    file: participant.file,
+                                                                    id_card: participant.id_card }
                                                                   }
     }
     rescue ActiveRecord::RecordNotFound
@@ -63,6 +65,13 @@ class GroupFormsController < ApplicationController
   private
 
   def group_form_params
-    params.require(:group_form).permit(:name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece, participants_attributes: [:name, :last_name, :birth_date, :age, :files, :photo])
+    params.require(:group_form).permit(
+      :name, :responsable, :address, :phone, :email,
+      :title_of_music, :composer, :length_of_piece,
+      :discipline, :level,
+      participants_attributes: [
+        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+      ]
+    )
   end
 end

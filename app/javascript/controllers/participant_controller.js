@@ -17,11 +17,17 @@ export default class extends Controller {
       document.getElementById(`file-name`).textContent = fileName;
       console.log(fileName);
     });
+    document.getElementById(`id-input`).addEventListener("change", function() {
+      const idName = this.files[0] ? this.files[0].name : "No file selected";
+      document.getElementById(`id-name`).textContent = idName;
+      console.log(idName);
+    });
 
-    let participantIndex = document.querySelectorAll('.participant-fields').length;
+    // let participantIndex = document.querySelectorAll('.participant-fields').length;
     if (addParticipantButton) {
       addParticipantButton.addEventListener('click', (event) => {
         event.preventDefault();
+        let participantIndex = document.querySelectorAll('.participant-fields').length;
         const newParticipant = participantTemplate.replace(/NEW_RECORD/g, participantIndex);
         participantsContainer.insertAdjacentHTML('beforeend', newParticipant);
         document.getElementById(`photo-input${participantIndex}`).addEventListener("change", function() {
@@ -33,8 +39,13 @@ export default class extends Controller {
           const fileName = this.files[0] ? this.files[0].name : "No file selected";
           document.getElementById(`file-name${participantIndex}`).textContent = fileName;
           console.log(fileName);
-        participantIndex++;
         });
+        document.getElementById(`id-input${participantIndex}`).addEventListener("change", function() {
+          const idName = this.files[0] ? this.files[0].name : "No file selected";
+          document.getElementById(`id-name${participantIndex}`).textContent = idName;
+          console.log(idName);
+        });
+        console.log(participantIndex);
       });
     }
 

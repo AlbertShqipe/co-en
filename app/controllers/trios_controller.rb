@@ -51,7 +51,8 @@ class TriosController < ApplicationController
                                                                     birth_date: participant.birth_date,
                                                                     age: participant.age,
                                                                     photo: participant.photo.key,
-                                                                    file: participant.files }
+                                                                    file: participant.file,
+                                                                    id_card: participant.id_card}
                                                                   }
     }
     rescue ActiveRecord::RecordNotFound
@@ -62,8 +63,12 @@ class TriosController < ApplicationController
 
   def trio_params
     params.require(:trio).permit(
-      :name, :responsable, :address, :phone, :email, :discipline, :level, :title_of_music, :composer, :length_of_piece,
-      trio_participants_attributes: [:name, :last_name, :birth_date, :age, :photo, :files]
+      :name, :responsable, :address, :phone, :email,
+      :title_of_music, :composer, :length_of_piece,
+      :discipline, :level,
+      trio_participants_attributes: [
+        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+      ]
     )
   end
 end

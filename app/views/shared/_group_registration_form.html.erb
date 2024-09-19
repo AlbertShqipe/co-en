@@ -69,31 +69,33 @@
                 <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
                   <div class="d-flex justify-content-around">
                     <div>
-                      <%= p.text_field :name, placeholder: t('group_registration_form.registration_form_inner_text.group.participant.placeholders.name'), class: "input-form-group" %>
+                      <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.text_field :last_name, placeholder: t('group_registration_form.registration_form_inner_text.group.participant.placeholders.last_name'), class: "input-form-group" %>
+                      <%= p.text_field :last_name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.date_field :birth_date, placeholder: t('group_registration_form.registration_form_inner_text.group.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
+                      <%= p.date_field :birth_date, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
                     </div>
                     <div data-controller="age">
-                      <%= p.number_field :age, placeholder: t('group_registration_form.registration_form_inner_text.group.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
+                      <%= p.number_field :age, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
                     </div>
                   </div>
                   <div class="d-flex justify-content-around">
                     <div class="custom-file-input">
                       <%= p.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
-                      <label for="photo-input" id="photo-label" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.pic') %></label>
-                      <span id="photo-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+                      <label for="photo-input" id="photo-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
+                      <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <%= p.file_field :files, as: :file, id: "file-input", class: "file-input" %>
-                      <label for="file-input" id="file-label" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label>
-                      <span id="file-name"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+                      <%= p.file_field :file, as: :file, id: "file-input", class: "file-input" %>
+                      <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                      <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
-                    <div style="padding-top:13px">
-                      <button type="button" class="remove-participant btn btn-danger"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.remove') %></button>
+                    <div class="custom-file-input">
+                      <%= p.file_field :id_card, as: :file, id: "id-input", class: "file-input" %>
+                      <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label>
+                      <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                   </div>
                 </div>
@@ -125,9 +127,14 @@
                   <span id="photo-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
                 <div class="custom-file-input">
-                  <input type="file" name="group_form[participants_attributes][NEW_RECORD][files]" id="file-inputNEW_RECORD" class="file-input">
+                  <input type="file" name="group_form[participants_attributes][NEW_RECORD][file]" id="file-inputNEW_RECORD" class="file-input">
                   <label for="file-inputNEW_RECORD" id="file-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label>
                   <span id="file-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+                </div>
+                <div class="custom-file-input">
+                  <input type="file" name="group_form[participants_attributes][NEW_RECORD][id_card]" id="id-inputNEW_RECORD" class="file-input">
+                  <label for="id-inputNEW_RECORD" id="id-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file1') %></label>
+                  <span id="id-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
                 <div style="padding-top:13px">
                   <button type="button" class="remove-participant btn btn-danger"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.remove') %></button>
