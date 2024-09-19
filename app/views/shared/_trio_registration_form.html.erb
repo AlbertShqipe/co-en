@@ -68,38 +68,37 @@
                 <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
                   <div class="d-flex justify-content-around">
                     <div>
-                      <%= p.text_field :name, placeholder: t('trio_registration_form.registration_form_inner_text.trio.participant.placeholders.name'), class: "input-form-group" %>
+                      <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.text_field :last_name, placeholder: t('trio_registration_form.registration_form_inner_text.trio.participant.placeholders.last_name'), class: "input-form-group" %>
+                      <%= p.text_field :last_name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.date_field :birth_date, placeholder: t('trio_registration_form.registration_form_inner_text.trio.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
+                      <%= p.date_field :birth_date, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
                     </div>
                     <div data-controller="age">
-                      <%= p.number_field :age, placeholder: t('trio_registration_form.registration_form_inner_text.trio.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
+                      <%= p.number_field :age, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
                     </div>
                   </div>
                   <div class="d-flex justify-content-around">
                     <div class="custom-file-input">
                       <%= p.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
-                      <label for="photo-input" id="photo-label" class="file-label"><%= t('trio_registration_form.registration_form_inner_text.trio.participant.input_text.pic') %></label>
-                      <span id="photo-name"><%=t('trio_registration_form.registration_form_inner_text.trio.participant.span.no_file')%></span>
+                      <label for="photo-input" id="photo-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
+                      <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <%= f.file_field :file, as: :file, id:"file-input", class:"file-input" %>
-                      <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
-                      <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+                      <%= p.file_field :file, as: :file, id: "file-input", class: "file-input" %>
+                      <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                      <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <%= f.file_field :id_card, as: :file, id:"id-input", class:"file-input" %>
-                      <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
-                      <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+                      <%= p.file_field :id_card, as: :file, id: "id-input", class: "file-input" %>
+                      <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                      <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                   </div>
                 </div>
               <% end %>
-
               <div class="participant-fields mb-3 pb-3" data-controller="age" style="border-bottom:1px solid red">
                 <div class="d-flex justify-content-around">
                   <div>
