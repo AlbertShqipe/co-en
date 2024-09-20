@@ -8,10 +8,10 @@ class IndividualFormsController < ApplicationController
     # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
 
     #   # Code that runs only in development since it charges the assets uploaded in development
-      @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+      @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
 
       # Code that shoul run only in production since it charges the assets uploaded in production
-      @results = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+      @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
     # raise
   end
 
