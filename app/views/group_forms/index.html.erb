@@ -123,21 +123,15 @@
             <% end %>
           </tr>
           <tr>
-            <td>First Name</td>
+            <td>Group Name</td>
             <% @group_forms.each do |form| %>
-              <td><%= form.first_name %></td>
+              <td><%= form.name %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Last Name</td>
+            <td>Responsable of Group</td>
             <% @group_forms.each do |form| %>
-              <td><%= form.last_name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Birth Date</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.birth_date %></td>
+              <td><%= form.responsable %></td>
             <% end %>
           </tr>
           <tr>
@@ -159,45 +153,97 @@
             <% end %>
           </tr>
           <tr>
-            <td>Teacher Name</td>
+            <td>Discipline</td>
             <% @group_forms.each do |form| %>
-              <td><%= form.teacher_name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Dance School</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.dance_school %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Teacher Phone</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.teacher_phone %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Teacher Email</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.teacher_email %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Category</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.category %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>Style</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.style %></td>
+              <td><%= form.discipline %></td>
             <% end %>
           </tr>
           <tr>
             <td>Level</td>
             <% @group_forms.each do |form| %>
               <td><%= form.level %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Length of Piece</td>
+            <% @group_forms.each do |form| %>
+              <td><%= form.length_of_piece %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Composer</td>
+            <% @group_forms.each do |form| %>
+              <td><%= form.composer %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Title of Music</td>
+            <% @group_forms.each do |form| %>
+              <td><%= form.title_of_music %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+            <% @group_forms.each do |group_form| %>
+              <% group_form.participants.each do |participant| %>
+                <td>
+                  <% if participant.photo.attached? %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                  <% else %>
+                    <p>Participant has no picture attached</p>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.participant_age') %></td>
+            <% @group_forms.each do |group_form| %>
+              <% group_form.participants.each do |participant| %>
+                <td>
+                  Birthday: <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %> years old
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Authorization for Participation</td>
+              <% @group_forms.each do |group_form| %>
+                <% group_form.participants.each do |participant| %>
+                  <td>
+                    <% if participant.file.attached? %>
+                      <% key = participant.file.key %>
+                      <% key %>
+                      <% matching_file = @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <% newkey =  matching_file["asset_id"] %>
+                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                        <% else %>
+                        <p>No file found</p>
+                      <% end %>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% end %>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <% @group_forms.each do |group_form| %>
+              <% group_form.participants.each do |participant| %>
+                <td>
+                  <% if participant.id_card.attached? %>
+                    <% key = participant.id_card.key %>
+                    <% matching_file = @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
+                      <% newkey =  matching_file["asset_id"] %>
+                      <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                      <% else %>
+                      <p>No matching file found</p>
+                    <% end %>
+                  <% end %>
+                </td>
+              <% end %>
             <% end %>
           </tr>
         </tbody>
@@ -208,4 +254,4 @@
       </div>
     <% end %>
   </div>
-<%= current_user.group_forms.empty? ? render("shared/footer_fixed") : render("shared/footer") %>
+<%= @group_forms.empty? ? render("shared/footer_fixed") : render("shared/footer") %>

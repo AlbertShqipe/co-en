@@ -237,4 +237,4 @@
       <% end %>
     </div>
   </div>
-<%= render "shared/footer" %>
+<%= @individual_forms.empty? ? render("shared/footer_fixed") : render("shared/footer") %>

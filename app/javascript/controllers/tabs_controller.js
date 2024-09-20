@@ -315,37 +315,37 @@ export default class extends Controller {
           groupInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Group ${data.id}</th>
+                <th colspan="2">Trio ${data.id}</th>
               </tr>
               <tr>
-                <td colspan="2">Group Information</td>
+                <td colspan="2">Trio Information</td>
               </tr>
               <tr>
-                <td>Group Name</td>
+                <td>Trio Name</td>
                 <td>${data.name}</td>
               </tr>
               <tr>
-                <td>Group Responsible</td>
+                <td>Trio Responsible</td>
                 <td>${data.responsable}</td>
               </tr>
               <tr>
-                <td>Group Address</td>
+                <td>Trio Address</td>
                 <td>${data.address}</td>
               </tr>
               <tr>
-                <td>Group Phone</td>
+                <td>Trio Phone</td>
                 <td>${data.phone}</td>
               </tr>
               <tr>
-                <td>Group Email</td>
+                <td>Trio Email</td>
                 <td>${data.email}</td>
               </tr>
               <tr>
-                <td>Group Discipline</td>
+                <td>Trio Discipline</td>
                 <td>${data.discipline}</td>
               </tr>
               <tr>
-                <td>Group Level</td>
+                <td>Trio Level</td>
                 <td>${data.level}</td>
               </tr>
               <tr>

@@ -128,4 +128,4 @@
       </div>
     <% end %>
   </div>
-<%= current_user.trios.empty? ? render("shared/footer_fixed") : render("shared/footer") %>
+<%= @trios.empty? ? render("shared/footer_fixed") : render("shared/footer") %>

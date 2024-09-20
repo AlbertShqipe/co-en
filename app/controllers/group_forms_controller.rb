@@ -1,9 +1,10 @@
 class GroupFormsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @group_forms = current_user.group_forms
+    @group_forms = GroupForm.all
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
-    @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "Production", max_results: 500)['resources']
   end
 
   def show
