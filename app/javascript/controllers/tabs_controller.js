@@ -145,7 +145,7 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           duoInfoDiv.innerHTML = `
-            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+            <table border="1" cellpadding="20" style="margin:auto; width:500px">
               <tr>
                 <th colspan="2">Duo ${data.id}</th>
               </tr>
@@ -205,7 +205,7 @@ export default class extends Controller {
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
-            </table>`.replace(/[;,]/g, "");
+            </table>`;
         })
         .catch(error => {
           console.error("Error fetching duo data:", error);
@@ -229,7 +229,7 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           trioInfoDiv.innerHTML = `
-            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+            <table border="1" cellpadding="20" style="margin:auto; width:500px">
               <tr>
                 <th colspan="2">Trio ${data.id}</th>
               </tr>
@@ -289,7 +289,7 @@ export default class extends Controller {
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
-            </table>`.replace(/[;,]/g, "");
+            </table>`;
         })
         .catch(error => {
           console.error("Error fetching trio data:", error);
@@ -313,7 +313,7 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           groupInfoDiv.innerHTML = `
-            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+            <table border="1" cellpadding="20" style="margin:auto; width:500px">
               <tr>
                 <th colspan="2">Trio ${data.id}</th>
               </tr>
@@ -373,7 +373,7 @@ export default class extends Controller {
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
-            </table>`.replace(/[;,]/g, "");
+            </table>`;
         })
         .catch(error => {
           console.error("Error fetching group data:", error);
