@@ -13,7 +13,7 @@
         <select id="solo-select">
           <option value="">Select a Solo</option>
           <% @solos.each do |solo| %>
-            <option value="<%= solo.id %>"><%= solo.first_name %></option>
+            <option value="<%= solo.id %>"><%= solo.id %> <%= solo.first_name %></option>
           <% end %>
         </select>
       </div>

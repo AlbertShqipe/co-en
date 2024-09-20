@@ -97,32 +97,142 @@
               <% end %>
             <% end %>
           </tr>
+        </tbody>
+      </table>
+    <% elsif current_user.role == "admin" && @duos.present?%>
+      <table class="table-form mx-auto">
+        <thead>
+          <tr style="width:50px">
+            <th><%= t('index_groups.th.attributes') %></th>
+            <% @duos.each_with_index do |duo, index| %>
+              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
           <tr>
-            <td>Authorization for Participation</td>
-            <% current_user.duos.each do |duo| %>
+            <td><%= t('index_groups.td.name_of_group') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.responsable') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.responsable %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.group_address') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.address %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.phone') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.email') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.discipline') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.discipline %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.level') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.level %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.music') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.title_of_music %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.composer') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.composer %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.length_of_piece') %></td>
+            <% @duos.each do |duo| %>
+              <td><%= duo.length_of_piece %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+            <% @duos.each do |duo| %>
               <% duo.duo_participants.each do |participant| %>
-                <% if participant.files.attached? %>
-                  <% participant.files.each do |f| %>
-                    <% key = f.key %>
-                      <% matching_file =  @results.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                    <% if matching_file != nil %>
-                      <% matching_file_public_id =  matching_file["public_id"].sub('development/', '') %>
-                      <% if matching_file_public_id == key %>
-                        <td>
-                          <p><%= participant.name %><%= participant.last_name %></p>
-                          <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{matching_file['asset_id']}/download" %>
-                        </td>
-                      <% end %>
-                      <% else %>
-                        <td>
-                          <p>File not found</p>
-                        </td>
-                    <% end %>
+                <td>
+                  <% if participant.photo.attached? %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                  <% else %>
+                    <p>Participant has no picture attached</p>
                   <% end %>
-                <% end %>
+                </td>
               <% end %>
             <% end %>
-
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.participant_age') %></td>
+            <% @duos.each do |duo| %>
+              <% duo.duo_participants.each do |participant| %>
+                <td>
+                  Birthday: <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %> years old
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td>Authorization for Participation</td>
+              <% @duos.each do |duo| %>
+                <% duo.duo_participants.each do |participant| %>
+                  <td>
+                    <% if participant.file.attached? %>
+                      <% key = participant.file.key %>
+                      <% key %>
+                      <% matching_file = @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <% newkey =  matching_file["asset_id"] %>
+                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                        <% else %>
+                        <p>No file found</p>
+                      <% end %>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% end %>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <% @duos.each do |duo| %>
+              <% duo.duo_participants.each do |participant| %>
+                <td>
+                  <% if participant.id_card.attached? %>
+                    <% key = participant.id_card.key %>
+                    <% matching_file = @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
+                      <% newkey =  matching_file["asset_id"] %>
+                      <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                      <% else %>
+                      <p>No matching file found</p>
+                    <% end %>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
           </tr>
         </tbody>
       </table>
@@ -132,4 +242,4 @@
       </div>
     <% end %>
   </div>
-<%= current_user.duos.empty? ? render("shared/footer_fixed") : render("shared/footer") %>
+<%= @duos.empty? ? render("shared/footer_fixed") : render("shared/footer") %>

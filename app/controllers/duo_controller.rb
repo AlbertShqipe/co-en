@@ -1,9 +1,10 @@
 class DuoController < ApplicationController
   before_action :authenticate_user!
   def index
-    @duos = current_user.duos
+    @duos = Duo.all
     @duo = current_user.duos.find(params[:id]) if params[:id].present?
-    @results = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
   end
 
   def show

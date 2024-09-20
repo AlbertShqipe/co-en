@@ -30,7 +30,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.role == "admin" %>
-                <%= link_to "/admin", class:"dropdown-item" %>
+                <%= link_to "Inscriptions", admin_path, class:"dropdown-item" %>
               <% else %>
                 <%= t('navbar.content.link9').html_safe %>
                 <%= t('navbar_home.content.link6').html_safe %>

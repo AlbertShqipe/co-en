@@ -55,6 +55,7 @@ export default class extends Controller {
         .then(response => response.json())
         .then(data => {
           // console.log("Fetched data:", data);
+          console.log(data.id_card)
           // Populate the HTML with the fetched data
           soloInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" style="margin:auto; width:500px">
@@ -144,7 +145,7 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           duoInfoDiv.innerHTML = `
-            <table border="1" cellpadding="20" style="margin:auto; width:500px">
+            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
                 <th colspan="2">Duo ${data.id}</th>
               </tr>
@@ -204,7 +205,7 @@ export default class extends Controller {
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
-            </table>`;
+            </table>`.replace(/[;,]/g, "");
         })
         .catch(error => {
           console.error("Error fetching duo data:", error);
@@ -228,23 +229,67 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           trioInfoDiv.innerHTML = `
-            <h1>Trio ${data.id}</h1>
-            <h2>Trio Information</h2>
-            <p>Trio Name: ${data.name}</p>
-            <p>Trio Responsible: ${data.responsable}</p>
-            <p>Trio Address: ${data.address}</p>
-            <p>Trio Phone: ${data.phone}</p>
-            <p>Trio Email: ${data.email}</p>
-            <p>Trio Discipline: ${data.discipline}</p>
-            <p>Trio Level: ${data.level}</p>
-            <p>Title of Music: ${data.title_of_music}</p>
-            <p>Composer: ${data.composer}</p>
-            <p>Length Of Piece: ${data.length_of_piece}</p>
-            <p>Average Age: ${data.average_age}</p>
-            <h3>Participants</h3>
-            <ul style="list-style-type:none; padding:0; margin:0; display:flex; justify-content:center ">
-              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name} ${participant.age}</li>`)};
-            </ul>`;
+            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+              <tr>
+                <th colspan="2">Trio ${data.id}</th>
+              </tr>
+              <tr>
+                <td colspan="2">Trio Information</td>
+              </tr>
+              <tr>
+                <td>Trio Name</td>
+                <td>${data.name}</td>
+              </tr>
+              <tr>
+                <td>Trio Responsible</td>
+                <td>${data.responsable}</td>
+              </tr>
+              <tr>
+                <td>Trio Address</td>
+                <td>${data.address}</td>
+              </tr>
+              <tr>
+                <td>Trio Phone</td>
+                <td>${data.phone}</td>
+              </tr>
+              <tr>
+                <td>Trio Email</td>
+                <td>${data.email}</td>
+              </tr>
+              <tr>
+                <td>Trio Discipline</td>
+                <td>${data.discipline}</td>
+              </tr>
+              <tr>
+                <td>Trio Level</td>
+                <td>${data.level}</td>
+              </tr>
+              <tr>
+                <td>Title of Music</td>
+                <td>${data.title_of_music}</td>
+              </tr>
+              <tr>
+                <td>Composer</td>
+                <td>${data.composer}</td>
+              </tr>
+              <tr>
+                <td>Length Of Piece</td>
+                <td>${data.length_of_piece}</td>
+              </tr>
+              <tr>
+                <td>Average Age</td>
+                <td>${data.average_age}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><strong>Participants</strong></td>
+              </tr>
+              ${data.participants.map(participant => `
+                <tr>
+                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
+                </tr>
+              `)};
+            </table>`.replace(/[;,]/g, "");
         })
         .catch(error => {
           console.error("Error fetching trio data:", error);
@@ -268,23 +313,67 @@ export default class extends Controller {
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           groupInfoDiv.innerHTML = `
-            <h1>Group ${data.id}</h1>
-            <h2>Group Information</h2>
-            <p>Group Name: ${data.name}</p>
-            <p>Group Responsible: ${data.responsable}</p>
-            <p>Group Address: ${data.address}</p>
-            <p>Group Phone: ${data.phone}</p>
-            <p>Group Email: ${data.email}</p>
-            <p>Group Discipline: ${data.discipline}</p>
-            <p>Group Level: ${data.level}</p>
-            <p>Title of Music: ${data.title_of_music}</p>
-            <p>Composer: ${data.composer}</p>
-            <p>Length Of Piece: ${data.length_of_piece}</p>
-            <p>Average Age: ${data.average_age}</p>
-            <h3>Participants</h3>
-            <ul style="list-style-type:none; padding:0; margin:0; display:flex; justify-content:center ">
-              ${data.participants.map(participant => `<li style="padding:0; margin:0">${participant.name} ${participant.last_name} ${participant.age}</li>`)};
-            </ul>`;
+            <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+              <tr>
+                <th colspan="2">Group ${data.id}</th>
+              </tr>
+              <tr>
+                <td colspan="2">Group Information</td>
+              </tr>
+              <tr>
+                <td>Group Name</td>
+                <td>${data.name}</td>
+              </tr>
+              <tr>
+                <td>Group Responsible</td>
+                <td>${data.responsable}</td>
+              </tr>
+              <tr>
+                <td>Group Address</td>
+                <td>${data.address}</td>
+              </tr>
+              <tr>
+                <td>Group Phone</td>
+                <td>${data.phone}</td>
+              </tr>
+              <tr>
+                <td>Group Email</td>
+                <td>${data.email}</td>
+              </tr>
+              <tr>
+                <td>Group Discipline</td>
+                <td>${data.discipline}</td>
+              </tr>
+              <tr>
+                <td>Group Level</td>
+                <td>${data.level}</td>
+              </tr>
+              <tr>
+                <td>Title of Music</td>
+                <td>${data.title_of_music}</td>
+              </tr>
+              <tr>
+                <td>Composer</td>
+                <td>${data.composer}</td>
+              </tr>
+              <tr>
+                <td>Length Of Piece</td>
+                <td>${data.length_of_piece}</td>
+              </tr>
+              <tr>
+                <td>Average Age</td>
+                <td>${data.average_age}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><strong>Participants</strong></td>
+              </tr>
+              ${data.participants.map(participant => `
+                <tr>
+                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
+                </tr>
+              `)};
+            </table>`.replace(/[;,]/g, "");
         })
         .catch(error => {
           console.error("Error fetching group data:", error);
