@@ -6,7 +6,7 @@ export default class extends Controller {
 
   // Default index for the initial slide
   static values = {
-    initialIndex: 12
+    initialIndex: 3
   };
 
   connect() {

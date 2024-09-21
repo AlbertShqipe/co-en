@@ -1,22 +1,41 @@
 <%= render "shared/navbar"%>
-<div data-controller="slideshow">
-  <div class="slideshow-container">
-    <% @images.each_with_index do |image, index| %>
-      <div class="mySlides" data-slideshow-target="slide">
-        <div class="numbertext"><%= index + 1 %> / <%= @images.size %></div>
-        <%= image_tag image["secure_url"], width:'50%', class:'img' %>
-        <!--
-          <div class="text">Caption Text for image <%= index + 1 %></div>
-        -->
-      </div>
-    <% end %>
+
+<div class="portfolio-cont" data-controller="media-tabs" data-media-tabs-default-value="2024">
+  <div class="portfolio-t-b" >
+    <ul>
+      <li data-media-tabs-target="link" data-action="click->media-tabs#open" data-id="2023">2023</li>
+      <li data-media-tabs-target="link" data-action="click->media-tabs#open" data-id="2024" class="active">2024</li>
+    </ul>
   </div>
-  <div class="thumbnail-container container">
-    <% @images.each_with_index do |image, index| %>
-      <div class="thumbnail" data-action="click->slideshow#selectSlide">
-        <%= image_tag image["secure_url"], style:"width:30px !important;height:40px", data: { index: index + 1 }, class: 'img' %>
+  <div class="portfolio-cont hidden" data-media-tabs-target="tab" data-media-tabs-type-value="2023" data-id="2023">
+    <%# populated area %>
+    <div style="text-align:center">
+      <p>Pas des photos pour l'instant</p>
+    </div>
+  </div>
+  <div class="portfolio-cont " data-media-tabs-target="tab" data-media-tabs-type-value="2024" data-id="2024">
+      <%# Populated area %>
+      <div data-controller="slideshow">
+        <div class="slideshow-container">
+          <% @images.each_with_index do |image, index| %>
+            <div class="mySlides" data-slideshow-target="slide">
+              <div class="numbertext"><%= index + 1 %> / <%= @images.size %></div>
+              <%= image_tag image["secure_url"], width:'50%', class:'img' %>
+              <!--
+                <div class="text">Caption Text for image <%= index + 1 %></div>
+              -->
+            </div>
+          <% end %>
+        </div>
+        <div class="thumbnail-container container">
+          <% @images.each_with_index do |image, index| %>
+            <div class="thumbnail" data-action="click->slideshow#selectSlide">
+              <%= image_tag image["secure_url"], style:"width:30px !important;height:40px", data: { index: index + 1 }, class: 'img' %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
   </div>
 </div>
+
 <%= render "shared/footer" %>
