@@ -146,6 +146,14 @@ en:
           <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
         link15: |
           <a href="#media" class="nav-link">MEDIA</a>
+        link16: |
+          <a href="/individual_forms?locale=en" class="dropdown-item">Individual Forms</a>
+        link17: |
+          <a href="/duo?locale=en" class="dropdown-item">Duo Forms</a>
+        link18-5: |
+          <a href="/trios?locale=en" class="dropdown-item">Trio Forms</a>
+        link19: |
+          <a href="/group_forms?locale=en" class="dropdown-item">Group Forms</a>
 
   navbar:
     content:
@@ -558,25 +566,46 @@ en:
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
 
+  index_duo:
+    th:
+      attributes: "Attributes"
+      duo_form: "Duo Form"
+    td:
+      name_of_duo: "Name of Duo"
+      responsable: "Responsable of Duo"
+      duo_address: "Address of Duo"
+      phone: "Phone"
+      email: "Email of Duo"
+      discipline: "Duo discipline"
+      leve: "Duo level"
+      music: "Music"
+      composer: "Composer"
+      length_of_piece: "Length of Piece"
+      participants_n: "N of Participants"
+      participant_name_lastName: "Full name of Participant"
+      participant_age: "Age of Participant"
+
   index_individuals:
     th:
-      attributes: "Attributs"
-      individual_form: "Formulaire Individuel"
+      attributes: "Attributes"
+      individual_form: "Individual Form"
     td:
-      first_name: "Prénom"
-      last_name: "Nom"
-      birthday: "Date de Naissance"
-      address: "Adresse"
-      phone: "Téléphone"
-      email: "Adresse Email"
-      teacher: "Nom de l'Enseignant·e"
-      teacher_phone: "Téléphone de l'Enseignant·e"
-      teacher_email: "Email de l'Enseignant·e"
-      dance_school: "École de Danse"
-      category: "Catégorie"
+      first_name: "First Name"
+      last_name: "Last Name"
+      birthday: "Date of Birth"
+      address: "Address"
+      phone: "Phone"
+      email: "Email Address"
+      teacher: "Teacher's Name"
+      teacher_phone: "Teacher's Phone"
+      teacher_email: "Teacher's Email"
+      dance_school: "Dance School"
+      category: "Category"
       style: "Style"
-      level: "Niveau"
-      profile_pic: "Photo de Profil"
+      level: "Level"
+      profile_pic: "Profile Picture"
+      file: "Completed Authorization Form"
+      file1: "Identity Card"
 
   apply:
     important_information:
@@ -701,11 +730,13 @@ en:
         text1: "Log in"
         text2: "Remember me"
 
-
-
-
-
   footer:
     copyright: "© 2023 - Tous droits réservés."
     links:
       privacy_policy: "Politique de Confidentialité"
+
+  helper:
+    age_function_years: "years"
+    age_function_months: "months"
+    age_function_days: "days"
+    old: "old"

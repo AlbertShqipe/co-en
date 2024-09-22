@@ -18,7 +18,7 @@ fr:
         link8: |
           <a href="/duo?locale=fr" class="dropdown-item">Mes Formulaires de Duo</a>
         link8-5: |
-          <a href="/trios?locale=fr" class="dropdown-item">My Trio Forms</a>
+          <a href="/trios?locale=fr" class="dropdown-item">Mes Formulaires de Trio</a>
         link9: |
           <a href="/group_forms?locale=fr" class="dropdown-item">Mes Formulaires de Groupe</a>
         link10: |
@@ -117,6 +117,14 @@ fr:
           <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
         link15: |
           <a href="#media" class="nav-link">MÉDIAS</a>
+        link16: |
+          <a href="/individual_forms?locale=fr" class="dropdown-item">Formulaires Individuels</a>
+        link17: |
+          <a href="/duo?locale=fr" class="dropdown-item">Formulaires de Duo</a>
+        link18-5: |
+          <a href="/trios?locale=fr" class="dropdown-item">Formulaires de Trio</a>
+        link19: |
+          <a href="/group_forms?locale=fr" class="dropdown-item">Formulaires de Groupe</a>
 
   navbar:
     content:
@@ -529,6 +537,25 @@ fr:
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
 
+  index_duo:
+    th:
+      attributes: "Attributes"
+      duo_form: "Formulaire du Duo"
+    td:
+      name_of_duo: "Nom du Duo"
+      responsable: "Responsable du Duo"
+      duo_address: "Adresse du Duo"
+      phone: "Numéro de Téléphone"
+      email: "Adresse Email"
+      discipline: "Discipline du Duo"
+      leve: "Nivau du Duo"
+      music: "Titre de la Musique"
+      composer: "Compositeur·rice"
+      length_of_piece: "Durée de la Pièce"
+      participants_n: "N de Participant·e·s"
+      participant_name_lastName: "Participant·e·s"
+      participant_age: "Âge des Participant·e·s"
+
   index_individuals:
     th:
       attributes: "Attributes"
@@ -548,6 +575,8 @@ fr:
       style: "Style"
       level: "Level"
       profile_pic: "Photo Profile"
+      file: "Formulaire d'Autorisation Rempli"
+      file1: "Carte d'Identité"
 
   apply:
     important_information:
@@ -671,9 +700,13 @@ fr:
         text1: "Se connecter"
         text2: "Se souvenir de moi"
 
-
-
   footer:
     copyright: "© 2023 - Tous droits réservés."
     links:
       privacy_policy: "Politique de Confidentialité"
+
+  helper:
+    age_function_years: "ans"
+    age_function_months: "mois"
+    age_function_days: "jours"
+    old: ""

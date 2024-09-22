@@ -103,75 +103,75 @@
       <table class="table-form mx-auto">
         <thead>
           <tr style="width:50px">
-            <th><%= t('index_groups.th.attributes') %></th>
+            <th><%= t('index_duo.th.attributes') %></th>
             <% @duos.each_with_index do |duo, index| %>
-              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
+              <th><%= t('index_duo.th.group_form') %> <%= index + 1 %></th>
             <% end %>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= t('index_groups.td.name_of_group') %></td>
+            <td><%= t('index_duo.td.name_of_duo') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.name %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.responsable') %></td>
+            <td><%= t('index_duo.td.responsable') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.responsable %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.group_address') %></td>
+            <td><%= t('index_duo.td.duo_address') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.address %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.phone') %></td>
+            <td><%= t('index_duo.td.phone') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.phone %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.email') %></td>
+            <td><%= t('index_duo.td.email') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.email %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.discipline') %></td>
+            <td><%= t('index_duo.td.discipline') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.discipline %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.level') %></td>
+            <td><%= t('index_duo.td.level') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.level %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.music') %></td>
+            <td><%= t('index_duo.td.music') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.title_of_music %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.composer') %></td>
+            <td><%= t('index_duo.td.composer') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.composer %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.length_of_piece') %></td>
+            <td><%= t('index_duo.td.length_of_piece') %></td>
             <% @duos.each do |duo| %>
               <td><%= duo.length_of_piece %></td>
             <% end %>
           </tr>
           <tr>
-            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+            <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
             <% @duos.each do |duo| %>
               <% duo.duo_participants.each do |participant| %>
                 <td>
@@ -190,7 +190,7 @@
               <% duo.duo_participants.each do |participant| %>
                 <td>
                   Birthday: <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %> years old
+                  <%= calculate_age(participant.birth_date) %>
                 </td>
               <% end %>
             <% end %>

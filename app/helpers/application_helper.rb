@@ -18,10 +18,10 @@ module ApplicationHelper
       months += 12
     end
 
-    age_string = "#{years} years"
-    age_string += ", #{months} months" if months > 0
-    age_string += ", #{days} days" if days > 0
-    age_string += " old"
+    age_string = "#{years} #{t("helper.age_function_years")}"
+    age_string += ", #{months} #{t("helper.age_function_months")}" if months > 0
+    age_string += ", #{days} #{t("helper.age_function_days")}" if days > 0
+    age_string += " #{t("helper.old")}"
 
     age_string
   end

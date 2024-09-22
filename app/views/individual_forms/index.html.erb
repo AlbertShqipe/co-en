@@ -109,7 +109,7 @@
         <table class="table-form mx-auto">
           <thead>
             <tr>
-              <th>Attribute</th>
+              <th><%= t("index_individuals.th.attributes") %></th>
               <% @individual_forms.each_with_index do |form, index| %>
                 <th>Form <%= index + 1 %></th>
               <% end %>
@@ -118,84 +118,84 @@
           <tbody>
             <tr>
             <tr>
-              <td>Profile Picture</td>
+              <td><%= t("index_individuals.td.profile_pic") %></td>
               <% @individual_forms.each do |form| %>
                 <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px" %></td>
               <% end %>
             </tr>
-              <td>Last Name</td>
+              <td><%= t("index_individuals.td.last_name") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.last_name %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Birth Date</td>
+              <td><%= t("index_individuals.td.birthday") %></td>
               <% @individual_forms.each do |form| %>
-                <td><%= form.birth_date %></td>
+                <td><%= calculate_age(form.birth_date) %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Address</td>
+              <td><%= t("index_individuals.td.address") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.address %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Phone</td>
+              <td><%= t("index_individuals.td.phone") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.phone %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Email</td>
+              <td><%= t("index_individuals.td.email") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.email %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Teacher Name</td>
+              <td><%= t("index_individuals.td.teacher") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.teacher_name %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Dance School</td>
+              <td><%= t("index_individuals.td.dance_school") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.dance_school %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Teacher Phone</td>
+              <td><%= t("index_individuals.td.teacher_phone") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.teacher_phone %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Teacher Email</td>
+              <td><%= t("index_individuals.td.teacher_email") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.teacher_email %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Category</td>
+              <td><%= t("index_individuals.td.category") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.category %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Style</td>
+              <td><%= t("index_individuals.td.style") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.style %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Level</td>
+              <td><%= t("index_individuals.td.level") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.level %></td>
               <% end %>
             </tr>
             <tr>
-              <td>Authorization for Participation</td>
+              <td><%= t("index_individuals.td.file") %></td>
               <% @individual_forms.each do |form| %>
                 <td>
                   <% if form.file.attached? %>
@@ -212,7 +212,7 @@
               <% end %>
             </tr>
             <tr>
-              <td>ID</td>
+              <td><%= t("index_individuals.td.file1") %></td>
               <% @individual_forms.each do |form| %>
                 <td>
                   <% if form.id_card.attached? %>
