@@ -644,7 +644,7 @@ fr:
 
   session_links:
     link1: "Se connecter"
-    link2: "S'inscrire"
+    link2: "Créer un compte"
     link3: "Mot de passe oublié ?"
     link4: "Vous n'avez pas reçu les instructions de confirmation ?"
     link5: "Vous n'avez pas reçu les instructions de déverrouillage ?"
@@ -697,6 +697,7 @@ fr:
         text6: "caractères minimum"
     sessions:
       new:
+        text: "Si vous n’avez pas de compte, cliquez sur 'Créer un compte' pour commencer votre inscription dès maintenant. Votre compte vous permettra d'accéder à toutes les fonctionnalités et de suivre votre dossier."
         text1: "Se connecter"
         text2: "Se souvenir de moi"
 

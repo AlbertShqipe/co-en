@@ -18,7 +18,8 @@ class PagesController < ApplicationController
   end
 
   def media
-    @images = Cloudinary::Api.resources(type: "upload", prefix: "production/dance_images", max_results: 500)['resources']
+    @images_2023 = Cloudinary::Api.resources(type: "upload", prefix: "production/dance_images/2023", max_results: 500)['resources']
+    @images_2024 = Cloudinary::Api.resources(type: "upload", prefix: "production/dance_images/2024", max_results: 500)['resources']
     # raise
     # @images = ['affiche_2025.png', 'DA1.jpg', 'espaceAlbertCamus1.jpeg']
   end

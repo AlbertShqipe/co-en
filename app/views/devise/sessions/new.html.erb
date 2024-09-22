@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 <div class="container pt-5">
   <h2><%= t("devise_session.sessions.new.text1") %></h2>
-
+  <p><%= t("devise_session.sessions.new.text") %></p>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,

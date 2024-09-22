@@ -727,6 +727,7 @@ en:
         text6: "characters minimum"
     sessions:
       new:
+        text: "If you don’t have an account yet, click on ‘Sign up’ to start your registration now. Your account will give you access to all features and allow you to track your application."
         text1: "Log in"
         text2: "Remember me"
 
