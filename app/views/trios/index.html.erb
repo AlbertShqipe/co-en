@@ -97,10 +97,108 @@
               <% end %>
             <% end %>
           </tr>
+        </tbody>
+      </table>
+    <% elsif current_user.role == "admin" && @trios.present?%>
+      <table class="table-form mx-auto">
+        <thead>
+          <tr style="width:50px">
+            <th><%= t('index_trio.th.attributes') %></th>
+            <% @trios.each_with_index do |trio, index| %>
+              <th><%= t('index_trio.th.group_form') %> <%= index + 1 %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= t('index_trio.td.name_of_trio') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.responsable') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.responsable %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.trio_address') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.address %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.phone') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.phone %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.email') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.email %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.discipline') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.discipline %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.level') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.level %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.music') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.title_of_music %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.composer') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.composer %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_trio.td.length_of_piece') %></td>
+            <% @trios.each do |trio| %>
+              <td><%= trio.length_of_piece %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
+            <% @trios.each do |trio| %>
+              <% trio.trio_participants.each do |participant| %>
+                <td>
+                  <% if participant.photo.attached? %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                  <% else %>
+                    <p>Participant has no picture attached</p>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= t('index_groups.td.participant_age') %></td>
+            <% @trios.each do |trio| %>
+              <% trio.trio_participants.each do |participant| %>
+                <td>
+                  Birthday: <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
           <tr>
             <td>Authorization for Participation</td>
               <% @trios.each do |trio| %>
-                <% trio.participants.each do |participant| %>
+                <% trio.trio_participants.each do |participant| %>
                   <td>
                     <% if participant.file.attached? %>
                       <% key = participant.file.key %>
@@ -120,7 +218,7 @@
           <tr>
             <td>ID</td>
             <% @trios.each do |trio| %>
-              <% trio.participants.each do |participant| %>
+              <% trio.trio_participants.each do |participant| %>
                 <td>
                   <% if participant.id_card.attached? %>
                     <% key = participant.id_card.key %>

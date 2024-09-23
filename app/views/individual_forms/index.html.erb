@@ -123,6 +123,12 @@
                 <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px" %></td>
               <% end %>
             </tr>
+              <td><%= t("index_individuals.td.first_name") %></td>
+              <% @individual_forms.each do |form| %>
+                <td><%= form.first_name %></td>
+              <% end %>
+            </tr>
+            </tr>
               <td><%= t("index_individuals.td.last_name") %></td>
               <% @individual_forms.each do |form| %>
                 <td><%= form.last_name %></td>
