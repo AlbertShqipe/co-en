@@ -1,7 +1,7 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
     <% if current_user.role == "admin" %>
-      <h1 style="text-align:center">Trio Forms</h1>
+      <h1 style="text-align:center">Formulaires des Trios</h1>
     <% else %>
       <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Trio Forms</h1>
     <% end %>

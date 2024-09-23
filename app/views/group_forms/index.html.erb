@@ -1,7 +1,7 @@
 <%= render "shared/navbar"%>
   <div class="group-forms">
     <% if current_user.role == "admin" %>
-      <h1 style="text-align:center">Group Forms</h1>
+      <h1 style="text-align:center">Formulaires des Groups</h1>
     <% else %>
       <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Group Forms</h1>
     <% end %>
