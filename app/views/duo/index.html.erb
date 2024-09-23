@@ -1,6 +1,10 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
-    <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Duo Forms</h1>
+    <% if current_user.role == "admin" %>
+      <h1 style="text-align:center">Duo Forms</h1>
+    <% else %>
+      <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Duo Forms</h1>
+    <% end %>
     <% if current_user.role == "competitor" && current_user.duos.present? %>
       <table class="table-form mx-auto">
         <thead>

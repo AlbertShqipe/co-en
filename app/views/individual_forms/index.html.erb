@@ -1,6 +1,10 @@
 <%= render "shared/navbar"%>
   <div class="container">
-    <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Individual Forms</h1>
+    <% if current_user.role == "admin" %>
+      <h1 style="text-align:center">Individual Forms</h1>
+    <% else %>
+      <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Individual Forms</h1>
+    <% end %>
     <div class="individual-forms">
       <% if current_user.role == "competitor" && current_user.individual_forms.present?%>
         <table class="table-form mx-auto">
