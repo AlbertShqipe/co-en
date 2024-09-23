@@ -3,7 +3,7 @@
   margin: auto;
   text-decoration: none;
   display:  inline-block;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(63, 63, 63, 0.2);
   color: $black;
   border: 0.5px solid rgba(255, 255, 255, 0.774);
   outline: 0.5px solid rgba(0, 0, 0, 0.241);
@@ -28,6 +28,12 @@
   }
 }
 
+#right-shift-button{
+  @media (max-height:735px) {
+    left: 80%;
+
+  }
+}
 .button {
   text-decoration: none;
   position: absolute;

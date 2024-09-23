@@ -14,6 +14,10 @@
     margin: 0px;
     border-bottom: 1px solid transparent;
 
+    @media (max-width: 1420px) {
+      font-size: 70% !important;
+    }
+
 
 
     &:hover {

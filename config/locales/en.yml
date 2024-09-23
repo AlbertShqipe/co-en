@@ -325,7 +325,7 @@ en:
               <li>Article 10: Registration Modalities</li>
               <li>Thank you for your participation and good luck to all the candidates!</li>
             </ul>
-            <a href="regulation?locale=en" class="button-home">FULL REGULATION</a>
+            <a href="regulation?locale=en" class="button-home" id="right-shift-button">FULL REGULATION</a>
           </div>
         </div>
 
@@ -337,12 +337,12 @@ en:
             <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png">
           </div>
           <div class="second-section-home-whoAreWe-content d-flex flex-column">
-            <h1>Who are we?</h1>
+            <h1 class="text">Who are we?</h1>
             <div class="image">
               <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png">
             </div>
-            <p>The Entrelacé International Dance Competition is open to classical, modern jazz, and contemporary dance disciplines. Its aim is to promote, share, and celebrate the art of dance, as well as to encourage the meeting and "interweaving" of students, dancers, teachers, and dance professionals in France and abroad.</p>
-            <p>It also provides dancers from various disciplines with a space to express themselves through their art and passion, acquiring foundational skills, knowledge, and stage experience for their development as dancers.</p>
+            <p class="text">The Entrelacé International Dance Competition is open to classical, modern jazz, and contemporary dance disciplines. Its aim is to promote, share, and celebrate the art of dance, as well as to encourage the meeting and "interweaving" of students, dancers, teachers, and dance professionals in France and abroad.</p>
+            <p class="text">It also provides dancers from various disciplines with a space to express themselves through their art and passion, acquiring foundational skills, knowledge, and stage experience for their development as dancers.</p>
             <a href="who_we_are?locale=en" class='button-home-gray'>WHO WE ARE</a>
           </div>
         </div>

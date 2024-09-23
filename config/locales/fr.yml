@@ -296,7 +296,7 @@ fr:
               <li>Article 10 : Modalités d'Inscription</li>
               <li>Merci de votre participation et bonne chance à tous les candidats !</li>
             </ul>
-            <a href="regulation?locale=fr" class="button-home">RÈGLEMENT COMPLET</a>
+            <a href="regulation?locale=fr" class="button-home" id="right-shift-button">RÈGLEMENT COMPLET</a>
           </div>
         </div>
 
@@ -308,12 +308,12 @@ fr:
             <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png">
           </div>
           <div class="second-section-home-whoAreWe-content d-flex flex-column">
-            <h1>Qui sommes-nous ?</h1>
+            <h1 class="text">Qui sommes-nous ?</h1>
             <div class="image">
               <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png">
             </div>
-            <p>Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz, contemporaine et danse de caractère. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
-            <p>Il offre également aux danseurs de diverses disciplines un espace pour s'exprimer à travers leur art et leur passion, en acquérant des compétences fondamentales, des connaissances et une expérience scénique pour leur développement en tant que danseurs.</p>
+            <p class="text">Le Concours International de Danse Entrelacé est ouvert aux disciplines de danse classique, modern jazz, contemporaine et danse de caractère. Son objectif est de promouvoir, partager et célébrer l'art de la danse, ainsi que d'encourager la rencontre et "l'entrelacement" des étudiants, danseurs, enseignants et professionnels de la danse en France et à l'étranger.</p>
+            <p class="text">Il offre également aux danseurs de diverses disciplines un espace pour s'exprimer à travers leur art et leur passion, en acquérant des compétences fondamentales, des connaissances et une expérience scénique pour leur développement en tant que danseurs.</p>
             <a href="who_we_are?locale=fr" class='button-home-gray'>QUI SOMMES-NOUS</a>
           </div>
         </div>
