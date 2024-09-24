@@ -1,6 +1,20 @@
 <%= render "shared/navbar"%>
   <div class="container">
     <% if current_user.role == "admin" %>
+      <div class="index-links-containers">
+        <div class="link-container">
+          <a href="/individual_forms">Individual Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/duo">Duo Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/trios">Trio Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/group_forms">Group Forms</a>
+        </div>
+      </div>
       <h1 style="text-align:center">Formulaires Individuels</h1>
     <% else %>
       <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Individual Forms</h1>

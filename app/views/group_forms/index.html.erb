@@ -1,6 +1,20 @@
 <%= render "shared/navbar"%>
   <div class="group-forms">
     <% if current_user.role == "admin" %>
+      <div class="index-links-containers">
+        <div class="link-container">
+          <a href="/individual_forms">Individual Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/duo">Duo Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/trios">Trio Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/group_forms">Group Forms</a>
+        </div>
+      </div>
       <h1 style="text-align:center">Formulaires des Groups</h1>
     <% else %>
       <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Group Forms</h1>
@@ -115,7 +129,7 @@
           <tr>
             <th>Attribute</th>
             <% @group_forms.each_with_index do |form, index| %>
-              <th>Group Form <%= index + 1 %></th>
+              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
             <% end %>
           </tr>
         </thead>
@@ -127,61 +141,61 @@
             <% end %>
           </tr>
           <tr>
-            <td>Group Name</td>
+            <td><%= t('index_groups.td.name_of_group') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.name %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Responsable of Group</td>
+            <td><%= t('index_groups.td.responsable') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.responsable %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Address</td>
+            <td><%= t('index_groups.td.address') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.address %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Phone</td>
+            <td><%= t('index_groups.td.phone') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.phone %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Email</td>
+            <td><%= t('index_groups.td.email') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.email %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Discipline</td>
+            <td><%= t('index_groups.td.discipline') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.discipline %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Level</td>
+            <td><%= t('index_groups.td.leve') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.level %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Length of Piece</td>
+            <td><%= t('index_groups.td.length_of_piece') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.length_of_piece %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Composer</td>
+            <td><%= t('index_groups.td.composer') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.composer %></td>
             <% end %>
           </tr>
           <tr>
-            <td>Title of Music</td>
+            <td><%= t('index_groups.td.title_of_music') %></td>
             <% @group_forms.each do |form| %>
               <td><%= form.title_of_music %></td>
             <% end %>

@@ -1,6 +1,20 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
     <% if current_user.role == "admin" %>
+      <div class="index-links-containers">
+        <div class="link-container">
+          <a href="/individual_forms">Individual Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/duo">Duo Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/trios">Trio Forms</a>
+        </div>
+        <div class="link-container">
+          <a href="/group_forms">Group Forms</a>
+        </div>
+      </div>
       <h1 style="text-align:center">Formulaires des Duos</h1>
     <% else %>
       <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Duo Forms</h1>
@@ -9,75 +23,75 @@
       <table class="table-form mx-auto">
         <thead>
           <tr style="width:50px">
-            <th><%= t('index_groups.th.attributes') %></th>
+            <th><%= t('index_duo.th.attributes') %></th>
             <% current_user.duos.each_with_index do |duo, index| %>
-              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
+              <th><%= t('index_duo.th.duo_form') %> <%= index + 1 %></th>
             <% end %>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= t('index_groups.td.name_of_group') %></td>
+            <td><%= t('index_duo.td.name_of_duo') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.name %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.responsable') %></td>
+            <td><%= t('index_duo.td.responsable') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.responsable %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.group_address') %></td>
+            <td><%= t('index_duo.td.group_address') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.address %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.phone') %></td>
+            <td><%= t('index_duo.td.phone') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.phone %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.email') %></td>
+            <td><%= t('index_duo.td.email') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.email %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.discipline') %></td>
+            <td><%= t('index_duo.td.discipline') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.discipline %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.level') %></td>
+            <td><%= t('index_duo.td.level') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.level %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.music') %></td>
+            <td><%= t('index_duo.td.music') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.title_of_music %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.composer') %></td>
+            <td><%= t('index_duo.td.composer') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.composer %></td>
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.length_of_piece') %></td>
+            <td><%= t('index_duo.td.length_of_piece') %></td>
             <% current_user.duos.each do |duo| %>
               <td><%= duo.length_of_piece %></td>
             <% end %>
           </tr>
           <tr>
-            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+            <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
             <% current_user.duos.each do |duo| %>
               <% duo.duo_participants.each do |participant| %>
                 <td>
@@ -91,7 +105,7 @@
             <% end %>
           </tr>
           <tr>
-            <td><%= t('index_groups.td.participant_age') %></td>
+            <td><%= t('index_duo.td.participant_age') %></td>
             <% current_user.duos.each do |duo| %>
               <% duo.duo_participants.each do |participant| %>
                 <td>
@@ -109,7 +123,7 @@
           <tr style="width:50px">
             <th><%= t('index_duo.th.attributes') %></th>
             <% @duos.each_with_index do |duo, index| %>
-              <th><%= t('index_duo.th.group_form') %> <%= index + 1 %></th>
+              <th><%= t('index_duo.th.duo_form') %> <%= index + 1 %></th>
             <% end %>
           </tr>
         </thead>

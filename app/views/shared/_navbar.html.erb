@@ -31,10 +31,12 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.role == "admin" %>
                 <%= link_to "Inscriptions", admin_path, class:"dropdown-item" %>
-
+                <%= t('navbar_home.content.link16').html_safe %>
+                <%= t('navbar_home.content.link17').html_safe %>
+                <%= t('navbar_home.content.link18-5').html_safe %>
+                <%= t('navbar_home.content.link19').html_safe %>
               <% else %>
                 <%= t('navbar.content.link9').html_safe %>
-                <%= t('navbar_home.content.link6').html_safe %>
                 <%= t('navbar_home.content.link7').html_safe %>
                 <%= t('navbar_home.content.link8').html_safe %>
                 <%= t('navbar_home.content.link8-5').html_safe %>

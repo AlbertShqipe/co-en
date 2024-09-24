@@ -1,0 +1,26 @@
+.index-links-containers {
+  display:flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-top:10px;
+  margin-bottom:10px;
+
+  .link-container {
+    width: 20%;
+    text-align: center;
+    margin: auto;
+
+    a {
+      padding: 0;
+      color: $orange;
+      text-decoration: none;
+      transition: color 0.3s;
+      border-bottom: 0.5px solid white;
+
+      &:hover {
+        color: white;
+        border-bottom: 0.5px solid $orange;
+      }
+    }
+  }
+}
