@@ -274,13 +274,7 @@ fr:
       title: "Règlement"
       content: |
         <div class="second-section-home-regulation container" id="regulation">
-          <div class="second-section-home-regulation-image">
-            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
-          </div>
           <h1>Règlement</h1>
-          <div class="image">
-            <img src="/assets/regulationGreen-8b8585e97a7f6088f694fc15370a37a83a5e580af294f0340d8269728137b6a3.png" >
-          </div>
           <div class="second-section-home-regulation-content d-flex flex-column">
             <p>Bienvenue au <b>Concours Entrelacé !</b> Ce document contient l'ensemble des règles et règlements du concours. En complétant le formulaire d'inscription pour participer en solo, duo, ou en groupe, vous acceptez automatiquement toutes les conditions énoncées dans ce règlement. Votre participation implique que vous avez lu, compris et accepté les articles suivants :</p>
             <ul>
