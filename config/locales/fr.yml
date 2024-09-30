@@ -1300,3 +1300,5 @@ fr:
       success: 'Formulaire de group créé avec succès.'
       participant_requirement: 'Au moins quatre participants sont requis et assurez-vous de remplir tous les champs du formulaire de groupe.'
       error: 'Un problème est survenu lors de la création du formulaire de groupe.'
+
+  back: "Retour"

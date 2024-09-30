@@ -1303,3 +1303,5 @@ en:
       success: 'Trio Form successfully created.'
       participant_requirement: 'At least four participants are required and make sure you fill up all the fields in the group form'
       error: 'There was an issue creating the group form.'
+
+  back: "Go back"

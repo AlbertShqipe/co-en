@@ -1,5 +1,6 @@
 <div class="container mt-2 apply-text">
   <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
+
   <div class="important-information mt-4">
     <h4><%= t('apply.important_information.title') %></h4>
     <p><%= t('apply.important_information.paragraph1') %></p>
@@ -45,5 +46,6 @@
       </div>
     </div>
   </div>
+  <%= link_to t('back'), :back, style: "color:white; margin:140px;text-decoration:none;" %>
 </div>
 <%= render "shared/footer" %>
