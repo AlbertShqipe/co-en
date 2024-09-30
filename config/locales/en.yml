@@ -655,18 +655,26 @@ en:
   individual_form_index:
     text: |
       <h3 class="text-center">You have not submitted any Individual forms yet</h3>
+    title_f: ''
+    title_en: "'s Individual Forms"
 
   duo_form_index:
     text: |
       <h3 class="text-center">You have not submitted any Duo forms yet</h3>
+    title_f: ''
+    title_en: "'s Duo Forms"
 
   trio_form_index:
     text: |
       <h3 class="text-center">You have not submitted any Trio forms yet</h3>
+    title_f: ''
+    title_en: "'s Trio Forms"
 
   group_form_index:
     text: |
       <h3 class="text-center">You have not submitted any Group forms yet</h3>
+    title_f: ''
+    title_en: "'s Group Forms"
 
   session_links:
     link1: "Log in"
@@ -1276,3 +1284,22 @@ en:
             cancellation of the competition or inability to participate with a medical certificate.
           </p>
         </div>
+
+  individual_form:
+    create:
+      success: 'Individual Form successfully created.'
+      error: 'There was an issue creating the individual form.'
+
+  duo_form:
+    create:
+      success: 'Duo Form successfully created.'
+
+  trio_form:
+    create:
+      success: 'Trio Form successfully created.'
+
+  group_form:
+    create:
+      success: 'Trio Form successfully created.'
+      participant_requirement: 'At least four participants are required and make sure you fill up all the fields in the group form'
+      error: 'There was an issue creating the group form.'

@@ -29,9 +29,11 @@ class IndividualFormsController < ApplicationController
     @individual_form = current_user.individual_forms.new(individual_form_params)
 
     if @individual_form.save
-      redirect_to apply_path, notice: 'Individual Form successfully created.'
+      notice_message = I18n.t('individual_form.create.success')
+      redirect_to apply_path, notice: notice_message
     else
-      render :new
+      alert_message1 = I18n.t('individual_form.create.error')
+      render :new, alert: alert_message1
     end
   end
 

@@ -20,11 +20,14 @@ class GroupFormsController < ApplicationController
     @group_form = GroupForm.new(group_form_params)
     @group_form.user_id = current_user.id
     if @group_form.participants.size < 4
-      redirect_to new_group_form_path, alert: 'At least four participants are required'
+      alert_message = I18n.t('group_form.create.participant_requirement')
+      redirect_to new_group_form_path, alert: alert_message
     elsif @group_form.save
-      redirect_to apply_path, notice: 'Group form was successfully created.'
+      notice_message = I18n.t('group_form.create.success')
+      redirect_to apply_path, notice: notice_message
     else
-      render :new, alert: 'There was an issue creating the group form.'
+      alert_message1 = I18n.t('group_form.create.error')
+      render :new, alert: alert_message1
     end
   end
 

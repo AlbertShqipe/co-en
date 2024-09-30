@@ -20,7 +20,8 @@ class TriosController < ApplicationController
     @trio = Trio.new(trio_params)
     @trio.user_id = current_user.id
     if @trio.save
-      redirect_to apply_path, notice: 'Trio was successfully created.'
+      notice_message = I18n.t('trio_form.create.success')
+      redirect_to apply_path, notice: notice_message
     else
       render :new
     end

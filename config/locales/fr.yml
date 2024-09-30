@@ -623,18 +623,26 @@ fr:
   individual_form_index:
     text: |
       <h3 class="text-center">Vous n'avez pas encore soumis de formulaires individuels</h3>
+    title_f: 'Formulaires Individuelles de '
+    title_en: " "
 
   duo_form_index:
     text: |
       <h3 class="text-center">Vous n'avez pas encore soumis de formulaires Duo</h3>
+    title_f: 'Formulaires de Duo de '
+    title_en: " "
 
   trio_form_index:
     text: |
       <h3 class="text-center">Vous n'avez pas encore soumis de formulaires Trio</h3>
+    title_f: 'Formulaires de Trio de '
+    title_en: " "
 
   group_form_index:
     text: |
       <h3 class="text-center">Vous n'avez pas encore soumis de formulaires de groupe</h3>
+    title_f: 'Formulaires de Group de '
+    title_en: " "
 
   session_links:
     link1: "Se connecter"
@@ -1273,3 +1281,22 @@ fr:
               concours ou d'impossibilité de participation avec justificatif médical.
             </p>
           </div>
+
+  individual_form:
+    create:
+      success: 'Formulaire individuel créé avec succès.'
+      error: 'Un problème est survenu lors de la création du formulaire individuel.'
+
+  duo_form:
+    create:
+      success: 'Formulaire de duo créé avec succès.'
+
+  trio_form:
+    create:
+      success: 'Formulaire de trio créé avec succès.'
+
+  group_form:
+    create:
+      success: 'Formulaire de group créé avec succès.'
+      participant_requirement: 'Au moins quatre participants sont requis et assurez-vous de remplir tous les champs du formulaire de groupe.'
+      error: 'Un problème est survenu lors de la création du formulaire de groupe.'

@@ -17,7 +17,7 @@
       </div>
       <h1 style="text-align:center">Formulaires Individuels</h1>
     <% else %>
-      <h1 style="text-align:center"><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %>'s Individual Forms</h1>
+      <h1 style="text-align:center"><%= t('individual_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('individual_form_index.title_en') %></h1>
     <% end %>
     <div class="individual-forms">
       <% if current_user.role == "competitor" && current_user.individual_forms.present?%>

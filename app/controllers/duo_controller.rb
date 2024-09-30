@@ -20,7 +20,8 @@ class DuoController < ApplicationController
     @duo = Duo.new(duo_params)
     @duo.user_id = current_user.id
     if @duo.save
-      redirect_to apply_path, notice: 'Duo was successfully created.'
+      notice_message = I18n.t('duo_form.create.success')
+      redirect_to apply_path, notice: notice_message
     else
       render :new
     end
