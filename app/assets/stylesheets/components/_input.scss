@@ -233,3 +233,104 @@
   font-size: 0.9em;
   padding-top: 15px;
 }
+
+.form-container {
+  width: 40%;
+  height: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "montserrat", Helvetica, "sans-serif";
+
+
+  form {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+
+    .inp {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      input {
+        width: 60%;
+        padding: 10px;
+        margin: 10px 0;
+        border-top: none;
+        border-right: none;
+        border-bottom: 2px solid $orange;
+        border-left: 2px solid $orange;
+        background-color: rgb(229,229,229);
+        border-radius: 5px;
+        margin: auto;
+        margin-bottom: 50px;
+        font-family: "montserrat", Helvetica, "sans-serif";
+        @media (max-width: 570px) {
+          width: 100%;
+        }
+
+        &:focus {
+          text-decoration: none;
+          border: none;
+        }
+      }
+
+      textarea {
+        width: 60%;
+        padding: 10px;
+        margin: 10px 0;
+        border-top: none;
+        border-right: none;
+        border-bottom: 2px solid $orange;
+        border-left: 2px solid $orange;
+        border-radius: 5px;
+        background-color: rgb(229,229,229);
+        margin: auto;
+        margin-bottom: 35px;
+        font-family: "montserrat", Helvetica, "sans-serif";
+        @media (max-width: 570px) {
+          width: 100%;
+        }
+
+        &:focus {
+          text-decoration: none;
+          border: none;
+        }
+      }
+    }
+
+    .inp-btn {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+      color: black;
+
+      input {
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+        font-size: 20px;
+        margin-top: 3Opx;
+        color: #000;
+        @media (max-width: 570px) {
+          width: 50%;
+        }
+
+        &:hover {
+          margin-top: 3Opx;
+          border-style: inset;
+          border-left: none;
+          border-right: none;
+          border-bottom: 2px solid $orange;
+          border-top: 2px solid $orange;
+          color: $orange !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 570px) {
+    width: 100%;
+  }
+}

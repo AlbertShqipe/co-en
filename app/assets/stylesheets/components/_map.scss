@@ -1,0 +1,44 @@
+ /* Set the size of the div element that contains the map */
+#map {
+  height: 400px; /* The height is 400 pixels */
+  width: 40%; /* The width is the width of the web page */
+  margin-top: 0px;
+  border-bottom: 2px solid rgb(246, 202, 46);
+  border-top: 2px solid rgb(246, 202, 46);
+  margin: auto;
+
+  @media (max-width: 768px) {
+    height: 300px; /* The height is 400 pixels */
+    width: 80%; /* The width is the width of the web page */
+    margin-top: 0px;
+    border-bottom: 2px solid rgb(246, 202, 46);
+    border-top: 2px solid rgb(246, 202, 46);
+    margin: auto; // Adjust letter spacing for smartphones /* Adjust height as needed */
+  }
+  @media (max-width: 576px) {
+    height: 200px; /* The height is 400 pixels */
+    width: 80%; /* The width is the width of the web page */
+    margin-top: 0px;
+    border-bottom: 2px solid rgb(246, 202, 46);
+    border-top: 2px solid rgb(246, 202, 46);
+    margin: auto; // Adjust letter spacing for smartphones /* Adjust height as needed */
+  }
+}
+
+.map-home {
+  width: 500px !important;
+  height: 300px !important;
+  margin-top: 50px !important;
+  border-bottom: none !important;
+
+  @media (max-width: 768px) {
+    width: 300px !important;
+    font-size: 9px;
+    letter-spacing: 4px; // Adjust letter spacing for smartphones /* Adjust height as needed */
+  }
+  @media (max-width: 576px) {
+    width: 100% !important;
+    font-size: 9px;
+    letter-spacing: 4px; // Adjust letter spacing for smartphones /* Adjust height as needed */
+  }
+}

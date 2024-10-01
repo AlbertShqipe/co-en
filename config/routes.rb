@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   # Info of a specific group form
   get '/group_forms/:id/info', to: 'group_forms#info'
 
+  # Messages routes
+    resources :messages, only: [:index, :new, :create]
 
   resources :individual_forms, only: [:index, :new, :create]
 

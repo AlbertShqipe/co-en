@@ -17,11 +17,11 @@
           <div class="d-flex justify-content-between align-items-center mx-5 mt-4">
             <div>
               <%# <%= f.label :first_name, "First Name" %>
-              <%= f.text_field :first_name, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
+              <%= f.text_field :first_name, required: true,placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :last_name, "Last Name"  %>
-              <%= f.text_field :last_name, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
+              <%= f.text_field :last_name, required: true, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :birth_date, "Birthday" %>
@@ -32,66 +32,66 @@
           <div class="d-flex justify-content-between mx-5 ">
             <div>
               <%# <%= f.label :phone  %>
-              <%= f.text_field :phone, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
+              <%= f.text_field :phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
             </div>
             <div>
               <%# <%= f.label :email %>
-              <%= f.email_field :email, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
+              <%= f.email_field :email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
             </div>
             <div>
               <%# <%= f.label :address, class: "address" %>
-              <%= f.text_field :address, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
+              <%= f.text_field :address, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
             </div>
           </div>
 
           <div class="d-flex justify-content-between mx-5 mt-4">
             <div>
               <%# <%= f.label :dance_school %>
-              <%= f.text_field :dance_school, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
+              <%= f.text_field :dance_school, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
             </div>
             <div>
               <%# <%= f.label :teacher_name %>
-              <%= f.text_field :teacher_name, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
+              <%= f.text_field :teacher_name, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
             </div>
             <div>
               <%# <%= f.label :teacher_phone %>
-              <%= f.text_field :teacher_phone, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
+              <%= f.text_field :teacher_phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
             </div>
             <div>
               <%# <%= f.label :teacher_email %>
-              <%= f.email_field :teacher_email, class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
+              <%= f.email_field :teacher_email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
             </div>
           </div>
 
           <div class="d-flex justify-content-between mt-4 ">
             <div id="category">
               <%# <%= f.label :category, class: "label" %>
-              <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session" %> <br>
+              <%= f.select :category, required: true,  options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session" %> <br>
             </div>
 
             <div id="style">
               <%# <%= f.label :style, class: "label" %>
-              <%= f.select :style, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id:"style" %><br>
+              <%= f.select :style, required: true,  options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id:"style" %><br>
             </div>
 
             <div id="level">
               <%# <%= f.label :level, class: "label" %>
-              <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id:"level" %> <br>
+              <%= f.select :level, required: true,  options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id:"level" %> <br>
             </div>
           </div>
           <div class="d-flex justify-content-around mt-4 ">
             <div class="custom-file-input">
-              <%= f.file_field :photo, as: :file, id:"photo-input", class: "file-input" %>
+              <%= f.file_field :photo, as: :file, required: true,  id:"photo-input", class: "file-input" %>
               <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
               <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
-              <%= f.file_field :file, as: :file, id:"file-input", class:"file-input" %>
+              <%= f.file_field :file, as: :file, required: true,  id:"file-input", class:"file-input" %>
               <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
               <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
-              <%= f.file_field :id_card, as: :file, id:"id-input", class:"file-input" %>
+              <%= f.file_field :id_card, as: :file, required: true,  id:"id-input", class:"file-input" %>
               <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
               <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
