@@ -6,7 +6,6 @@ class TriosController < ApplicationController
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
   end
-  end
 
   def show
     @trio = current_user.trios.find(params[:id])
