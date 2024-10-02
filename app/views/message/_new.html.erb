@@ -1,18 +1,18 @@
 <%= form_with model: @message, url: messages_path, local: true do |form| %>
   <div class="inp">
-    <%= form.text_field :name, required: true, placeholder: "Enter your name*" %>
+    <%= form.text_field :name, required: true, placeholder: t("form.fields.name") %>
   </div>
 
   <div class="inp">
 
-    <%= form.email_field :email, required: true, placeholder: "Enter your email*" %>
+    <%= form.email_field :email, required: true, placeholder: t("form.fields.email") %>
   </div>
 
   <div class="inp">
-    <%= form.text_area :message, required: true, placeholder: "Enter your message*" %>
+    <%= form.text_area :message, required: true, placeholder: t("form.fields.message") %>
   </div>
 
   <div class="inp-btn">
-    <%= form.submit "Submit" %>
+    <%= form.submit t("form.button") %>
   </div>
 <% end %>

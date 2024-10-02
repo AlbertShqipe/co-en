@@ -1307,3 +1307,13 @@ fr:
       error: 'Un problème est survenu lors de la création du formulaire de groupe.'
 
   back: "Retour"
+
+  messages:
+    notice: “Votre message a été envoyé avec succès.”
+
+  form:
+    fields:
+      name: “Entrez votre nom*”
+      email: "Entrez votre email*"
+      message: "Entrez votre message*"
+    button: "Envoyer"
