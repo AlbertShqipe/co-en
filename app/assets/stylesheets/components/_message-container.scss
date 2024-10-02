@@ -1,0 +1,47 @@
+.container-messages {
+  height: 600px;
+  overflow: scroll;
+  .message-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(235, 67, 1, 0.3);
+    transition: all 0.3s ease;
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .user-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .user-email {
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+
+    .message-body {
+      margin-top: 10px;
+
+      .message-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #444;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 6px 12px $orange-light;
+    }
+  }
+}

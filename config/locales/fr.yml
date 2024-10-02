@@ -125,6 +125,8 @@ fr:
         <a href="/trios?locale=fr" class="dropdown-item">Formulaires de Trio</a>
       link19: |
         <a href="/group_forms?locale=fr" class="dropdown-item">Formulaires de Groupe</a>
+      link20: |
+        <a href="/messages?locale=fr" class="dropdown-item">Mes Messages</a>
 
   navbar:
     content:
@@ -242,6 +244,8 @@ fr:
         <a href="/our_partners?locale=fr" class="nav-link">NOS PARTENAIRES</a>
       link15: |
         <a href="/media?locale=fr" class="nav-link">MÉDIAS</a>
+      link16: |
+        <a href="/faq?locale=fr" class="nav-link">Mes Messages</a>
 
   expandable_div_left:
     content: |
@@ -252,6 +256,7 @@ fr:
               <p><a href="/?locale=fr">Accueil</a></p>
               <p><a href="/apply?locale=fr">S'inscrire</a></p>
               <p><a href="/contact?locale=fr">Contacts</a></p>
+              <p><a href="javascript:history.back()">Retour</a></p>
             </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
         </div>

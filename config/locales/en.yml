@@ -154,6 +154,8 @@ en:
         <a href="/trios?locale=en" class="dropdown-item">Trio Forms</a>
       link19: |
           <a href="/group_forms?locale=en" class="dropdown-item">Group Forms</a>
+      link20: |
+        <a href="/messages?locale=en" class="dropdown-item">My Messages</a>
 
   navbar:
     content:
@@ -271,6 +273,8 @@ en:
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link15: |
         <a href="/media?locale=en" class="nav-link">MEDIA</a>
+      link16: |
+        <a href="/faq?locale=en" class="nav-link">My Messages</a>
 
   expandable_div_left:
     content: |
@@ -281,6 +285,7 @@ en:
             <p><a href="/?locale=en">Home</a></p>
             <p><a href="/apply?locale=en">Apply</a></p>
             <p><a href="/contact?locale=en">Contacts</a></p>
+            <p><a href="javascript:history.back()">Back</a></p>
           </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
         </div>

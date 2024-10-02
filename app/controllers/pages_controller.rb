@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :regulation, :media, :who_we_are, :practical_info, :contact, :our_partners ]
+  before_action :admin_only, only: [:messages] # Restrict access to certain actions
+
+  def messages
+    @messages = Message.all
+  end
 
   def profile
     @groups = current_user.group_forms
@@ -57,6 +62,16 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html # for regular HTML requests
       format.js   # for AJAX requests$
+    end
+  end
+
+  private
+
+  # Check if the user has the 'admin' role
+  def admin_only
+    unless current_user.admin?
+      flash[:alert] = "Access denied. Admins only."
+      redirect_to(root_path) # Redirect to a safe page, e.g., home page
     end
   end
 end

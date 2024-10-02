@@ -1,0 +1,16 @@
+<div class="text-center pt-5">
+  <h1>Mes Messages</h1>
+</div>
+<div class="container-messages">
+  <% @messages.each do |message| %>
+    <div class="message-container">
+      <div class="message-header">
+        <h3 class="user-name"><%= message.name %></h3>
+        <span class="user-email"><%= message.email %></span>
+      </div>
+      <div class="message-body">
+        <p class="message-content"><%= message.message %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
