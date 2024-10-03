@@ -63,61 +63,64 @@ export default class extends Controller {
                 <th colspan="2">Solo ${data.id}</th>
               </tr>
               <tr>
-                <td colspan="2">Solo Information</td>
+                <td colspan="2">Information Solo </td>
               </tr>
               <tr>
-                <td colspan="2"><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
+                <td colspan="2">
+                <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv" target="_blank">
+                  <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
+                </a>
               </tr>
               <tr>
-                <td>Solo Name</td>
+                <td>Prénom</td>
                 <td>${data.name}</td>
               </tr>
               <tr>
-                <td>Solo Last Name</td>
+                <td>Nom</td>
                 <td>${data.last_name}</td>
               </tr>
               <tr>
-                <td>Solo Birthday</td>
+                <td>Date de naissance</td>
                 <td>${data.birth_date}</td>
               </tr>
               <tr>
-                <td>Solo Address</td>
+                <td>Address</td>
                 <td>${data.address}</td>
               </tr>
               <tr>
-                <td>Solo Phone</td>
+                <td>Portable</td>
                 <td>${data.phone}</td>
               </tr>
               <tr>
-                <td>Solo Email</td>
+                <td>Email</td>
                 <td>${data.email}</td>
               </tr>
               <tr>
-                <td>Solo Style</td>
+                <td>Style</td>
                 <td>${data.style}</td>
               </tr>
               <tr>
-                <td>Solo Level</td>
+                <td>Niveau</td>
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Category</td>
+                <td>Catégorie</td>
                 <td>${data.category}</td>
               </tr>
               <tr>
-                <td>Dance School</td>
+                <td>École de Danse</td>
                 <td>${data.dance_school}</td>
               </tr>
               <tr>
-                <td>Teacher</td>
+                <td>Professeur.e</td>
                 <td>${data.teacher_name}</td>
               </tr>
               <tr>
-                <td>Teacher Phone</td>
+                <td>Portable Professeur.e</td>
                 <td>${data.teacher_phone}</td>
               </tr>
               <tr>
-                <td>Teacher Email</td>
+                <td>Professeur.e Email</td>
                 <td>${data.teacher_email}</td>
               </tr>
             </table>`.replace(/[;,]/g, "");;
@@ -150,58 +153,62 @@ export default class extends Controller {
                 <th colspan="2">Duo ${data.id}</th>
               </tr>
               <tr>
-                <td colspan="2">Duo Information</td>
+                <td colspan="2">Information Duo</td>
               </tr>
               <tr>
-                <td>Duo Name</td>
+                <td>Nom Duo</td>
                 <td>${data.name}</td>
               </tr>
               <tr>
-                <td>Duo Responsible</td>
+                <td>Responsable Duo</td>
                 <td>${data.responsable}</td>
               </tr>
               <tr>
-                <td>Duo Address</td>
+                <td>Address Duo</td>
                 <td>${data.address}</td>
               </tr>
               <tr>
-                <td>Duo Phone</td>
+                <td>Portable Duo</td>
                 <td>${data.phone}</td>
               </tr>
               <tr>
-                <td>Duo Email</td>
+                <td>Email Duo</td>
                 <td>${data.email}</td>
               </tr>
               <tr>
-                <td>Duo Discipline</td>
+                <td>Discipline</td>
                 <td>${data.discipline}</td>
               </tr>
               <tr>
-                <td>Duo Level</td>
+                <td>Niveau Duo</td>
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Title of Music</td>
+                <td>Titre de la musique/td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
-                <td>Composer</td>
+                <td>Compositeur·trice</td>
                 <td>${data.composer}</td>
               </tr>
               <tr>
-                <td>Length Of Piece</td>
+                <td>Durée de la pièce</td>
                 <td>${data.length_of_piece}</td>
               </tr>
               <tr>
-                <td>Average Age</td>
+                <td>Âge moyen</td>
                 <td>${data.average_age}</td>
               </tr>
               <tr>
-                <td colspan="2"><strong>Participants</strong></td>
+                <td colspan="2"><strong>Participant·e·s.</strong></td>
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
@@ -234,58 +241,62 @@ export default class extends Controller {
                 <th colspan="2">Trio ${data.id}</th>
               </tr>
               <tr>
-                <td colspan="2">Trio Information</td>
+                <td colspan="2">Information Trio</td>
               </tr>
               <tr>
-                <td>Trio Name</td>
+                <td>Nom Trio</td>
                 <td>${data.name}</td>
               </tr>
               <tr>
-                <td>Trio Responsible</td>
+                <td>Responsable Trio</td>
                 <td>${data.responsable}</td>
               </tr>
               <tr>
-                <td>Trio Address</td>
+                <td>Address Trio</td>
                 <td>${data.address}</td>
               </tr>
               <tr>
-                <td>Trio Phone</td>
+                <td>Portable Trio</td>
                 <td>${data.phone}</td>
               </tr>
               <tr>
-                <td>Trio Email</td>
+                <td>Email Trio</td>
                 <td>${data.email}</td>
               </tr>
               <tr>
-                <td>Trio Discipline</td>
+                <td>Discipline</td>
                 <td>${data.discipline}</td>
               </tr>
               <tr>
-                <td>Trio Level</td>
+                <td>Niveau Trio</td>
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Title of Music</td>
+                <td>Titre de la musique/td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
-                <td>Composer</td>
+                <td>Compositeur·trice</td>
                 <td>${data.composer}</td>
               </tr>
               <tr>
-                <td>Length Of Piece</td>
+                <td>Durée de la pièce</td>
                 <td>${data.length_of_piece}</td>
               </tr>
               <tr>
-                <td>Average Age</td>
+                <td>Âge moyen</td>
                 <td>${data.average_age}</td>
               </tr>
               <tr>
-                <td colspan="2"><strong>Participants</strong></td>
+                <td colspan="2"><strong>Participant·e·s.</strong></td>
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};
@@ -315,61 +326,65 @@ export default class extends Controller {
           groupInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Trio ${data.id}</th>
+                <th colspan="2">Group ${data.id}</th>
               </tr>
               <tr>
-                <td colspan="2">Trio Information</td>
+                <td colspan="2">Information Group</td>
               </tr>
               <tr>
-                <td>Trio Name</td>
+                <td>Nom Group</td>
                 <td>${data.name}</td>
               </tr>
               <tr>
-                <td>Trio Responsible</td>
+                <td>Responsable Group</td>
                 <td>${data.responsable}</td>
               </tr>
               <tr>
-                <td>Trio Address</td>
+                <td>Address Group</td>
                 <td>${data.address}</td>
               </tr>
               <tr>
-                <td>Trio Phone</td>
+                <td>Portable Group</td>
                 <td>${data.phone}</td>
               </tr>
               <tr>
-                <td>Trio Email</td>
+                <td>Email Group</td>
                 <td>${data.email}</td>
               </tr>
               <tr>
-                <td>Trio Discipline</td>
+                <td>Discipline</td>
                 <td>${data.discipline}</td>
               </tr>
               <tr>
-                <td>Trio Level</td>
+                <td>Niveau Group</td>
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Title of Music</td>
+                <td>Titre de la musique/td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
-                <td>Composer</td>
+                <td>Compositeur·trice</td>
                 <td>${data.composer}</td>
               </tr>
               <tr>
-                <td>Length Of Piece</td>
+                <td>Durée de la pièce</td>
                 <td>${data.length_of_piece}</td>
               </tr>
               <tr>
-                <td>Average Age</td>
+                <td>Âge moyen</td>
                 <td>${data.average_age}</td>
               </tr>
               <tr>
-                <td colspan="2"><strong>Participants</strong></td>
+                <td colspan="2"><strong>Participant·e·s.</strong></td>
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td><img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px"></td></td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
                 <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
                 </tr>
               `)};

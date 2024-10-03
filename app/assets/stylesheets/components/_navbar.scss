@@ -71,6 +71,21 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 1125px) {
+      display:none;
+    }
+  }
+
+  .logo-sidenav {
+    display: none;
+    z-index: 1000;
+
+    @media (max-width: 1125px) {
+      display: block;
+
+
+    }
   }
 
   .lang-icons {
@@ -83,7 +98,6 @@
     //     color: $orange;
     //   }
     // }
-
 }
 
 

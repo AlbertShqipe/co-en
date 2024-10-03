@@ -3,19 +3,19 @@
     <% if current_user.role == "admin" %>
       <div class="index-links-containers">
         <div class="link-container">
-          <a href="/individual_forms">Individual Forms</a>
+          <a href="/individual_forms"><%= t('table.th') %></a>
         </div>
         <div class="link-container">
-          <a href="/duo">Duo Forms</a>
+          <a href="/duo"><%= t('table.th2') %></a>
         </div>
         <div class="link-container">
-          <a href="/trios">Trio Forms</a>
+          <a href="/trios"><%= t('table.th3') %></a>
         </div>
         <div class="link-container">
-          <a href="/group_forms">Group Forms</a>
+          <a href="/group_forms"><%= t('table.th4') %></a>
         </div>
       </div>
-      <h1 style="text-align:center">Formulaires Individuels</h1>
+      <h1 style="text-align:center"><%= t('table.th') %></h1>
     <% else %>
       <h1 style="text-align:center"><%= t('individual_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('individual_form_index.title_en') %></h1>
     <% end %>
@@ -27,7 +27,7 @@
             <tr style="width:50px">
               <th><%= t('index_individuals.th.attributes') %></th>
                 <% current_user.individual_forms.each_with_index do |form, index| %>
-                  <th><%= t('index_individuals.th.inidividual_form') %> <%= index + 1 %></th>
+                  <th><%= t('index_individuals.th.individaul_form') %> <%= index + 1 %></th>
                 <% end %>
             </tr>
           </thead>
@@ -47,8 +47,10 @@
             <tr>
               <td><%= t('index_individuals.td.birthday') %></td>
               <% current_user.individual_forms.each do |form| %>
-                <td><%=  calculate_age(form.birth_date) %></td>
-
+                <td>
+                  <%= form.birth_date %><br>
+                  <%=  calculate_age(form.birth_date) %>
+                </td>
               <% end %>
             </tr>
             <tr>
@@ -129,7 +131,7 @@
             <tr>
               <th><%= t("index_individuals.th.attributes") %></th>
               <% @individual_forms.each_with_index do |form, index| %>
-                <th>Form <%= index + 1 %></th>
+                <th><%= t('table.title') %> <%= index + 1 %></th>
               <% end %>
             </tr>
           </thead>
@@ -155,7 +157,10 @@
             <tr>
               <td><%= t("index_individuals.td.birthday") %></td>
               <% @individual_forms.each do |form| %>
-                <td><%= calculate_age(form.birth_date) %></td>
+                <td>
+                  <%= participant.birth_date %><br>
+                  <%= calculate_age(form.birth_date) %>
+                </td>
               <% end %>
             </tr>
             <tr>
@@ -229,7 +234,7 @@
                       <% newkey =  matching_file["asset_id"] %>
                       <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
                       <% else %>
-                      <p>No file found</p>
+                      <p>Aucun fichier correspondant trouvé.</p>
                     <% end %>
                   <% end %>
                 </td>
@@ -246,7 +251,7 @@
                       <% newkey =  matching_file["asset_id"] %>
                       <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
                       <% else %>
-                      <p>No file found</p>
+                      <p>Aucun fichier correspondant trouvé.</p>
                     <% end %>
                   <% end %>
                 </td>

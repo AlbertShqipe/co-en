@@ -55,3 +55,59 @@
     }
 
 }
+
+.icon-container-navbar {
+  width:100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: absolute;
+  left: 150px;
+  top: 50px;
+
+  .icon {
+    text-decoration: none;
+    // background-color: rgba(235, 67, 1, 0.3);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+    .facebook {
+      fill: #e5e5e5; // default color
+
+      &:hover {
+        fill: rgb(66, 103, 178); // color on hover
+        transition: fill 0.3s ease; // optional smooth transition
+      }
+    }
+
+    #facebook{
+      margin-right:20px;
+    }
+
+    .instagram {
+      fill: #e5e5e5; // default color
+
+      &:hover {
+        fill: rgb(228, 64, 95);// color on hover
+        transition: fill 0.3s ease; // optional smooth transition
+      }
+    }
+    #instagram{
+      margin-right:20px;
+    }
+
+    .youtube {
+      fill: #e5e5e5; // default color
+
+      &:hover {
+        fill: rgb(255, 0, 0); // color on hover
+        transition: fill 0.3s ease; // optional smooth transition
+      }
+    }
+
+}

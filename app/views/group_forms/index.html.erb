@@ -3,19 +3,19 @@
     <% if current_user.role == "admin" %>
       <div class="index-links-containers">
         <div class="link-container">
-          <a href="/individual_forms">Individual Forms</a>
+          <a href="/individual_forms"><%= t('table.th') %></a>
         </div>
         <div class="link-container">
-          <a href="/duo">Duo Forms</a>
+          <a href="/duo"><%= t('table.th2') %></a>
         </div>
         <div class="link-container">
-          <a href="/trios">Trio Forms</a>
+          <a href="/trios"><%= t('table.th3') %></a>
         </div>
         <div class="link-container">
-          <a href="/group_forms">Group Forms</a>
+          <a href="/group_forms"><%= t('table.th4') %></a>
         </div>
       </div>
-      <h1 style="text-align:center">Formulaires des Groups</h1>
+      <h1 style="text-align:center"><%= t('table.th4') %></h1>
     <% else %>
       <h1 style="text-align:center"><%= t('group_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('group_form_index.title_en') %></h1>
     <% end %>
@@ -23,7 +23,7 @@
       <table class="table-form mx-auto">
         <thead>
           <tr style="width:50px">
-            <th><%= t('index_groups.th.attributes') %></th>
+            <th><%= t('index_trio.th.attributes') %></th>
             <% current_user.group_forms.each_with_index do |group, index| %>
               <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
             <% end %>
@@ -115,8 +115,8 @@
             <% current_user.group_forms.each do |group| %>
               <% group.participants.each do |participant| %>
                 <td>
-                  Birthday: <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %> years old
+                  <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %>
                 </td>
               <% end %>
             <% end %>
@@ -127,19 +127,13 @@
       <table class="table-form mx-auto">
         <thead>
           <tr>
-            <th>Attribute</th>
+            <th><%= t('index_group.th.attributes') %></th>
             <% @group_forms.each_with_index do |form, index| %>
               <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
             <% end %>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>User Id</td>
-            <% @group_forms.each do |form| %>
-              <td><%= form.user_id %></td>
-            <% end %>
-          </tr>
           <tr>
             <td><%= t('index_groups.td.name_of_group') %></td>
             <% @group_forms.each do |form| %>
@@ -208,7 +202,7 @@
                   <% if participant.photo.attached? %>
                     <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
                   <% else %>
-                    <p>Participant has no picture attached</p>
+                    <p>Le candidat n'a pas de photo</p>
                   <% end %>
                 </td>
               <% end %>
@@ -219,14 +213,14 @@
             <% @group_forms.each do |group_form| %>
               <% group_form.participants.each do |participant| %>
                 <td>
-                  Birthday: <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %> years old
+                  <%= participant.birth_date %><br>
+                  <%= calculate_age(participant.birth_date) %>
                 </td>
               <% end %>
             <% end %>
           </tr>
           <tr>
-            <td>Authorization for Participation</td>
+            <td><%= t('index_groups.td.file') %></td>
               <% @group_forms.each do |group_form| %>
                 <% group_form.participants.each do |participant| %>
                   <td>
@@ -238,7 +232,7 @@
                         <% newkey =  matching_file["asset_id"] %>
                         <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
                         <% else %>
-                        <p>No file found</p>
+                        <p>Aucun fichier correspondant trouvé.</p>
                       <% end %>
                     <% end %>
                   </td>
@@ -246,7 +240,7 @@
               <% end %>
           </tr>
           <tr>
-            <td>ID</td>
+            <td><%= t('index_groups.td.file1') %></td>
             <% @group_forms.each do |group_form| %>
               <% group_form.participants.each do |participant| %>
                 <td>
@@ -257,7 +251,7 @@
                       <% newkey =  matching_file["asset_id"] %>
                       <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
                       <% else %>
-                      <p>No matching file found</p>
+                      <p>Aucun fichier correspondant trouvé.</p>
                     <% end %>
                   <% end %>
                 </td>

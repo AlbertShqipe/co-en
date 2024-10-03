@@ -6,14 +6,14 @@
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="solos" class="active">Solos</li>
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="duos">Duos</li>
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="trios">Trios</li>
-      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="group">Group Forms</li>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="group">Groups</li>
     </ul>
   </div>
   <div class="portfolio-con" data-tabs-admin-target="tab" data-tabs-admin-type-value="solos" data-id="solos">
     <div class="portfolio-container" data-controller="tabs">
       <div class="portfolio-tab-bar">
         <select id="solo-select">
-          <option value="">Select a Solo</option>
+          <option value="">Sélectionnez un Solo</option>
           <% @solos.each do |solo| %>
             <option value="<%= solo.id %>"><%= solo.id %> <%= solo.first_name %></option>
           <% end %>
@@ -28,7 +28,7 @@
             <%= "Individual Forms" %>
           <% end %>
         </p>
-        <p>Please select a solo to view its information.</p>
+        <p>Veuillez sélectionner un Solo pour voir ses informations.</p>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
     <div class="portfolio-container" data-controller="tabs">
       <div class="portfolio-tab-bar">
         <select id="duo-select">
-          <option value="">Select a Duo</option>
+          <option value="">Sélectionnez un Duo</option>
           <% @duos.each do |duo| %>
             <option value="<%= duo.id %>"><%= duo.name %></option>
           <% end %>
@@ -51,7 +51,7 @@
             <%= "Duo Forms" %>
           <% end %>
         </p>
-        <p>Please select a duo to view its information.</p>
+        <p>Veuillez sélectionner un Duo pour voir ses informations.</p>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@
     <div class="portfolio-container" data-controller="tabs">
       <div class="portfolio-tab-bar">
         <select id="trio-select">
-          <option value="">Select a Trio</option>
+          <option value="">Sélectionnez un Trio</option>
           <% @trios.each do |trio| %>
             <option value="<%= trio.id %>"><%= trio.name %></option>
           <% end %>
@@ -74,7 +74,7 @@
             <%= "Trio Forms" %>
           <% end %>
         </p>
-        <p>Please select a trio to view its information.</p>
+        <p>Veuillez sélectionner un Trio pour voir ses informations.</p>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
     <div class="portfolio-container" data-controller="tabs">
       <div class="portfolio-tab-bar">
         <select id="group-select">
-          <option value="">Select a Group</option>
+          <option value="">Sélectionnez un Group</option>
           <% @groups.each do |group| %>
             <option value="<%= group.id %>"><%= group.name %></option>
           <% end %>
@@ -97,7 +97,7 @@
             <%= "Group Forms" %>
           <% end %>
         </p>
-        <p>Please select a group to view its information.</p>
+        <p>Veuillez sélectionner un Group pour voir ses informations.</p>
       </div>
     </div>
   </div>

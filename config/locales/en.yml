@@ -567,6 +567,31 @@ en:
       participants_n: "N of Participants"
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
+      profile_pic: "Profile Picture"
+      file: "Completed Authorization Form"
+      file1: "Identity Card"
+
+  index_trio:
+    th:
+      attributes: "Attributes"
+      trio_form: "Trio Form"
+    td:
+      name_of_trio: "Name of Trio"
+      responsible: "Responsible of Trio"
+      trio_address: "Address of Trio"
+      phone: "Phone"
+      email: "Email of Trio"
+      discipline: "Trio discipline"
+      level: "Trio level"
+      music: "Music"
+      composer: "Composer"
+      length_of_piece: "Length of Piece"
+      participants_n: "N of Participants"
+      participant_name_lastName: "Full name of Participant"
+      participant_age: "Age of Participant"
+      profile_pic: "Profile Picture"
+      file: "Completed Authorization Form"
+      file1: "Identity Card"
 
   index_duo:
     th:
@@ -586,6 +611,9 @@ en:
       participants_n: "N of Participants"
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
+      profile_pic: "Profile Picture"
+      file: "Completed Authorization Form"
+      file1: "Identity Card"
 
   index_individuals:
     th:
@@ -1320,3 +1348,16 @@ en:
       email: "Enter your email*"
       message: "Enter your message*"
     button: "Submit"
+
+  contact_page:
+    p: "For any questions or requests for information, please do not hesitate to contact us via the form below. We will get back to you as soon as possible."
+
+  table:
+    title: "Individual Form"
+    title2: "Duo Form"
+    title3: "Trio Form"
+    title4: "Group Form"
+    th: "Individual Forms"
+    th2: "Duo Forms"
+    th3: "Trio Forms"
+    th4: "Group Forms"

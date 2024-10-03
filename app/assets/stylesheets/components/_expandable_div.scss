@@ -107,9 +107,9 @@
     background-size: contain;
     width: 1000px;
     height: 80% !important;
-    // border-top: 5px solid rgba(235, 67, 1, 0.6);
-    // border-right: 5px solid rgba(235, 67, 1, 0.6);
-    // border-bottom: 5px solid rgba(235, 67, 1, 0.6);
+  }
 
+  @media (max-width: 1250px) {
+    display: none;
   }
 }

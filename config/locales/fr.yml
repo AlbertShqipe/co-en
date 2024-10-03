@@ -255,7 +255,7 @@ fr:
             <div class="mt-4 mb-4">
               <p><a href="/?locale=fr">Accueil</a></p>
               <p><a href="/apply?locale=fr">S'inscrire</a></p>
-              <p><a href="/contact?locale=fr">Contacts</a></p>
+              <p><a href="/contact?locale=fr">Contact</a></p>
               <p><a href="javascript:history.back()">Retour</a></p>
             </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
@@ -535,6 +535,31 @@ fr:
       participants_n: "N de Participant·e·s"
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
+      profile_pic: "Photo Profile"
+      file: "Formulaire d'Autorisation Rempli"
+      file1: "Carte d'Identité"
+
+  index_trio:
+    th:
+      attributes: "Attributes"
+      trio_form: "Formulaire du Trio"
+    td:
+      name_of_trio: "Nom du Trio"
+      responsible: "Responsable du Trio"
+      trio_address: "Adresse du Trio"
+      phone: "Numéro de Téléphone"
+      email: "Adresse Email"
+      discipline: "Discipline du Trio"
+      level: "Nivau du Trio"
+      music: "Titre de la Musique"
+      composer: "Compositeur·rice"
+      length_of_piece: "Durée de la Pièce"
+      participants_n: "N de Participant·e·s"
+      participant_name_lastName: "Participant·e·s"
+      participant_age: "Âge des Participant·e·s"
+      profile_pic: "Photo Profile"
+      file: "Formulaire d'Autorisation Rempli"
+      file1: "Carte d'Identité"
 
   index_duo:
     th:
@@ -554,6 +579,9 @@ fr:
       participants_n: "N de Participant·e·s"
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
+      profile_pic: "Photo Profile"
+      file: "Formulaire d'Autorisation Rempli"
+      file1: "Carte d'Identité"
 
   index_individuals:
     th:
@@ -572,7 +600,7 @@ fr:
       dance_school: "Nom de l'École de Danse"
       category: "Catégorie"
       style: "Style"
-      level: "Level"
+      level: "Niveau"
       profile_pic: "Photo Profile"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
@@ -1317,3 +1345,16 @@ fr:
       email: "Entrez votre email*"
       message: "Entrez votre message*"
     button: "Envoyer"
+
+  contact_page:
+    p: "Pour toute question ou demande d'information, n'hésitez pas à nous contacter via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais."
+
+  table:
+    th: "Formulaires Individuels"
+    title: "Formulaires de Duo"
+    title2: "Formulaire de Trio"
+    title3: "Formulaires de Group"
+    title4: "Formulaires Individuel"
+    th2: "Formulaires des Duos"
+    th3: "Formulaires des Trios"
+    th4: "Formulaires des Groupes"
