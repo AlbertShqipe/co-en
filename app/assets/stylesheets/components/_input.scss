@@ -241,7 +241,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "montserrat", Helvetica, "sans-serif";
 
 
   form {
@@ -268,8 +267,15 @@
         margin: auto;
         margin-bottom: 50px;
         font-family: "montserrat", Helvetica, "sans-serif";
+
+        @media (max-width: 760px) {
+          width: 100%;
+          margin-bottom: 25px;
+        }
+
         @media (max-width: 570px) {
           width: 100%;
+          margin-bottom: 25px;
         }
 
         &:focus {
@@ -291,7 +297,12 @@
         margin: auto;
         margin-bottom: 35px;
         font-family: "montserrat", Helvetica, "sans-serif";
+
         @media (max-width: 570px) {
+          width: 100%;
+        }
+
+        @media (max-width: 760px) {
           width: 100%;
         }
 
@@ -303,21 +314,25 @@
     }
 
     .inp-btn {
-      width: 100%;
+      width: 60%;
+      margin: auto;
       text-align: center;
       margin-bottom: 25px;
       color: black;
 
       input {
-        width: 20%;
         background-color: rgb(255, 255, 255);
         font-size: 20px;
         margin-top: 3Opx;
         color: #000;
+
         @media (max-width: 570px) {
           width: 50%;
         }
 
+        @media (max-width: 768px) {
+          width: 100%;
+        }
         &:hover {
           margin-top: 3Opx;
           border-style: inset;
@@ -329,6 +344,10 @@
         }
       }
     }
+  }
+  @media (max-width: 760px) {
+    width: 80%;
+    margin-bottom: 30px;
   }
   @media (max-width: 570px) {
     width: 100%;

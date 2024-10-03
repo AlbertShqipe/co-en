@@ -5,6 +5,11 @@
   justify-content: center;
   margin-top: 20px;
 
+  @media (max-width: 760px) {
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+
   .icon {
     text-decoration: none;
     // background-color: rgba(235, 67, 1, 0.3);

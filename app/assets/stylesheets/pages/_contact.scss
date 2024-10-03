@@ -1,7 +1,25 @@
+.contact-text {
+  text-align: center;
+
+  @media (min-width: 760px) {
+    text-align: center;
+  }
+
+  @media (min-width: 570px) {
+    text-align: center;
+  }
+}
+
 .form-map-container {
   margin-top: 50px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: justify;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
