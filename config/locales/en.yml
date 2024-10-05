@@ -688,6 +688,7 @@ en:
             <a href="/individual_forms/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
+    text: "For the best experience and to ensure you can complete the registration for the competition, please access this form using a computer. Mobile or tablet devices may not support all features required for the registration process."
 
   individual_form_index:
     text: |

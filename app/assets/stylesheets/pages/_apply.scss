@@ -73,8 +73,19 @@
   }
 }
 
-@media (max-width: 600px) {
-  #phoneNoShow {
+.text-apply {
+  text-align: justify;
+  height: 71vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  display: block;
+  color: $light-gray;
+  background-color: black;
+}
+#phoneNoShow {
+  @media (max-width: 600px) {
     display: none;
   }
 }

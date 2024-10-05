@@ -659,6 +659,7 @@ fr:
             <a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
+    text: "Pour une meilleure expérience et afin de vous assurer de pouvoir compléter l’inscription au concours, veuillez accéder à ce formulaire depuis un ordinateur. Les appareils mobiles ou tablettes peuvent ne pas prendre en charge toutes les fonctionnalités nécessaires à la procédure d’inscription."
 
   individual_form_index:
     text: |
