@@ -4,6 +4,14 @@
   padding-top: 10px;
   width: 80%;
 
+  @media (max-width: 560px) {
+    width: 100%;
+    padding: 0;
+    display: block;
+    justify-content: start;
+    align-items: start;
+  }
+
   .partners {
     display: block;
     width: 100%;
@@ -13,11 +21,20 @@
     background-repeat: no-repeat;
     background-size: contain;
     overflow: hidden;
-
-    // transform: translateY(13%);
-
     margin-top: 2px;
+
+    @media (max-width: 560px) {
+      display: block;
+      width: 100%;
+      height: 73vh;
+      background-image: url('PARTENAIRES2024.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: hidden;
+    }
   }
+
   a {
     position: absolute;
     top: 100px;

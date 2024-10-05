@@ -113,6 +113,12 @@
 }
 
 .d-links {
-  display:flex;
+  display: flex;
   justify-content: space-around;
+  margin: auto;
+  text-align: center;
+
+  @media (max-width: 560px) {
+    flex-direction: column;
+  }
 }
