@@ -55,6 +55,7 @@
         </div>
       </div>
     </div>
+
     <%= render "shared/flashes" %>
 
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||
@@ -67,11 +68,29 @@
                                                     current_page?(new_individual_form_path) ||
                                                     current_page?(new_group_form_path) %>
     <%= yield %>
+
     <div id="backToTop" title="Back to the top" data-controller="back-to-top">
       <a href="#top" class="material-symbols-outlined">
         arrow_upward
       </a>
     </div>
+    <script>
+      function openNav() {
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (screenWidth < 576) {
+          document.getElementById("mySidenav").style.width = "100%";
+        } else if (screenWidth < 768){
+          document.getElementById("mySidenav").style.width = "80%";
+        } else {
+          document.getElementById("mySidenav").style.width = "40%";
+        }
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+    </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvHb9G0A9MOGWlj6vjUBji4DADWFybLRo&callback=initMap" ></script>
   </body>
 </html>

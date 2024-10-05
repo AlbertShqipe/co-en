@@ -65,6 +65,10 @@
   left: 150px;
   top: 70px;
 
+  @media (max-width: 560px) {
+    left: 100px;
+  }
+
   .icon {
     text-decoration: none;
     // background-color: rgba(235, 67, 1, 0.3);

@@ -1091,7 +1091,7 @@ en:
           </table>
         </div>
       div8: |
-        <div class="mt-5" style="width:80%; margin:auto">
+        <div class="mt-5" style="width:100%; margin:auto">
           <table class="table-regulation">
             <thead>
               <tr>
@@ -1361,3 +1361,19 @@ en:
     th2: "Duo Forms"
     th3: "Trio Forms"
     th4: "Group Forms"
+
+  phone_view:
+    slideshow: |
+      <a href="/?locale=en">
+        <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+      </a>
+      <div class="mt-3 mb-0">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p><a href="/regulation?locale=en">REGULATION</a></p>
+        <p><a href="/who_we_are?locale=en">WHO WE ARE</a></p>
+        <p><a href="/practical_info?locale=en" >PRACTICAL INFO</a></p>
+        <p><a href="/our_partners?locale=en">OUR PARTNERS</a></p>
+        <p><a href="/media?locale=en">MEDIA</a></p>
+        <p><a href="/contact?locale=en">CONTACT</a></p>
+        <p><a href="javascript:history.back()">Back</a></p>
+      </div>

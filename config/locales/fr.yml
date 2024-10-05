@@ -1082,7 +1082,7 @@ fr:
           </table>
         </div>
       div8: |
-        <div class="mt-5" style="width:80%; margin:auto">
+        <div class="mt-5" style="width:100%; margin:auto">
           <table class="table-regulation">
             <thead>
               <tr>
@@ -1358,3 +1358,19 @@ fr:
     th2: "Formulaires des Duos"
     th3: "Formulaires des Trios"
     th4: "Formulaires des Groupes"
+
+  phone_view:
+    slideshow: |
+      <a href="/?locale=fr">
+        <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+      </a>
+      <div class="mt-3 mb-0">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <p><a href="/regulation?locale=fr">RÈGLEMENT</a></p>
+        <p><a href="/who_we_are?locale=fr">QUI NOUS SOMMES</a></p>
+        <p><a href="/practical_info?locale=fr">INFORMATIONS PRATIQUES</a></p>
+        <p><a href="/our_partners?locale=fr">NOS PARTENAIRES</a></p>
+        <p><a href="/media?locale=fr">MÉDIAS</a></p>
+        <p><a href="/contact?locale=fr">CONTACT</a></p>
+        <p><a href="javascript:history.back()">Back</a></p>
+      </div>

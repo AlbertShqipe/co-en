@@ -70,6 +70,11 @@
       opacity: 1; /* Show content on hover */
     }
   }
+
+  @media (max-width: 560px) {
+    display: none;
+
+  }
 }
 
 .expandable-div-right {

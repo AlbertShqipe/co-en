@@ -20,6 +20,7 @@
       </a>
       </div>
     </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -99,9 +100,27 @@
       <div class="lang-icons z-index-0">
         <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
       </div>
-      <div class="logo-sidenav" style="margin-right:50px">
-        <%= image_tag "logoLightGray.png", class: "avatar" %>
-      </div>
+
+    </div>
+
+    <div id="main" style="margin-left: 0px;">
+      <svg xmlns="http://www.w3.org/2000/svg" id="b032a4a6-eb1b-4c0e-b99c-d687dcadd10e" data-name="Layer 1" width="41.3999" height="23.6001" viewBox="0 0 41.3999 23.6001" onclick="openNav()">
+        <rect width="41.3999" height="2"></rect><rect x="21.6001" y="10.8003" width="19.7998" height="2"></rect>
+        <rect x="32.3999" y="21.6001" width="9" height="2"></rect>
+      </svg>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <div class="content">
+          <div class="head">
+            <div class="lang-icons-sidenav">
+              <%= link_to image_tag("eng.png", style:"width:25px; margin-right:15px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:25px; margin-left:15px"), url_for(locale: 'fr') %>
+            </div>
+          </div>
+          <%= t("phone_view.slideshow").html_safe %>
+          <img src="/assets/DANB-91fa79baa5a37e7b2c49e164d96b5f8de59f1ad144ffef81d5d9d2de2df9917f.png" class="denAlm">
+          <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
+        </div>
     </div>
   </div>
 </div>

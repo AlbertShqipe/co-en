@@ -1,0 +1,112 @@
+.sidenav {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1100;
+  top: 0;
+  right: 0;
+  // background-color: rgba(235, 67, 1, 0.6);
+  background-color: rgba(0, 0, 0, 0.80);
+  overflow-x: hidden;
+  transition: 0.5s  ease-in-out;
+
+  @media (max-width: 450px) {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2100;
+    top: 0;
+    right: 0;
+    // background-color: rgba(235, 67, 1, 0.6);
+    background-color: rgba(0, 0, 0, 0.80);
+    overflow-x: hidden;
+    transition: 0.5s  ease-in-out;
+  }
+
+  .denAlm {
+    width: 300px;
+
+    @media (max-width: 450px) {
+      width: 200px;
+    }
+  }
+
+
+  .content {
+    margin: auto;
+    padding: 0 10px; /* Adjust padding as needed */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .head {
+      padding-top: 30px;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .logo {
+      width: 90px;
+    }
+
+    .divider {
+      width: 200px;
+    }
+
+    p > a {
+      color: $light-gray;
+      text-decoration: none;
+      border-bottom: 1 px solid transparent;
+      padding-bottom: 5px;
+      font-size: 20px;
+
+      &:hover {
+        color: $light-gray;
+        border-bottom: 1px solid $white;
+      }
+    }
+
+    p.padT {
+      padding-top:30px;
+    }
+
+    p.padB {
+      padding-bottom:30px;
+
+    }
+
+    .closebtn {
+      text-decoration: none;
+      color: $light-gray;
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+  }
+}
+
+#main {
+  transition: margin-right .5s;
+  padding: 16px;
+  z-index: 1000;
+  display: none;
+  svg {
+    fill: $light-gray;
+  }
+
+  @media (max-width:1125px) {
+    display: block;
+  }
+
+  @media (max-width:560px) {
+    display: block;
+  }
+}
