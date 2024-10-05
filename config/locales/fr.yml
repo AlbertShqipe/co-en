@@ -279,6 +279,9 @@ fr:
       title: "Règlement"
       content: |
         <div class="second-section-home-regulation container" id="regulation">
+          <div class="second-section-home-regulation-image">
+            <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
+          </div>
           <h1>Règlement</h1>
           <div class="second-section-home-regulation-content d-flex flex-column">
             <p>Bienvenue au <b>Concours Entrelacé !</b> Ce document contient l'ensemble des règles et règlements du concours. En complétant le formulaire d'inscription pour participer en solo, duo, ou en groupe, vous acceptez automatiquement toutes les conditions énoncées dans ce règlement. Votre participation implique que vous avez lu, compris et accepté les articles suivants :</p>
@@ -293,9 +296,9 @@ fr:
               <li>Article 8 : Responsabilités</li>
               <li>Article 9 : Caractéristiques Techniques du Plateau</li>
               <li>Article 10 : Modalités d'Inscription</li>
-              <li>Merci de votre participation et bonne chance à tous les candidats !</li>
             </ul>
-            <a href="regulation?locale=fr" class="button-home" id="right-shift-button">RÈGLEMENT COMPLET</a>
+            <p>Thank you for your participation and good luck to all the candidates!</p>
+            <a href="regulation?locale=fr" class="button-home">RÈGLEMENT COMPLET</a>
           </div>
         </div>
 
@@ -327,9 +330,13 @@ fr:
           <div class="second-section-home-practicalInfo-content d-flex flex-column">
             <h1>Informations Pratiques</h1>
             <p>Le concours se tient chaque année à l'Espace Albert Camus, situé au <a href="https://www.google.com/maps/place/Espace+Albert+Camus/@45.7273879,4.9197999,17z/data=!4m15!1m8!3m7!1s0x47f4c17b532fc0d7:0xb394020d98c0e480!2s1+Rue+Maryse+Bastié,+69500+Bron,+France!3b1!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F11bw40vgnq!3m5!1s0x47f4c16358c1b3d9:0x4f658474936298b8!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F1tdjqh83?entry=ttu">1 rue Maryse Bastié, 69500 BRON</a>. Inauguré officiellement en janvier 1989 et désigné « Scène régionale Rhône-Alpes » en mars 2006, l'Espace Albert-Camus est un lieu de spectacle avec une capacité de 478 places fixes en gradins. Depuis plus de 30 ans, il propose une programmation artistique riche et variée pour tous les publics, jeunes et adultes.</p>
-            <div class="d-flex justify-content-around mt-4 images">
-              <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public">
-              <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Scène">
+            <div class="mt-4 images">
+              <div id="1image">
+                <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public">
+              </div>
+              <div>
+                <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Stage">
+              </div>
             </div>
             <a href="practical_info?locale=fr" class='button-home'>INFORMATIONS</a>
           </div>
@@ -1372,5 +1379,4 @@ fr:
         <p><a href="/our_partners?locale=fr">NOS PARTENAIRES</a></p>
         <p><a href="/media?locale=fr">MÉDIAS</a></p>
         <p><a href="/contact?locale=fr">CONTACT</a></p>
-        <p><a href="javascript:history.back()">Back</a></p>
       </div>

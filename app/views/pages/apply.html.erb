@@ -1,5 +1,5 @@
-<div class="container mt-2 apply-text">
-  <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
+<%= render "shared/navbar" %>
+<div class="container mt-2 apply-text" id="phoneNoShow">
   <div class="important-information mt-4">
     <h4><%= t('apply.important_information.title') %></h4>
     <p><%= t('apply.important_information.paragraph1') %></p>
@@ -9,42 +9,61 @@
     </ul>
     <p><%= t('apply.important_information.paragraph2') %></p>
   </div>
+
   <div class="d-flex justify-content-around d-links">
     <%= link_to t('apply.important_information.pdf1'), '/pdf/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MAJEUR.pdf' %>
     <%= link_to t('apply.important_information.pdf2'), '/pdf/AUTORISATION-DE-PARTICIPATION-CANDIDAT-MINEUR.pdf' %>
   </div>
+
   <div class="row mt-3">
 
-      <div class="col mb-3 m-auto text-center">
-        <div class="card m-auto" style="background-color:#deded4; width:250px">
-          <img src="https://tse4.mm.bing.net/th?id=OIP.Wu1mNIZCTS8RsYAMIcgtJQHaLG&pid=Api" style="height:300px !important" >
-          <%= t('apply.cards.individual_registration_form').html_safe %>
-        </div>
+    <div class="col mb-3 m-auto text-center">
+      <div class="card m-auto" style="background-color:#deded4; width:250px">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.Wu1mNIZCTS8RsYAMIcgtJQHaLG&pid=Api" style="height:300px !important" >
+        <%= t('apply.cards.individual_registration_form').html_safe %>
       </div>
+    </div>
 
-      <div class="col mb-3 m-auto text-center" >
-        <div class="card m-auto" style="background-color:#deded4; width:250px">
-          <img src="https://i.pinimg.com/originals/c0/58/e0/c058e08d6ad958c2ad7ca565f628b2e8.jpg" style="height:300px !important" >
-          <%= t('apply.cards.duo').html_safe %>
-        </div>
+    <div class="col mb-3 m-auto text-center" >
+      <div class="card m-auto" style="background-color:#deded4; width:250px">
+        <img src="https://i.pinimg.com/originals/c0/58/e0/c058e08d6ad958c2ad7ca565f628b2e8.jpg" style="height:300px !important" >
+        <%= t('apply.cards.duo').html_safe %>
       </div>
+    </div>
 
-      <div class="col mb-3 m-auto text-center" >
-        <div class="card m-auto" style="background-color:#deded4; width:250px">
-          <img src="https://tse1.explicit.bing.net/th?id=OIP.5SVDuG3NZXMN7msWC0SJ0AHaJ4&pid=Api" style="height:300px !important" >
-          <%= t('apply.cards.trio').html_safe %>
-        </div>
+    <div class="col mb-3 m-auto text-center" >
+      <div class="card m-auto" style="background-color:#deded4; width:250px">
+        <img src="https://tse1.explicit.bing.net/th?id=OIP.5SVDuG3NZXMN7msWC0SJ0AHaJ4&pid=Api" style="height:300px !important" >
+        <%= t('apply.cards.trio').html_safe %>
       </div>
+    </div>
 
-      <div class="col mb-3 m-auto text-center">
-        <div class="card m-auto" style="background-color:#deded4; width:250px">
-          <%# <img src="https://tse3.mm.bing.net/th?id=OIP.ZycaMBQWoVbiLpurWZNIdAAAAA&pid=Api" style="height:300px !important" > %>
-          <img src="/assets/group-co-en-5dde6bbb74df696fb35b3cd5b0c11c606b7c268cbfdd858b8f06c6dfcc302210.jpg" style="height:300px !important; filter: grayscale(100%)" >
-          <%= t('apply.cards.group_registration_form').html_safe %>
-        </div>
+    <div class="col mb-3 m-auto text-center">
+      <div class="card m-auto" style="background-color:#deded4; width:250px">
+        <%# <img src="https://tse3.mm.bing.net/th?id=OIP.ZycaMBQWoVbiLpurWZNIdAAAAA&pid=Api" style="height:300px !important" > %>
+        <img src="/assets/group-co-en-5dde6bbb74df696fb35b3cd5b0c11c606b7c268cbfdd858b8f06c6dfcc302210.jpg" style="height:300px !important; filter: grayscale(100%)" >
+        <%= t('apply.cards.group_registration_form').html_safe %>
       </div>
     </div>
   </div>
-  <%= link_to t('back'), :back, style: "color:white; margin:140px;text-decoration:none;" %>
+</div>
+<div id="phoneShow">
+  <div style="
+  text-align: justify;
+  height: 71vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:50px 20px;
+  display: block;
+  color: #deded4;;
+  background-color: black;">
+    <h4>
+      For the best experience and to ensure you can complete the registration for the competition, please access this form using a computer. Mobile or tablet devices may not support all features required for the registration process.
+    </h4>
+    <div class="text-center">
+      <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+    </div>
+  </div>
 </div>
 <%= render "shared/footer" %>

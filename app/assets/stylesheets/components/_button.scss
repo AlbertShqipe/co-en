@@ -27,18 +27,18 @@
     color: $light-gray;
   }
 
-  @media (max-width: 1125px) {
-    display: none;
+  @media (max-width: 1400px) {
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
   }
 
   @media (max-width:560px) {
-    display: none;
-  }
-}
-
-#right-shift-button{
-  @media (max-height:735px) {
-    left: 80%;
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
   }
 }
 
@@ -61,10 +61,23 @@
     background-color: $orange;
     color: $light-gray;
   }
+
+  @media (max-width: 1125px) {
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
+  }
+
+  @media (max-width:560px) {
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
+  }
 }
 
 .button-light-gray {
-  width: 20%;
   text-decoration: none;
   position: absolute;
   left: 50%;
@@ -87,11 +100,13 @@
   }
 
   @media (max-width: 1125px) {
-    display: none;
+    display: block;
+    z-index: 1;
   }
 
   @media (max-width:560px) {
-    display: none;
+    display: block;
+    z-index: 1;
   }
 }
 
@@ -124,12 +139,18 @@
     color: $light-gray;
   }
 
-  @media (max-width: 1125px) {
-    display: none;
+  @media (max-width: 1400px) {
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
   }
 
   @media (max-width:560px) {
-    display: none;
+    display: block;
+    width: 90%;
+    font-size: 18px;
+    z-index: 0;
   }
 }
 

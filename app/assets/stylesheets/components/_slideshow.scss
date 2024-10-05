@@ -44,6 +44,16 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    z-index: 1100;
+
+
+    @media (max-width: 1126px) {
+      position: fixed;
+    }
+
+    @media (max-width: 450px) {
+      position: fixed;
+    }
 
     .head {
       padding-top: 30px;
