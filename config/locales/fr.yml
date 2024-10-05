@@ -1381,3 +1381,13 @@ fr:
         <p><a href="/media?locale=fr">MÉDIAS</a></p>
         <p><a href="/contact?locale=fr">CONTACT</a></p>
       </div>
+    practical_info:
+      car: 'Voiture'
+      exit1: 'A43 ; sortie Chassieu / Eurexpo, puis direction Lyon, sortie Bron Albert Camus n°3'
+      exit2: 'A43 ; sortie Lyon-Bron, puis sortie Bron Albert Camus n°3'
+      tram: 'Tram'
+      station1: 'T5 Grange Blanche - Eurexpo / Arrêt Les Alizés'
+      station2: 'T2 Perrache - Saint Priest / Arrêt Rebufer'
+      bus: 'Bus'
+      line1: 'Ligne C15 / Arrêt Rebufer'
+      line2: 'Ligne 26 / Arrêt Colonel Chambonnet'
