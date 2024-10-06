@@ -81,7 +81,10 @@ export default class extends Controller {
               </tr>
               <tr>
                 <td>Date de naissance</td>
-                <td>${data.birth_date}</td>
+                <td>
+                ${calculateAge(data.years)}<br>
+                ${data.birth_date}
+                </td>
               </tr>
               <tr>
                 <td>Address</td>
@@ -197,7 +200,7 @@ export default class extends Controller {
               </tr>
               <tr>
                 <td>Âge moyen</td>
-                <td>${data.average_age}</td>
+                <td>${data.average_age} ans</td>
               </tr>
               <tr>
                 <td colspan="2"><strong>Participant·e·s.</strong></td>
@@ -285,7 +288,7 @@ export default class extends Controller {
               </tr>
               <tr>
                 <td>Âge moyen</td>
-                <td>${data.average_age}</td>
+                <td>${data.average_age} ans</td>
               </tr>
               <tr>
                 <td colspan="2"><strong>Participant·e·s.</strong></td>
@@ -373,7 +376,7 @@ export default class extends Controller {
               </tr>
               <tr>
                 <td>Âge moyen</td>
-                <td>${data.average_age}</td>
+                <td>${data.average_age} ans</td>
               </tr>
               <tr>
                 <td colspan="2"><strong>Participant·e·s.</strong></td>
@@ -404,4 +407,36 @@ export default class extends Controller {
 function capitalize(str) {
   if (!str) return ''; // Check for empty or null strings
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function calculateAge(birthdate) {
+  const birthday = new Date(birthdate);
+  const today = new Date();
+
+  let years = today.getFullYear() - birthday.getFullYear();
+  let months = today.getMonth() - birthday.getMonth();
+  let days = today.getDate() - birthday.getDate();
+
+  // Adjust days and months if necessary
+  if (days < 0) {
+      months -= 1;
+      const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0); // Last day of the previous month
+      days += previousMonth.getDate(); // Adjust days to account for the last day of the previous month
+  }
+
+  if (months < 0) {
+      years -= 1;
+      months += 12; // Adjust months if they are negative
+  }
+
+  // Build the age string
+  let ageString = `${years} an${years !== 1 ? 's' : ''}`;
+  if (months > 0) {
+      ageString += `, ${months} moi${months !== 1 ? 's' : ''}`;
+  }
+  if (days > 0) {
+      ageString += `, ${days} jour${days !== 1 ? 's' : ''}`;
+  }
+
+  return ageString;
 }

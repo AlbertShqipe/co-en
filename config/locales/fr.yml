@@ -297,7 +297,7 @@ fr:
               <li>Article 9 : Caractéristiques Techniques du Plateau</li>
               <li>Article 10 : Modalités d'Inscription</li>
             </ul>
-            <p>Merci pour votre participation et bonne chance à tous les candidat·e·s !</p>
+            <p style="padding:0">Merci pour votre participation et bonne chance à tous les candidat·e·s !</p>
             <a href="regulation?locale=fr" class="button-home">RÈGLEMENT COMPLET</a>
           </div>
         </div>
@@ -1391,3 +1391,13 @@ fr:
       bus: 'Bus'
       line1: 'Ligne C15 / Arrêt Rebufer'
       line2: 'Ligne 26 / Arrêt Colonel Chambonnet'
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d %B %Y" # Example: 05 octobre 2024
+      short: "%d %b"
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
