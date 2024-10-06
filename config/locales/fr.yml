@@ -333,11 +333,9 @@ fr:
             <h1>Informations Pratiques</h1>
             <p>Le concours se tient chaque année à l'Espace Albert Camus, situé au <a href="https://www.google.com/maps/place/Espace+Albert+Camus/@45.7273879,4.9197999,17z/data=!4m15!1m8!3m7!1s0x47f4c17b532fc0d7:0xb394020d98c0e480!2s1+Rue+Maryse+Bastié,+69500+Bron,+France!3b1!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F11bw40vgnq!3m5!1s0x47f4c16358c1b3d9:0x4f658474936298b8!8m2!3d45.7273879!4d4.9197999!16s%2Fg%2F1tdjqh83?entry=ttu">1 rue Maryse Bastié, 69500 BRON</a>. Inauguré officiellement en janvier 1989 et désigné « Scène régionale Rhône-Alpes » en mars 2006, l'Espace Albert-Camus est un lieu de spectacle avec une capacité de 478 places fixes en gradins. Depuis plus de 30 ans, il propose une programmation artistique riche et variée pour tous les publics, jeunes et adultes.</p>
             <div class="mt-4 images">
-              <div id="1image">
-                <img src="/assets/espaceAlbertCamus1-0195d58e682284b53c56c5dac90c0b78e7ce8683f7274d0887071ca9f68973bb.jpeg" title="Espace Albert Camus Public">
+              <div class="image-div">
               </div>
-              <div>
-                <img src="/assets/espaceAlbertCamus2-12351c9885bcd45c54f6491071ae0b1a6539fd29a45e6bb23d14768630b0c099.jpeg" title="Espace Albert Camus Stage">
+              <div class="image-div1">
               </div>
             </div>
             <a href="practical_info?locale=fr" class='button-home'>INFORMATIONS</a>
@@ -369,6 +367,10 @@ fr:
           <div class="second-section-home-media-content d-flex flex-column">
             <h1>MÉDIA</h1>
             <p>Le Concours International de Danse ENTRELACÉ collabore avec des médias spécialisés et des professionnels de l'image pour capturer et diffuser les moments forts de nos événements. Grâce à eux, les performances des danseurs rayonnent au-delà de la scène, que ce soit sur les réseaux sociaux, en ligne ou dans des publications dédiées. Ici, vous trouverez également les highlights des éditions précédentes, pour revivre les instants marquants du concours.</p>
+            <div class="image">
+              <div class="image1">
+              </div>
+            </div>
             <a href="media?locale=fr" class='button-home'>MÉDIA</a>
           </div>
         </div>

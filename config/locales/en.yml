@@ -398,6 +398,10 @@ en:
           <div class="second-section-home-media-content d-flex flex-column">
             <h1>MEDIA</h1>
             <p>The ENTRELACÉ International Dance Competition collaborates with specialized media and image professionals to capture and broadcast the highlights of our events. Thanks to them, the dancers' performances shine beyond the stage, whether on social media, online, or in dedicated publications. Here, you will also find highlights from previous editions, allowing you to relive the memorable moments of the competition.</p>
+            <div class="image">
+              <div class="image1">
+              </div>
+            </div>
             <a href="media?locale=en" class='button-home'>MEDIA</a>
           </div>
         </div>
