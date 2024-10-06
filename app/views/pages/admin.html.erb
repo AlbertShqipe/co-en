@@ -14,8 +14,8 @@
       <div class="portfolio-tab-bar">
         <select id="solo-select">
           <option value="">Sélectionnez un Solo</option>
-          <% @solos.each do |solo| %>
-            <option value="<%= solo.id %>"><%= solo.first_name %></option>
+          <% @solos.each_with_index do |solo, index| %>
+            <option value="<%= solo.id %>"><%= index + 1 %> <%= solo.first_name %></option>
           <% end %>
         </select>
       </div>

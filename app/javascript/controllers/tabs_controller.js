@@ -52,15 +52,17 @@ export default class extends Controller {
     if (selectedSoloId) {
       // Fetch the solo details using AJAX
       fetch(`/solos/${selectedSoloId}/info`) // Modify this route as necessary
-        .then(response => response.json())
-        .then(data => {
+      .then(response => response.json())
+      .then(data => {
+        const soloData = data.solos_list.find(solo => solo.id === data.id);
+        const soloCount = soloData ? soloData.count : 'N/A'; // Use 'N/A' if count is not found
           // console.log("Fetched data:", data);
           console.log(data.id_card)
           // Populate the HTML with the fetched data
           soloInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Solo ${data.id}</th>
+                <th colspan="2">Solo ${soloCount}</th>
               </tr>
               <tr>
                 <td colspan="2">Information Solo </td>
