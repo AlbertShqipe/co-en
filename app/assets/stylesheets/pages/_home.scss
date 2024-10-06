@@ -217,10 +217,18 @@
         bottom: 0%;
         transform: translate(-50%, -50%);
 
-        @media (max-height:740px) {
+        @media (max-height:797px) {
+          width: 40%;
+          top: 70%;
           z-index: 0 !important;
         }
         @media (max-width:1125px) {
+          top: 80%;
+          width: 40%;
+          z-index: 0 !important;
+        }
+        @media (max-height:724px) {
+          width: 36%;
           z-index: 0 !important;
         }
         @media (max-width:560px) {
