@@ -39,6 +39,13 @@ class GroupFormsController < ApplicationController
     participant_count = @group_form.participants.size
     average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
     average_age.round(2)
+    @results = []
+    GroupForm.all.each_with_index do |group, index|
+      @results << {
+        count: index + 1,
+        id: group.id,
+      }
+    end
     render json: {
       id: @group_form.id,
       name: @group_form.name,
@@ -52,6 +59,7 @@ class GroupFormsController < ApplicationController
       composer: @group_form.composer,
       length_of_piece: @group_form.length_of_piece,
       average_age: average_age.round(2),
+      group_lists: @results,
       participants: @group_form.participants.map { |participant| { id: participant.id,
                                                                     name: participant.name,
                                                                     last_name: participant.last_name,

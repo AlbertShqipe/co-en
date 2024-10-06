@@ -329,6 +329,8 @@ export default class extends Controller {
       fetch(`/group_forms/${selectedGroupId}/info`) // Modify this route as necessary
         .then(response => response.json())
         .then(data => {
+          const groupData = data.group_lists.find(group => group.id === data.id);
+          const groupCount = groupData ? groupData.count : 'N/A'; // Use 'N/A' if count is not found
           // console.log("Fetched data:", data);
           // console.log(data.participants);
           // Populate the HTML with the fetched data
