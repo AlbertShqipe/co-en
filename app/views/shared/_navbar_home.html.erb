@@ -96,6 +96,9 @@
           </li>
         <% end %>
       </ul>
+      <div class="lang-icons z-index-0">
+        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
+      </div>
     </div>
 
     <div id="main" style="margin-left: 0px;">
