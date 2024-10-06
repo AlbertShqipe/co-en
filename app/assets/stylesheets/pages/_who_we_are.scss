@@ -1,11 +1,55 @@
-.divider {
-  width: 60%;
-  margin: auto;
-  text-align: center;
+.main-cont-w-w-a {
+  display: flex;
+  margin: auto auto;
+  align-items: center;
+  margin-top: 20px;
 
-  img {
-    width: 300px;
-    margin: auto;
+  @media (max-width: 560px) {
+    flex-direction: column;
+    width: 100%;
+
+
   }
 
+  .bio {
+    width: 35%;
+    text-align: justify;
+
+    @media (max-width: 560px) {
+      width: 95%;
+      margin-bottom: 20px;
+
+    }
+
+    h2 {
+      color: rgb(235, 67, 1);
+      text-align: center;
+    }
+  }
+}
+
+
+.img-cont-w-w-a {
+  margin: auto;
+  width: 22%;
+  text-align: center;
+
+  @media (max-width: 560px) {
+    order: -1;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .divider {
+    width:100%;
+    margin-top:10px;
+  }
+
+  .den-alm {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .logo-w-w-a {
+    width: 50%;
+  }
 }
