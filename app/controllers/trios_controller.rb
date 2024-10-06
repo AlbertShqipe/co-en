@@ -34,6 +34,13 @@ class TriosController < ApplicationController
     participant_count = @trio.trio_participants.size
     average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
     average_age.round(2)
+    @results = []
+    Trio.all.each_with_index do |trio, index|
+      @results << {
+        count: index + 1,
+        id: trio.id,
+      }
+    end
     render json: {
       id: @trio.id,
       name: @trio.name,
@@ -47,6 +54,7 @@ class TriosController < ApplicationController
       composer: @trio.composer,
       length_of_piece: @trio.length_of_piece,
       average_age: average_age.round(2),
+      trio_lists: @results,
       participants: @trio.trio_participants.map { |participant| { id: participant.id,
                                                                     name: participant.name,
                                                                     last_name: participant.last_name,

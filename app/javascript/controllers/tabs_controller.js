@@ -150,7 +150,7 @@ export default class extends Controller {
         .then(response => response.json())
         .then(data => {
           const duoData = data.duo_lists.find(duo => duo.id === data.id);
-        const duoCount = duoData ? duoData.count : 'N/A'; // Use 'N/A' if count is not found
+          const duoCount = duoData ? duoData.count : 'N/A'; // Use 'N/A' if count is not found
           // console.log("Fetched data:", data);
           // console.log(data.participants);
           // Populate the HTML with the fetched data
@@ -239,13 +239,15 @@ export default class extends Controller {
       fetch(`/trios/${selectedTrioId}/info`) // Modify this route as necessary
         .then(response => response.json())
         .then(data => {
+          const trioData = data.trio_lists.find(trio => trio.id === data.id);
+          const trioCount = trioData ? trioData.count : 'N/A'; // Use 'N/A' if count is not found
           // console.log("Fetched data:", data);
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           trioInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Trio ${data.id}</th>
+                <th colspan="2">Trio ${trioCount}</th>
               </tr>
               <tr>
                 <td colspan="2">Information Trio</td>
