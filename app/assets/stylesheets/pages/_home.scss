@@ -355,8 +355,10 @@
           margin: auto;
           margin-bottom: 10px;
         }
+
         @media (max-height:720px) {
           width: 300px;
+          height: 200px;
         }
       }
     }
