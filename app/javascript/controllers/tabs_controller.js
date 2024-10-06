@@ -149,13 +149,15 @@ export default class extends Controller {
       fetch(`/duos/${selectedDuoId}/info`) // Modify this route as necessary
         .then(response => response.json())
         .then(data => {
+          const duoData = data.duo_lists.find(duo => duo.id === data.id);
+        const duoCount = duoData ? duoData.count : 'N/A'; // Use 'N/A' if count is not found
           // console.log("Fetched data:", data);
           // console.log(data.participants);
           // Populate the HTML with the fetched data
           duoInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Duo ${data.id}</th>
+                <th colspan="2">Duo ${duoCount}</th>
               </tr>
               <tr>
                 <td colspan="2">Information Duo</td>

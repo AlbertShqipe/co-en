@@ -29,6 +29,13 @@ class DuoController < ApplicationController
 
   def info
     @duo = Duo.find(params[:id])
+    @results = []
+    Duo.all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
     total_age = @duo.duo_participants.sum { |participant| participant.age }
     participant_count = @duo.duo_participants.size
     average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
@@ -46,6 +53,7 @@ class DuoController < ApplicationController
       composer: @duo.composer,
       length_of_piece: @duo.length_of_piece,
       average_age: average_age.round(2),
+      duo_lists: @results,
       participants: @duo.duo_participants.map { |participant| {
                                                   id: participant.id,
                                                   name: participant.name,

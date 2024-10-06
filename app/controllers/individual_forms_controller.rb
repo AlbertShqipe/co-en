@@ -15,19 +15,6 @@ class IndividualFormsController < ApplicationController
     # raise
   end
 
-  def count
-    results = [] # Initialize an array to store the data
-    IndividualForm.all.each_with_index do |solo, index|
-      results << {
-        id: solo.id,
-        first_name: solo.first_name,
-        last_name: solo.last_name,
-        count: index + 1
-      }
-    end
-    render json: results # Render the entire array as JSON
-  end
-
   def new
     @individual_form = IndividualForm.new
   end
@@ -57,23 +44,6 @@ class IndividualFormsController < ApplicationController
       @results << {
         count: index + 1,
         id: solo.id,
-        name: solo.first_name,
-        last_name: solo.last_name,
-        birth_date: I18n.l(solo.birth_date, format: :long, locale: :fr),
-        years: solo.birth_date.strftime("%B %d, %Y"),
-        address: solo.address,
-        phone: solo.phone,
-        email: solo.email,
-        teacher_name: solo.teacher_name,
-        teacher_phone: solo.teacher_phone,
-        teacher_email: solo.teacher_email,
-        dance_school: solo.dance_school,
-        category: solo.category,
-        style: solo.style,
-        level: solo.level,
-        photo: solo.photo.key,
-        file: solo.file,
-        id_card: solo.id_card
       }
     end
 
