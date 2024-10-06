@@ -50,7 +50,12 @@
 <div id="phoneShow">
   <div class="text-apply">
     <h4>
-      <%= t("apply.text") %>
+      <% if user_signed_in? %>
+        <h1><%= t("hello")  %> <%= current_user.name %>!</h1>
+        <%= t("apply.text") %>
+        <% else %>
+        <%= "" %>
+      <% end %>
     </h4>
     <div class="text-center">
       <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo-apply">

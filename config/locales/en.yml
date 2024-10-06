@@ -28,6 +28,8 @@
 #       enabled: "ON"
 
 en:
+  hello: "Hello"
+
   navbar_home:
     content:
       link1: |

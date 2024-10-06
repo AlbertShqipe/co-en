@@ -1,4 +1,6 @@
 fr:
+  hello: "Bonjour"
+
   navbar_home:
     content:
       link1: |
