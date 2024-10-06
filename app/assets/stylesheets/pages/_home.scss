@@ -341,6 +341,10 @@
 
       img {
         width: 30vw;
+        height: auto;
+        max-width: 300px; /* Set a maximum width if needed */
+        object-fit: cover; /* Ensures that the images are cropped proportionally */
+
 
         @media (max-width: 560px) {
           flex-direction: column;
