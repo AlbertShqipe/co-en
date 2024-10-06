@@ -187,7 +187,7 @@ export default class extends Controller {
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Titre de la musique/td>
+                <td>Titre de la musique</td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
@@ -275,7 +275,7 @@ export default class extends Controller {
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Titre de la musique/td>
+                <td>Titre de la musique</td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
@@ -363,7 +363,7 @@ export default class extends Controller {
                 <td>${data.level}</td>
               </tr>
               <tr>
-                <td>Titre de la musique/td>
+                <td>Titre de la musique</td>
                 <td>${data.title_of_music}</td>
               </tr>
               <tr>
