@@ -3,6 +3,7 @@
   color: $light-gray;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+
   .lang-icons {
     margin-left: -100px;
     margin-right: -30px;
@@ -57,14 +58,6 @@
       color: $orange;
     }
   }
-
-  // @media (max-width: 576px) {
-  //   .navbar-nav {
-  //     a {
-  //       color: $orange;
-  //     }
-  // }
-
 }
 
 #title {
@@ -91,7 +84,6 @@
     // }
 }
 
-
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
@@ -116,10 +108,10 @@
   }
 }
 
-
 .z-index-0 {
   z-index: 0;
 }
+
 .z-index-100 {
   z-index: 100;
 }
