@@ -86,9 +86,23 @@
   width:1000px;
   margin:auto;
 
+
   th {
     color: $orange !important;
     padding: 12px;
+
+    @media (max-width: 560px) {
+      font-size: 3vw;
+    }
+  }
+
+  td {
+    color: black;
+    padding: 12px;
+
+    @media (max-width: 560px) {
+      font-size: 2.5vw;
+    }
   }
 }
 

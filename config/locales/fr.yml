@@ -920,7 +920,7 @@ fr:
           <p>L’ordre de passage des candidat·e·s sera déterminé du plus jeune au plus âgé de chaque catégorie.</p>
         </div>
       div6: |
-        <div style="width:80%; margin:auto">
+        <div style="margin:auto">
           <table class="table-regulation">
             <thead>
               <tr>
@@ -1015,10 +1015,10 @@ fr:
                 </td>
               </tr>
             </tbody>
-        </table>
+          </table>
         </div>
       div7: |
-        <div class="mt-5" style="width:80%; margin:auto">
+        <div class="mt-5" style=" margin:auto">
           <table class="table-regulation">
             <thead>
               <tr>
@@ -1094,7 +1094,7 @@ fr:
           </table>
         </div>
       div8: |
-        <div class="mt-5" style="width:100%; margin:auto">
+        <div class="mt-5" style="margin:auto">
           <table class="table-regulation">
             <thead>
               <tr>
