@@ -338,7 +338,7 @@ export default class extends Controller {
           groupInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
-                <th colspan="2">Group ${data.id}</th>
+                <th colspan="2">Group ${groupCount}</th>
               </tr>
               <tr>
                 <td colspan="2">Information Group</td>
