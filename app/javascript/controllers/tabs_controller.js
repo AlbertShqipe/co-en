@@ -334,6 +334,7 @@ export default class extends Controller {
           // console.log("Fetched data:", data);
           // console.log(data.participants);
           // Populate the HTML with the fetched data
+          console.log(groupCount);
           groupInfoDiv.innerHTML = `
             <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
               <tr>
