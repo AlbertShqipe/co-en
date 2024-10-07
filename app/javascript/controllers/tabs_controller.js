@@ -138,6 +138,7 @@ export default class extends Controller {
                 <td>
                   <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv" target="_blank">
                     <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv', width="100px">
+                    https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/977e73ddab31e0dd474b7b1715bc254d/detailed
                   </a>
                 </td>
                 <td>
