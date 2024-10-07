@@ -2,13 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tabs"
 export default class extends Controller {
-  static target = ["groupInfo", "soloInfo" , "duoInfo", "trioInfo"]
+  static target = ["groupInfo", "soloInfo" , "duoInfo", "trioInfo", "duoTable"]
   connect() {
     const soloSelect = document.getElementById("solo-select");
     const duoSelect = document.getElementById("duo-select");
     const trioSelect = document.getElementById("trio-select");
     const groupSelect = document.getElementById("group-select");
-
+    const duoTableSelect = document.getElementById("duo-table-select");
     // console.log(groupSelect)
     if (soloSelect) {
       // Set up event listener for changes in the select element
@@ -44,6 +44,119 @@ export default class extends Controller {
         // console.log("Selected Group ID:", selectedGroupId);
         this.fetchGroupInfo(selectedGroupId);
       });
+    }
+
+    if (duoTableSelect) {
+      // Set up event listener for changes in the select element
+      duoTableSelect.addEventListener('change', (event) => {
+        const selectedDuoTableId = event.target.value;
+        console.log("Selected Duo ID:", selectedDuoTableId);
+        this.fetchDuoTable(selectedDuoTableId);
+      });
+    }
+  }
+
+  fetchDuoTable(selectedDuoTableId) {
+    const duoTableDiv = document.getElementById("duo-table");
+
+    if (selectedDuoTableId) {
+      // Fetch the duo details using AJAX
+      fetch(`/duos/${selectedDuoTableId}/table`) // Modify this route as necessary
+        .then(response => response.json())
+        .then(data => {
+          const duoData = data.duo_lists.find(duo => duo.id === data.id);
+          const duoCount = duoData ? duoData.count : 'N/A'; // Use 'N/A' if count is not found
+          // console.log("Fetched data:", data);
+          // console.log(data.participants);
+          // Populate the HTML with the fetched data
+          duoTableDiv.innerHTML = `
+            <table class="table-form mx-auto">
+          <thead>
+            <tr style="width:50px">
+              <th>Attributes</th>
+              <th>Duo ${duoCount}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prénom</td>
+              <td>${data.name}</td>
+            </tr>
+            <tr>
+              <td>Responsable</td>
+              <td>${data.responsable}</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>${data.address}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.phone') %></td>
+              <td>${data.phone}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.email') %></td>
+              <td>${data.email}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.discipline') %></td>
+              <td>${data.discipline}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.level') %></td>
+              <td>${data.level}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.music') %></td>
+              <td>${data.title_of_music}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.composer') %></td>
+              <td>${data.composer}</td>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.length_of_piece') %></td>
+              <td>${data.length_of_piece}</td>
+            </tr>
+            <tr>
+            <tr>
+              <th><b>Participant·e·s</th>
+              <th>Photo</th>
+              <th>ID</th>
+              <th>Fichier d'autorisation</th>
+            </tr>
+            ${data.participants.map(participant => `
+            <tr>
+                <td>
+                ${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans
+                </td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
+                <td>
+                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.file}?_a=BACE6GEv" target="_blank">
+                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.file}?_a=BACE6GEv', width="100px">
+                  </a>
+                </td>
+                </tr>
+                `)};
+          </tbody>
+        </table>`.replace(/[;,]/g, "");;
+        })
+        .catch(error => {
+          console.error("Error fetching duo data:", error);
+          duoInfoDiv.innerHTML = "<p>Error loading duo information.</p>";
+        });
+    } else {
+      // Reset the duo info content if no duo is selected
+      duoInfoDiv.innerHTML = "<p>Please select a duo to view its information.</p>";
     }
   }
   fetchSoloInfo(selectedSoloId) {

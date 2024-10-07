@@ -70,6 +70,49 @@ class DuoController < ApplicationController
       render json: { error: "Duo not found" }, status: :not_found
   end
 
+  def table
+    @duo = Duo.find(params[:id])
+    @results = []
+    Duo.all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
+    total_age = @duo.duo_participants.sum { |participant| participant.age }
+    participant_count = @duo.duo_participants.size
+    average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
+    average_age.round(2)
+    render json: {
+      id: @duo.id,
+      name: @duo.name,
+      responsable: @duo.responsable,
+      address: @duo.address,
+      phone: @duo.phone,
+      email: @duo.email,
+      discipline: @duo.discipline,
+      level: @duo.level,
+      title_of_music: @duo.title_of_music,
+      composer: @duo.composer,
+      length_of_piece: @duo.length_of_piece,
+      average_age: average_age.round(2),
+      duo_lists: @results,
+      participants: @duo.duo_participants.map { |participant| {
+                                                  id: participant.id,
+                                                  name: participant.name,
+                                                  last_name: participant.last_name,
+                                                  birth_date: participant.birth_date,
+                                                  age: participant.age,
+                                                  photo: participant.photo.key,
+                                                  file: participant.file,
+                                                  id_card: participant.id_card
+                                                }
+                                              }
+    }
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Duo not found" }, status: :not_found
+  end
+
   private
 
   def duo_params

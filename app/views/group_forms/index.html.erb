@@ -124,13 +124,14 @@
         </tbody>
       </table>
     <% elsif current_user.role == "admin" %>
+    <% @group_forms.each_with_index do |form, index| %>
       <table class="table-form mx-auto">
         <thead>
           <tr>
             <th><%= t('index_group.th.attributes') %></th>
-            <% @group_forms.each_with_index do |form, index| %>
               <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
             <% end %>
+            <th>Participants</th>
           </tr>
         </thead>
         <tbody>
@@ -251,7 +252,7 @@
                       <% newkey =  matching_file["asset_id"] %>
                       <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
                       <% else %>
-                      <p>Aucun fichier correspondant trouvé.</p>
+                      <p>Aucun fichier correspondant trouvé. </p>
                     <% end %>
                   <% end %>
                 </td>

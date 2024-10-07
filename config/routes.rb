@@ -35,8 +35,9 @@ Rails.application.routes.draw do
     resources :trio_participants, only: [:create, :destroy]
   end
 
-  # Info of a specific individual form
-  get '/individual_forms/count', to: 'individual_forms#count'
+
+  # Info of a specific duo table
+  get '/duos/:id/table', to: 'duo#table'
 
   # Info of a specific solo form
   get '/solos/:id/info', to: 'individual_forms#info'
