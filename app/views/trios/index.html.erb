@@ -1,6 +1,7 @@
 <%= render "shared/navbar"%>
   <div class="trio-forms">
     <% if current_user.role == "admin" %>
+      <h1 style="text-align:center"><%= t('table.th3') %></h1>
       <div class="index-links-containers">
         <div class="link-container">
           <a href="/individual_forms"><%= t('table.th') %></a>
@@ -15,7 +16,6 @@
           <a href="/group_forms"><%= t('table.th4') %></a>
         </div>
       </div>
-      <h1 style="text-align:center"><%= t('table.th3') %></h1>
     <% else %>
       <h1 style="text-align:center"><%= t('trio_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('trio_form_index.title_en') %></h1>
     <% end %>
@@ -118,105 +118,99 @@
         </tbody>
       </table>
     <% elsif current_user.role == "admin" && @trios.present?%>
-      <table class="table-form mx-auto">
-        <thead>
-          <tr style="width:50px">
-            <th><%= t('index_trio.th.attributes') %></th>
-            <% @trios.each_with_index do |trio, index| %>
-              <th><%= t('index_trio.th.trio_form') %> <%= index + 1 %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= t('index_trio.td.name_of_trio') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.responsable') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.responsable %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.trio_address') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.address %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.phone') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.phone %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.email') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.email %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.discipline') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.discipline %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.level') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.level %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.music') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.title_of_music %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.composer') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.composer %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.length_of_piece') %></td>
-            <% @trios.each do |trio| %>
-              <td><%= trio.length_of_piece %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
-            <% @trios.each do |trio| %>
-              <% trio.trio_participants.each do |participant| %>
-                <td>
-                  <% if participant.photo.attached? %>
-                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
-                  <% else %>
-                    <p>Le candidat n'a pas de photo</p>
-                  <% end %>
-                </td>
-              <% end %>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.participant_age') %></td>
-            <% @trios.each do |trio| %>
-              <% trio.trio_participants.each do |participant| %>
-                <td>
-                  <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %>
-                </td>
-              <% end %>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.file') %></td>
-              <% @trios.each do |trio| %>
-                <% trio.trio_participants.each do |participant| %>
+      <div class="table-links">
+        <ul>
+        <% @trios.each_with_index do |t, i| %>
+          <li><a href="#table<%= i + 1 %>">Trio <%= i + 1 %></a></li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="table-con">
+        <% @trios.each_with_index do |trio, index| %>
+          <table class="table-form mx-auto" id="table<%=index + 1%>">
+            <thead>
+              <tr style="width:50px">
+                <th><%= t('index_trio.th.attributes') %></th>
+                <th width="40%"><%= t('index_trio.th.trio_form') %> <%= index + 1 %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= t('index_trio.td.name_of_trio') %></td>
+                <td><%= trio.name %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.responsable') %></td>
+                <td><%= trio.responsable %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.trio_address') %></td>
+                <td><%= trio.address %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.phone') %></td>
+                <td><%= trio.phone %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.email') %></td>
+                <td><%= trio.email %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.discipline') %></td>
+                <td><%= trio.discipline %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.level') %></td>
+                <td><%= trio.level %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.music') %></td>
+                <td><%= trio.title_of_music %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.composer') %></td>
+                <td><%= trio.composer %></td>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.length_of_piece') %></td>
+                <td><%= trio.length_of_piece %></td>
+              </tr>
+              <tr>
+                <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                  <th width="40%"><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+                <% end %>
+              </tr>
+              <tr>
+                <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                  <td><%= participant.name %> <%= participant.last_name %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.profile_pic') %></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                  <td>
+                    <% if participant.photo.attached? %>
+                      <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %>
+                    <% else %>each do |participant|
+                      <p>Le candidat n'a pas de photo</p>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.participant_age') %></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                  <td>
+                    <%= participant.birth_date %><br>
+                    <%= calculate_age(participant.birth_date) %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.file') %></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
                   <td>
                     <% if participant.file.attached? %>
                       <% key = participant.file.key %>
@@ -231,29 +225,27 @@
                     <% end %>
                   </td>
                 <% end %>
-              <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_trio.td.file') %></td>
-            <% @trios.each do |trio| %>
-              <% trio.trio_participants.each do |participant| %>
-                <td>
-                  <% if participant.id_card.attached? %>
-                    <% key = participant.id_card.key %>
-                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                    <% if matching_file != nil %>
-                      <% newkey =  matching_file["asset_id"] %>
-                      <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
-                      <% else %>
-                      <p>Aucun fichier correspondant trouvé.</p>
-                    <% end %>
-                  <% end %>
-                </td>
-              <% end %>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+              </tr>
+              <tr>
+                <td><%= t('index_trio.td.file1') %></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                    <td>
+                      <% if participant.id_card.attached? %>
+                        <% key = participant.id_card.key %>
+                        <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                        <% if matching_file != nil %>
+                          <% newkey =  matching_file["asset_id"] %>
+                          <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                          <% else %>
+                          <p>Aucun fichier correspondant trouvé.</p>
+                        <% end %>
+                      <% end %>
+                    </td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
     <% else %>
       <div class="d-flex justify-content-center">
         <h3 style="color:white"><%= t("trio_form_index.text").html_safe %></h3>
