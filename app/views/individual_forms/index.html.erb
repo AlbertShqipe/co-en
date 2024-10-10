@@ -140,7 +140,11 @@
             <tr>
               <td><%= t("index_individuals.td.profile_pic") %></td>
               <% @individual_forms.each do |form| %>
-                <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px" %></td>
+                <% if form.photo.attached? %>
+                  <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px" %></td>
+                <% else %>
+                  <td>Pas de photo attaché</td>
+                <% end %>
               <% end %>
             </tr>
               <td><%= t("index_individuals.td.first_name") %></td>

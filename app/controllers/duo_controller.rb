@@ -30,7 +30,7 @@ class DuoController < ApplicationController
 
   def info
     @results = []
-    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
     @duos = Duo.all
     @duo = Duo.find(params[:id])
     @duos.each do |duo|
