@@ -232,15 +232,15 @@ export default class extends Controller {
                   <td>id</td>
                   <td>
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv" target="_blank">
-                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv', width="100px">
+                      <img src='"https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.id_card}/detailed', width="100px">
                     </a>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid gray">
+                <tr border="1">
                   <td>file</td>
                   <td>
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.file}?_a=BACE6GEv" target="_blank">
-                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.file}?_a=BACE6GEv', width="100px">
+                      <img src='https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.file}/detailed', width="100px">
                     </a>
                   </td>
                 </tr>

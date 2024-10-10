@@ -27,8 +27,24 @@ class DuoController < ApplicationController
     end
   end
 
+
   def info
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+    @duos = Duo.all
+    @duos.duo_participants.each_with_index do |participant, index|
+      if participant.file.attached?
+        key = participant.file.key
+        matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" }
+        if matching_file != nil
+          newkey =  matching_file["asset_id"]
+          @keys = []
+          @keys << newkey
+          # ink_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download"
+          else
+          "<p>Aucun fichier correspondant trouvé.</p>"
+        end
+      end
+    end
     @duo = Duo.find(params[:id])
     @results = []
     @results << @results_prod
