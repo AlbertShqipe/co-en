@@ -28,8 +28,10 @@ class DuoController < ApplicationController
   end
 
   def info
+    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
     @duo = Duo.find(params[:id])
     @results = []
+    @results << @results_prod
     Duo.all.each_with_index do |duo, index|
       @results << {
         count: index + 1,
