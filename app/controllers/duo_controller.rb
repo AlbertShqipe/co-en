@@ -27,12 +27,7 @@ class DuoController < ApplicationController
     end
   end
 
-
-  def info
-    @results = []
-    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
-    @duos = Duo.all
-    @duo = Duo.find(params[:id])
+  def secret
     @duos.each do |duo|
       duo.duo_participants.each_with_index do |participant, index|
         if participant.file.attached?
@@ -58,6 +53,15 @@ class DuoController < ApplicationController
         end
       end
     end
+  end
+
+
+
+  def info
+    @results = []
+    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+    @duos = Duo.all
+    @duo = Duo.find(params[:id])
     Duo.all.each_with_index do |duo, index|
       @results << {
         count: index + 1,

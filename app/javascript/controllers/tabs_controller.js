@@ -228,15 +228,6 @@ export default class extends Controller {
                     <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans<p>
                   </td>
                 </tr>
-                <tr border="1">
-                  <td>file</td>
-                  <td>
-                    <a href="https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.asset_id}/detailed" target="_blank">
-                      <img src='https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.asset_id}/detailed', width="100px">
-                    </a>
-                  </td>
-                </tr>
-
               `)};
             </table>`.replace(/[;,]/g, "");;
         })
