@@ -12,4 +12,8 @@ class IndividualForm < ApplicationRecord
   validates :category, presence: true, inclusion: { in: ['Loisir', 'Pré-professionnelle'] }
   validates :style, presence: true, inclusion: { in: ['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'] }
   validates :level, presence: true, inclusion: { in: ['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation'] }
+
+  scope :by_category, ->(categories) { where(category: categories) if categories.present? }
+  scope :by_style, ->(styles) { where(style: styles) if styles.present? }
+  scope :by_level, ->(levels) { where(level: levels) if levels.present? }
 end

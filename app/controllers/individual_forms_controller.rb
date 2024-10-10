@@ -3,7 +3,15 @@ class IndividualFormsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @results = []
     @individual_forms = IndividualForm.all
+    IndividualForm.all.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+    end
+
     @current_user = current_user
     # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
 
@@ -13,6 +21,25 @@ class IndividualFormsController < ApplicationController
       # Code that shoul run only in production since it charges the assets uploaded in production
       @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
     # raise
+
+    @individual_forms_filter = IndividualForm.by_category(params[:category])
+                                              .by_style(params[:style])
+                                              .by_level(params[:level])
+
+                                              # Filter by multiple categories
+    if params[:category].present?
+      @individual_forms = @individual_forms.where(category: params[:category])
+    end
+
+    # Filter by multiple styles
+    if params[:style].present?
+      @individual_forms = @individual_forms.where(style: params[:style])
+    end
+
+    # Filter by multiple levels
+    if params[:level].present?
+      @individual_forms = @individual_forms.where(level: params[:level])
+    end
   end
 
   def new

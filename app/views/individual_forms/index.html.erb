@@ -126,12 +126,66 @@
           </tbody>
         </table>
       <% elsif current_user.role == "admin" %>
+        <div class="filter">
+          <%= form_with url: individual_forms_path, method: :get, local: true do |form| %>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h4>Filtrer par Catégorie</h4>
+                <div style="display: flex;">
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :category, { multiple: true }, "Loisir", nil %> Loisir
+                  </div>
+                  <div>
+                    <%= form.check_box :category, { multiple: true }, "Pré-professionnelle", nil %> Pré-professionnelle
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4>Filtrer par Style</h4>
+                <div style="display: flex;">
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Classique", nil %> Classique
+                  </div>
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
+                  </div>
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Contemporain", nil %> Contemporain
+                  </div>
+                  <div>
+                    <%= form.check_box :style, { multiple: true }, "Caractère", nil %> Caractère
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4>Filtrer par Niveau</h4>
+                <div style="display: flex;">
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
+                  </div>
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :level, { multiple: true }, "Elémentaire 1", nil %> Elémentaire 1
+                  </div>
+                  <div>
+                    <%= form.check_box :level, { multiple: true }, "Elémentaire 2", nil %> Elémentaire 2
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <%= form.submit "Filtrer" %>
+            </div>
+          <% end %>
+        </div>
         <table class="table-form mx-auto">
           <thead>
             <tr>
               <th><%= t("index_individuals.th.attributes") %></th>
               <% @individual_forms.each_with_index do |form, index| %>
-                <th><%= t('index_individuals.th.individual_form') %> <%= index + 1 %></th>
+                <% matching_form = @results.find { |hash| hash[:id] == form.id } %>
+                <th><%= t('index_individuals.th.individual_form') %> <%= matching_form[:count] %></th>
               <% end %>
             </tr>
           </thead>
@@ -270,4 +324,4 @@
       <% end %>
     </div>
   </div>
-<%= @individual_forms.empty? ? render("shared/footer_fixed") : render("shared/footer") %>
+<%= render("shared/footer") %>
