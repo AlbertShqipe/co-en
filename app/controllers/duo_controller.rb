@@ -37,11 +37,24 @@ class DuoController < ApplicationController
       duo.duo_participants.each_with_index do |participant, index|
         if participant.file.attached?
           key = participant.file.key
+          Rails.logger.info "Looking for Cloudinary resource with key: production/#{key}"
+
           matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" }
-          if matching_file != nil
-            newkey =  matching_file["asset_id"]
-            participant.asset_id = newkey
+
+          if matching_file.present?
+            newkey = matching_file["asset_id"]
+            Rails.logger.info "Updating asset_id for participant #{participant.id} to #{newkey}"
+
+            if participant.update!(asset_id: newkey)
+              Rails.logger.info "Successfully updated participant #{participant.id}"
+            else
+              Rails.logger.error "Failed to update participant #{participant.id}: #{participant.errors.full_messages.join(', ')}"
+            end
+          else
+            Rails.logger.error "No matching Cloudinary resource found for key: production/#{key}"
           end
+        else
+          Rails.logger.info "Participant #{participant.id} has no attached file"
         end
       end
     end
@@ -137,7 +150,7 @@ class DuoController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       duo_participants_attributes: [
-        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :name, :last_name, :birth_date, :age, :photo, :file, :id_card, asset_id:
       ]
     )
   end

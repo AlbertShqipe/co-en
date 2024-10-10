@@ -232,7 +232,7 @@ export default class extends Controller {
                   <td>id</td>
                   <td>
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.id_card}?_a=BACE6GEv" target="_blank">
-                      <img src='"https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.asset_id/detailed', width="100px">
+                      <img src='"https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/${participant.asset_id}/detailed', width="100px">
                     </a>
                   </td>
                 </tr>
