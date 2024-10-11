@@ -1,4 +1,7 @@
 class MessagesController < ApplicationController
+  # Skip authentication for certain actions
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @messages = Message.all.order(created_at: :desc)
   end
