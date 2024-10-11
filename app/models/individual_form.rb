@@ -16,4 +16,5 @@ class IndividualForm < ApplicationRecord
   scope :by_category, ->(categories) { where(category: categories) if categories.present? }
   scope :by_style, ->(styles) { where(style: styles) if styles.present? }
   scope :by_level, ->(levels) { where(level: levels) if levels.present? }
+  scope :after_date, ->(start_date) { where("created_at >= ?", start_date) if start_date.present? }
 end

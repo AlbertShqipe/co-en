@@ -25,6 +25,7 @@ class IndividualFormsController < ApplicationController
     @individual_forms_filter = IndividualForm.by_category(params[:category])
                                               .by_style(params[:style])
                                               .by_level(params[:level])
+                                              .after_date(params[:start_date]) if params[:start_date].present?
 
                                               # Filter by multiple categories
     if params[:category].present?
@@ -38,6 +39,11 @@ class IndividualFormsController < ApplicationController
 
     # Filter by multiple levels
     if params[:level].present?
+      @individual_forms = @individual_forms.where(level: params[:level])
+    end
+
+    # Filter by date
+    if params[:start_date].present?
       @individual_forms = @individual_forms.where(level: params[:level])
     end
   end

@@ -1,5 +1,5 @@
 <%= render "shared/navbar"%>
-  <div class="container">
+  <div class="container ">
     <% if current_user.role == "admin" %>
       <div class="index-links-containers">
         <div class="link-container">
@@ -128,50 +128,62 @@
       <% elsif current_user.role == "admin" %>
         <div class="filter">
           <%= form_with url: individual_forms_path, method: :get, local: true do |form| %>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-around">
               <div>
-                <h4>Filtrer par Catégorie</h4>
-                <div style="display: flex;">
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :category, { multiple: true }, "Loisir", nil %> Loisir
+                <div style="margin-top:20px">
+                  <h4>Filtrer par Catégorie</h4>
+                  <div style="display: flex; justify-content: center">
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :category, { multiple: true }, "Loisir", nil %> Loisir
+                    </div>
+                    <div>
+                      <%= form.check_box :category, { multiple: true }, "Pré-professionnelle", nil %> Pré-professionnelle
+                    </div>
                   </div>
-                  <div>
-                    <%= form.check_box :category, { multiple: true }, "Pré-professionnelle", nil %> Pré-professionnelle
+                </div>
+
+                <div style="margin-top:20px">
+                  <h4>Filtrer par Style</h4>
+                  <div style="display: flex;">
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :style, { multiple: true }, "Classique", nil %> Classique
+                    </div>
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :style, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
+                    </div>
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :style, { multiple: true }, "Contemporain", nil %> Contemporain
+                    </div>
+                    <div>
+                      <%= form.check_box :style, { multiple: true }, "Caractère", nil %> Caractère
+                    </div>
                   </div>
                 </div>
               </div>
-
               <div>
-                <h4>Filtrer par Style</h4>
-                <div style="display: flex;">
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :style, { multiple: true }, "Classique", nil %> Classique
-                  </div>
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :style, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
-                  </div>
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :style, { multiple: true }, "Contemporain", nil %> Contemporain
-                  </div>
-                  <div>
-                    <%= form.check_box :style, { multiple: true }, "Caractère", nil %> Caractère
+                <div style="margin-top:20px">
+                  <h4>Filtrer par Niveau</h4>
+                  <div style="display: flex;">
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
+                    </div>
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :level, { multiple: true }, "Elémentaire 1", nil %> Elémentaire 1
+                    </div>
+                    <div>
+                      <%= form.check_box :level, { multiple: true }, "Elémentaire 2", nil %> Elémentaire 2
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div>
-                <h4>Filtrer par Niveau</h4>
-                <div style="display: flex;">
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
-                  </div>
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :level, { multiple: true }, "Elémentaire 1", nil %> Elémentaire 1
-                  </div>
-                  <div>
-                    <%= form.check_box :level, { multiple: true }, "Elémentaire 2", nil %> Elémentaire 2
-                  </div>
+                <!-- Date Filters -->
+                <div style="margin-top:20px">
+                  <h4>Filtrer par Date</h4>
+                    <div>
+                      <label for="start_date">À partir de:</label>
+                      <%= form.date_field :start_date, value: params[:start_date] %>
+                    </div>
                 </div>
+
               </div>
             </div>
             <div>
