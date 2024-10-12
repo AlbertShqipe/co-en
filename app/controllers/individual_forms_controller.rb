@@ -42,9 +42,9 @@ class IndividualFormsController < ApplicationController
       @individual_forms = @individual_forms.where(level: params[:level])
     end
 
-    # Filter by date
+    # # Filter by date
     if params[:start_date].present?
-      @individual_forms = @individual_forms.where(start_date: params[:start_date])
+      @individual_forms = @individual_forms.where("created_at >= ?", params[:start_date])
     end
   end
 
