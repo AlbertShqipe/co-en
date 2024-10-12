@@ -44,7 +44,7 @@ class IndividualFormsController < ApplicationController
 
     # Filter by date
     if params[:start_date].present?
-      @individual_forms = @individual_forms.where(level: params[:level])
+      @individual_forms = @individual_forms.where(start_date: params[:start_date])
     end
   end
 
