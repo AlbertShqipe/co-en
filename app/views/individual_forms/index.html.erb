@@ -327,6 +327,12 @@
                 </td>
               <% end %>
             </tr>
+            <tr>
+                <td><%= t("index_individuals.td.created_at") %></td>
+              <% @individual_forms.each do |form| %>
+                <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
+              <%end%>
+            </tr>
           </tbody>
         </table>
       <% else %>

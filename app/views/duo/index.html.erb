@@ -176,6 +176,10 @@
                 <td><%= duo.length_of_piece %></td>
               </tr>
               <tr>
+                <td><%= t("index_individuals.td.created_at") %></td>
+                <td><%= duo.created_at.strftime("%d-%m-%Y") %></td>
+              </tr>
+              <tr>
                 <th><b><%= t('index_duo.td.participant_name_lastName') %></b></th>
                 <% duo.duo_participants.each_with_index do |participant, index| %>
                   <th width="40%"><%= t('index_duo.td.participant_name_lastName') %> <%= index + 1 %></th>

@@ -616,6 +616,7 @@ fr:
       profile_pic: "Photo Profile"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
+      created_at: "Date de Subscription"
 
   apply:
     important_information:

@@ -645,6 +645,7 @@ en:
       profile_pic: "Profile Picture"
       file: "Completed Authorization Form"
       file1: "Identity Card"
+      created_at: "Date of Subscription"
 
   apply:
     important_information:

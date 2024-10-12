@@ -170,16 +170,20 @@
               <td><%= form.level %></td>
             </tr>
             <tr>
-              <td><%= t('index_groups.td.length_of_piece') %></td>
-              <td><%= form.length_of_piece %></td>
+              <td><%= t('index_groups.td.title_of_music') %></td>
+              <td><%= form.title_of_music %></td>
             </tr>
             <tr>
               <td><%= t('index_groups.td.composer') %></td>
               <td><%= form.composer %></td>
             </tr>
             <tr>
-              <td><%= t('index_groups.td.title_of_music') %></td>
-              <td><%= form.title_of_music %></td>
+              <td><%= t('index_groups.td.length_of_piece') %></td>
+              <td><%= form.length_of_piece %></td>
+            </tr>
+            <tr>
+              <td><%= t("index_individuals.td.created_at") %></td>
+              <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
             </tr>
             <tr>
               <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
@@ -187,7 +191,6 @@
                 <th width="100px !important"><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
               <% end %>
             </tr>
-            <tr>
             <tr>
               <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
               <% form.participants.each_with_index do |participant, index| %>

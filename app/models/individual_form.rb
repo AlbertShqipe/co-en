@@ -7,7 +7,7 @@ class IndividualForm < ApplicationRecord
 
   validates :first_name, :last_name, :birth_date, :address, :phone, :email,
             :teacher_name, :dance_school, :teacher_phone, :teacher_email,
-            :category, :style, :level, presence: true
+            :category, :style, :level, :photo, :file, :id_card, presence: true
 
   validates :category, presence: true, inclusion: { in: ['Loisir', 'Pré-professionnelle'] }
   validates :style, presence: true, inclusion: { in: ['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'] }
