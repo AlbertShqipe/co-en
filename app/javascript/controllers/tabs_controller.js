@@ -45,15 +45,6 @@ export default class extends Controller {
         this.fetchGroupInfo(selectedGroupId);
       });
     }
-
-    if (duoTableSelect) {
-      // Set up event listener for changes in the select element
-      duoTableSelect.addEventListener('change', (event) => {
-        const selectedDuoTableId = event.target.value;
-        console.log("Selected Duo ID:", selectedDuoTableId);
-        this.fetchDuoTable(selectedDuoTableId);
-      });
-    }
   }
 
   fetchSoloInfo(selectedSoloId) {
@@ -94,10 +85,13 @@ export default class extends Controller {
               <tr>
                 <td>Date de naissance</td>
                 <td>
-                ${calculateAge(data.years)}<br>
                 ${data.birth_date}
                 </td>
               </tr>
+              <tr>
+                  <td>Âge le jour de la compétition.</td>
+                  <td>${data.age_day_competition}</td>
+                </tr>
               <tr>
                 <td>Address</td>
                 <td>${data.address}</td>
@@ -225,8 +219,16 @@ export default class extends Controller {
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
                       <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
                     </a><br>
-                    <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans<p>
+                    <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
                   </td>
+                </tr>
+                <tr>
+                  <td>Date de naissance</td>
+                  <td>${participant.birth_date}</td>
+                </tr>
+                <tr>
+                  <td>Âge le jour de la compétition.</td>
+                  <td>${participant.age_day_competition} ans</td>
                 </tr>
               `)};
             </table>`.replace(/[;,]/g, "");;
@@ -311,12 +313,20 @@ export default class extends Controller {
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td>
-                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
-                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
-                  </a>
-                </td>
-                <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
+                  <td colspan="2" style="text-align:center">
+                    <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                    </a><br>
+                    <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date de naissance</td>
+                  <td>${participant.birth_date}</td>
+                </tr>
+                <tr>
+                  <td>Âge le jour de la compétition.</td>
+                  <td>${participant.age_day_competition} ans</td>
                 </tr>
               `)};
             </table>`.replace(/[;,]/g, "");;
@@ -402,12 +412,20 @@ export default class extends Controller {
               </tr>
               ${data.participants.map(participant => `
                 <tr>
-                <td>
-                  <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
-                    <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
-                  </a>
-                </td>
-                <td>${capitalize(participant.name)} ${capitalize(participant.last_name)}, ${participant.age} ans</td>
+                  <td colspan="2" style="text-align:center">
+                    <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
+                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                    </a><br>
+                    <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date de naissance</td>
+                  <td>${participant.birth_date}</td>
+                </tr>
+                <tr>
+                  <td>Âge le jour de la compétition.</td>
+                  <td>${participant.age_day_competition} ans</td>
                 </tr>
               `)};
             </table>`.replace(/[;,]/g, "");;

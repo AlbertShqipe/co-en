@@ -27,7 +27,13 @@ export default class extends Controller {
 
   calculateAge(birthdate) {
     const birthday = new Date(birthdate);
+
+    // This is a test date for the current date
     const today = new Date();
+
+    // Replace the reference_date with the actual day of the competition
+    // reference_date = new Date(2025, 4, 19)
+
     let age = today.getFullYear() - birthday.getFullYear();
     const monthDiff = today.getMonth() - birthday.getMonth();
 

@@ -71,6 +71,40 @@ class IndividualFormsController < ApplicationController
   end
 
   def info
+    def calculate_age(birthdate)
+      birthdate = birthdate.is_a?(String) ? Date.parse(birthdate) : birthdate
+
+      # Calculate the age based on the day of the competition
+      reference_date = Date.new(2025, 4, 19)
+
+      # Calculate the age based on today's date
+      # today = Date.today
+      # You change the reference_date to today to calculate the age based on today's date
+
+
+      years = reference_date.year - birthdate.year
+      months = reference_date.month - birthdate.month
+      days = reference_date.day - birthdate.day
+
+      if days < 0
+        months -= 1
+        previous_month = reference_date.prev_month
+        days += (Date.new(previous_month.year, previous_month.month, -1).day)
+      end
+
+      if months < 0
+        years -= 1
+        months += 12
+      end
+
+      age_string = "#{years} #{t("helper.age_function_years")}"
+      age_string += ", #{months} #{t("helper.age_function_months")}" if months > 0
+      age_string += ", #{days} #{t("helper.age_function_days")}" if days > 0
+      age_string += " #{t("helper.old")}"
+
+      age_string
+    end
+
     @solo = IndividualForm.find(params[:id])
     @results = []
     IndividualForm.all.each_with_index do |solo, index|
@@ -85,6 +119,7 @@ class IndividualFormsController < ApplicationController
       name: @solo.first_name,
       last_name: @solo.last_name,
       birth_date: I18n.l(@solo.birth_date, format: :long, locale: :fr), # This will translate the date to French,
+      age_day_competition: calculate_age(@solo.birth_date.strftime("%Y-%m-%d")),
       years: @solo.birth_date.strftime("%B %d, %Y"),
       address: @solo.address,
       phone: @solo.phone,
