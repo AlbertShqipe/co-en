@@ -512,7 +512,7 @@ fr:
           level: "Niveaux"
         participant:
           participants: "Participant·e·s"
-          add_participants: "Ajoutez les participant·e·s du groupe, min 4 / max 15 candidat·e·s."
+          add_participants: "Ajoutez les participant·e·s du groupe, min 4 candidat·e·s."
           placeholders:
             name: "Prénom"
             last_name: "Nom de Famille"

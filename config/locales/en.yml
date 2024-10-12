@@ -541,7 +541,7 @@ en:
           level: "Levels"
         participant:
           participants: "Participants"
-          add_participants: "Add the partecipants of the group, min 4 / max 15 candidates"
+          add_participants: "Add the partecipants of the group, min 4 candidates"
           placeholders:
             name: "First Name"
             last_name: "Last Name"

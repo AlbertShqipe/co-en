@@ -196,7 +196,7 @@
     border-bottom: 1.5px solid #000000;
     border-radius: 3px;
     box-sizing: border-box;
-    margin-top: 15px;
+    margin-top: 5px;
     cursor: pointer;
     font-size: 16px;
     line-height: 1;
@@ -222,9 +222,14 @@
   #id-name21, #id-name22, #id-name23, #id-name24, #id-name25, #id-name26, #id-name27, #id-name28, #id-name29, #id-name30,
   #id-name31, #id-name32, #id-name33, #id-name34, #id-name35, #id-name36, #id-name37, #id-name38, #id-name39, #id-name40 {
 
-    margin-left: 10px;
+    // margin-left: 10px;
     font-size: 16px;
     color: #666;
+  }
+
+  span {
+    color:  #666;
+    margin: 0;
   }
 }
 

@@ -82,16 +82,19 @@
                   </div>
                   <div class="d-flex justify-content-around">
                     <div class="custom-file-input">
+                      <span>Format (.jpeg, .jpg, .png)</span><br>
                       <%= p.file_field :photo, as: :file, id: "photo-input", class: "file-input" %>
                       <label for="photo-input" id="photo-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
                       <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
+                      <span>Format (pdf)</span><br>
                       <%= p.file_field :file, as: :file, id: "file-input", class: "file-input" %>
                       <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
                       <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
+                      <span>Format (pdf)</span><br>
                       <%= p.file_field :id_card, as: :file, id: "id-input", class: "file-input" %>
                       <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label>
                       <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
