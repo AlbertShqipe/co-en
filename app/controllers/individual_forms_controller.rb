@@ -4,8 +4,8 @@ class IndividualFormsController < ApplicationController
 
   def index
     @results = []
-    @individual_forms = IndividualForm.all
-    IndividualForm.all.each_with_index do |solo, index|
+    @individual_forms = IndividualForm.order(created_at: :asc)
+    IndividualForm.order(created_at: :asc).each_with_index do |solo, index|
       @results << {
         count: index + 1,
         id: solo.id,
