@@ -1,15 +1,22 @@
 module ApplicationHelper
   def calculate_age(birthdate)
     birthdate = birthdate.is_a?(String) ? Date.parse(birthdate) : birthdate
-    today = Date.today
 
-    years = today.year - birthdate.year
-    months = today.month - birthdate.month
-    days = today.day - birthdate.day
+    # Calculate the age based on the day of the competition
+    reference_date = Date.new(2025, 4, 19)
+
+    # Calculate the age based on today's date
+    # today = Date.today
+    # You change the reference_date to today to calculate the age based on today's date
+
+
+    years = reference_date.year - birthdate.year
+    months = reference_date.month - birthdate.month
+    days = reference_date.day - birthdate.day
 
     if days < 0
       months -= 1
-      previous_month = today.prev_month
+      previous_month = reference_date.prev_month
       days += (Date.new(previous_month.year, previous_month.month, -1).day)
     end
 
