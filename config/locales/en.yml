@@ -632,6 +632,7 @@ en:
       first_name: "First Name"
       last_name: "Last Name"
       birthday: "Date of Birth"
+      age_day_competition: "Age Day of Competition"
       address: "Address"
       phone: "Phone"
       email: "Email Address"

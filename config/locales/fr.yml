@@ -603,6 +603,7 @@ fr:
       first_name: "Prénom"
       last_name: "Nom"
       birthday: "Date de Naissance"
+      age_day_competition: "Âge le jour de la compétition"
       address: "Adresse"
       phone: "Numéro de Téléphone"
       email: "Email"

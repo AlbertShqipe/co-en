@@ -1,7 +1,7 @@
 class TriosController < ApplicationController
   before_action :authenticate_user!
   def index
-    @trios = Trio.all
+    @trios = Trio.order(created_at: :asc)
     @trio = current_user.trios.find(params[:id]) if params[:id].present?
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']

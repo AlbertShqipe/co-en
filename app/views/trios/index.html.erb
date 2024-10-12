@@ -207,7 +207,14 @@
                 <td><%= t('index_trio.td.participant_age') %></td>
                 <% trio.trio_participants.each_with_index do |participant, index| %>
                   <td>
-                    <%= participant.birth_date %><br>
+                    <%= participant.birth_date %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.age_day_competition") %></td>
+                <% trio.trio_participants.each_with_index do |participant, index| %>
+                  <td>
                     <%= calculate_age(participant.birth_date) %>
                   </td>
                 <% end %>

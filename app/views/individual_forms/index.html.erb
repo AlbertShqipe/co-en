@@ -228,7 +228,14 @@
               <td><%= t("index_individuals.td.birthday") %></td>
               <% @individual_forms.each do |form| %>
                 <td>
-                  <%= form.birth_date %><br>
+                  <%= form.birth_date %>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t("index_individuals.td.age_day_competition") %></td>
+              <% @individual_forms.each do |form| %>
+                <td>
                   <%= calculate_age(form.birth_date) %>
                 </td>
               <% end %>

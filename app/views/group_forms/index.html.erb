@@ -201,11 +201,18 @@
               <td><%= t('index_groups.td.participant_age') %></td>
               <% form.participants.each_with_index do |participant, index| %>
                 <td>
-                  <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %>
+                  <%= participant.birth_date %>
                 </td>
               <% end %>
             </tr>
+            <tr>
+                <td><%= t("index_individuals.td.age_day_competition") %></td>
+                <% form.participants.each_with_index do |participant, index| %>
+                  <td>
+                    <%= calculate_age(participant.birth_date) %>
+                  </td>
+                <% end %>
+              </tr>
             <tr>
               <td><%= t('index_trio.td.profile_pic') %></td>
               <% form.participants.each_with_index do |participant, index| %>
