@@ -383,7 +383,7 @@ fr:
       h2: |
         <h2 class="text-center">Candidature Individuelle</h2>
       h3: |
-        <h3 class="text-center">Remplissez un formulaire par candidat·e</h3>
+        <h3 class="text-center">Remplir une fiche par discipline</h3>
       individual:
         placeholders:
           name: "Prénom"

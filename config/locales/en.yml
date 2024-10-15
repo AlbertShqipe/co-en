@@ -412,7 +412,7 @@ en:
       h2: |
         <h2 class="text-center">Individual Candidature</h2>
       h3: |
-        <h3 class="text-center">Fill out one form per candidate</h3>
+        <h3 class="text-center">Fill out one form per discipline</h3>
       individual:
         placeholders:
           name: "First Name"
