@@ -8,7 +8,12 @@ fr:
       link2: |
         <a href="#who_we_are" class="nav-link">QUI NOUS SOMMES</a>
       link3: |
-        <a href="#practical_info" class="nav-link">INFORMATIONS PRATIQUES</a>
+        <div class="dropdown">
+          <a href="#practical_info" class="nav-link dropbtn">INFORMATIONS PRATIQUES</a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=fr">Contact</a>
+          </div>
+        </div>
       link4: |
         <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
       link5: |
@@ -137,7 +142,12 @@ fr:
       link2: |
         <a href="/who_we_are?locale=fr" class="nav-link">QUI NOUS SOMMES</a>
       link3: |
-        <a href="/practical_info?locale=fr" class="nav-link">INFORMATIONS PRATIQUES</a>
+        <div class="dropdown">
+          <a href="/practical_info?locale=fr" class="nav-link dropbtn">INFORMATIONS PRATIQUES</a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=fr">Contact</a>
+          </div>
+        </div>
       link4: |
         <a href="/our_partners?locale=fr" class="nav-link">NOS PARTENAIRES</a>
       link5: |

@@ -37,7 +37,12 @@ en:
       link2: |
         <a href="#who_we_are" class="nav-link">WHO WE ARE</a>
       link3: |
-        <a href="#practical_info" class="nav-link">PRACTICAL INFO</a>
+        <div class="dropdown">
+          <a href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO</a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=en">Contact</a>
+          </div>
+        </div>
       link4: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link5: |
@@ -166,7 +171,12 @@ en:
       link2: |
         <a href="/who_we_are?locale=en" class="nav-link">WHO WE ARE</a>
       link3: |
-        <a href="/practical_info?locale=en" class="nav-link">PRACTICAL INFO</a>
+        <div class="dropdown">
+          <a href="/practical_info?locale=en" class="nav-link dropbtn">PRACTICAL INFO</a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=en">Contact</a>
+          </div>
+        </div>
       link4: |
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link5: |
