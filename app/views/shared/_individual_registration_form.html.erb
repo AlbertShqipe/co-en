@@ -82,19 +82,19 @@
           <div class="d-flex justify-content-around mt-4 ">
             <div class="custom-file-input">
               <span>Format (.jpeg, .jpg, .png)</span><br>
-              <%= f.file_field :photo, as: :file,  id:"photo-input", class: "file-input" %>
+                <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
               <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
               <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <span>Format (pdf)</span><br>
-              <%= f.file_field :file, as: :file,  id:"file-input", class:"file-input" %>
+              <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input" %>
               <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
               <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <span>Format (pdf)</span><br>
-              <%= f.file_field :id_card, as: :file,  id:"id-input", class:"file-input" %>
+              <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input" %>
               <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
               <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
@@ -109,3 +109,14 @@
   </div>
   </div>
 </div>
+<script>
+  document.getElementById('photo-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+    if (file && !allowedTypes.includes(file.type)) {
+      alert('Invalid file type! Please select a JPEG or PNG image.');
+      event.target.value = ''; // Clear the input if the file is invalid
+    }
+  });
+</script>
