@@ -107,7 +107,7 @@ class IndividualFormsController < ApplicationController
 
     @solo = IndividualForm.find(params[:id])
     @results = []
-    IndividualForm.all.each_with_index do |solo, index|
+    IndividualForm.order(created_at: :asc).all.each_with_index do |solo, index|
       @results << {
         count: index + 1,
         id: solo.id,
