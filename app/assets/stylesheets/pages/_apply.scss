@@ -39,7 +39,12 @@
 
       .birthday {
         margin-top: 33px !important;
-        width: 223px;
+        width: 90%;
+
+        @media (max-width: 960px) {
+          margin-top: 0px !important;
+
+        }
       }
 
       .form {

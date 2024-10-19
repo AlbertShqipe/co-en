@@ -1,0 +1,117 @@
+// Individaul registration form
+.individual-registration-form-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 48px 0 48px;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.individual-registration-form-second {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 48px 0 48px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.individual-registration-form-third {
+  display: flex;
+  justify-content: space-between;
+  margin: 48px 0;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.individual-registration-form-forth {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.individual-registration-form-fifth {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+}
+
+// Duo registration form
+.duo-registration-form-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 48px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.duo-registration-form-second {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// d-flex justify-content-around
+.duo-registration-form-participant-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.duo-registration-form-participant-second {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.duo-registration-form-fifth {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+}

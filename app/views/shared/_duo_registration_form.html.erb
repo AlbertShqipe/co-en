@@ -12,7 +12,7 @@
                         method: :post,
                         data: { controller: "flatpickr duo-participants age" }
                       ) do |f| %>
-          <div class="d-flex justify-content-around mt-5">
+          <div class="duo-registration-form-first">
             <div class="field">
               <%# <%= f.label :name %>
               <%= f.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.name'), class: "input-form" %>
@@ -34,7 +34,7 @@
               <%= f.text_field :email, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.email'), class: "input-form" %>
             </div>
           </div>
-          <div class="d-flex justify-content-around ">
+          <div class="duo-registration-form-second">
             <div>
               <%# <%= f.label :title_of_piece %>
               <%= f.text_field :title_of_music, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.title_of_music'), class: "input-form" %>
@@ -47,7 +47,7 @@
               <%= f.number_field :length_of_piece, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.length_of_piece'), class: "input-form", step: 0.01, min: 0 %>
             </div>
           </div>
-          <div class="d-flex justify-content-around">
+          <div class="duo-registration-form-third">
             <div id="style">
               <%# <%= f.label :discipline %>
               <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.disciplines'), class: "input-session" %>
@@ -65,7 +65,7 @@
             <div id="participants">
               <%= f.fields_for :duo_participants do |p| %>
                 <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
-                  <div class="d-flex justify-content-around">
+                  <div class="duo-registration-form-participant-first">
                     <div>
                       <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
                     </div>
@@ -79,7 +79,7 @@
                       <%= p.number_field :age, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-around">
+                  <div class="duo-registration-form-participant-second">
                     <div class="custom-file-input">
                       <span>Format (.jpeg, .jpg, .png)</span><br>
                       <%= p.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
@@ -102,7 +102,7 @@
                 </div>
               <% end %>
               <div class="participant-fields mb-3 pb-3" data-controller="age" style="border-bottom:1px solid red">
-                <div class="d-flex justify-content-around">
+                <div class="duo-registration-form-participant-first">
                   <div>
                     <input type="text" name="duo[duo_participants_attributes][1][name]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name')%>" class="input-form-group">
                   </div>
@@ -116,7 +116,7 @@
                     <input type="number" name="duo[duo_participants_attributes][1][age]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age')%>" class="input-form-group" id="age-input" readonly>
                   </div>
                 </div>
-                <div class="d-flex justify-content-around">
+                <div class="duo-registration-form-participant-second">
                   <div class="custom-file-input">
                     <input type="file" name="duo[duo_participants_attributes][1][photo]" id="photo-input1" class="file-input" accept="image/jpeg, image/jpg, image/png">
                     <label for="photo-input1" id="photo-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>

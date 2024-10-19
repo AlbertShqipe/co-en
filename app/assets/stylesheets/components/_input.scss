@@ -125,6 +125,12 @@
     transition: 0.3s;
     display: block;
     color: black !important;
+
+    @media (max-width: 990px) {
+      margin-top: 0px;
+      margin-bottom: 0px;
+
+    }
   }
 }
 
@@ -183,6 +189,11 @@
     width: 50%;
     height: 28.5px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      margin-top: -15px;
+
+    }
   }
 
   .file-label {
@@ -207,6 +218,11 @@
     inset -1.5px 0px 15px rgba(0, 0, 0, 0.3),  /* Darker shadow near edge on the right */
     inset -1px 0px 10px rgba(255, 255, 255, 0), /* Middle shadow on the right */
     inset -0.5px 0px 5px rgba(255, 255, 255, 1);  /* Lighter shadow on the right */;
+
+    @media (max-width: 768px) {
+      margin-top: -30px !important;
+
+    }
   }
 
   #file-name, #file-name1, #file-name2, #file-name3, #file-name4, #file-name5, #file-name6, #file-name7, #file-name8, #file-name9, #file-name10,
@@ -225,11 +241,27 @@
     // margin-left: 10px;
     font-size: 16px;
     color: #666;
+
+    @media (max-width: 960px) {
+      margin-bottom: 20px !important;
+
+    }
   }
 
   span {
     color:  #666;
     margin: 0;
+
+    @media (max-width: 990px) {
+      margin-bottom: -20px;
+    }
+  }
+
+  @media (max-width: 990px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
   }
 }
 
