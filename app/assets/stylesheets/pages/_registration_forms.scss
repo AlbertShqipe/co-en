@@ -81,7 +81,17 @@
   }
 }
 
-// d-flex justify-content-around
+.duo-registration-form-third {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .duo-registration-form-participant-first {
   display: flex;
   justify-content: space-around;
@@ -104,7 +114,30 @@
   }
 }
 
-.duo-registration-form-fifth {
+// Trio registration form
+.trio-registration-form-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 48px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.trio-registration-form-second {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.trio-registration-form-third {
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
@@ -112,6 +145,83 @@
   @media (max-width: 990px) {
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
+  }
+}
+
+.trio-registration-form-participant-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.trio-registration-form-participant-second {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// Group registration form
+.group-registration-form-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 48px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.group-registration-form-second {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.group-registration-form-third {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.group-registration-form-participant-first {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.group-registration-form-participant-second {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
   }
 }
