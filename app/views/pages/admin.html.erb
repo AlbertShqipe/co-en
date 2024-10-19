@@ -13,7 +13,7 @@
       <div class="portfolio-tab-bar">
         <select id="solo-select">
           <option value="">Sélectionnez un Solo</option>
-          <% @solos.each_with_index do |solo, index| %>
+          <% @solos.order(created_at: :asc).each_with_index do |solo, index| %>
             <option value="<%= solo.id %>"><%= index + 1 %> <%= solo.first_name %></option>
           <% end %>
         </select>
