@@ -36,7 +36,7 @@
       <div class="portfolio-tab-bar">
         <select id="duo-select">
           <option value="">Sélectionnez un Duo</option>
-          <% @duos.each_with_index do |duo, index| %>
+          <% @duos.order(created_at: :asc).each_with_index do |duo, index| %>
             <option value="<%= duo.id %>"><%= index + 1 %> <%= duo.name %></option>
           <% end %>
         </select>
@@ -59,7 +59,7 @@
       <div class="portfolio-tab-bar">
         <select id="trio-select">
           <option value="">Sélectionnez un Trio</option>
-          <% @trios.each_with_index do |trio, index| %>
+          <% @trios.order(created_at: :asc).each_with_index do |trio, index| %>
             <option value="<%= trio.id %>"><%= index + 1 %> <%= trio.name %></option>
           <% end %>
         </select>
@@ -82,7 +82,7 @@
       <div class="portfolio-tab-bar">
         <select id="group-select">
           <option value="">Sélectionnez un Group</option>
-          <% @groups.each_with_index do |group, index| %>
+          <% @groups.order(created_at: :asc).each_with_index do |group, index| %>
             <option value="<%= group.id %>"><%= index + 1 %> <%= group.name %></option>
           <% end %>
         </select>
