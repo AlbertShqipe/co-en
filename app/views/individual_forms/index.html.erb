@@ -239,7 +239,7 @@
               <td><%= t("index_individuals.td.profile_pic") %></td>
               <% @individual_forms.each do |form| %>
                 <% if form.photo.attached? %>
-                  <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px", fetch_format: "auto" %></td>
+                  <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px", fetch_format: "auto", page: 1 %></td>
                 <% else %>
                   <td>Pas de photo attaché</td>
                 <% end %>

@@ -71,7 +71,7 @@ export default class extends Controller {
               <tr>
                 <td colspan="2">
                 <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv" target="_blank">
-                  <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
+                  <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto,pg=1/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
                 </a>
               </tr>
               <tr>
@@ -217,7 +217,7 @@ export default class extends Controller {
                 <tr>
                   <td colspan="2" style="text-align:center">
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
-                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_aut,pg=1/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
                     </a><br>
                     <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
                   </td>
@@ -315,7 +315,7 @@ export default class extends Controller {
                 <tr>
                   <td colspan="2" style="text-align:center">
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
-                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto,pg=1/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
                     </a><br>
                     <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
                   </td>
@@ -414,7 +414,7 @@ export default class extends Controller {
                 <tr>
                   <td colspan="2" style="text-align:center">
                     <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${participant.photo}?_a=BACE6GEv" target="_blank">
-                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
+                      <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto,pg=1/v1/production/${participant.photo}?_a=BACE6GEv', width="100px">
                     </a><br>
                     <p>${capitalize(participant.name)} ${capitalize(participant.last_name)}<p>
                   </td>

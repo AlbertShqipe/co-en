@@ -218,7 +218,7 @@
               <% form.participants.each_with_index do |participant, index| %>
                 <td>
                   <% if participant.photo.attached? %>
-                    <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto"  %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto", page: 1 %>
                     <%# <img src="https://res.cloudinary.com/dsyp2wb4w/image/upload/v1728907760/production/<%participant.photo.key.png" alt=""> %>
                     <% else %>
                     <p>Le candidat n'a pas de photo</p>
