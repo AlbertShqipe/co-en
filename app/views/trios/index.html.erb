@@ -96,7 +96,7 @@
               <% trio.trio_participants.each do |participant| %>
                 <td>
                   <% if participant.photo.attached? %>
-                    <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %> <%= participant.last_name %>
+                    <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto"  %> <%= participant.name %> <%= participant.last_name %>
                   <% else %>
                     <%= participant.name %> <%= participant.last_name %>
                   <% end %>
@@ -196,7 +196,7 @@
                 <% trio.trio_participants.each_with_index do |participant, index| %>
                   <td>
                     <% if participant.photo.attached? %>
-                      <%= cl_image_tag participant.photo.key, height: 30, width: 20 %> <%= participant.name %>
+                      <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto"  %> <%= participant.name %>
                     <% else %>each do |participant|
                       <p>Le candidat n'a pas de photo</p>
                     <% end %>
