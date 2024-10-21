@@ -5,6 +5,25 @@ class DuoController < ApplicationController
     @duo = current_user.duos.find(params[:id]) if params[:id].present?
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+
+    @duos_filter = Duo.by_style(params[:style])
+                      .by_level(params[:level])
+                      .after_date(params[:start_date]) if params[:start_date].present?
+
+    # Filter by multiple styles
+    if params[:style].present?
+      @duos = @duos.where(style: params[:style])
+    end
+
+    # Filter by multiple levels
+    if params[:level].present?
+      @duos = @duos.where(level: params[:level])
+    end
+
+    # # Filter by date
+    if params[:start_date].present?
+      @duos = @duos.where("created_at >= ?", params[:start_date])
+    end
   end
 
   def show

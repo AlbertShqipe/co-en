@@ -118,13 +118,73 @@
         </tbody>
       </table>
     <% elsif current_user.role == "admin" && @duos.present?%>
-      <div class="table-links">
-        <ul>
-        <% @duos.each_with_index do |d, i| %>
-          <li><a href="#table<%= i + 1 %>">Duo <%= i + 1 %></a></li>
+      <div class="filter">
+        <%= form_with url: duo_index_path, method: :get, local: true do |form| %>
+          <div>
+            <%# Playing with the grid in bootstrap %>
+            <div class="row">
+              <div class="col-sm" style="margin-top:20px">
+                <h4>Filtrer par Niveau</h4>
+                <%# 'Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation'%>
+                <div style="display:grid; grid-template-columns: auto auto; justify-content: space-evenly">
+                  <div style="text-align: left; padding-right:15px">
+                    <div>
+                      <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
+                    </div>
+                    <div>
+                      <%= form.check_box :level, { multiple: true }, "Elémentaire", nil %> Elémentaire
+                    </div>
+                  </div>
+                  <div style="text-align: left; padding-right:15px">
+                    <div>
+                      <%= form.check_box :level, { multiple: true }, "Moyen", nil %> Moyen
+                    </div>
+                                        <div>
+                      <%= form.check_box :level, { multiple: true }, "Supérieur", nil %> Supérieur
+                    </div>
+                    <div>
+                      <%= form.check_box :level, { multiple: true }, "Formation", nil %> Formation
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm" style="margin-top:20px">
+                <h4>Filtrer par Style</h4>
+                <div style="display: flex; justify-content: center">
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Classique", nil %> Classique
+                  </div>
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
+                  </div>
+                  <div style="margin-right: 30px;">
+                    <%= form.check_box :style, { multiple: true }, "Contemporain", nil %> Contemporain
+                  </div>
+                  <div>
+                    <%= form.check_box :style, { multiple: true }, "Caractère", nil %> Caractère
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Date Filters -->
+              <div class="col-sm" style="margin-top:20px">
+                <h4>Filtrer par Date</h4>
+                  <div>
+                    <label for="start_date">À partir de:</label>
+                    <%= form.date_field :start_date, value: params[:start_date] %>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+          <div>
+            <%= form.submit "Filtrer" %>
+          </div>
         <% end %>
-        </ul>
       </div>
+
       <div class="table-con">
         <% @duos.each_with_index do |duo, index| %>
           <table class="table-form mx-auto" id="table<%=index + 1%>">

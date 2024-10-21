@@ -11,4 +11,8 @@ class Duo < ApplicationRecord
 
   validates :level, presence: true, inclusion: { in: ['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation'] }
   validates :discipline, presence: true, inclusion: { in: ['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'] }
+
+  scope :by_style, ->(styles) { where(discipline: styles) if styles.present? }
+  scope :by_level, ->(levels) { where(level: levels) if levels.present? }
+  scope :after_date, ->(start_date) { where("created_at >= ?", start_date) if start_date.present? }
 end
