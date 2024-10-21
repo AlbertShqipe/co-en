@@ -71,7 +71,7 @@ export default class extends Controller {
               <tr>
                 <td colspan="2">
                 <a href="https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv" target="_blank">
-                  <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
+                  <img src='https://res-3.cloudinary.com/dsyp2wb4w/image/upload/f_auto/v1/production/${data.photo}?_a=BACE6GEv', width="100px"></td>
                 </a>
               </tr>
               <tr>
