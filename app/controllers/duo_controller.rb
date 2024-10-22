@@ -6,13 +6,13 @@ class DuoController < ApplicationController
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
 
-    @duos_filter = Duo.by_style(params[:style])
+    @duos_filter = Duo.by_discipline(params[:discipline])
                       .by_level(params[:level])
                       .after_date(params[:start_date]) if params[:start_date].present?
 
     # Filter by multiple styles
-    if params[:style].present?
-      @duos = @duos.where(style: params[:style])
+    if params[:discipline].present?
+      @duos = @duos.where(discipline: params[:discipline])
     end
 
     # Filter by multiple levels

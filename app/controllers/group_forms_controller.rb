@@ -6,13 +6,13 @@ class GroupFormsController < ApplicationController
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "Production", max_results: 500)['resources']
 
-    @groups_filter = GroupForm.by_style(params[:style])
+    @groups_filter = GroupForm.by_discipline(params[:discipline])
                               .by_level(params[:level])
                               .after_date(params[:start_date]) if params[:start_date].present?
 
     # Filter by multiple styles
-    if params[:style].present?
-      @group_forms = @group_forms.where(style: params[:style])
+    if params[:discipline].present?
+      @group_forms = @group_forms.where(discipline: params[:discipline])
     end
 
     # Filter by multiple levels
