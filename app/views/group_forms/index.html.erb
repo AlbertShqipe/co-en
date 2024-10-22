@@ -1,333 +1,335 @@
 <%= render "shared/navbar"%>
-  <div class="group-forms">
-    <% if current_user.role == "admin" %>
-      <h1 style="text-align:center"><%= t('table.th4') %></h1>
-      <div class="index-links-containers">
-        <div class="link-container">
-          <a href="/individual_forms"><%= t('table.th') %></a>
+  <div class="container">
+    <div class="group-forms">
+      <% if current_user.role == "admin" %>
+        <h1 style="text-align:center"><%= t('table.th4') %></h1>
+        <div class="index-links-containers">
+          <div class="link-container">
+            <a href="/individual_forms"><%= t('table.th') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/duo"><%= t('table.th2') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/trios"><%= t('table.th3') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/group_forms"><%= t('table.th4') %></a>
+          </div>
         </div>
-        <div class="link-container">
-          <a href="/duo"><%= t('table.th2') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/trios"><%= t('table.th3') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/group_forms"><%= t('table.th4') %></a>
-        </div>
-      </div>
-    <% else %>
-      <h1 style="text-align:center"><%= t('group_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('group_form_index.title_en') %></h1>
-    <% end %>
-    <% if current_user.role == "competitor" && current_user.group_forms.present? %>
-      <table class="table-form mx-auto">
-        <thead>
-          <tr style="width:50px">
-            <th><%= t('index_trio.th.attributes') %></th>
-            <% current_user.group_forms.each_with_index do |group, index| %>
-              <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= t('index_groups.td.name_of_group') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.responsable') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.responsable %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.group_address') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.address %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.phone') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.phone %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.email') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.email %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.discipline') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.discipline %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.level') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.level %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.music') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.title_of_music %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.composer') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.composer %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.length_of_piece') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.length_of_piece %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.participants_n') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <td><%= group.participants.count %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
-            <% current_user.group_forms.each do |group| %>
-              <% group.participants.each do |participant| %>
-                <td>
-                  <% if participant.photo.attached? %>
-                    <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto"  %> <%= participant.name %> <%= participant.last_name %>
-                  <% else %>
-                    <%= participant.name %> <%= participant.last_name %>
-                  <% end %>
-                </td>
+      <% else %>
+        <h1 style="text-align:center"><%= t('group_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('group_form_index.title_en') %></h1>
+      <% end %>
+      <% if current_user.role == "competitor" && current_user.group_forms.present? %>
+        <table class="table-form mx-auto">
+          <thead>
+            <tr style="width:50px">
+              <th><%= t('index_trio.th.attributes') %></th>
+              <% current_user.group_forms.each_with_index do |group, index| %>
+                <th><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
               <% end %>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_groups.td.participant_age') %></td>
-            <% current_user.group_forms.each do |group| %>
-              <% group.participants.each do |participant| %>
-                <td>
-                  <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %>
-                </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= t('index_groups.td.name_of_group') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.name %></td>
               <% end %>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-    <% elsif current_user.role == "admin" %>
-      <div class="filter">
-        <%= form_with url: group_forms_path, method: :get, local: true do |form| %>
-          <div>
-            <%# Playing with the grid in bootstrap %>
-            <div class="row">
-              <div class="col-sm" style="margin-top:20px">
-                <h4>Filtrer par Niveau</h4>
-                <%# 'Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation'%>
-                <div style="display:grid; grid-template-columns: auto auto; justify-content: space-evenly">
-                  <div style="text-align: left; padding-right:15px">
-                    <div>
-                      <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.responsable') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.responsable %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.group_address') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.address %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.phone') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.phone %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.email') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.email %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.discipline') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.discipline %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.level') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.level %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.music') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.title_of_music %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.composer') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.composer %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.length_of_piece') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.length_of_piece %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.participants_n') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <td><%= group.participants.count %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><b><%= t('index_groups.td.participant_name_lastName') %></b></td>
+              <% current_user.group_forms.each do |group| %>
+                <% group.participants.each do |participant| %>
+                  <td>
+                    <% if participant.photo.attached? %>
+                      <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto"  %> <%= participant.name %> <%= participant.last_name %>
+                    <% else %>
+                      <%= participant.name %> <%= participant.last_name %>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_groups.td.participant_age') %></td>
+              <% current_user.group_forms.each do |group| %>
+                <% group.participants.each do |participant| %>
+                  <td>
+                    <%= participant.birth_date %><br>
+                    <%= calculate_age(participant.birth_date) %>
+                  </td>
+                <% end %>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      <% elsif current_user.role == "admin" %>
+        <div class="filter">
+          <%= form_with url: group_forms_path, method: :get, local: true do |form| %>
+            <div>
+              <%# Playing with the grid in bootstrap %>
+              <div class="row">
+                <div class="col-sm" style="margin-top:20px">
+                  <h4>Filtrer par Niveau</h4>
+                  <%# 'Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation'%>
+                  <div style="display:grid; grid-template-columns: auto auto; justify-content: space-evenly">
+                    <div style="text-align: left; padding-right:15px">
+                      <div>
+                        <%= form.check_box :level, { multiple: true }, "Préparatoire", nil %> Préparatoire
+                      </div>
+                      <div>
+                        <%= form.check_box :level, { multiple: true }, "Elémentaire", nil %> Elémentaire
+                      </div>
                     </div>
-                    <div>
-                      <%= form.check_box :level, { multiple: true }, "Elémentaire", nil %> Elémentaire
+                    <div style="text-align: left; padding-right:15px">
+                      <div>
+                        <%= form.check_box :level, { multiple: true }, "Moyen", nil %> Moyen
+                      </div>
+                                          <div>
+                        <%= form.check_box :level, { multiple: true }, "Supérieur", nil %> Supérieur
+                      </div>
+                      <div>
+                        <%= form.check_box :level, { multiple: true }, "Formation", nil %> Formation
+                      </div>
                     </div>
                   </div>
-                  <div style="text-align: left; padding-right:15px">
-                    <div>
-                      <%= form.check_box :level, { multiple: true }, "Moyen", nil %> Moyen
+                </div>
+
+                <div class="col-sm" style="margin-top:20px">
+                  <h4>Filtrer par Style</h4>
+                  <div style="display: flex; justify-content: center">
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :discipline, { multiple: true }, "Classique", nil %> Classique
                     </div>
-                                        <div>
-                      <%= form.check_box :level, { multiple: true }, "Supérieur", nil %> Supérieur
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :discipline, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
+                    </div>
+                    <div style="margin-right: 30px;">
+                      <%= form.check_box :discipline, { multiple: true }, "Contemporain", nil %> Contemporain
                     </div>
                     <div>
-                      <%= form.check_box :level, { multiple: true }, "Formation", nil %> Formation
+                      <%= form.check_box :discipline, { multiple: true }, "Caractère", nil %> Caractère
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="col-sm" style="margin-top:20px">
-                <h4>Filtrer par Style</h4>
-                <div style="display: flex; justify-content: center">
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :discipline, { multiple: true }, "Classique", nil %> Classique
-                  </div>
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :discipline, { multiple: true }, "Modern’Jazz", nil %> Modern’Jazz
-                  </div>
-                  <div style="margin-right: 30px;">
-                    <%= form.check_box :discipline, { multiple: true }, "Contemporain", nil %> Contemporain
-                  </div>
-                  <div>
-                    <%= form.check_box :discipline, { multiple: true }, "Caractère", nil %> Caractère
-                  </div>
+              <div class="row">
+                <!-- Date Filters -->
+                <div class="col-sm" style="margin-top:20px">
+                  <h4>Filtrer par Date</h4>
+                    <div>
+                      <label for="start_date">À partir de:</label>
+                      <%= form.date_field :start_date, value: params[:start_date] %>
+                    </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <!-- Date Filters -->
-              <div class="col-sm" style="margin-top:20px">
-                <h4>Filtrer par Date</h4>
-                  <div>
-                    <label for="start_date">À partir de:</label>
-                    <%= form.date_field :start_date, value: params[:start_date] %>
-                  </div>
-              </div>
-            </div>
 
-          </div>
-          <div>
-            <%= form.submit "Filtrer" %>
-          </div>
-        <% end %>
-      </div>
-        <% @group_forms.each_with_index do |form, index| %>
-          <div style="style=width: 100%; overflow-x:scroll;">>
-            <table class="table-form mx-auto" id="table<%=index + 1%>">
-              <thead>
-                <tr>
-                  <th><%= t('index_group.th.attributes') %></th>
-                  <th width="25%"><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= t('index_groups.td.name_of_group') %></td>
-                  <td><%= form.name %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.responsable') %></td>
-                  <td><%= form.responsable %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.address') %></td>
-                  <td><%= form.address %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.phone') %></td>
-                  <td><%= form.phone %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.email') %></td>
-                  <td><%= form.email %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.discipline') %></td>
-                  <td><%= form.discipline %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.leve') %></td>
-                  <td><%= form.level %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.title_of_music') %></td>
-                  <td><%= form.title_of_music %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.composer') %></td>
-                  <td><%= form.composer %></td>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.length_of_piece') %></td>
-                  <td><%= form.length_of_piece %></td>
-                </tr>
-                <tr>
-                  <td><%= t("index_individuals.td.created_at") %></td>
-                  <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
-                </tr>
-                <tr>
-                  <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
-                  <% form.participants.each_with_index do |participant, index| %>
-                    <th width="100px !important"><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
-                  <% form.participants.each_with_index do |participant, index| %>
-                    <td><%= participant.name %> <%= participant.last_name %></td>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.participant_age') %></td>
-                  <% form.participants.each_with_index do |participant, index| %>
-                    <td>
-                      <%= participant.birth_date %>
-                    </td>
-                  <% end %>
-                </tr>
-                <tr>
-                    <td><%= t("index_individuals.td.age_day_competition") %></td>
+            </div>
+            <div>
+              <%= form.submit "Filtrer" %>
+            </div>
+          <% end %>
+        </div>
+          <% @group_forms.each_with_index do |form, index| %>
+            <div style="style=width:100%; overflow-x:scroll;">
+              <table class="table-form mx-auto" id="table<%=index + 1%>">
+                <thead>
+                  <tr>
+                    <th><%= t('index_group.th.attributes') %></th>
+                    <th width="25%"><%= t('index_groups.th.group_form') %> <%= index + 1 %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= t('index_groups.td.name_of_group') %></td>
+                    <td><%= form.name %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.responsable') %></td>
+                    <td><%= form.responsable %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.address') %></td>
+                    <td><%= form.address %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.phone') %></td>
+                    <td><%= form.phone %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.email') %></td>
+                    <td><%= form.email %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.discipline') %></td>
+                    <td><%= form.discipline %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.leve') %></td>
+                    <td><%= form.level %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.title_of_music') %></td>
+                    <td><%= form.title_of_music %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.composer') %></td>
+                    <td><%= form.composer %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.length_of_piece') %></td>
+                    <td><%= form.length_of_piece %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t("index_individuals.td.created_at") %></td>
+                    <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
+                  </tr>
+                  <tr>
+                    <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
+                    <% form.participants.each_with_index do |participant, index| %>
+                      <th width="100px !important"><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
+                    <% form.participants.each_with_index do |participant, index| %>
+                      <td><%= participant.name %> <%= participant.last_name %></td>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.participant_age') %></td>
                     <% form.participants.each_with_index do |participant, index| %>
                       <td>
-                        <%= calculate_age(participant.birth_date) %>
+                        <%= participant.birth_date %>
                       </td>
                     <% end %>
                   </tr>
-                <tr>
-                  <td><%= t('index_trio.td.profile_pic') %></td>
-                  <% form.participants.each_with_index do |participant, index| %>
-                    <td>
-                      <% if participant.photo.attached? %>
-                        <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto", page: 1 %>
-                        <%# <img src="https://res.cloudinary.com/dsyp2wb4w/image/upload/v1728907760/production/<%participant.photo.key.png" alt=""> %>
-                        <% else %>
-                        <p>Le candidat n'a pas de photo</p>
+                  <tr>
+                      <td><%= t("index_individuals.td.age_day_competition") %></td>
+                      <% form.participants.each_with_index do |participant, index| %>
+                        <td>
+                          <%= calculate_age(participant.birth_date) %>
+                        </td>
                       <% end %>
-                    </td>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.file') %></td>
-                  <% form.participants.each do |participant| %>
-                    <td>
-                      <% if participant.file.attached? %>
-                        <% key = participant.file.key %>
-                        <% key %>
-                        <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                        <% if matching_file != nil %>
-                          <% newkey =  matching_file["asset_id"] %>
-                          <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                    </tr>
+                  <tr>
+                    <td><%= t('index_trio.td.profile_pic') %></td>
+                    <% form.participants.each_with_index do |participant, index| %>
+                      <td>
+                        <% if participant.photo.attached? %>
+                          <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto", page: 1 %>
+                          <%# <img src="https://res.cloudinary.com/dsyp2wb4w/image/upload/v1728907760/production/<%participant.photo.key.png" alt=""> %>
                           <% else %>
-                          <p>Aucun fichier correspondant trouvé.</p>
+                          <p>Le candidat n'a pas de photo</p>
                         <% end %>
-                      <% end %>
-                    </td>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_group.td.file1') %></td>
-                  <% form.participants.each_with_index do |participant, index| %>
-                    <td>
-                      <% if participant.id_card.attached? %>
-                        <% key = participant.id_card.key %>
-                        <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                        <% if matching_file != nil %>
-                          <% newkey =  matching_file["asset_id"] %>
-                          <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
-                          <% else %>
-                          <p>Aucun fichier correspondant trouvé.</p>
+                      </td>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_groups.td.file') %></td>
+                    <% form.participants.each do |participant| %>
+                      <td>
+                        <% if participant.file.attached? %>
+                          <% key = participant.file.key %>
+                          <% key %>
+                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                          <% if matching_file != nil %>
+                            <% newkey =  matching_file["asset_id"] %>
+                            <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                            <% else %>
+                            <p>Aucun fichier correspondant trouvé.</p>
+                          <% end %>
                         <% end %>
-                      <% end %>
-                    </td>
-                  <% end %>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        <% end %>
-    <% else %>
-      <div class="d-flex justify-content-center">
-        <h3 style="color:white"><%= t("group_form_index.text").html_safe %></h3>
-      </div>
-    <% end %>
+                      </td>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td><%= t('index_group.td.file1') %></td>
+                    <% form.participants.each_with_index do |participant, index| %>
+                      <td>
+                        <% if participant.id_card.attached? %>
+                          <% key = participant.id_card.key %>
+                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                          <% if matching_file != nil %>
+                            <% newkey =  matching_file["asset_id"] %>
+                            <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                            <% else %>
+                            <p>Aucun fichier correspondant trouvé.</p>
+                          <% end %>
+                        <% end %>
+                      </td>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+      <% else %>
+        <div class="d-flex justify-content-center">
+          <h3 style="color:white"><%= t("group_form_index.text").html_safe %></h3>
+        </div>
+      <% end %>
+    </div>
   </div>
 <%= render("shared/footer") %>
