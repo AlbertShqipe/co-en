@@ -32,7 +32,6 @@
 }
 
 .table-con {
-  width: 100vw;
-  display: block;
-
+  width: 100%;
+  overflow-x: scroll;
 }

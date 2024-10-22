@@ -188,9 +188,9 @@
         <% @trios.each_with_index do |trio, index| %>
           <table class="table-form mx-auto" id="table<%=index + 1%>">
             <thead>
-              <tr style="width:50px">
+              <tr>
                 <th><%= t('index_trio.th.attributes') %></th>
-                <th width="40%"><%= t('index_trio.th.trio_form') %> <%= index + 1 %></th>
+                <th><%= t('index_trio.th.trio_form') %> <%= index + 1 %></th>
               </tr>
             </thead>
             <tbody>
@@ -239,9 +239,9 @@
                 <td><%= trio.created_at.strftime("%d-%m-%Y") %></td>
               </tr>
               <tr>
-                <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
+                <th ><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
                 <% trio.trio_participants.each_with_index do |participant, index| %>
-                  <th width="40%"><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+                  <th><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
                 <% end %>
               </tr>
               <tr>
