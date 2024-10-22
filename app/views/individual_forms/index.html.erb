@@ -1,5 +1,5 @@
 <%= render "shared/navbar"%>
-  <div class="container ">
+  <div class="container">
     <% if current_user.role == "admin" %>
       <div class="index-links-containers">
         <div class="link-container">
@@ -223,157 +223,159 @@
             </div>
           <% end %>
         </div>
-        <table class="table-form mx-auto">
-          <thead>
-            <tr>
-              <th><%= t("index_individuals.th.attributes") %></th>
-              <% @individual_forms.each_with_index do |form, index| %>
-                <% matching_form = @results.find { |hash| hash[:id] == form.id } %>
-                <th><%= t('index_individuals.th.individual_form') %> <%= matching_form[:count] %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <tr>
-              <td><%= t("index_individuals.td.profile_pic") %></td>
-              <% @individual_forms.each do |form| %>
-                <% if form.photo.attached? %>
-                  <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px", fetch_format: "auto", page: 1 %></td>
-                <% else %>
-                  <td>Pas de photo attaché</td>
+        <div style="style="width: 100%; overflow:scroll;">
+          <table class="table-form mx-auto">
+            <thead>
+              <tr>
+                <th><%= t("index_individuals.th.attributes") %></th>
+                <% @individual_forms.each_with_index do |form, index| %>
+                  <% matching_form = @results.find { |hash| hash[:id] == form.id } %>
+                  <th><%= t('index_individuals.th.individual_form') %> <%= matching_form[:count] %></th>
                 <% end %>
-              <% end %>
-            </tr>
-              <td><%= t("index_individuals.td.first_name") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.first_name %></td>
-              <% end %>
-            </tr>
-            </tr>
-              <td><%= t("index_individuals.td.last_name") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.last_name %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.birthday") %></td>
-              <% @individual_forms.each do |form| %>
-                <td>
-                  <%= form.birth_date %>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.age_day_competition") %></td>
-              <% @individual_forms.each do |form| %>
-                <td>
-                  <%= calculate_age(form.birth_date) %>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.address") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.address %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.phone") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.phone %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.email") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.email %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.teacher") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.teacher_name %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.dance_school") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.dance_school %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.teacher_phone") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.teacher_phone %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.teacher_email") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.teacher_email %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.category") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.category %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.style") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.style %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.level") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.level %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.file") %></td>
-              <% @individual_forms.each do |form| %>
-                <td>
-                  <% if form.file.attached? %>
-                    <% key = form.file.key %>
-                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                    <% if matching_file != nil %>
-                      <% newkey =  matching_file["asset_id"] %>
-                      <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
-                      <% else %>
-                      <p>Aucun fichier correspondant trouvé.</p>
-                    <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <tr>
+                <td><%= t("index_individuals.td.profile_pic") %></td>
+                <% @individual_forms.each do |form| %>
+                  <% if form.photo.attached? %>
+                    <td class="text-center"><%= cl_image_tag form.photo.key, width:"20px", fetch_format: "auto", page: 1 %></td>
+                  <% else %>
+                    <td>Pas de photo attaché</td>
                   <% end %>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t("index_individuals.td.file1") %></td>
-              <% @individual_forms.each do |form| %>
-                <td>
-                  <% if form.id_card.attached? %>
-                    <% key = form.id_card.key %>
-                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
-                    <% if matching_file != nil %>
-                      <% newkey =  matching_file["asset_id"] %>
-                      <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
-                      <% else %>
-                      <p>Aucun fichier correspondant trouvé.</p>
+                <% end %>
+              </tr>
+                <td><%= t("index_individuals.td.first_name") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.first_name %></td>
+                <% end %>
+              </tr>
+              </tr>
+                <td><%= t("index_individuals.td.last_name") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.last_name %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.birthday") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td>
+                    <%= form.birth_date %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.age_day_competition") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td>
+                    <%= calculate_age(form.birth_date) %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.address") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.address %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.phone") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.phone %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.email") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.email %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.teacher") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.teacher_name %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.dance_school") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.dance_school %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.teacher_phone") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.teacher_phone %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.teacher_email") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.teacher_email %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.category") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.category %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.style") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.style %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.level") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.level %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.file") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td>
+                    <% if form.file.attached? %>
+                      <% key = form.file.key %>
+                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <% newkey =  matching_file["asset_id"] %>
+                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                        <% else %>
+                        <p>Aucun fichier correspondant trouvé.</p>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-                <td><%= t("index_individuals.td.created_at") %></td>
-              <% @individual_forms.each do |form| %>
-                <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
-              <%end%>
-            </tr>
-          </tbody>
-        </table>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t("index_individuals.td.file1") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td>
+                    <% if form.id_card.attached? %>
+                      <% key = form.id_card.key %>
+                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <% newkey =  matching_file["asset_id"] %>
+                        <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
+                        <% else %>
+                        <p>Aucun fichier correspondant trouvé.</p>
+                      <% end %>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+              <tr>
+                  <td><%= t("index_individuals.td.created_at") %></td>
+                <% @individual_forms.each do |form| %>
+                  <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
+                <%end%>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <% else %>
         <div class="d-flex justify-content-center">
           <h3 style="color:white"><%= t("individual_form_index.text").html_safe %></h3>
