@@ -5,6 +5,25 @@ class GroupFormsController < ApplicationController
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
     @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "Production", max_results: 500)['resources']
+
+    @groups_filter = GroupForm.by_style(params[:style])
+                              .by_level(params[:level])
+                              .after_date(params[:start_date]) if params[:start_date].present?
+
+    # Filter by multiple styles
+    if params[:style].present?
+      @group_forms = @group_forms.where(style: params[:style])
+    end
+
+    # Filter by multiple levels
+    if params[:level].present?
+      @group_forms = @group_forms.where(level: params[:level])
+    end
+
+    # # Filter by date
+    if params[:start_date].present?
+      @group_forms = @group_forms.where("created_at >= ?", params[:start_date])
+    end
   end
 
   def show
