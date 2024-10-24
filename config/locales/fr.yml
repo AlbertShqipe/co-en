@@ -119,7 +119,12 @@ fr:
       link12: |
         <a href="#who_we_are" class="nav-link">QUI NOUS SOMMES</a>
       link13: |
-        <a href="#practical_info" class="nav-link">INFORMATIONS PRATIQUES</a>
+        <div class="dropdown">
+          <a href="#practical_info" class="nav-link">INFORMATIONS PRATIQUES <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=en">Contact</a>
+          </div>
+        </div>
       link14: |
         <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
       link15: |

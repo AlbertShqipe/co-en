@@ -148,7 +148,12 @@ en:
       link12: |
         <a href="#who_we_are" class="nav-link">WHO WE ARE</a>
       link13: |
-        <a href="#practical_info" class="nav-link">PRACTICAL INFO</a>
+        <div class="dropdown">
+          <a href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO<span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <div class="dropdown-content">
+            <a href="/contact?locale=en">Contact</a>
+          </div>
+        </div>
       link14: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link15: |
