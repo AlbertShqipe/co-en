@@ -120,7 +120,7 @@ fr:
         <a href="#who_we_are" class="nav-link">QUI NOUS SOMMES</a>
       link13: |
         <div class="dropdown">
-          <a style="display: inline-flex !important;" href="#practical_info" class="nav-link dropbtn">INFORMATIONS PRATIQUES <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display:inline-flex !important;" href="#practical_info" class="nav-link dropbtn">INFORMATIONS PRATIQUES <span class="material-symbols-outlined">arrow_drop_down</span></a>
           <div class="dropdown-content">
             <a href="/contact?locale=en">Contact</a>
           </div>
