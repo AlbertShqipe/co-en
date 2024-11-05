@@ -746,7 +746,7 @@ fr:
         text3: "Confirmez votre nouveau mot de passe"
       new:
         text1: "Mot de passe oublié ?"
-        text2: "Envoyez-moi les instructions pour réinitialiser mon mot de passe"
+        text2: "Réinitialiser mot de passe"
     registration:
       edit:
         text1: "Modifier"

@@ -9,11 +9,11 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { autocomplete: "email", class: "input-session" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, t("devise_session.passwords.new.text2") %>
+      <%= f.button :submit, t("devise_session.passwords.new.text2"), class:"btn input-btn" %>
     </div>
   <% end %>
 
