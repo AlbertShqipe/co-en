@@ -1,10 +1,19 @@
 .dropbtn {
   background-color: transparent;
+  span {
+    font-size: 18px !important;
+  }
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+
+  .material-symbols-outlined {
+    font-size: 1em; /* Adjust icon size to match text size */
+    vertical-align: middle; /* Ensures icon aligns well with text */
+    margin-left: 5px; /* Optional: adds a little spacing between text and icon */
+  }
 }
 
 .dropdown-content {
@@ -27,6 +36,8 @@
   padding-bottom: 5px;
   font-size: 20px;
   display: block;
+  display: inline-flex !important;
+  align-items: center;
 
   &:hover {
     color: $white !important;
