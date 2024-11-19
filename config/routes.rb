@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'contact' => 'pages#contact'
   get 'admin' => 'pages#admin'
   get "messages" => 'pages#messages'
+  get "confirmation_form" => 'pages#confirmation_form'
 
   # Popup
   get 'dismiss_welcome_popup', to: 'pages#dismiss_welcome_popup'

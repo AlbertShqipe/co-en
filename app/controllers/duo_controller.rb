@@ -40,7 +40,7 @@ class DuoController < ApplicationController
     @duo.user_id = current_user.id
     if @duo.save
       notice_message = I18n.t('duo_form.create.success')
-      redirect_to apply_path, notice: notice_message
+      redirect_to confirmation_form_path, notice: notice_message
     else
       render :new
     end

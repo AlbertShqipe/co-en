@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :regulation, :media, :who_we_are, :practical_info, :contact, :our_partners ]
+  skip_before_action :authenticate_user!, only: [ :home, :regulation, :media, :who_we_are, :practical_info, :contact, :our_partners, :confirmation_form ]
   before_action :admin_only, only: [:messages] # Restrict access to certain actions
 
   def messages
     @messages = Message.all
+  end
+
+  def confirmation_form
   end
 
   def profile

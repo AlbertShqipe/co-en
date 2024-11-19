@@ -41,7 +41,7 @@ class TriosController < ApplicationController
     @trio.user_id = current_user.id
     if @trio.save
       notice_message = I18n.t('trio_form.create.success')
-      redirect_to apply_path, notice: notice_message
+      redirect_to confirmation_form_path, notice: notice_message
     else
       render :new
     end

@@ -43,7 +43,7 @@ class GroupFormsController < ApplicationController
       redirect_to new_group_form_path, alert: alert_message
     elsif @group_form.save
       notice_message = I18n.t('group_form.create.success')
-      redirect_to apply_path, notice: notice_message
+      redirect_to confirmation_form_path, notice: notice_message
     else
       alert_message1 = I18n.t('group_form.create.error')
       render :new, alert: alert_message1
