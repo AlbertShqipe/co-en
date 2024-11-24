@@ -18,6 +18,20 @@
           </div>
         </div>
       <% else %>
+        <div class="index-links-containers">
+          <div class="link-container">
+            <a href="/individual_forms"><%= t('table.th') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/duo"><%= t('table.th2') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/trios"><%= t('table.th3') %></a>
+          </div>
+          <div class="link-container">
+            <a href="/group_forms"><%= t('table.th4') %></a>
+          </div>
+        </div>
         <h1 style="text-align:center"><%= t('group_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('group_form_index.title_en') %></h1>
       <% end %>
       <% if current_user.role == "competitor" && current_user.group_forms.present? %>
