@@ -3,8 +3,25 @@ class DuoController < ApplicationController
   def index
     @duos = Duo.order(created_at: :asc)
     @duo = current_user.duos.find(params[:id]) if params[:id].present?
+
+    # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
-    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
 
     @duos_filter = Duo.by_discipline(params[:discipline])
                       .by_level(params[:level])

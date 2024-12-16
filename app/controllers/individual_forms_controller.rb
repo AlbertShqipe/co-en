@@ -13,13 +13,24 @@ class IndividualFormsController < ApplicationController
     end
 
     @current_user = current_user
-    # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
 
-    #   # Code that runs only in development since it charges the assets uploaded in development
-      @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
 
-      # Code that shoul run only in production since it charges the assets uploaded in production
-      @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
     # raise
 
     @individual_forms_filter = IndividualForm.by_category(params[:category])

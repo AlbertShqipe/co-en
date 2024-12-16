@@ -307,7 +307,7 @@
                         <% if participant.file.attached? %>
                           <% key = participant.file.key %>
                           <% key %>
-                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                           <% if matching_file != nil %>
                             <% newkey =  matching_file["asset_id"] %>
                             <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
@@ -324,7 +324,7 @@
                       <td>
                         <% if participant.id_card.attached? %>
                           <% key = participant.id_card.key %>
-                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } %>
+                          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                           <% if matching_file != nil %>
                             <% newkey =  matching_file["asset_id"] %>
                             <%= link_to "Download", "https://res-console.cloudinary.com/dsyp2wb4w/media_explorer_thumbnails/#{newkey}/download" %>
