@@ -548,6 +548,7 @@ fr:
             remove: "Retirer"
             add: "Ajouter un·e participant·e"
             create: "Créer un groupe"
+            remove_participant: "Retirer le·a participant·e"
 
   index_groups:
     th:
@@ -1369,7 +1370,9 @@ fr:
       participant_requirement: 'Au moins quatre participants sont requis et assurez-vous de remplir tous les champs du formulaire de groupe.'
       error: 'Un problème est survenu lors de la création du formulaire de groupe.'
 
-  back: "Retour"
+  back:
+    back: "Retour"
+    ind_form: "Retour au Formulaire Individuel"
 
   messages:
     notice: “Votre message a été envoyé avec succès.”
@@ -1428,3 +1431,13 @@ fr:
     abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
+
+  edit:
+    see: "Voir le formulaire"
+    edit: "Modifier"
+    save: "Sauvegarder les modifications"
+    modify_group: "Modifier le formulaire de groupe"
+
+    flash_messages:
+      success: "Votre modification a été enregistrée"
+      error: "Il y a eu un problème avec votre modification"

@@ -2,6 +2,17 @@ class IndividualFormsController < ApplicationController
   require 'cloudinary'
   before_action :authenticate_user!
 
+  def show
+    @individual_form = IndividualForm.find(params[:id])
+    @results = []
+    IndividualForm.order(created_at: :asc).all.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+    end
+  end
+
   def index
     @results = []
     @individual_forms = IndividualForm.order(created_at: :asc)
@@ -13,13 +24,24 @@ class IndividualFormsController < ApplicationController
     end
 
     @current_user = current_user
-    # @results = Cloudinary::Api.resources(prefix: 'development', type: 'upload', max_results: 10)
 
-    #   # Code that runs only in development since it charges the assets uploaded in development
-      @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
 
-      # Code that shoul run only in production since it charges the assets uploaded in production
-      @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)['resources']
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
     # raise
 
     @individual_forms_filter = IndividualForm.by_category(params[:category])
@@ -67,6 +89,22 @@ class IndividualFormsController < ApplicationController
     else
       alert_message1 = I18n.t('individual_form.create.error')
       render :new, alert: alert_message1
+    end
+  end
+
+  def edit
+    @individual_form = IndividualForm.find(params[:id])
+  end
+
+  def update
+    @individual_form = IndividualForm.find(params[:id])
+    if @individual_form.update(individual_form_params)
+      flash[:notice] = t('edit.flash_messages.success')
+      redirect_to individual_form_path(@individual_form) # Adjust redirect path if necessary
+    else
+      render :edit
+      flash.now[:alert] = t('edit.flash_messages.error')
+      render :edit, status: :unprocessable_entity
     end
   end
 

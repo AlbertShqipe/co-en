@@ -577,6 +577,7 @@ en:
             remove: "Remove"
             add: "Add Participant"
             create: "Create Group"
+            remove_participant: "Remove Participant"
 
   index_groups:
     th:
@@ -1369,7 +1370,9 @@ en:
       participant_requirement: 'At least four participants are required and make sure you fill up all the fields in the group form'
       error: 'There was an issue creating the group form.'
 
-  back: "Go back"
+  back:
+    back: "Go back"
+    ind_form: "Back to Individual Form"
 
   messages:
     notice: "Your message has been sent successfully."
@@ -1418,3 +1421,15 @@ en:
       bus: 'Bus'
       line1: 'Line C15 / Stop Rebufer'
       line2: 'Line 26 / Stop Colonel Chambonnet'
+
+  edit:
+    see: "Show the form"
+    edit: "Edit"
+    save: "Save changes"
+    modify_group: "Modify the gorup form"
+    modify_duo: "Modify the duo form"
+    modify_trio: "Modify the trio form"
+    modify_individual: "Modify the individual form"
+    flash_messages:
+      success: "Your update has been successfully submitted!"
+      error: "An error occurred while submitting your update. Please try again."

@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="index-links-containers">
+    <div class="link-container">
+      <a href="/individual_forms"><%= t('table.th') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/duo"><%= t('table.th2') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/trios"><%= t('table.th3') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/group_forms"><%= t('table.th4') %></a>
+    </div>
+  </div>
+  <h1 style="text-align:center">Duo <%=@duo.name%></h1>
+  <p></p>Veuillez cliquer sur le bouton “Modifier” en bas pour effectuer les modifications du formulaire donné.</p>
+  <p>Assurez-vous de suivre les étapes suivantes :</p>
+  <ul>
+    <li>Veillez à disposer d’une bonne connexion pendant les modifications;</li>
+    <li>Assurez-vous de modifier uniquement les champs qui doivent être modifiés;</li>
+    <li>Vérifiez que les fichiers requis pour chaque candidat respectent le bon format : png, jpeg ou jpg pour la photo de profil, et pdf pour la carte d’identité et le formulaire d’autorisation;</li>
+    <li>Une fois sûr(e) que les modifications sont correctes, cliquez sur le bouton “Enregistrer les modifications”.</li>
+  </ul>
+</div>
+<div style="width:90%; overflow-x:scroll">
+  <table class="table-form mx-auto">
+    <thead>
+      <tr style="width:50px">
+        <th><%= t('index_duo.th.attributes') %></th>
+        <th>
+            <%= t('index_duo.th.duo') %>
+            <% hash = @results.find { |hash| hash[:id] == @duo.id }%>
+            <%= hash[:count] %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= t('index_duo.td.name_of_duo') %></td>
+          <td><%=  @duo.name %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.responsable') %></td>
+          <td><%= @duo.responsable %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.group_address') %></td>
+          <td><%= @duo.address %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.phone') %></td>
+          <td><%= @duo.phone %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.email') %></td>
+          <td><%= @duo.email %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.discipline') %></td>
+          <td><%= @duo.discipline %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.level') %></td>
+          <td><%= @duo.level %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.music') %></td>
+          <td><%= @duo.title_of_music %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.composer') %></td>
+          <td><%= @duo.composer %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.length_of_piece') %></td>
+          <td><%= @duo.length_of_piece %></td>
+      </tr>
+      <tr>
+        <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <td>
+            <% if participant.photo.attached? %>
+              <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto", page: 1  %> <%= participant.name %> <%= participant.last_name %>
+            <% else %>
+              <p>Participant has no picture attached</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.participant_age') %></td>
+          <% @duo.duo_participants.each do |participant| %>
+            <td>
+              <%= participant.birth_date %><br>
+              <%= calculate_age(participant.birth_date) %> years old
+            </td>
+          <% end %>
+      </tr>
+      <tr>
+        <td><%= t('edit.modify_individual') %></td>
+        <td colspan="<%=@duo.duo_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_duo_path(@duo), class:"modify" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

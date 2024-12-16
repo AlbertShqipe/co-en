@@ -21,19 +21,22 @@ Rails.application.routes.draw do
   # Devise authentication routes
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  # User form application group
-  resources :group_forms, only: [:index, :show, :new, :create] do
-    resources :participants, only: [:create, :destroy]
-  end
+  # User form
+  resources :individual_forms, only: [:show, :index, :new, :create, :edit, :update]
 
   # User form application duo
-  resources :duo, only: [:index, :show, :new, :create] do
+  resources :duo, only: [:show, :index, :show, :new, :create, :edit, :update] do
     resources :duo_participants, only: [:create, :destroy]
   end
 
   # User form application trio
-  resources :trios, only: [:index, :show, :new, :create] do
+  resources :trios, only: [:index, :show, :new, :create, :edit, :update] do
     resources :trio_participants, only: [:create, :destroy]
+  end
+
+  # User form application group
+  resources :group_forms, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :participants, only: [:create, :destroy, :update]
   end
 
   # Info of a specific solo form
@@ -51,6 +54,5 @@ Rails.application.routes.draw do
   # Messages routes
     resources :messages, only: [:index, :new, :create]
 
-  resources :individual_forms, only: [:index, :new, :create]
 
 end

@@ -3,8 +3,25 @@ class GroupFormsController < ApplicationController
   def index
     @group_forms = GroupForm.order(created_at: :asc)
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
+
+    # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
-    @results_prod = Cloudinary::Api.resources(type: "upload", prefix: "Production", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
 
     @groups_filter = GroupForm.by_discipline(params[:discipline])
                               .by_level(params[:level])
@@ -50,7 +67,18 @@ class GroupFormsController < ApplicationController
     end
   end
 
+  def edit
+    @group_form = GroupForm.includes(:participants).find(params[:id])
+  end
 
+  def update
+    @group_form = GroupForm.find(params[:id])
+    if @group_form.update(group_form_params)
+      redirect_to @group_form, notice: 'Group form updated successfully.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   def info
     def calculate_age(birthdate)
@@ -136,7 +164,7 @@ class GroupFormsController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       participants_attributes: [
-        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :id, :name, :last_name, :birth_date, :age, :photo, :file, :id_card, :_destroy
       ]
     )
   end

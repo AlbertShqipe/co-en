@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
   connect() {
-    console.log("Connected", this.element);
+    // console.log("Connected", this.element);
     this.initializeFlatpickr();
 
     // Set up the mutation observer
