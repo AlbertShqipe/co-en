@@ -34,109 +34,127 @@
       <h1 style="text-align:center"><%= t('duo_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('individual_form_index.title_en') %></h1>
     <% end %>
     <% if current_user.role == "competitor" && current_user.duos.present? %>
-      <table class="table-form mx-auto">
-        <thead>
-          <tr style="width:50px">
-            <th><%= t('index_duo.th.attributes') %></th>
-            <% current_user.duos.each_with_index do |duo, index| %>
+      <% current_user.duos.each_with_index do |duo, index| %>
+        <table class="table-form mx-auto">
+          <thead>
+            <tr style="width:50px">
+              <th><%= t('index_duo.th.attributes') %></th>
               <th><%= t('index_duo.th.duo_form') %> <%= index + 1 %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= t('index_duo.td.name_of_duo') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= t('index_duo.td.name_of_duo') %></td>
               <td><%= duo.name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.responsable') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.responsable') %></td>
               <td><%= duo.responsable %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.group_address') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.duo_address') %></td>
               <td><%= duo.address %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.phone') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.phone') %></td>
               <td><%= duo.phone %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.email') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.email') %></td>
               <td><%= duo.email %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.discipline') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.discipline') %></td>
               <td><%= duo.discipline %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.level') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.level') %></td>
               <td><%= duo.level %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.music') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.music') %></td>
               <td><%= duo.title_of_music %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.composer') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.composer') %></td>
               <td><%= duo.composer %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.length_of_piece') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.length_of_piece') %></td>
               <td><%= duo.length_of_piece %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
               <% duo.duo_participants.each do |participant| %>
                 <td>
+                  <p style="text-align:center"><%= participant.name %> <%= participant.last_name %></p>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.participant_age') %></td>
+              <% duo.duo_participants.each do |participant| %>
+                <td>
+                  <p style="text-align:center"><%= participant.birth_date %></p>
+                  <p style="text-align:center"><%= calculate_age(participant.birth_date) %> years old</p>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.participant_photo') %></td>
+              <% duo.duo_participants.each do |participant| %>
                   <% if participant.photo.attached? %>
-                    <%= cl_image_tag participant.photo.key, height: 30, width: 20, fetch_format: "auto", page: 1  %> <%= participant.name %> <%= participant.last_name %>
-                  <% else %>
-                    <p>Participant has no picture attached</p>
+                    <% key = participant.photo.key %>
+                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
+                      <% url =  matching_file["url"] %>
+                      <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                      <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
+                      <% else %>
+                      <td><p>Aucun fichier correspondant trouvé.</p></td>
+                    <% end %>
                   <% end %>
-                </td>
               <% end %>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('index_duo.td.participant_age') %></td>
-            <% current_user.duos.each do |duo| %>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.participant_file') %></td>
               <% duo.duo_participants.each do |participant| %>
-                <td>
-                  <%= participant.birth_date %><br>
-                  <%= calculate_age(participant.birth_date) %> years old
-                </td>
+                  <% if participant.file.attached? %>
+                    <% key = participant.file.key %>
+                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
+                      <% url =  matching_file["url"] %>
+                      <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                      <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                      <% else %>
+                      <td><p>Aucun fichier correspondant trouvé.</p></td>
+                    <% end %>
+                  <% end %>
               <% end %>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= t('edit.modify_individual') %></td>
-            <% current_user.duos.each do |form| %>
-              <td colspan=<%=form.duo_participants.length%> style="text-algin:center"><%= link_to t('edit.see'), duo_path(form), class:"modify" %></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+            </tr>
+            <tr>
+              <td><%= t('index_duo.td.participant_file1') %></td>
+              <% duo.duo_participants.each do |participant| %>
+                  <% if participant.id_card.attached? %>
+                    <% key = participant.id_card.key %>
+                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                    <% if matching_file != nil %>
+                      <% url =  matching_file["url"] %>
+                      <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                      <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                      <% else %>
+                      <td><p>Aucun fichier correspondant trouvé.</p></td>
+                    <% end %>
+                  <% end %>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('edit.modify_duo') %></td>
+              <td colspan=<%=duo.duo_participants.length%> style="text-align:center"><%= link_to t('edit.see'), duo_path(duo), class:"modify" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
     <% elsif current_user.role == "admin" && @duos.present?%>
       <div class="filter">
         <%= form_with url: duo_index_path, method: :get, local: true do |form| %>

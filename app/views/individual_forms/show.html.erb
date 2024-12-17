@@ -1,3 +1,4 @@
+<%= render "shared/navbar"%>
 <div class="container">
   <div class="index-links-containers">
     <div class="link-container">
@@ -13,7 +14,7 @@
       <a href="/group_forms"><%= t('table.th4') %></a>
     </div>
   </div>
-  <h1 style="text-align:center">Formulaire Individuel de <%=@individual_form.first_name%></h1>
+  <h1 style="text-align:center; margin-top:20px">Formulaire Individuel de <%=@individual_form.first_name%></h1>
   <p></p>Veuillez cliquer sur le bouton “Modifier” en bas pour effectuer les modifications du formulaire donné.</p>
   <p>Assurez-vous de suivre les étapes suivantes :</p>
   <ul>
@@ -23,6 +24,8 @@
     <li>Une fois sûr(e) que les modifications sont correctes, cliquez sur le bouton “Enregistrer les modifications”.</li>
   </ul>
   <caption style="color:white"></caption>
+</div>
+<div style="width:90%; margin:auto">
   <table class="table-form mx-auto">
     <thead>
       <tr style="width:50px">
@@ -93,10 +96,44 @@
       <tr>
         <td><%= t('index_individuals.td.profile_pic') %></td>
           <% if @individual_form.photo.attached? %>
-            <td style="text-align:center"><%= cl_image_tag @individual_form.photo.key, height: 50, width: 40 %></td>
-          <% else %>
-            <td></td>
+            <% key = @individual_form.photo.key %>
+            <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+            <% if matching_file != nil %>
+              <% url =  matching_file["url"] %>
+              <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+              <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
+              <% else %>
+              <td><p>Aucun fichier correspondant trouvé.</p></td>
+            <% end %>
           <% end %>
+      </tr>
+      <tr>
+        <td><%=t('index_individuals.td.participant_file')%></td>
+        <% if @individual_form.file.attached? %>
+          <% key = @individual_form.file.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <% url =  matching_file["url"] %>
+            <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+            <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+            <% else %>
+            <td><p>Aucun fichier correspondant trouvé.</p></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%=t('index_individuals.td.participant_file1')%></td>
+        <% if @individual_form.id_card.attached? %>
+          <% key = @individual_form.id_card.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <% url =  matching_file["url"] %>
+            <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+            <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+            <% else %>
+            <td><p>Aucun fichier correspondant trouvé.</p></td>
+          <% end %>
+        <% end %>
       </tr>
       <tr>
         <td><%= t('edit.modify_individual') %></td>
@@ -105,3 +142,4 @@
     </tbody>
   </table>
 </div>
+<%= render("shared/footer") %>

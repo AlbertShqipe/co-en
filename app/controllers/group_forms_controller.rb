@@ -1,5 +1,29 @@
 class GroupFormsController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    @group_form = current_user.group_forms.find(params[:id])
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @group_forms = GroupForm.order(created_at: :asc)
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
@@ -41,10 +65,6 @@ class GroupFormsController < ApplicationController
     if params[:start_date].present?
       @group_forms = @group_forms.where("created_at >= ?", params[:start_date])
     end
-  end
-
-  def show
-    @group_form = current_user.group_forms.find(params[:id])
   end
 
   def new
