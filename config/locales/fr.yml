@@ -1445,14 +1445,14 @@ fr:
     abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
 
   edit:
+    form: "Formulaire"
     see: "Voir le formulaire"
     edit: "Modifier"
-    save: "Sauvegarder les modifications"
+    save: "Enregistrer les Modifications"
     modify_individual: "Modifier Solo"
     modify_duo: "Modifier le Duo"
     modify_trio: "Modifier le Trio"
     modify_group: "Modifier le  Groupe"
-
     flash_messages:
       success: "Votre modification a été enregistrée"
       error: "Il y a eu un problème avec votre modification"

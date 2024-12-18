@@ -2,7 +2,12 @@ class GroupFormsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @group_form = current_user.group_forms.find(params[:id])
+    if current_user.admin?
+      @group_form = GroupForm.find(params[:id]) # Admins can access any group form
+    else
+      @group_form = current_user.group_forms.find(params[:id])
+    end
+
 
     # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']

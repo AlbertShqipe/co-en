@@ -78,6 +78,12 @@
         <td><%= @duo.length_of_piece %></td>
       </tr>
       <tr>
+        <th><b><%= t('index_duo.td.participant_name_lastName') %></b></th>
+        <% @duo.duo_participants.each_with_index do |participant, index| %>
+          <th><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+        <% end %>
+      </tr>
+      <tr>
         <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
         <% @duo.duo_participants.each do |participant| %>
           <td style="text-align:center"><%= participant.name %> <%= participant.last_name %></td>

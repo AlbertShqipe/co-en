@@ -1,5 +1,42 @@
 class TriosController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    if current_user.admin?
+      @trio = Trio.find(params[:id]) # Admins can access any duo
+    else
+      @trio = current_user.trios.find(params[:id]) # Competitors can access only their own duos
+    end
+
+
+    @results = []
+    Trio.order(created_at: :asc).all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
+
+    # Code that charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @trios = Trio.order(created_at: :asc)
     @trio = current_user.trios.find(params[:id]) if params[:id].present?
@@ -43,36 +80,6 @@ class TriosController < ApplicationController
     end
   end
 
-  def show
-    @trio = current_user.trios.find(params[:id])
-
-    @results = []
-    Trio.order(created_at: :asc).all.each_with_index do |duo, index|
-      @results << {
-        count: index + 1,
-        id: duo.id,
-      }
-    end
-
-    # Code that charges the assets uploaded in development
-    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
-
-    # Code that charges the assets uploaded in production
-    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
-    @results_prod = response['resources']
-
-    if response['next_cursor']
-      @results_prod_1 = Cloudinary::Api.resources(
-        type: "upload",
-        prefix: "production",
-        max_results: 500,
-        next_cursor: response['next_cursor']
-      )['resources']
-    else
-      @results_prod_1 = []
-    end
-    # raise
-  end
 
   def new
     @trio = Trio.new
@@ -92,7 +99,7 @@ class TriosController < ApplicationController
   end
 
   def edit
-    @trio = current_user.trios.find(params[:id])
+    @trio = Trio.find(params[:id])
   end
 
   def update

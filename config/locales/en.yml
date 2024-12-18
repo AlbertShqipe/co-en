@@ -1435,6 +1435,7 @@ en:
       line2: 'Line 26 / Stop Colonel Chambonnet'
 
   edit:
+    form: "Form"
     see: "Show the form"
     edit: "Edit"
     save: "Save changes"

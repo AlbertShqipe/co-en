@@ -1,5 +1,41 @@
 class DuoController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    if current_user.admin?
+      @duo = Duo.find(params[:id]) # Admins can access any duo
+    else
+      @duo = current_user.duos.find(params[:id]) # Competitors can access only their own duos
+    end
+
+    @results = []
+    Duo.order(created_at: :asc).all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @duos = Duo.order(created_at: :asc)
     @duo = current_user.duos.find(params[:id]) if params[:id].present?
@@ -52,37 +88,6 @@ class DuoController < ApplicationController
     end
   end
 
-  def show
-    @duo = current_user.duos.find(params[:id])
-
-    @results = []
-    Duo.order(created_at: :asc).all.each_with_index do |duo, index|
-      @results << {
-        count: index + 1,
-        id: duo.id,
-      }
-    end
-
-    # Code that runs only in development since it charges the assets uploaded in development
-    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
-
-    # Code that should run only in production since it charges the assets uploaded in production
-    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
-    @results_prod = response['resources']
-
-    if response['next_cursor']
-      @results_prod_1 = Cloudinary::Api.resources(
-        type: "upload",
-        prefix: "production",
-        max_results: 500,
-        next_cursor: response['next_cursor']
-      )['resources']
-    else
-      @results_prod_1 = []
-    end
-    # raise
-  end
-
   def new
     @duo = Duo.new
     @duo.duo_participants.build
@@ -100,7 +105,7 @@ class DuoController < ApplicationController
   end
 
   def edit
-    @duo = current_user.duos.find(params[:id])
+    @duo = Duo.find(params[:id])
   end
 
   def update
