@@ -112,6 +112,7 @@
                     </td>
                   <% end %>
                 </tr>
+                <!--
                 <tr>
                   <td><%= t('index_groups.td.participant_photo') %></td>
                   <% group.participants.each do |participant| %>
@@ -164,6 +165,7 @@
                   <td><%=t("edit.form")%></td>
                   <td colspan="<%=group.participants.count%>" style="text-align:center"><%= link_to t('edit.see'), group_form_path(group), class:"modify" %></td>
                 </tr>
+                -->
               </tbody>
             </table>
           <% end %>
