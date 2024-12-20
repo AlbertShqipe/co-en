@@ -74,7 +74,12 @@
       </div>
     </div>
 
-    <%= render "shared/flashes" %>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
 
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||
                                                     current_page?(new_user_password_path) ||

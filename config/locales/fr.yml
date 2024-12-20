@@ -1448,6 +1448,9 @@ fr:
     no_file: "Aucun fichier correspondant trouvé"
 
   edit:
+    photo: 'Photo'
+    file: 'Formulaire'
+    id: 'ID'
     form: "Formulaire"
     see: "Voir le formulaire"
     edit: "Modifier"

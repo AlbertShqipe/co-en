@@ -1,5 +1,5 @@
 <div style="width:100%; height:100%;" >
-  <div style="width:90%; margin:auto">
+  <div style="width:90%; margin:auto" class="mt-5">
     <%= link_to t("back.back"), :back, style: "color:white; margin:140px;text-decoration:none;" %>
     <%= form_with(
           model: @group_form,
@@ -65,7 +65,7 @@
         <div id="participants">
           <%= f.fields_for :participants do |p| %>
               <% participant_index = p.index %>
-              <h5 style="text-align:center"><%= p.object.name %> <%= p.object.last_name %></h5>
+              <h3 style="text-align:center"><%= p.object.name %> <%= p.object.last_name %></h3>
               <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
                 <div class="group-registration-form-participant-first">
                   <div style='display:none'>
@@ -103,7 +103,7 @@
                                             accept: "image/jpeg, image/jpg, image/png",
                                             id: "photo-input#{participant_index if participant_index > 0}",
                                             class: "file-input" %>
-                          <label for="photo-input<%=participant_index if participant_index > 0%>" id="photo-label<%=participant_index if participant_index > 0%>" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
+                          <label for="photo-input<%=participant_index if participant_index > 0%>" id="photo-label<%=participant_index if participant_index > 0%>" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label><br>
                           <span id="photo-name<%=participant_index if participant_index > 0%>">
                             <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
                           </span>
@@ -127,7 +127,7 @@
                                             class: "file-input" %>
                           <label for="file-input<%=participant_index if participant_index > 0%>" id="file-label<%=participant_index if participant_index > 0%>" class="file-label">
                             <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %>
-                          </label>
+                          </label><br>
                           <span id="file-name<%=participant_index if participant_index > 0%>">
                             <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
                           </span>
@@ -151,7 +151,7 @@
                                             class: "file-input" %>
                           <label for="id-input<%=participant_index if participant_index > 0%>" id="id-label<%=participant_index if participant_index > 0%>" class="file-label">
                             <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %>
-                          </label>
+                          </label><br>
                           <span id="id-name<%=participant_index if participant_index > 0%>">
                             <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
                           </span>

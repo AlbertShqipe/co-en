@@ -1438,6 +1438,9 @@ en:
     no_file: "No file found"
 
   edit:
+    photo: 'Photo'
+    file: 'File'
+    id: 'ID'
     form: "Form"
     see: "Show the form"
     edit: "Edit"

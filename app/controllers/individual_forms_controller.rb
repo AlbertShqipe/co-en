@@ -143,9 +143,8 @@ class IndividualFormsController < ApplicationController
     @individual_form = IndividualForm.find(params[:id])
     if @individual_form.update(individual_form_params)
       flash[:notice] = t('edit.flash_messages.success')
-      redirect_to individual_form_path(@individual_form) # Adjust redirect path if necessary
+      redirect_to individual_form_path(@individual_form)
     else
-      render :edit
       flash.now[:alert] = t('edit.flash_messages.error')
       render :edit, status: :unprocessable_entity
     end

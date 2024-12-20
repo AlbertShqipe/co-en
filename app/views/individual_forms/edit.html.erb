@@ -1,5 +1,5 @@
 <div style="width:100%; height:100%;" >
-  <div style="width:90%; margin:auto">
+  <div style="width:90%; margin:auto" class="mt-5">
     <%= link_to t("back.back"), :back, style: "color:white; margin:140px;text-decoration:none;" %>
     <%= form_with(
         model: @individual_form,
@@ -10,7 +10,7 @@
         local: true,
         data: { controller: "flatpickr ind-candidate" }
       ) do |f| %>
-      <h5 style="text-align:center"><%= @individual_form.first_name%> <%= @individual_form.last_name%></h5>
+      <h3 style="text-align:center" class="mt-5"><%= @individual_form.first_name%> <%= @individual_form.last_name%></h3>
       <div class="individual-registration-form-first d-none">
         <div>
           <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.name') %></span>
@@ -87,13 +87,14 @@
             selected: @individual_form.level), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id: "level" %>
         </div>
       </div>
+
       <div class="individual-registration-form-fifth mt-5">
         <% if @individual_form.photo.attached? %>
           <% key = @individual_form.photo.key %>
           <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
           <% if matching_file != nil %>
             <div style="text-align:center"  class="custom-file-input">
-              <h3>File</h3>
+              <h3><%= t('edit.photo') %></h3>
               <p>✅</p>
             </div>
             <% else %>
@@ -110,7 +111,7 @@
           <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
           <% if matching_file != nil %>
             <div style="text-align:center"  class="custom-file-input">
-              <h3>File</h3>
+              <h3><%= t('edit.file') %></h3>
               <p>✅</p>
             </div>
             <% else %>
@@ -127,7 +128,7 @@
           <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
           <% if matching_file != nil %>
             <div style="text-align:center"  class="custom-file-input">
-              <h3>File</h3>
+              <h3><%= t('edit.id') %></h3>
               <p>✅</p>
             </div>
             <% else %>
