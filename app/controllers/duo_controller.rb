@@ -60,7 +60,6 @@ class DuoController < ApplicationController
     # raise
 
     @results = []
-
     Duo.order(created_at: :asc).each_with_index do |solo, index|
       @results << {
         count: index + 1,
@@ -105,16 +104,40 @@ class DuoController < ApplicationController
   end
 
   def edit
-    @duo = Duo.find(params[:id])
+    @duo = Duo.includes(:duo_participants).find(params[:id])
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
   end
 
   def update
-    @duo = current_user.duos.find(params[:id])
+    @duo = Duo.find_by(id: params[:id])
+
+    if @duo.nil?
+      redirect_to duos_path, alert: t('edit.flash_messages.not_found') and return
+    end
+
     if @duo.update(duo_params)
-      notice_message = I18n.t('edit.flash_messages.success')
-      redirect_to duo_path(@duo), notice: notice_message
+      redirect_to duo_path(@duo), notice: t('edit.flash_messages.success')
     else
       flash.now[:alert] = t('edit.flash_messages.error')
+      reload_cloudinary_resources
       render :edit, status: :unprocessable_entity
     end
   end

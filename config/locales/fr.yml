@@ -1444,6 +1444,9 @@ fr:
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
 
+  show:
+    no_file: "Aucun fichier correspondant trouvé"
+
   edit:
     form: "Formulaire"
     see: "Voir le formulaire"
@@ -1456,3 +1459,20 @@ fr:
     flash_messages:
       success: "Votre modification a été enregistrée"
       error: "Il y a eu un problème avec votre modification"
+
+  text_show: |
+    <h3>Instructions pour compléter le formulaire :</h3>
+      <ol>
+        <li>Modification des formulaires incomplets<br>
+            Si certains formulaires sont incomplets, veuillez cliquer sur le bouton “Modifier” en bas de la page pour corriger ou compléter les informations nécessaires.</li>
+        <li>Assurez-vous d’une bonne connexion internet<br>
+          Une connexion stable est essentielle pour éviter toute interruption pendant la modification des formulaires.</li>
+        <li>Vérification des fichiers requis<br>
+          Avant de soumettre le formulaire, assurez-vous que les fichiers ajoutés respectent les formats demandés :</li>
+          <ul>
+            <li>Photo de profil : formats acceptés - PNG, JPEG ou JPG</li>
+            <li>Carte d’identité et formulaire d’autorisation : format requis - PDF</li>
+          </ul>
+        <li>Enregistrement des modifications<br>
+          Une fois que vous êtes certain(e) que toutes les informations sont correctes et complètes, cliquez sur le bouton “Enregistrer les modifications” pour valider vos mises à jour.</li>
+      </ol>

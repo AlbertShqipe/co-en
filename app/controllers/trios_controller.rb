@@ -100,10 +100,28 @@ class TriosController < ApplicationController
 
   def edit
     @trio = Trio.find(params[:id])
+    # Code that charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
   end
 
   def update
-    @trio = current_user.trios.find(params[:id])
+    @trio = Trio.find(params[:id])
     if @trio.update(trio_params)
       notice_message = I18n.t('trio_form.update.success')
       redirect_to trio_path(@trio), notice: notice_message

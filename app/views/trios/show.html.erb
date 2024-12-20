@@ -14,15 +14,11 @@
       <a href="/group_forms"><%= t('table.th4') %></a>
     </div>
   </div>
-  <h1 style="text-align:center; margin-top:20px">Trio <%=@trio.name%></h1>
-  <p></p>Veuillez cliquer sur le bouton “Modifier” en bas pour effectuer les modifications du formulaire donné.</p>
-  <p>Assurez-vous de suivre les étapes suivantes :</p>
-  <ul>
-    <li>Veillez à disposer d’une bonne connexion pendant les modifications;</li>
-    <li>Assurez-vous de modifier uniquement les champs qui doivent être modifiés;</li>
-    <li>Vérifiez que les fichiers requis pour chaque candidat respectent le bon format : png, jpeg ou jpg pour la photo de profil, et pdf pour la carte d’identité et le formulaire d’autorisation;</li>
-    <li>Une fois sûr(e) que les modifications sont correctes, cliquez sur le bouton “Enregistrer les modifications”.</li>
-  </ul>
+  <h1 style="text-align:center; margin-top:20px"><%=t('index_trios.th.trio')%> <%=@trio.name%></h1>
+  <% if all_participants_valid?(@trio.trio_participants, @results_prod, @results_prod_1, @results_dev) %>
+  <% else %>
+    <%= t('text_show').html_safe %>
+  <% end %>
 </div>
 <div style="width:90%; overflow-x:scroll; margin:auto">
   <table class="table-form mx-auto">
@@ -147,8 +143,12 @@
         <% end %>
       </tr>
       <tr>
-        <td><%= t('edit.modify_trio') %></td>
-        <td colspan="<%=@trio.trio_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_trio_path(@trio), class:"modify" %></td>
+        <% if all_participants_valid?(@trio.trio_participants, @results_prod, @results_prod_1, @results_dev) %>
+
+        <% else %>
+          <td><%= t('edit.modify_trio') %></td>
+          <td colspan="<%=@trio.trio_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_trio_path(@trio), class:"modify" %></td>
+        <% end %>
       </tr>
     </tbody>
   </table>

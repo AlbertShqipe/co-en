@@ -11,29 +11,37 @@ export default class extends Controller {
 
     for (let index = 0; index < participants.length; index++) {
       const suffix = index === 0 ? "" : index; // No suffix for the first participant
+      const photoInput = document.getElementById(`photo-input${suffix}`);
+      const fileInput = document.getElementById(`file-input${suffix}`);
+      const idInput = document.getElementById(`id-input${suffix}`);
 
       // Add event listener for photo input
-      document.getElementById(`photo-input${suffix}`).addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById(`photo-name${suffix}`).textContent = photoName;
-        console.log(photoName);
-      });
+      if (photoInput) {
+        photoInput.addEventListener("change", function() {
+          const photoName = this.files[0] ? this.files[0].name : "No file selected";
+          document.getElementById(`photo-name${suffix}`).textContent = photoName;
+          console.log(photoName);
+        });
+      }
 
       // Add event listener for file input
-      document.getElementById(`file-input${suffix}`).addEventListener("change", function() {
-        const fileName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById(`file-name${suffix}`).textContent = fileName;
-        console.log(fileName);
-      });
+      if (fileInput) {
+        fileInput.addEventListener("change", function() {
+          const fileName = this.files[0] ? this.files[0].name : "No file selected";
+          document.getElementById(`file-name${suffix}`).textContent = fileName;
+          console.log(fileName);
+        });
+      }
 
       // Add event listener for ID card input
-      document.getElementById(`id-input${suffix}`).addEventListener("change", function() {
-        const idName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById(`id-name${suffix}`).textContent = idName;
-        console.log(idName);
-      });
+      if(idInput) {
+        idInput.addEventListener("change", function() {
+          const idName = this.files[0] ? this.files[0].name : "No file selected";
+          document.getElementById(`id-name${suffix}`).textContent = idName;
+          console.log(idName);
+        });
+      }
     }
-
     // let participantIndex = document.querySelectorAll('.participant-fields').length;
     if (addParticipantButton) {
       addParticipantButton.addEventListener('click', (event) => {

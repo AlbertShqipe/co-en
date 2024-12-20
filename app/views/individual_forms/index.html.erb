@@ -35,156 +35,125 @@
     <% end %>
     <div class="individual-forms">
       <% if current_user.role == "competitor" && current_user.individual_forms.present?%>
-      <div style="width:100%; overflow-x:scroll">
-        <table class="table-form mx-auto">
-          <caption style="color:white"></caption>
-          <thead>
-            <tr style="width:50px">
-              <th><%= t('index_individuals.th.attributes') %></th>
-                <% current_user.individual_forms.each_with_index do |form, index| %>
-                  <th><%= t('index_individuals.th.individaul_form') %> <%= index + 1 %></th>
-                <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= t('index_individuals.td.first_name') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.first_name.capitalize %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.last_name') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.last_name.capitalize %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.birthday') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td>
-                  <%= form.birth_date %><br>
-                  <%=  calculate_age(form.birth_date) %>
-                </td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.address') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.address %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.phone') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.phone %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.email') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.email %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.teacher') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.teacher_name %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.dance_school') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.dance_school %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.techer_phone') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.teacher_phone %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.email') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.teacher_email %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.category') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.category %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.style') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.style %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.level') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td><%= form.level %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.profile_pic') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <% if form.photo.attached? %>
-                  <% key = form.photo.key %>
-                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                  <% if matching_file != nil %>
-                    <% url =  matching_file["url"] %>
-                    <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                    <% else %>
-                    <td><p>Aucun fichier correspondant trouvé.</p></td>
+        <div style="width:100%; overflow-x:scroll">
+          <table class="table-form mx-auto">
+            <caption style="color:white"></caption>
+            <thead>
+              <tr style="width:50px">
+                <th><%= t('index_individuals.th.attributes') %></th>
+                  <% current_user.individual_forms.each_with_index do |form, index| %>
+                    <th><%= t('index_individuals.th.individaul_form') %> <%= index + 1 %></th>
                   <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= t('index_individuals.td.first_name') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.first_name.capitalize %></td>
                 <% end %>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.profile_pic') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <% if form.file.attached? %>
-                  <% key = form.file.key %>
-                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                  <% if matching_file != nil %>
-                    <% url =  matching_file["url"] %>
-                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                    <% else %>
-                    <td><p>Aucun fichier correspondant trouvé.</p></td>
-                  <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.last_name') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.last_name.capitalize %></td>
                 <% end %>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('index_individuals.td.profile_pic') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <% if form.id_card.attached? %>
-                  <% key = form.id_card.key %>
-                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                  <% if matching_file != nil %>
-                    <% url =  matching_file["url"] %>
-                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                    <% else %>
-                    <td><p>Aucun fichier correspondant trouvé.</p></td>
-                  <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.birthday') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td>
+                    <%= form.birth_date %><br>
+                    <%=  calculate_age(form.birth_date) %>
+                  </td>
                 <% end %>
-              <% end %>
-            </tr>
-            <tr>
-              <td><%= t('edit.form') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <td style="text-align:center"><%= link_to t('edit.see'), individual_form_path(form), class:"modify" %></td>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.address') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.address %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.phone') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.phone %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.email') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.email %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.teacher') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.teacher_name %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.dance_school') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.dance_school %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.techer_phone') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.teacher_phone %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.email') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.teacher_email %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.category') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.category %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.style') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.style %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.level') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td><%= form.level %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.profile_pic') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.file') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.id_card') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+                <td><%= t('edit.form') %></td>
+                <% current_user.individual_forms.each do |form| %>
+                  <td style="text-align:center"><%= link_to t('edit.see'), individual_form_path(form), class:"modify" %></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <% elsif current_user.role == "admin" %>
         <div class="filter">
           <%= form_with url: individual_forms_path, method: :get, local: true do |form| %>
@@ -348,7 +317,7 @@
                   <% end %>
                 </tr>
                 <tr>
-                  <td><%= t('index_individuals.td.techer_phone') %></td>
+                  <td><%= t('index_individuals.td.teacher_phone') %></td>
                   <% @individual_forms.each do |form| %>
                     <td><%= form.teacher_phone %></td>
                   <% end %>
@@ -380,49 +349,19 @@
                 <tr>
                   <td><%= t('index_individuals.td.profile_pic') %></td>
                   <% @individual_forms.each do |form| %>
-                    <% if form.photo.attached? %>
-                      <% key = form.photo.key %>
-                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                      <% if matching_file != nil %>
-                        <% url =  matching_file["url"] %>
-                        <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                        <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                        <% else %>
-                        <td><p>Aucun fichier correspondant trouvé.</p></td>
-                      <% end %>
-                    <% end %>
+                    <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
                   <% end %>
                 </tr>
                 <tr>
-                  <td><%= t('index_individuals.td.profile_pic') %></td>
+                  <td><%= t('index_individuals.td.file') %></td>
                   <% @individual_forms.each do |form| %>
-                    <% if form.file.attached? %>
-                      <% key = form.file.key %>
-                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                      <% if matching_file != nil %>
-                        <% url =  matching_file["url"] %>
-                        <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                        <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                        <% else %>
-                        <td><p>Aucun fichier correspondant trouvé.</p></td>
-                      <% end %>
-                    <% end %>
+                    <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
                   <% end %>
                 </tr>
                 <tr>
-                  <td><%= t('index_individuals.td.profile_pic') %></td>
+                  <td><%= t('index_individuals.td.id_card') %></td>
                   <% @individual_forms.each do |form| %>
-                    <% if form.id_card.attached? %>
-                      <% key = form.id_card.key %>
-                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                      <% if matching_file != nil %>
-                        <% url =  matching_file["url"] %>
-                        <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                        <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                        <% else %>
-                        <td><p>Aucun fichier correspondant trouvé.</p></td>
-                      <% end %>
-                    <% end %>
+                    <%= render_file_cell(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
                   <% end %>
                 </tr>
                 <tr>

@@ -1,145 +1,107 @@
 <%= render "shared/navbar"%>
-<div class="container">
-  <div class="index-links-containers">
-    <div class="link-container">
-      <a href="/individual_forms"><%= t('table.th') %></a>
+  <div class="container">
+    <div class="index-links-containers">
+      <div class="link-container">
+        <a href="/individual_forms"><%= t('table.th') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/duo"><%= t('table.th2') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/trios"><%= t('table.th3') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/group_forms"><%= t('table.th4') %></a>
+      </div>
     </div>
-    <div class="link-container">
-      <a href="/duo"><%= t('table.th2') %></a>
-    </div>
-    <div class="link-container">
-      <a href="/trios"><%= t('table.th3') %></a>
-    </div>
-    <div class="link-container">
-      <a href="/group_forms"><%= t('table.th4') %></a>
-    </div>
+    <h1 style="text-align:center; margin-top:20px"><%=t('index_individuals.th.individual_form')%> <%=@individual_form.first_name%></h1>
+    <% unless all_attachments_valid?(@individual_form, @results_prod, @results_prod_1, @results_dev) %>
+      <tr>
+        <%= t('text_show').html_safe %>
+      </tr>
+    <% end %>
+    <caption style="color:white"></caption>
   </div>
-  <h1 style="text-align:center; margin-top:20px">Formulaire Individuel de <%=@individual_form.first_name%></h1>
-  <p></p>Veuillez cliquer sur le bouton “Modifier” en bas pour effectuer les modifications du formulaire donné.</p>
-  <p>Assurez-vous de suivre les étapes suivantes :</p>
-  <ul>
-    <li>Veillez à disposer d’une bonne connexion pendant les modifications;</li>
-    <li>Assurez-vous de modifier uniquement les champs qui doivent être modifiés;</li>
-    <li>Vérifiez que les fichiers requis pour chaque candidat respectent le bon format : png, jpeg ou jpg pour la photo de profil, et pdf pour la carte d’identité et le formulaire d’autorisation;</li>
-    <li>Une fois sûr(e) que les modifications sont correctes, cliquez sur le bouton “Enregistrer les modifications”.</li>
-  </ul>
-  <caption style="color:white"></caption>
-</div>
-<div style="width:90%; margin:auto">
-  <table class="table-form mx-auto">
-    <thead>
-      <tr style="width:50px">
-        <th><%= t('index_individuals.th.attributes') %></th>
-        <th>
-            <%= t('index_individuals.th.individual_form') %>
-            <% hash = @results.find { |hash| hash[:id] == @individual_form.id }%>
-            <%= hash[:count] %>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= t('index_individuals.td.first_name') %></td>
-        <td><%= @individual_form.first_name.capitalize %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.last_name') %></td>
-        <td><%= @individual_form.last_name.capitalize %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.birthday') %></td>
-          <td>
-            <%= @individual_form.birth_date %><br>
-            <%=  calculate_age(@individual_form.birth_date) %>
-          </td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.address') %></td>
-        <td><%= @individual_form.address %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.phone') %></td>
-        <td><%= @individual_form.phone %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.email') %></td>
-        <td><%= @individual_form.email %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.teacher') %></td>
-        <td><%= @individual_form.teacher_name %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.dance_school') %></td>
-        <td><%= @individual_form.dance_school %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.techer_phone') %></td>
-          <td><%= @individual_form.teacher_phone %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.email') %></td>
-        <td><%= @individual_form.teacher_email %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.category') %></td>
-        <td><%= @individual_form.category %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.style') %></td>
-        <td><%= @individual_form.style %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.level') %></td>
-        <td><%= @individual_form.level %></td>
-      </tr>
-      <tr>
-        <td><%= t('index_individuals.td.profile_pic') %></td>
-          <% if @individual_form.photo.attached? %>
-            <% key = @individual_form.photo.key %>
-            <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-            <% if matching_file != nil %>
-              <% url =  matching_file["url"] %>
-              <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-              <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-              <% else %>
-              <td><p>Aucun fichier correspondant trouvé.</p></td>
-            <% end %>
-          <% end %>
-      </tr>
-      <tr>
-        <td><%=t('index_individuals.td.participant_file')%></td>
-        <% if @individual_form.file.attached? %>
-          <% key = @individual_form.file.key %>
-          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-          <% if matching_file != nil %>
-            <% url =  matching_file["url"] %>
-            <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-            <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-            <% else %>
-            <td><p>Aucun fichier correspondant trouvé.</p></td>
-          <% end %>
+  <div style="width:90%; margin:auto">
+    <table class="table-form mx-auto">
+      <thead>
+        <tr style="width:50px">
+          <th><%= t('index_individuals.th.attributes') %></th>
+          <th>
+              <%= t('index_individuals.th.individual_form') %>
+              <% hash = @results.find { |hash| hash[:id] == @individual_form.id }%>
+              <%= hash[:count] %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= t('index_individuals.td.first_name') %></td>
+          <td><%= @individual_form.first_name.capitalize %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.last_name') %></td>
+          <td><%= @individual_form.last_name.capitalize %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.birthday') %></td>
+            <td>
+              <%= @individual_form.birth_date %><br>
+              <%=  calculate_age(@individual_form.birth_date) %>
+            </td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.address') %></td>
+          <td><%= @individual_form.address %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.phone') %></td>
+          <td><%= @individual_form.phone %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.email') %></td>
+          <td><%= @individual_form.email %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.teacher') %></td>
+          <td><%= @individual_form.teacher_name %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.dance_school') %></td>
+          <td><%= @individual_form.dance_school %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.techer_phone') %></td>
+            <td><%= @individual_form.teacher_phone %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.email') %></td>
+          <td><%= @individual_form.teacher_email %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.category') %></td>
+          <td><%= @individual_form.category %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.style') %></td>
+          <td><%= @individual_form.style %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_individuals.td.level') %></td>
+          <td><%= @individual_form.level %></td>
+        </tr>
+        <%= render_attachment_row('index_individuals.td.profile_pic', @individual_form, :photo, @results_prod, @results_prod_1, @results_dev) %>
+        <%= render_attachment_row('index_individuals.td.participant_file', @individual_form, :file, @results_prod, @results_prod_1, @results_dev) %>
+        <%= render_attachment_row('index_individuals.td.participant_file1', @individual_form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+        <% unless all_attachments_valid?(@individual_form, @results_prod, @results_prod_1, @results_dev) %>
+          <tr>
+            <td><%= t('edit.modify_individual') %></td>
+            <td colspan="2" style="text-align:center">
+              <%= link_to t('edit.edit'), edit_individual_form_path(@individual_form), class: "modify" %>
+            </td>
+          </tr>
         <% end %>
-      </tr>
-      <tr>
-        <td><%=t('index_individuals.td.participant_file1')%></td>
-        <% if @individual_form.id_card.attached? %>
-          <% key = @individual_form.id_card.key %>
-          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-          <% if matching_file != nil %>
-            <% url =  matching_file["url"] %>
-            <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-            <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-            <% else %>
-            <td><p>Aucun fichier correspondant trouvé.</p></td>
-          <% end %>
-        <% end %>
-      </tr>
-      <tr>
-        <td><%= t('edit.modify_individual') %></td>
-        <td colspan='2' style="text-align:center"><%= link_to t('edit.edit'), edit_individual_form_path(@individual_form), class:"modify" %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
 <%= render("shared/footer") %>

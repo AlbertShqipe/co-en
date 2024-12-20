@@ -1,5 +1,5 @@
 <div style="width:100%; height:100%;" >
-  <div style="width:90%; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)">
+  <div style="width:90%; margin:auto">
     <%= link_to t("back.back"), :back, style: "color:white; margin:140px;text-decoration:none;" %>
     <%= form_with(
         model: @individual_form,
@@ -10,8 +10,8 @@
         local: true,
         data: { controller: "flatpickr ind-candidate" }
       ) do |f| %>
-
-      <div class="individual-registration-form-first">
+      <h5 style="text-align:center"><%= @individual_form.first_name%> <%= @individual_form.last_name%></h5>
+      <div class="individual-registration-form-first d-none">
         <div>
           <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.name') %></span>
           <%= f.text_field :first_name, required: true, value: @individual_form.first_name,
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="individual-registration-form-second">
+      <div class="individual-registration-form-second d-none">
         <div>
           <span><%=t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone')%></span>
           <%= f.text_field :phone, required: true, value: @individual_form.phone,
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="individual-registration-form-third">
+      <div class="individual-registration-form-third d-none">
         <div>
           <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %></span>
           <%= f.text_field :dance_school, required: true, value: @individual_form.dance_school,
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <div class="individual-registration-form-forth">
+      <div class="individual-registration-form-forth d-none">
         <div id="category">
           <span><%=t('individual_registration_form.registration_form_inner_text.individual.prompts.category')%></span>
           <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle'], selected: @individual_form.category),
@@ -87,26 +87,58 @@
             selected: @individual_form.level), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id: "level" %>
         </div>
       </div>
-
-      <div class="individual-registration-form-fifth">
-        <div class="custom-file-input">
-          <span>Format (.jpeg, .jpg, .png)</span><br>
-          <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
-          <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
-          <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-        </div>
-        <div class="custom-file-input">
-          <span>Format (pdf)</span><br>
-          <%= f.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input" %>
-          <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
-          <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-        </div>
-        <div class="custom-file-input">
-          <span>Format (pdf)</span><br>
-          <%= f.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input" %>
-          <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
-          <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-        </div>
+      <div class="individual-registration-form-fifth mt-5">
+        <% if @individual_form.photo.attached? %>
+          <% key = @individual_form.photo.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3>File</h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (.jpeg, .jpg, .png)</span><br>
+              <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
+              <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label><br>
+              <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
+        <% if @individual_form.file.attached? %>
+          <% key = @individual_form.file.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3>File</h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (pdf)</span><br>
+              <%= f.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input" %>
+              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
+              <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
+        <% if @individual_form.id_card.attached? %>
+          <% key = @individual_form.id_card.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3>File</h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (pdf)</span><br>
+              <%= f.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input" %>
+              <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
+              <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <div style="width:300px;margin:auto;margin-top:80px">

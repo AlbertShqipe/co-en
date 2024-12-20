@@ -10,7 +10,7 @@
       ) do |f| %>
 
       <!-- Trio Details -->
-      <div class="trio-registration-form-first">
+      <div class="trio-registration-form-first d-none">
         <div class="field">
           <span><%=t('trio_registration_form.registration_form_inner_text.trio.placeholders.name')%></span>
           <%= f.text_field :name, placeholder: t('trio_registration_form.registration_form_inner_text.trio.placeholders.name'), class: "input-form" %>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- Music Details -->
-      <div class="trio-registration-form-second">
+      <div class="trio-registration-form-second d-none">
         <div>
           <span><%=t('trio_registration_form.registration_form_inner_text.trio.placeholders.title_of_music')%></span>
           <%= f.text_field :title_of_music, placeholder: t('trio_registration_form.registration_form_inner_text.trio.placeholders.title_of_music'), class: "input-form" %>
@@ -50,7 +50,7 @@
       </div>
 
       <!-- Discipline and Level -->
-      <div class="trio-registration-form-third">
+      <div class="trio-registration-form-third d-none">
         <div id="style">
           <span><%=t('trio_registration_form.registration_form_inner_text.trio.prompts.discipline')%></span>
           <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']),
@@ -73,8 +73,9 @@
         <div id="participants">
           <%= f.fields_for :trio_participants do |p| %>
           <% participant_index = p.index %>
+            <h5 style="text-align:center"><%= p.object.name %> <%= p.object.last_name %></h5>
             <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
-              <div class="trio-registration-form-participant-first">
+              <div class="trio-registration-form-participant-first d-none">
                 <div>
                   <span><%= t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name') %></span>
                   <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
@@ -93,45 +94,78 @@
                 </div>
               </div>
               <div class="trio-registration-form-participant-second">
-                <div class="custom-file-input">
-                  <span>Format (.jpeg, .jpg, .png)</span><br>
-                  <%= p.file_field :photo,
-                                    accept: "image/jpeg, image/jpg, image/png",
-                                    id: "photo-input#{participant_index if participant_index > 0}",
-                                    class: "file-input" %>
-                  <label for="photo-input<%=participant_index if participant_index > 0%>" id="photo-label" class="file-label">
-                    <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %>
-                  </label>
-                  <span id="photo-name<%=participant_index if participant_index > 0%>">
-                    <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
-                  </span>
-                </div>
-                <div class="custom-file-input">
-                  <span>Format (pdf)</span><br>
-                  <%= p.file_field :file,
-                                    accept: "application/pdf",
-                                    id: "file-input#{participant_index if participant_index > 0}",
-                                    class: "file-input" %>
-                  <label for="file-input<%=participant_index if participant_index > 0%>" id="file-label" class="file-label">
-                    <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %>
-                  </label>
-                  <span id="file-name<%=participant_index if participant_index > 0%>">
-                    <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
-                  </span>
-                </div>
-                <div class="custom-file-input">
-                  <span>Format (pdf)</span><br>
-                  <%= p.file_field :id_card,
-                                    accept: "application/pdf",
-                                    id: "id-input#{participant_index if participant_index > 0}",
-                                    class: "file-input" %>
-                  <label for="id-input<%=participant_index if participant_index > 0%>" id="id-label" class="file-label">
-                    <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %>
-                  </label>
-                  <span id="id-name<%=participant_index if participant_index > 0%>">
-                    <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
-                  </span>
-                </div>
+                <% if p.object.photo.attached? %>
+                  <% key = p.object.photo.key %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <div style="text-align:center" class="custom-file-input">
+                      <h4>Photo</h4>
+                      <p>✅</p>
+                    </div>
+                    <% else %>
+                      <div class="custom-file-input">
+                        <span>Format (.jpeg, .jpg, .png)</span><br>
+                        <%= p.file_field :photo,
+                                          accept: "image/jpeg, image/jpg, image/png",
+                                          id: "photo-input#{participant_index if participant_index > 0}",
+                                          class: "file-input" %>
+                        <label for="photo-input<%=participant_index if participant_index > 0%>" id="photo-label" class="file-label">
+                          <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %>
+                        </label>
+                        <span id="photo-name<%=participant_index if participant_index > 0%>">
+                          <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
+                        </span>
+                      </div>
+                  <% end %>
+                <% end %>
+                <% if p.object.file.attached? %>
+                  <% key = p.object.file.key %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <div style="text-align:center"  class="custom-file-input">
+                      <h4>File</h4>
+                      <p>✅</p>
+                    </div>
+                    <% else %>
+                      <div class="custom-file-input">
+                        <span>Format (pdf)</span><br>
+                        <%= p.file_field :file,
+                                          accept: "application/pdf",
+                                          id: "file-input#{participant_index if participant_index > 0}",
+                                          class: "file-input" %>
+                        <label for="file-input<%=participant_index if participant_index > 0%>" id="file-label" class="file-label">
+                          <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %>
+                        </label>
+                        <span id="file-name<%=participant_index if participant_index > 0%>">
+                          <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
+                        </span>
+                      </div>
+                  <% end %>
+                <% end %>
+                <% if p.object.id_card.attached? %>
+                  <% key = p.object.id_card.key %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <div style="text-align:center">
+                      <h4>ID</h4>
+                      <p>✅</p>
+                    </div>
+                    <% else %>
+                    <div class="custom-file-input">
+                      <span>Format (pdf)</span><br>
+                      <%= p.file_field :id_card,
+                                        accept: "application/pdf",
+                                        id: "id-input#{participant_index if participant_index > 0}",
+                                        class: "file-input" %>
+                      <label for="id-input<%=participant_index if participant_index > 0%>" id="id-label" class="file-label">
+                        <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %>
+                      </label>
+                      <span id="id-name<%=participant_index if participant_index > 0%>">
+                        <%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%>
+                      </span>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           <% end %>

@@ -14,15 +14,11 @@
       <a href="/group_forms"><%= t('table.th4') %></a>
     </div>
   </div>
-  <h1 style="text-align:center; margin-top:20px">Duo <%=@duo.name%></h1>
-  <p></p>Veuillez cliquer sur le bouton “Modifier” en bas pour effectuer les modifications du formulaire donné.</p>
-  <p>Assurez-vous de suivre les étapes suivantes :</p>
-  <ul>
-    <li>Veillez à disposer d’une bonne connexion pendant les modifications;</li>
-    <li>Assurez-vous de modifier uniquement les champs qui doivent être modifiés;</li>
-    <li>Vérifiez que les fichiers requis pour chaque candidat respectent le bon format : png, jpeg ou jpg pour la photo de profil, et pdf pour la carte d’identité et le formulaire d’autorisation;</li>
-    <li>Une fois sûr(e) que les modifications sont correctes, cliquez sur le bouton “Enregistrer les modifications”.</li>
-  </ul>
+  <h1 style="text-align:center; margin-top:20px"><%=t('index_duos.th.duo_form')%> <%=@duo.name%></h1>
+  <% if all_participants_valid?(@duo.duo_participants, @results_prod, @results_prod_1, @results_dev) %>
+  <% else %>
+    <%= t('text_show').html_safe %>
+  <% end %>
 </div>
 <div style="width:90%; overflow-x:scroll; margin:auto">
   <table class="table-form mx-auto">
@@ -101,54 +97,65 @@
       <tr>
         <td><%= t('index_duo.td.participant_photo') %></td>
         <% @duo.duo_participants.each do |participant| %>
-            <% if participant.photo.attached? %>
-              <% key = participant.photo.key %>
-              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-              <% if matching_file != nil %>
-                <% url =  matching_file["url"] %>
-                <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                <% else %>
-                <td><p>Aucun fichier correspondant trouvé.</p></td>
-              <% end %>
+          <% if participant.photo.attached? %>
+            <% url = matching_file_url(participant.photo.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% if url %>
+              <td style="text-align:center">
+                <a href="<%= url %>" target="_blank"><img src="<%= url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
             <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
         <% end %>
       </tr>
+
       <tr>
         <td><%= t('index_duo.td.participant_file') %></td>
         <% @duo.duo_participants.each do |participant| %>
-            <% if participant.file.attached? %>
-              <% key = participant.file.key %>
-              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-              <% if matching_file != nil %>
-                <% url =  matching_file["url"] %>
-                <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                <% else %>
-                <td><p>Aucun fichier correspondant trouvé.</p></td>
-              <% end %>
+          <% if participant.file.attached? %>
+            <% url = matching_file_url(participant.file.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% updated_url = url&.sub(/\.pdf\z/, '.png') %>
+            <% if updated_url %>
+              <td style="text-align:center">
+                <a href="<%= updated_url %>" target="_blank"><img src="<%= updated_url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
             <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
         <% end %>
       </tr>
+
       <tr>
         <td><%= t('index_duo.td.participant_file1') %></td>
         <% @duo.duo_participants.each do |participant| %>
-            <% if participant.id_card.attached? %>
-              <% key = participant.id_card.key %>
-              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-              <% if matching_file != nil %>
-                <% url =  matching_file["url"] %>
-                <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
-                <% else %>
-                <td><p>Aucun fichier correspondant trouvé.</p></td>
-              <% end %>
+          <% if participant.id_card.attached? %>
+            <% url = matching_file_url(participant.id_card.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% updated_url = url&.sub(/\.pdf\z/, '.png') %>
+            <% if updated_url %>
+              <td style="text-align:center">
+                <a href="<%= updated_url %>" target="_blank"><img src="<%= updated_url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
             <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
         <% end %>
       </tr>
       <tr>
-        <td><%= t('edit.modify_duo') %></td>
-        <td colspan="<%=@duo.duo_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_duo_path(@duo), class:"modify" %></td>
+        <% if all_participants_valid?(@duo.duo_participants, @results_prod, @results_prod_1, @results_dev) %>
+
+        <% else %>
+          <td><%= t('edit.modify_duo') %></td>
+          <td colspan="<%=@duo.duo_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_duo_path(@duo), class:"modify" %></td>
+        <% end %>
       </tr>
     </tbody>
   </table>
