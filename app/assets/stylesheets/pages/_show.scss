@@ -1,0 +1,9 @@
+.modify {
+  color: #ffc800; /* Blue link color */
+  text-decoration: none; /* No underline */
+  font-weight: bold;
+}
+
+.modify:hover {
+  color: #000000; /* Darker blue on hover */
+}
