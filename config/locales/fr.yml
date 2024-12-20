@@ -548,6 +548,7 @@ fr:
             remove: "Retirer"
             add: "Ajouter un·e participant·e"
             create: "Créer un groupe"
+            remove_participant: "Retirer le·a participant·e"
 
   index_groups:
     th:
@@ -568,6 +569,9 @@ fr:
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
       profile_pic: "Photo Profile"
+      participant_photo: "Photo Profile"
+      participant_file: "Formulaire d'Autorisation"
+      participant_file1: "Carte d'Identité"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
 
@@ -590,6 +594,9 @@ fr:
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
       profile_pic: "Photo Profile"
+      participant_photo: "Photo Profile"
+      participant_file: "Formulaire d'Autorisation"
+      participant_file1: "Carte d'Identité"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
 
@@ -611,6 +618,9 @@ fr:
       participants_n: "N de Participant·e·s"
       participant_name_lastName: "Participant·e·s"
       participant_age: "Âge des Participant·e·s"
+      participant_photo: "Photo Profile"
+      participant_file: "Formulaire d'Autorisation"
+      participant_file1: "Carte d'Identité"
       profile_pic: "Photo Profile"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
@@ -635,6 +645,9 @@ fr:
       style: "Style"
       level: "Niveau"
       profile_pic: "Photo Profile"
+      participant_photo: "Photo Profile"
+      participant_file: "Formulaire d'Autorisation"
+      participant_file1: "Carte d'Identité"
       file: "Formulaire d'Autorisation Rempli"
       file1: "Carte d'Identité"
       created_at: "Date de Subscription"
@@ -1369,7 +1382,9 @@ fr:
       participant_requirement: 'Au moins quatre participants sont requis et assurez-vous de remplir tous les champs du formulaire de groupe.'
       error: 'Un problème est survenu lors de la création du formulaire de groupe.'
 
-  back: "Retour"
+  back:
+    back: "Retour"
+    ind_form: "Retour au Formulaire Individuel"
 
   messages:
     notice: “Votre message a été envoyé avec succès.”
@@ -1428,3 +1443,39 @@ fr:
     abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
+
+  show:
+    no_file: "Aucun fichier correspondant trouvé"
+
+  edit:
+    photo: 'Photo'
+    file: 'Formulaire'
+    id: 'ID'
+    form: "Formulaire"
+    see: "Voir le formulaire"
+    edit: "Modifier"
+    save: "Enregistrer les Modifications"
+    modify_individual: "Modifier Solo"
+    modify_duo: "Modifier le Duo"
+    modify_trio: "Modifier le Trio"
+    modify_group: "Modifier le  Groupe"
+    flash_messages:
+      success: "Votre modification a été enregistrée"
+      error: "Il y a eu un problème avec votre modification"
+
+  text_show: |
+    <h3>Instructions pour compléter le formulaire :</h3>
+      <ol>
+        <li>Modification des formulaires incomplets<br>
+            Si certains formulaires sont incomplets, veuillez cliquer sur le bouton “Modifier” en bas de la page pour corriger ou compléter les informations nécessaires.</li>
+        <li>Assurez-vous d’une bonne connexion internet<br>
+          Une connexion stable est essentielle pour éviter toute interruption pendant la modification des formulaires.</li>
+        <li>Vérification des fichiers requis<br>
+          Avant de soumettre le formulaire, assurez-vous que les fichiers ajoutés respectent les formats demandés :</li>
+          <ul>
+            <li>Photo de profil : formats acceptés - PNG, JPEG ou JPG</li>
+            <li>Carte d’identité et formulaire d’autorisation : format requis - PDF</li>
+          </ul>
+        <li>Enregistrement des modifications<br>
+          Une fois que vous êtes certain(e) que toutes les informations sont correctes et complètes, cliquez sur le bouton “Enregistrer les modifications” pour valider vos mises à jour.</li>
+      </ol>

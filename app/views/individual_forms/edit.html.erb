@@ -1,0 +1,151 @@
+<div style="width:100%; height:100%;" >
+  <div style="width:90%; margin:auto" class="mt-5">
+    <%= link_to t("back.back"), :back, style: "color:white; margin:140px;text-decoration:none;" %>
+    <%= form_with(
+        model: @individual_form,
+        class: "form",
+        url: individual_form_path(@individual_form),
+        method: :patch,
+        multipart: true,
+        local: true,
+        data: { controller: "flatpickr ind-candidate" }
+      ) do |f| %>
+      <h3 style="text-align:center" class="mt-5"><%= @individual_form.first_name%> <%= @individual_form.last_name%></h3>
+      <div class="individual-registration-form-first d-none">
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.name') %></span>
+          <%= f.text_field :first_name, required: true, value: @individual_form.first_name,
+            placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name') %></span>
+          <%= f.text_field :last_name, required: true, value: @individual_form.last_name,
+            placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday') %></span>
+          <%= f.date_field :birth_date, required: true, value: @individual_form.birth_date,
+            id: "myID", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday'), class: "input-form birthday" %>
+        </div>
+      </div>
+
+      <div class="individual-registration-form-second d-none">
+        <div>
+          <span><%=t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone')%></span>
+          <%= f.text_field :phone, required: true, value: @individual_form.phone,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %></span>
+          <%= f.email_field :email, required: true, value: @individual_form.email,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %></span>
+          <%= f.text_field :address, required: true, value: @individual_form.address,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
+        </div>
+      </div>
+
+      <div class="individual-registration-form-third d-none">
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %></span>
+          <%= f.text_field :dance_school, required: true, value: @individual_form.dance_school,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %></span>
+          <%= f.text_field :teacher_name, required: true, value: @individual_form.teacher_name,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %></span>
+          <%= f.text_field :teacher_phone, required: true, value: @individual_form.teacher_phone,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
+        </div>
+        <div>
+          <span><%= t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %></span>
+          <%= f.email_field :teacher_email, required: true, value: @individual_form.teacher_email,
+            class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
+        </div>
+      </div>
+
+      <div class="individual-registration-form-forth d-none">
+        <div id="category">
+          <span><%=t('individual_registration_form.registration_form_inner_text.individual.prompts.category')%></span>
+          <%= f.select :category, options_for_select(['Loisir', 'Pré-professionnelle'], selected: @individual_form.category),
+            prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session" %>
+        </div>
+        <div id="style">
+          <span><%=t('individual_registration_form.registration_form_inner_text.individual.prompts.style')%></span>
+          <%= f.select :style, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'], selected: @individual_form.style),
+            prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id: "style" %>
+        </div>
+        <div id="level">
+          <span><%=t('individual_registration_form.registration_form_inner_text.individual.prompts.level')%></span>
+          <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation'],
+            selected: @individual_form.level), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id: "level" %>
+        </div>
+      </div>
+
+      <div class="individual-registration-form-fifth mt-5">
+        <% if @individual_form.photo.attached? %>
+          <% key = @individual_form.photo.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3><%= t('edit.photo') %></h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (.jpeg, .jpg, .png)</span><br>
+              <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
+              <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label><br>
+              <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
+        <% if @individual_form.file.attached? %>
+          <% key = @individual_form.file.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3><%= t('edit.file') %></h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (pdf)</span><br>
+              <%= f.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input" %>
+              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
+              <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
+        <% if @individual_form.id_card.attached? %>
+          <% key = @individual_form.id_card.key %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+          <% if matching_file != nil %>
+            <div style="text-align:center"  class="custom-file-input">
+              <h3><%= t('edit.id') %></h3>
+              <p>✅</p>
+            </div>
+            <% else %>
+            <div class="custom-file-input">
+              <span>Format (pdf)</span><br>
+              <%= f.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input" %>
+              <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
+              <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div style="width:300px;margin:auto;margin-top:80px">
+        <%= f.submit "#{t('edit.save')}", class: "input-btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

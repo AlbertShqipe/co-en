@@ -1,32 +1,3 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
   hello: "Hello"
 
@@ -577,6 +548,7 @@ en:
             remove: "Remove"
             add: "Add Participant"
             create: "Create Group"
+            remove_participant: "Remove Participant"
 
   index_groups:
     th:
@@ -596,6 +568,9 @@ en:
       participants_n: "N of Participants"
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
+      participant_photo: "Profile Picture"
+      participant_file: "Completed Authorization Form"
+      participant_file1: "Identity Card"
       profile_pic: "Profile Picture"
       file: "Completed Authorization Form"
       file1: "Identity Card"
@@ -619,6 +594,9 @@ en:
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
       profile_pic: "Profile Picture"
+      participant_photo: "Profile Picture"
+      participant_file: "Completed Authorization Form"
+      participant_file1: "Identity Card"
       file: "Completed Authorization Form"
       file1: "Identity Card"
 
@@ -641,6 +619,9 @@ en:
       participant_name_lastName: "Full name of Participant"
       participant_age: "Age of Participant"
       profile_pic: "Profile Picture"
+      participant_photo: "Profile Picture"
+      participant_file: "Completed Authorization Form"
+      participant_file1: "Identity Card"
       file: "Completed Authorization Form"
       file1: "Identity Card"
 
@@ -664,6 +645,9 @@ en:
       style: "Style"
       level: "Level"
       profile_pic: "Profile Picture"
+      participant_photo: "Profile Picture"
+      participant_file: "Completed Authorization Form"
+      participant_file1: "Identity Card"
       file: "Completed Authorization Form"
       file1: "Identity Card"
       created_at: "Date of Subscription"
@@ -1369,7 +1353,9 @@ en:
       participant_requirement: 'At least four participants are required and make sure you fill up all the fields in the group form'
       error: 'There was an issue creating the group form.'
 
-  back: "Go back"
+  back:
+    back: "Go back"
+    ind_form: "Back to Individual Form"
 
   messages:
     notice: "Your message has been sent successfully."
@@ -1418,3 +1404,39 @@ en:
       bus: 'Bus'
       line1: 'Line C15 / Stop Rebufer'
       line2: 'Line 26 / Stop Colonel Chambonnet'
+
+  show:
+    no_file: "No file found"
+
+  edit:
+    photo: 'Photo'
+    file: 'File'
+    id: 'ID'
+    form: "Form"
+    see: "Show the form"
+    edit: "Edit"
+    save: "Save changes"
+    modify_individual: "Modify the individual form"
+    modify_duo: "Modify the duo form"
+    modify_trio: "Modify the trio form"
+    modify_group: "Modify the gorup form"
+    flash_messages:
+      success: "Your update has been successfully submitted!"
+      error: "An error occurred while submitting your update. Please try again."
+
+  text_show: |
+    <h3>Instructions for completing the form:</h3>
+      <ol>
+        <li>Editing incomplete forms<br>
+            If any forms are incomplete, please click the “Edit” button at the bottom of the page to correct or complete the necessary information.</li>
+        <li>Ensure a good internet connection<br>
+            A stable connection is essential to avoid any interruptions while editing the forms.</li>
+        <li>Check the required files<br>
+            Before submitting the form, make sure the uploaded files meet the required formats:</li>
+            <ul>
+              <li>Profile photo: Accepted formats - PNG, JPEG, or JPG</li>
+              <li>ID card and authorization form: Required format - PDF</li>
+            </ul>
+        <li>Save your changes<br>
+            Once you’re certain that all the information is correct and complete, click the “Save changes” button to validate your updates.</li>
+      </ol>
