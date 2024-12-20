@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'media' => 'pages#media'
   get 'who_we_are' => 'pages#who_we_are'
   get 'practical_info' => 'pages#practical_info'
-  get 'contact' => 'pages#contact'
   get 'our_partners' => 'pages#our_partners'
   get 'apply' => 'pages#apply'
   get 'profile' => 'pages#profile'
