@@ -2,6 +2,41 @@ class IndividualFormsController < ApplicationController
   require 'cloudinary'
   before_action :authenticate_user!
 
+  def show
+      if current_user.admin?
+        @individual_form = IndividualForm.find(params[:id]) # Admins can access any duo
+      else
+        @individual_form = current_user.individual_forms.find(params[:id]) # Competitors can access only their own duos
+      end
+
+    @results = []
+    IndividualForm.order(created_at: :asc).all.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+    end
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @results = []
     @individual_forms = IndividualForm.order(created_at: :asc)
@@ -81,6 +116,40 @@ class IndividualFormsController < ApplicationController
     end
   end
 
+  def edit
+    @individual_form = IndividualForm.find(params[:id])
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
+  def update
+    @individual_form = IndividualForm.find(params[:id])
+    if @individual_form.update(individual_form_params)
+      flash[:notice] = t('edit.flash_messages.success')
+      redirect_to individual_form_path(@individual_form)
+    else
+      flash.now[:alert] = t('edit.flash_messages.error')
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def info
     def calculate_age(birthdate)
       birthdate = birthdate.is_a?(String) ? Date.parse(birthdate) : birthdate
@@ -151,6 +220,8 @@ class IndividualFormsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       render json: { error: "Solo not found" }, status: :not_found
   end
+
+  private
 
   def individual_form_params
     params.require(:individual_form).permit(:first_name, :last_name, :birth_date, :address, :phone, :email, :teacher_name, :dance_school, :teacher_phone, :teacher_email, :category, :style, :level, :photo, :file, :id_card)
