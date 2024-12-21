@@ -26,7 +26,7 @@
         <tr style="width:50px">
           <th><%= t('index_trio.th.attributes') %></th>
           <% hash = @results.find { |hash| hash[:id] == @group_form.id }%>
-          <%= hash[:count] %>
+          <th><%= hash[:count] %></th>
         </tr>
       </thead>
       <tbody>
