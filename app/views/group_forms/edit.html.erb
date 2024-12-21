@@ -1,0 +1,221 @@
+<div style="width:100%; height:100%;" >
+  <div style="width:90%; margin:auto" class="mt-5">
+    <%= link_to t("back.back"), :back, style: "color:white; margin:140px;text-decoration:none;" %>
+    <%= form_with(
+          model: @group_form,
+          url: group_form_path(@group_form),
+          method: :patch,
+          local: true,
+          data: { controller: "flatpickr participants age" }
+        ) do |f| %>
+
+      <div class="group-registration-form-first" style='display:none'>
+        <div class="field">
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.name')%></span>
+          <%= f.text_field :name, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.responsable')%></span>
+          <%= f.text_field :responsable, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.address')%></span>
+          <%= f.text_field :address, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.phone')%></span>
+          <%= f.text_field :phone, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.email')%></span>
+          <%= f.text_field :email, class: "input-form" %>
+        </div>
+      </div>
+
+      <div class="group-registration-form-second" style='display:none'>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.title_of_music')%></span>
+          <%= f.text_field :title_of_music, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.composer')%></span>
+          <%= f.text_field :composer, class: "input-form" %>
+        </div>
+        <div>
+          <span><%=t('group_registration_form.registration_form_inner_text.group.placeholders.length_of_piece')%></span>
+          <%= f.number_field :length_of_piece, class: "input-form", step: 0.01, min: 0 %>
+        </div>
+      </div>
+
+      <div class="group-registration-form-third" style='display:none'>
+        <div id="style">
+          <span><%=t('group_registration_form.registration_form_inner_text.group.prompts.disciplines')%></span>
+          <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'], @group_form.discipline), prompt: t('group_registration_form.registration_form_inner_text.group.prompts.disciplines'), class: "input-session" %>
+        </div>
+        <div id="level">
+          <span><%=t('group_registration_form.registration_form_inner_text.group.prompts.level')%></span>
+          <%= f.select :level, options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation'], @group_form.level), prompt: t('group_registration_form.registration_form_inner_text.group.prompts.level'), class: "input-session", id: "category" %>
+        </div>
+      </div>
+
+      <div data-controller="participant">
+        <div class="d-flex">
+          <h3 style="text-align:left"><%= t('group_registration_form.registration_form_inner_text.group.participant.participants') %></h3>
+        </div>
+        <div id="participants">
+          <%= f.fields_for :participants do |p| %>
+              <% participant_index = p.index %>
+              <h3 style="text-align:center"><%= p.object.name %> <%= p.object.last_name %></h3>
+              <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
+                <div class="group-registration-form-participant-first">
+                  <div style='display:none'>
+                    <span><%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name')%></span>
+                    <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
+                  </div>
+                  <div style='display:none'>
+                    <span><%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.last_name')%></span>
+                    <%= p.text_field :last_name,
+                                      placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name'),
+                                      class: "input-form-group" %>
+                  </div>
+                  <div style='display:none'>
+                    <span><%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday')%></span>
+                    <%= p.date_field :birth_date, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday'), id: "myID", class: "input-form-group" %>
+                  </div>
+                  <div data-controller="age" style='display:none'>
+                    <span><%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age')%></span>
+                    <%= p.number_field :age, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age'), class: "input-form-group", id: "age-input", readonly: true %>
+                  </div>
+                </div>
+                  <div class="group-registration-form-participant-second">
+                    <% if p.object.photo.attached? %>
+                      <% key = p.object.photo.key %>
+                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <div class="custom-file-input" style="text-align:center">
+                          <h3>Photo</h3>
+                          <p>✅</p>
+                        </div>
+                        <% else %>
+                        <div class="custom-file-input">
+                          <span>Format (.jpeg, .jpg, .png)</span><br>
+                          <%= p.file_field :photo,
+                                            accept: "image/jpeg, image/jpg, image/png",
+                                            id: "photo-input#{participant_index if participant_index > 0}",
+                                            class: "file-input" %>
+                          <label for="photo-input<%=participant_index if participant_index > 0%>" id="photo-label<%=participant_index if participant_index > 0%>" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label><br>
+                          <span id="photo-name<%=participant_index if participant_index > 0%>">
+                            <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
+                          </span>
+                        </div>
+                      <% end %>
+                    <% end %>
+                    <% if p.object.file.attached? %>
+                      <% key = p.object.file.key %>
+                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <div class="custom-file-input" style="text-align:center">
+                          <h3>File</h3>
+                          <p>✅</p>
+                        </div>
+                        <% else %>
+                        <div class="custom-file-input">
+                          <span>Format (pdf)</span><br>
+                          <%= p.file_field :file,
+                                            accept: "application/pdf",
+                                            id: "file-input#{participant_index if participant_index > 0}",
+                                            class: "file-input" %>
+                          <label for="file-input<%=participant_index if participant_index > 0%>" id="file-label<%=participant_index if participant_index > 0%>" class="file-label">
+                            <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %>
+                          </label><br>
+                          <span id="file-name<%=participant_index if participant_index > 0%>">
+                            <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
+                          </span>
+                        </div>
+                      <% end %>
+                    <% end %>
+                    <% if p.object.id_card.attached? %>
+                      <% key = p.object.id_card.key %>
+                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                      <% if matching_file != nil %>
+                        <div class="custom-file-input" style="text-align:center;">
+                          <h3>ID</h3>
+                          <p>✅</p>
+                        </div>
+                        <% else %>
+                        <div class="custom-file-input">
+                          <span>Format (pdf)</span><br>
+                          <%= p.file_field :id_card,
+                                            accept: "application/pdf",
+                                            id: "id-input#{participant_index if participant_index > 0}",
+                                            class: "file-input" %>
+                          <label for="id-input<%=participant_index if participant_index > 0%>" id="id-label<%=participant_index if participant_index > 0%>" class="file-label">
+                            <%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %>
+                          </label><br>
+                          <span id="id-name<%=participant_index if participant_index > 0%>">
+                            <%= t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file') %>
+                          </span>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <div style="margin-top:25px; display:none">
+                  <%= p.check_box :_destroy, style:"margin-right:10px" %>
+                  <%= p.label :_destroy, t('group_registration_form.registration_form_inner_text.group.participant.btn.remove_participant'), class: "btn btn-danger" %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Hidden template for participant fields -->
+      <template id="participant-template">
+        <div class="participant-fields mb-3 pb-3" data-controller="age" style="border-bottom:1px solid red">
+          <div class="group-registration-form-participant-first">
+            <div>
+              <span><%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.name')%></span>
+              <input type="text" name="group_form[participants_attributes][NEW_RECORD][name]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.name')%>" class="input-form-group">
+            </div>
+            <div>
+              <span><%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.last_name')%></span>
+              <input type="text" name="group_form[participants_attributes][NEW_RECORD][last_name]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.last_name')%>" class="input-form-group">
+            </div>
+            <div>
+              <span><%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.birthday')%></span>
+              <input type="date" name="group_form[participants_attributes][NEW_RECORD][birth_date]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.birthday')%>" class="input-form-group" id="myID">
+            </div>
+            <div>
+              <span><%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.age')%></span>
+              <input type="number" name="group_form[participants_attributes][NEW_RECORD][age]" placeholder="<%=t('group_registration_form.registration_form_inner_text.group.participant.placeholders.age')%>" class="input-form-group" id="age-input" readonly>
+            </div>
+          </div>
+          <div class="group-registration-form-participant-second">
+            <div class="custom-file-input">
+              <input type="file" name="group_form[participants_attributes][NEW_RECORD][photo]" id="photo-inputNEW_RECORD" class="file-input" accept="image/jpeg, image/jpg, image/png">
+              <label for="photo-inputNEW_RECORD" id="photo-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.pic') %></label>
+              <span id="photo-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+            </div>
+            <div class="custom-file-input">
+              <input type="file" name="group_form[participants_attributes][NEW_RECORD][file]" id="file-inputNEW_RECORD" class="file-input" accept="application/pdf">
+              <label for="file-inputNEW_RECORD" id="file-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label>
+              <span id="file-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+            </div>
+            <div class="custom-file-input">
+              <input type="file" name="group_form[participants_attributes][NEW_RECORD][id_card]" id="id-inputNEW_RECORD" class="file-input" accept="application/pdf">
+              <label for="id-inputNEW_RECORD" id="id-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file1') %></label>
+              <span id="id-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
+            </div>
+            <div style="padding-top:13px">
+              <button type="button" class="remove-participant btn btn-danger"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.remove') %></button>
+            </div>
+          </div>
+        </div>
+      </template>
+      <!-- Button to Add New Participants -->
+      <button type="button" id="add-participant" class="d-none btn btn-secondary"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.add') %></button>
+      <div style="width:300px; margin:auto;margin-top:30px">
+        <%= f.submit "#{t('edit.save')}", class: "input-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
