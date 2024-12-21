@@ -213,7 +213,6 @@
                   <th><%= t('index_trio.th.attributes') %></th>
                   <% matching_form = @results.find { |hash| hash[:id] == group.id } %>
                   <th><%= t('index_individuals.th.individual_form') %> <%= matching_form[:count] %></th>
-                <% end %>
                 </tr>
               </thead>
               <tbody>
