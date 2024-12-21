@@ -290,7 +290,11 @@
                         <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                         <% if matching_file != nil %>
                           <% url =  matching_file["url"] %>
-                          <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                          <%if url.include?('.pdf') %>
+                            <% url =  matching_file["url"].sub(/\.pdf\z/, '.png') %>
+                            <% else %>
+                            <% url =  matching_file["url"] %>
+                          <% end %>
                           <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
                           <% else %>
                           <td><p><%=t('show.no_file')%></p></td>
