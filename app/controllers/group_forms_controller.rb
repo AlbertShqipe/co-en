@@ -1,5 +1,34 @@
 class GroupFormsController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    if current_user.admin?
+      @group_form = GroupForm.find(params[:id]) # Admins can access any group form
+    else
+      @group_form = current_user.group_forms.find(params[:id])
+    end
+
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @group_forms = GroupForm.order(created_at: :asc)
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
@@ -23,7 +52,6 @@ class GroupFormsController < ApplicationController
     end
     # raise
 
-
     @groups_filter = GroupForm.by_discipline(params[:discipline])
                               .by_level(params[:level])
                               .after_date(params[:start_date]) if params[:start_date].present?
@@ -42,10 +70,6 @@ class GroupFormsController < ApplicationController
     if params[:start_date].present?
       @group_forms = @group_forms.where("created_at >= ?", params[:start_date])
     end
-  end
-
-  def show
-    @group_form = current_user.group_forms.find(params[:id])
   end
 
   def new
@@ -68,7 +92,37 @@ class GroupFormsController < ApplicationController
     end
   end
 
+  def edit
+    @group_form = GroupForm.includes(:participants).find(params[:id])
 
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
+  def update
+    @group_form = GroupForm.find(params[:id])
+    if @group_form.update(group_form_params)
+      redirect_to @group_form, notice: 'Group form updated successfully.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   def info
     def calculate_age(birthdate)
@@ -154,7 +208,7 @@ class GroupFormsController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       participants_attributes: [
-        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :id, :name, :last_name, :birth_date, :age, :photo, :file, :id_card, :_destroy
       ]
     )
   end
