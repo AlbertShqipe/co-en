@@ -65,7 +65,7 @@ module ApplicationHelper
 
   / This helper function is used to render the file cell in the index page /
   def render_file_cell(form, attachment, results_prod, results_prod_1, results_dev)
-    return content_tag(:td, t('index_individuals.td.no_file_found')) unless form.public_send(attachment).attached?
+    return content_tag(:td, t('show.no_file')) unless form.public_send(attachment).attached?
 
     key = form.public_send(attachment).key
     url = matching_file_url(key, results_prod, results_prod_1, results_dev)
@@ -78,7 +78,7 @@ module ApplicationHelper
         end
       end
     else
-      content_tag(:td, t('index_individuals.td.no_file_found'))
+      content_tag(:td, t('show.no_file'))
     end
   end
 
