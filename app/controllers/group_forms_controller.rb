@@ -8,6 +8,13 @@ class GroupFormsController < ApplicationController
       @group_form = current_user.group_forms.find(params[:id])
     end
 
+    @results = []
+    GroupForm.order(created_at: :asc).all.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+
 
     # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
@@ -32,6 +39,13 @@ class GroupFormsController < ApplicationController
   def index
     @group_forms = GroupForm.order(created_at: :asc)
     @group_form = current_user.group_forms.find(params[:id]) if params[:id].present?
+
+    @results = []
+    GroupForm.order(created_at: :asc).all.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
 
     # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
