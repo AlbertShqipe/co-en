@@ -102,10 +102,10 @@
                 <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                 <% if matching_file != nil %>
                   <% url =  matching_file["url"] %>
-                  <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                  <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
+                  <% updated_url = url.sub(/\.pdf\z/, '.png') if url.include?('.pdf') %>
+                  <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                   <% else %>
-                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                  <td><p><%=t('show.no_file')%></p></td>
                 <% end %>
               <% end %>
           <% end %>
@@ -121,7 +121,7 @@
                   <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                   <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                   <% else %>
-                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                  <td><%=t('show.no_file')%></td>
                 <% end %>
               <% end %>
           <% end %>
@@ -137,7 +137,7 @@
                   <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                   <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                   <% else %>
-                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                  <td><%=t('show.no_file')%></td>
                 <% end %>
               <% end %>
           <% end %>
