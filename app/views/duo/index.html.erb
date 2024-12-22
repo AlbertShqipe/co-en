@@ -107,6 +107,7 @@
                 </td>
               <% end %>
             </tr>
+            <!--
             <tr>
               <td><%= t('index_duo.td.participant_photo') %></td>
               <% duo.duo_participants.each do |participant| %>
@@ -159,6 +160,7 @@
               <td><%= t('edit.form') %></td>
               <td colspan=<%=duo.duo_participants.length%> style="text-align:center"><%= link_to t('edit.see'), duo_path(duo), class:"modify" %></td>
             </tr>
+            -->
           </tbody>
         </table>
       <% end %>
