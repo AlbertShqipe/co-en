@@ -1,5 +1,41 @@
 class DuoController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    if current_user.admin?
+      @duo = Duo.find(params[:id]) # Admins can access any duo
+    else
+      @duo = current_user.duos.find(params[:id]) # Competitors can access only their own duos
+    end
+
+    @results = []
+    Duo.order(created_at: :asc).all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @duos = Duo.order(created_at: :asc)
     @duo = current_user.duos.find(params[:id]) if params[:id].present?
@@ -23,6 +59,14 @@ class DuoController < ApplicationController
     end
     # raise
 
+    @results = []
+    Duo.order(created_at: :asc).each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+    end
+
     @duos_filter = Duo.by_discipline(params[:discipline])
                       .by_level(params[:level])
                       .after_date(params[:start_date]) if params[:start_date].present?
@@ -43,10 +87,6 @@ class DuoController < ApplicationController
     end
   end
 
-  def show
-    @duo = current_user.duos.find(params[:id])
-  end
-
   def new
     @duo = Duo.new
     @duo.duo_participants.build
@@ -62,6 +102,46 @@ class DuoController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @duo = Duo.includes(:duo_participants).find(params[:id])
+
+    # Code that runs only in development since it charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that should run only in production since it charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
+  def update
+    @duo = Duo.find_by(id: params[:id])
+
+    if @duo.nil?
+      redirect_to duos_path, alert: t('edit.flash_messages.not_found') and return
+    end
+
+    if @duo.update(duo_params)
+      redirect_to duo_path(@duo), notice: t('edit.flash_messages.success')
+    else
+      flash.now[:alert] = t('edit.flash_messages.error')
+      reload_cloudinary_resources
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
 
   def secret
     @duos.each do |duo|
@@ -90,8 +170,6 @@ class DuoController < ApplicationController
       end
     end
   end
-
-
 
   def info
     def calculate_age(birthdate)
@@ -174,49 +252,6 @@ class DuoController < ApplicationController
       render json: { error: "Duo not found" }, status: :not_found
   end
 
-  # def table
-  #   @duo = Duo.find(params[:id])
-  #   @results = []
-  #   Duo.all.each_with_index do |duo, index|
-  #     @results << {
-  #       count: index + 1,
-  #       id: duo.id,
-  #     }
-  #   end
-  #   total_age = @duo.duo_participants.sum { |participant| participant.age }
-  #   participant_count = @duo.duo_participants.size
-  #   average_age = participant_count > 0 ? total_age.to_f / participant_count : 0
-  #   average_age.round(2)
-  #   render json: {
-  #     id: @duo.id,
-  #     name: @duo.name,
-  #     responsable: @duo.responsable,
-  #     address: @duo.address,
-  #     phone: @duo.phone,
-  #     email: @duo.email,
-  #     discipline: @duo.discipline,
-  #     level: @duo.level,
-  #     title_of_music: @duo.title_of_music,
-  #     composer: @duo.composer,
-  #     length_of_piece: @duo.length_of_piece,
-  #     average_age: average_age.round(2),
-  #     duo_lists: @results,
-  #     participants: @duo.duo_participants.map { |participant| {
-  #                                                 id: participant.id,
-  #                                                 name: participant.name,
-  #                                                 last_name: participant.last_name,
-  #                                                 birth_date: participant.birth_date,
-  #                                                 age: participant.age,
-  #                                                 photo: participant.photo.key,
-  #                                                 file: participant.file,
-  #                                                 id_card: participant.id_card
-  #                                               }
-  #                                             }
-  #   }
-  #   rescue ActiveRecord::RecordNotFound
-  #     render json: { error: "Duo not found" }, status: :not_found
-  # end
-
   private
 
   def duo_params
@@ -225,7 +260,7 @@ class DuoController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       duo_participants_attributes: [
-        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :id, :name, :last_name, :birth_date, :age, :photo, :file, :id_card
       ]
     )
   end

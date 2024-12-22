@@ -1,0 +1,163 @@
+<%= render "shared/navbar"%>
+<div class="container">
+  <div class="index-links-containers">
+    <div class="link-container">
+      <a href="/individual_forms"><%= t('table.th') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/duo"><%= t('table.th2') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/trios"><%= t('table.th3') %></a>
+    </div>
+    <div class="link-container">
+      <a href="/group_forms"><%= t('table.th4') %></a>
+    </div>
+  </div>
+  <h1 style="text-align:center; margin-top:20px"><%=t('index_duo.th.duo_form')%> <%=@duo.name%></h1>
+  <% if all_participants_valid?(@duo.duo_participants, @results_prod, @results_prod_1, @results_dev) %>
+  <% else %>
+    <%= t('text_show').html_safe %>
+  <% end %>
+</div>
+<div style="width:90%; overflow-x:scroll; margin:auto">
+  <table class="table-form mx-auto">
+    <thead>
+      <tr style="width:50px">
+        <th><%= t('index_duo.th.attributes') %></th>
+        <th>
+            <%= t('index_duo.th.duo') %>
+            <% hash = @results.find { |hash| hash[:id] == @duo.id }%>
+            <%= hash[:count] %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= t('index_duo.td.name_of_duo') %></td>
+          <td><%=  @duo.name %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.responsable') %></td>
+          <td><%= @duo.responsable %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.group_address') %></td>
+          <td><%= @duo.address %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.phone') %></td>
+          <td><%= @duo.phone %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.email') %></td>
+          <td><%= @duo.email %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.discipline') %></td>
+          <td><%= @duo.discipline %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.level') %></td>
+          <td><%= @duo.level %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.music') %></td>
+          <td><%= @duo.title_of_music %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.composer') %></td>
+          <td><%= @duo.composer %></td>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.length_of_piece') %></td>
+        <td><%= @duo.length_of_piece %></td>
+      </tr>
+      <tr>
+        <th><b><%= t('index_duo.td.participant_name_lastName') %></b></th>
+        <% @duo.duo_participants.each_with_index do |participant, index| %>
+          <th><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <td><b><%= t('index_duo.td.participant_name_lastName') %></b></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <td style="text-align:center"><%= participant.name %> <%= participant.last_name %></td>
+        <%end%>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.participant_age') %></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <td>
+            <p style="text-align:center"><%= participant.birth_date %></p>
+            <p style="text-align:center"><%= calculate_age(participant.birth_date) %> years old</p>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= t('index_duo.td.participant_photo') %></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <% if participant.photo.attached? %>
+            <% url = matching_file_url(participant.photo.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% if url %>
+              <td style="text-align:center">
+                <a href="<%= url %>" target="_blank"><img src="<%= url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
+            <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td><%= t('index_duo.td.participant_file') %></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <% if participant.file.attached? %>
+            <% url = matching_file_url(participant.file.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% updated_url = url&.sub(/\.pdf\z/, '.png') %>
+            <% if updated_url %>
+              <td style="text-align:center">
+                <a href="<%= updated_url %>" target="_blank"><img src="<%= updated_url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
+            <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td><%= t('index_duo.td.participant_file1') %></td>
+        <% @duo.duo_participants.each do |participant| %>
+          <% if participant.id_card.attached? %>
+            <% url = matching_file_url(participant.id_card.key, @results_prod, @results_prod_1, @results_dev) %>
+            <% updated_url = url&.sub(/\.pdf\z/, '.png') %>
+            <% if updated_url %>
+              <td style="text-align:center">
+                <a href="<%= updated_url %>" target="_blank"><img src="<%= updated_url %>" alt="" width="50px"></a>
+              </td>
+            <% else %>
+              <td><p><%= t('show.no_file') %></p></td>
+            <% end %>
+          <% else %>
+            <td><p><%= t('show.no_file') %></p></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <% if all_participants_valid?(@duo.duo_participants, @results_prod, @results_prod_1, @results_dev) %>
+
+        <% else %>
+          <td><%= t('edit.modify_duo') %></td>
+          <td colspan="<%=@duo.duo_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_duo_path(@duo), class:"modify" %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<%= render("shared/footer") %>

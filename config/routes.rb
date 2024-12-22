@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :individual_forms, only: [:show, :index, :new, :create, :edit, :update]
 
   # User form application duo
-  resources :duo, only: [:show, :index, :show, :new, :create, :edit, :update] do
+  resources :duo, only: [:show, :index, :new, :create, :edit, :update] do
     resources :duo_participants, only: [:create, :destroy]
   end
 
