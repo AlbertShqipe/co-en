@@ -1,5 +1,42 @@
 class TriosController < ApplicationController
   before_action :authenticate_user!
+
+  def show
+    if current_user.admin?
+      @trio = Trio.find(params[:id]) # Admins can access any duo
+    else
+      @trio = current_user.trios.find(params[:id]) # Competitors can access only their own duos
+    end
+
+
+    @results = []
+    Trio.order(created_at: :asc).all.each_with_index do |duo, index|
+      @results << {
+        count: index + 1,
+        id: duo.id,
+      }
+    end
+
+    # Code that charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
   def index
     @trios = Trio.order(created_at: :asc)
     @trio = current_user.trios.find(params[:id]) if params[:id].present?
@@ -43,9 +80,6 @@ class TriosController < ApplicationController
     end
   end
 
-  def show
-    @trio = current_user.trios.find(params[:id])
-  end
 
   def new
     @trio = Trio.new
@@ -61,6 +95,38 @@ class TriosController < ApplicationController
       redirect_to confirmation_form_path, notice: notice_message
     else
       render :new
+    end
+  end
+
+  def edit
+    @trio = Trio.find(params[:id])
+    # Code that charges the assets uploaded in development
+    @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
+
+    # Code that charges the assets uploaded in production
+    response = Cloudinary::Api.resources(type: "upload", prefix: "production", max_results: 500)
+    @results_prod = response['resources']
+
+    if response['next_cursor']
+      @results_prod_1 = Cloudinary::Api.resources(
+        type: "upload",
+        prefix: "production",
+        max_results: 500,
+        next_cursor: response['next_cursor']
+      )['resources']
+    else
+      @results_prod_1 = []
+    end
+    # raise
+  end
+
+  def update
+    @trio = Trio.find(params[:id])
+    if @trio.update(trio_params)
+      notice_message = I18n.t('trio_form.update.success')
+      redirect_to trio_path(@trio), notice: notice_message
+    else
+      render :edit, alert: t('edit.flash_messages.error')
     end
   end
 
@@ -148,7 +214,7 @@ class TriosController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       trio_participants_attributes: [
-        :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :id, :name, :last_name, :birth_date, :age, :photo, :file, :id_card, :_destroy
       ]
     )
   end

@@ -1,0 +1,156 @@
+<%= render "shared/navbar"%>
+  <div class="container">
+    <div class="index-links-containers">
+      <div class="link-container">
+        <a href="/individual_forms"><%= t('table.th') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/duo"><%= t('table.th2') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/trios"><%= t('table.th3') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/group_forms"><%= t('table.th4') %></a>
+      </div>
+    </div>
+    <h1 style="text-align:center; margin-top:20px"><%=t('index_trios.th.trio')%> <%=@trio.name%></h1>
+    <% if all_participants_valid?(@trio.trio_participants, @results_prod, @results_prod_1, @results_dev) %>
+    <% else %>
+      <%= t('text_show').html_safe %>
+    <% end %>
+  </div>
+  <div style="width:90%; overflow-x:scroll; margin:auto">
+    <table class="table-form mx-auto">
+      <thead>
+        <tr style="width:50px">
+          <th><%= t('index_trio.th.attributes') %></th>
+          <th>
+              <%= t('index_trio.th.trio') %>
+              <% hash = @results.find { |hash| hash[:id] == @trio.id }%>
+              <%= hash[:count] %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= t('index_trio.td.name_of_trio') %></td>
+            <td><%=  @trio.name %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.responsable') %></td>
+            <td><%= @trio.responsable %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.group_address') %></td>
+            <td><%= @trio.address %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.phone') %></td>
+            <td><%= @trio.phone %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.email') %></td>
+            <td><%= @trio.email %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.discipline') %></td>
+            <td><%= @trio.discipline %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.level') %></td>
+            <td><%= @trio.level %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.music') %></td>
+            <td><%= @trio.title_of_music %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.composer') %></td>
+            <td><%= @trio.composer %></td>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.length_of_piece') %></td>
+            <td><%= @trio.length_of_piece %></td>
+        </tr>
+        <tr>
+          <th><b><%= t('index_trio.td.participant_name_lastName') %></b></th>
+          <% @trio.trio_participants.each_with_index do |participant, index| %>
+            <th><%= t('index_trio.td.participant_name_lastName') %> <%= index + 1 %></th>
+          <% end %>
+        </tr>
+        <tr>
+          <td><b><%= t('index_trio.td.participant_name_lastName') %></b></td>
+          <% @trio.trio_participants.each do |participant| %>
+            <td style="text-align:center"><%= participant.name %> <%= participant.last_name %></td>
+          <%end%>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.participant_age') %></td>
+          <% @trio.trio_participants.each do |participant| %>
+            <td>
+              <p style="text-align:center"><%= participant.birth_date %></p>
+              <p style="text-align:center"><%= calculate_age(participant.birth_date) %> years old</p>
+            </td>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.participant_photo') %></td>
+          <% @trio.trio_participants.each do |participant| %>
+              <% if participant.photo.attached? %>
+                <% key = participant.photo.key %>
+                <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                <% if matching_file != nil %>
+                  <% url =  matching_file["url"] %>
+                  <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                  <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
+                  <% else %>
+                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                <% end %>
+              <% end %>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.participant_file') %></td>
+          <% @trio.trio_participants.each do |participant| %>
+              <% if participant.file.attached? %>
+                <% key = participant.file.key %>
+                <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                <% if matching_file != nil %>
+                  <% url =  matching_file["url"] %>
+                  <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                  <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                  <% else %>
+                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                <% end %>
+              <% end %>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= t('index_trio.td.participant_file1') %></td>
+          <% @trio.trio_participants.each do |participant| %>
+              <% if participant.id_card.attached? %>
+                <% key = participant.id_card.key %>
+                <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                <% if matching_file != nil %>
+                  <% url =  matching_file["url"] %>
+                  <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                  <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                  <% else %>
+                  <td><p>Aucun fichier correspondant trouvé.</p></td>
+                <% end %>
+              <% end %>
+          <% end %>
+        </tr>
+        <tr>
+          <% if all_participants_valid?(@trio.trio_participants, @results_prod, @results_prod_1, @results_dev) %>
+
+          <% else %>
+            <td><%= t('edit.modify_trio') %></td>
+            <td colspan="<%=@trio.trio_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_trio_path(@trio), class:"modify" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<%= render("shared/footer") %>
