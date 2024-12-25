@@ -1,0 +1,19 @@
+<h1>New Application Submitted</h1>
+<p>A new application has been submitted with the following details:</p>
+<ul>
+  <li><strong>Name:</strong> <%= @application.first_name %> <%  @application.last_name %></li>
+  <li><strong>Birth Date:</strong> <%= @application.birth_date %></li>
+  <li><strong>Email:</strong> <%= @application.email %></li>
+  <li><strong>Address:</strong> <%= @application.address %></li>
+  <li><strong>Phone:</strong> <%= @application.phone %></li>
+  <li><strong>Teacher Name:</strong> <%= @application.teacher_name %></li>
+  <li><strong>Dance School:</strong> <%= @application.dance_school %></li>
+  <li><strong>Teacher Phone:</strong> <%= @application.teacher_phone %></li>
+  <li><strong>Teacher Email:</strong> <%= @application.teacher_email %></li>
+  <li><strong>Category:</strong> <%= @application.category %></li>
+  <li><strong>Style:</strong> <%= @application.style %></li>
+  <li><strong>Level:</strong> <%= @application.level %></li>
+  <li><strong>Photo:</strong> <%= @application.photo.key %></li>
+  <li><strong>File:</strong> <%= @application.file.key %></li>
+  <li><strong>ID Card:</strong> <%= @application.id_card.key %></li>
+</ul>
