@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: 'concours.entrelace@gmail.com'
+  default from: 's.kiblade@icloud.com'
 
   def new_application_email(application)
     @application = application
