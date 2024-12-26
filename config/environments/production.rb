@@ -5,13 +5,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address:              "smtp.mail.me.com",
+    address:              "smtp.mailersend.net",
     port:                 587,
-    domain:               "icloud.com",
-    user_name:            ENV["SMTP_EMAIL"], # Your full iCloud email
-    password:             ENV["SMTP_PASSWORD"], # Your app-specific password
+    domain:               "concours-entrelace.com",
+    user_name: ENV["MAILERSEND_USERNAME"],
+    password: ENV["MAILERSEND_PASSWORD"], # Your MailerSend password
     authentication:       :login,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    tls:                  true # Explicitly ensure TLS is used
   }
 
   # Code is not reloaded between requests.
