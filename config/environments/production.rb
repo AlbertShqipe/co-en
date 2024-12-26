@@ -6,13 +6,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address:              "smtp.mailersend.net",
-    port:                 587,
+    port:                 587, # MailerSend recommends this port for STARTTLS
     domain:               "concours-entrelace.com",
-    user_name: ENV["MAILERSEND_USERNAME"],
-    password: ENV["MAILERSEND_PASSWORD"], # Your MailerSend password
+    user_name:            ENV["MAILERSEND_USERNAME"],
+    password:             ENV["MAILERSEND_PASSWORD"],
     authentication:       :login,
-    enable_starttls_auto: true,
-    tls:                  true # Explicitly ensure TLS is used
+    enable_starttls_auto: true # Ensures STARTTLS is used
   }
 
   # Code is not reloaded between requests.
