@@ -10,8 +10,7 @@ Rails.application.configure do
     domain:               "concours-entrelace.com",
     user_name:            ENV["MAILERSEND_USERNAME"],
     password:             ENV["MAILERSEND_PASSWORD"],
-    authentication:       :login,
-    enable_starttls_auto: true # Ensures STARTTLS is used
+
   }
 
   # Code is not reloaded between requests.
