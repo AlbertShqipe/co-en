@@ -4,14 +4,17 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "https://www.concours-entrelace.com" }
 
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              "smtp.mailersend.net",
-    port:                 587, # MailerSend recommends this port for STARTTLS
-    domain:               "concours-entrelace.com",
-    user_name:            ENV["MAILERSEND_USERNAME"],
-    password:             ENV["MAILERSEND_PASSWORD"],
-
-  }
+    address:         "smtp.mailersend.net",
+    port:            587,
+    domain:          "concours-entrelace.com",
+    user_name:       ENV["MAILERSEND_USERNAME"],
+    password:        ENV["MAILERSEND_PASSWORD"],
+    authentication:  "plain",
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
