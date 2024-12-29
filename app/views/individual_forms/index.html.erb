@@ -98,7 +98,7 @@
               <% end %>
             </tr>
             <tr>
-              <td><%= t('index_individuals.td.techer_phone') %></td>
+              <td><%= t('index_individuals.td.teacher_phone') %></td>
               <% current_user.individual_forms.each do |form| %>
                 <td><%= form.teacher_phone %></td>
               <% end %>
@@ -338,29 +338,29 @@
                 <% end %>
               </tr>
               <tr>
-                  <td><%= t('index_individuals.td.profile_pic') %></td>
-                  <% @individual_forms.each do |form| %>
-                    <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_individuals.td.file') %></td>
-                  <% @individual_forms.each do |form| %>
-                    <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_individuals.td.id_card') %></td>
-                  <% @individual_forms.each do |form| %>
-                    <%= render_file_cell(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('edit.form') %></td>
-                  <% @individual_forms.each do |form| %>
-                    <td style="text-align:center"><%= link_to t('edit.see'), individual_form_path(form), class:"modify" %></td>
-                  <% end %>
-                </tr>
+                <td><%= t('index_individuals.td.profile_pic') %></td>
+                <% @individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.file') %></td>
+                <% @individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('index_individuals.td.id_card') %></td>
+                <% @individual_forms.each do |form| %>
+                  <%= render_file_cell(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= t('edit.form') %></td>
+                <% @individual_forms.each do |form| %>
+                  <td style="text-align:center"><%= link_to t('edit.see'), individual_form_path(form), class:"modify" %></td>
+                <% end %>
+              </tr>
               <tr>
                   <td><%= t("index_individuals.td.created_at") %></td>
                 <% @individual_forms.each do |form| %>
