@@ -109,7 +109,6 @@ class IndividualFormsController < ApplicationController
 
     if @individual_form.save
       notice_message = I18n.t('individual_form.create.success')
-      NotificationMailer.new_application_email(@individual_form).deliver_now
       redirect_to confirmation_form_path, notice: notice_message
     else
       alert_message1 = I18n.t('individual_form.create.error')
