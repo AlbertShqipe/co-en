@@ -25,7 +25,10 @@
             </div>
             <div>
               <%# <%= f.label :birth_date, "Birthday" %>
+              <span id="birthDateError" class="error-message" style="margin-bottom:-20px;text-align:left;color: red;display:none">Please fill in your birthday.</span>
               <%= f.date_field :birth_date, required: true, id:"myID", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday'), class: "input-form birthday" %> <br>
+            </div>
+
             </div>
           </div>
 
@@ -66,16 +69,19 @@
           <div class="individual-registration-form-forth">
             <div id="category">
               <%# <%= f.label :category, class: "label" %>
-              <%= f.select :category,  options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session" %> <br>
+              <span id="categoryError" class="error-message" style="color: red; display: none;">Please select a category.</span>
+              <%= f.select :category,  options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session", id: "categoryInput" %> <br>
             </div>
 
             <div id="style">
               <%# <%= f.label :style, class: "label" %>
+              <span id="styleError" class="error-message" style="color: red; display: none;">Please select a style.</span>
               <%= f.select :style,  options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id:"style" %><br>
             </div>
 
             <div id="level">
               <%# <%= f.label :level, class: "label" %>
+              <span id="levelError" class="error-message" style="color: red; display: none;">Please select a level.</span>
               <%= f.select :level,  options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id:"level" %> <br>
             </div>
           </div>
@@ -83,19 +89,19 @@
           <div class="individual-registration-form-fifth">
             <div class="custom-file-input">
               <span>Format (.jpeg, .jpg, .png)</span><br>
-              <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
+              <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input", required: true %>
               <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
               <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <span>Format (pdf)</span><br>
-              <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input" %>
+              <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input", required: true %>
               <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
               <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <span>Format (pdf)</span><br>
-              <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input" %>
+              <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input", required: true %>
               <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
               <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
@@ -111,13 +117,48 @@
   </div>
 </div>
 <script>
-  document.getElementById('photo-input').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select elements
+    const form = document.querySelector('.form');
+    const fields = [
+      { id: 'myID', errorId: 'birthDateError' },
+      { id: 'individual_form_category', errorId: 'categoryError' },
+      { id: 'individual_form_style', errorId: 'styleError' },
+      { id: 'individual_form_level', errorId: 'levelError' },
+    ];
 
-    if (file && !allowedTypes.includes(file.type)) {
-      alert('Invalid file type! Please select a JPEG or PNG image.');
-      event.target.value = ''; // Clear the input if the file is invalid
-    }
+    // Helper to handle validation
+    const validateField = (field) => {
+      const input = document.getElementById(field.id);
+      const errorMessage = document.getElementById(field.errorId);
+      if (!input || !errorMessage) return;
+
+      // Add input event listener to hide error
+      input.addEventListener('input', () => {
+        if (input.value) {
+          errorMessage.style.display = 'none';
+        }
+      });
+
+      // Return validation function for form submit
+      return () => {
+        if (!input.value) {
+          errorMessage.style.display = 'block';
+          input.focus();
+          return false;
+        }
+        errorMessage.style.display = 'none';
+        return true;
+      };
+    };
+
+    // Collect validation functions
+    const validators = fields.map(validateField).filter(Boolean);
+
+    // Form submission event
+    form.addEventListener('submit', (e) => {
+      const isValid = validators.every((validate) => validate());
+      if (!isValid) e.preventDefault();
+    });
   });
 </script>
