@@ -722,7 +722,7 @@ en:
   group_form_index:
     text: |
       <h3 class="text-center">You have not submitted any Group forms yet</h3>
-    title_f: ''
+    title_f: ' '
     title_en: "'s Group Forms"
 
   session_links:

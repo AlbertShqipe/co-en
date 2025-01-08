@@ -130,11 +130,25 @@
             <tr>
               <td><%= t('index_individuals.td.profile_pic') %></td>
               <% current_user.individual_forms.each do |form| %>
-                <% if form.photo.attached? %>
-                  <td style="text-align:center"><%= cl_image_tag form.photo.key, height: 50, width: 40 %></td>
-                <% else %>
-                  <td></td>
-                <% end %>
+                <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_individuals.td.file') %></td>
+              <% current_user.individual_forms.each do |form| %>
+                <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_individuals.td.id_card') %></td>
+              <% current_user.individual_forms.each do |form| %>
+                <%= render_file_cell(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('edit.form') %></td>
+              <% current_user.individual_forms.each do |form| %>
+                <td style="text-align:center"><%= link_to t('edit.see'), individual_form_path(form), class:"modify" %></td>
               <% end %>
             </tr>
           </tbody>
