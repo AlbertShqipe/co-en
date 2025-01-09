@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+
 // Connects to data-controller="duo-participants"
 export default class extends Controller {
   connect() {

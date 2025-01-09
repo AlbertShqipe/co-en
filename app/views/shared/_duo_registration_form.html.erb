@@ -15,46 +15,48 @@
           <div class="duo-registration-form-first">
             <div class="field">
               <%# <%= f.label :name %>
-              <%= f.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.name'), class: "input-form" %>
+              <%= f.text_field :name, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.name'), class: "input-form" %>
             </div>
             <div>
               <%# <%= form.label :responsable %>
-              <%= f.text_field :responsable, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.responsable'), class: "input-form" %>
+              <%= f.text_field :responsable, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.responsable'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :address %>
-              <%= f.text_field :address, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.address'), class: "input-form" %>
+              <%= f.text_field :address, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.address'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :phone %>
-              <%= f.text_field :phone, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.phone'), class: "input-form" %>
+              <%= f.text_field :phone, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.phone'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :email %>
-              <%= f.text_field :email, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.email'), class: "input-form" %>
+              <%= f.text_field :email, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.email'), class: "input-form" %>
             </div>
           </div>
           <div class="duo-registration-form-second">
             <div>
               <%# <%= f.label :title_of_piece %>
-              <%= f.text_field :title_of_music, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.title_of_music'), class: "input-form" %>
+              <%= f.text_field :title_of_music, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.title_of_music'), class: "input-form" %>
             </div>
             <div>
-              <%= f.text_field :composer, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.composer'), class: "input-form" %>
+              <%= f.text_field :composer, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.composer'), class: "input-form" %>
             </div>
             <div>
               <%# <%= f.label :length_of_piece, "Length of Piece in minutes", class: "label" %>
-              <%= f.number_field :length_of_piece, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.length_of_piece'), class: "input-form", step: 0.01, min: 0 %>
+              <%= f.number_field :length_of_piece, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.placeholders.length_of_piece'), class: "input-form", step: 0.01, min: 0 %>
             </div>
           </div>
           <div class="duo-registration-form-third">
             <div id="style">
               <%# <%= f.label :discipline %>
-              <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.disciplines'), class: "input-session" %>
+              <span id="styleError" class="error-message" style="color: red; display: none;">Please select a style.</span>
+              <%= f.select :discipline, options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.disciplines'), class: "input-session", id: "style" %>
             </div>
             <div id="level">
               <%# <%= f.label :level %>
-              <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.level'), class: "input-session", id:"category"%>
+              <span id="levelError" class="error-message" style="color: red; display: none;">Please select a level.</span>
+              <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.level'), class: "input-session", id:"category level"%>
             </div>
           </div>
 
@@ -67,13 +69,14 @@
                 <div class="participant-fields mb-3 pb-3" style="border-bottom:1px solid red">
                   <div class="duo-registration-form-participant-first">
                     <div>
-                      <%= p.text_field :name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
+                      <%= p.text_field :name, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.text_field :last_name, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name'), class: "input-form-group" %>
+                      <%= p.text_field :last_name, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name'), class: "input-form-group" %>
                     </div>
                     <div>
-                      <%= p.date_field :birth_date, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
+                      <span id="birthDateError" class="error-message" style="margin-bottom:20px;text-align:left;color: red;display:none">Please fill in the birthday.</span>
+                      <%= p.date_field :birth_date, required: true, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday'), id:"myID", class: "input-form-group" %>
                     </div>
                     <div data-controller="age">
                       <%= p.number_field :age, placeholder: t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age'), class: "input-form-group", id:"age-input", readonly: true %>
@@ -82,19 +85,19 @@
                   <div class="duo-registration-form-participant-second">
                     <div class="custom-file-input">
                       <span>Format (.jpeg, .jpg, .png)</span><br>
-                      <%= p.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
+                      <%= p.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input", required: true %>
                       <label for="photo-input" id="photo-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
                       <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
                       <span>Format (pdf)</span><br>
-                      <%= p.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input" %>
+                      <%= p.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input", required: true %>
                       <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
                       <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
                       <span>Format (pdf)</span><br>
-                      <%= p.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input" %>
+                      <%= p.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input", required: true %>
                       <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label>
                       <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
@@ -104,13 +107,14 @@
               <div class="participant-fields mb-3 pb-3" data-controller="age" style="border-bottom:1px solid red">
                 <div class="duo-registration-form-participant-first">
                   <div>
-                    <input type="text" name="duo[duo_participants_attributes][1][name]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name')%>" class="input-form-group">
+                    <input type="text" required name="duo[duo_participants_attributes][1][name]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.name')%>" class="input-form-group">
                   </div>
                   <div>
-                    <input type="text" name="duo[duo_participants_attributes][1][last_name]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name')%>" class="input-form-group">
+                    <input type="text" required name="duo[duo_participants_attributes][1][last_name]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.last_name')%>" class="input-form-group">
                   </div>
                   <div>
-                    <input type="date" name="duo[duo_participants_attributes][1][birth_date]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday')%>" class="input-form-group" id="myID">
+                    <span id="birthDateError1" class="error-message" style="margin-bottom:20px;text-align:left;color: red;display:none">Please fill in the birthday.</span>
+                    <input type="date" name="duo[duo_participants_attributes][1][birth_date]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.birthday')%>" class="input-form-group" id="myID1">
                   </div>
                   <div>
                     <input type="number" name="duo[duo_participants_attributes][1][age]" placeholder="<%=t('duo_registration_form.registration_form_inner_text.duo.participant.placeholders.age')%>" class="input-form-group" id="age-input" readonly>
@@ -118,17 +122,17 @@
                 </div>
                 <div class="duo-registration-form-participant-second">
                   <div class="custom-file-input">
-                    <input type="file" name="duo[duo_participants_attributes][1][photo]" id="photo-input1" class="file-input" accept="image/jpeg, image/jpg, image/png">
+                    <input type="file" required name="duo[duo_participants_attributes][1][photo]" id="photo-input1" class="file-input" accept="image/jpeg, image/jpg, image/png">
                     <label for="photo-input1" id="photo-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
                     <span id="photo-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
                   <div class="custom-file-input">
-                    <input type="file" name="duo[duo_participants_attributes][1][file]" id="file-input1" class="file-input" accept="application/pdf">
+                    <input type="file" required name="duo[duo_participants_attributes][1][file]" id="file-input1" class="file-input" accept="application/pdf">
                     <label for="file-input1" id="file-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
                     <span id="file-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
                   <div class="custom-file-input">
-                    <input type="file" name="duo[duo_participants_attributes][1][id_card]" id="id-input1" class="file-input" accept="application/pdf">
+                    <input type="file" required name="duo[duo_participants_attributes][1][id_card]" id="id-input1" class="file-input" accept="application/pdf">
                     <label for="id-input1" id="id-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label>
                     <span id="id-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
@@ -144,3 +148,49 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select elements
+    const form = document.querySelector('form');
+    const fields = [
+      { id: 'myID', errorId: 'birthDateError' },
+      { id: 'myID1', errorId: 'birthDateError1' },
+      { id: 'duo_discipline', errorId: 'styleError' },
+      { id: 'duo_level', errorId: 'levelError' },
+    ];
+
+    // Helper to handle validation
+    const validateField = (field) => {
+      const input = document.getElementById(field.id);
+      console.log("input", input);
+      const errorMessage = document.getElementById(field.errorId);
+      if (!input || !errorMessage) return;
+      // Add input event listener to hide error
+      input.addEventListener('input', () => {
+        if (input.value) {
+          errorMessage.style.display = 'none';
+        }
+      });
+
+      // Return validation function for form submit
+      return () => {
+        if (!input.value) {
+          errorMessage.style.display = 'block';
+          input.focus();
+          return false;
+        }
+        errorMessage.style.display = 'none';
+        return true;
+      };
+    };
+
+    // Collect validation functions
+    const validators = fields.map(validateField).filter(Boolean);
+
+    // Form submission event
+    form.addEventListener('submit', (e) => {
+      const isValid = validators.every((validate) => validate());
+      if (!isValid) e.preventDefault();
+    });
+  });
+</script>
