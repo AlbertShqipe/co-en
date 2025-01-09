@@ -10,7 +10,7 @@
                         url: duo_index_path,
                         local: true,
                         method: :post,
-                        data: { controller: "flatpickr duo-participants age" }
+                        data: { controller: "flatpickr age" }
                       ) do |f| %>
           <div class="duo-registration-form-first">
             <div class="field">
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div>
+          <div data-controller="duo-participants">
             <div class="d-flex">
               <h3 style="text-align:left"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.participants') %></h3>
             </div>
