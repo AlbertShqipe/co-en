@@ -1,16 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "https://www.concours-entrelace.com" }
-  config.action_mailer.default_options = { from: "concours.entrelace@gmail.com" }
-
-  config.action_mailer.delivery_method = :sendmail
-    # Defaults to:
-    # config.action_mailer.sendmail_settings = {
-    #   location: '/usr/sbin/sendmail',
-    #   arguments: %w[ -i ]
-    # }
-  config.action_mailer.perform_deliveries = true
+  config.x.mail_from = 'concours.entrelace@gmail.com'
+  config.action_mailer.default_url_options = { host: 'www.concours-entrelace.com' }
+  config.action_mailer.smtp_settings = { address: 'email-smtp.eu-north-1.amazonaws.com', user_name: 'AKIATBRPQPP5TU3LMEVK', password: 'BM58u4ihg7NjM2WzilHplo+5UTQ3dPQrb/Q8xstKGE8A' }
   config.action_mailer.raise_delivery_errors = true
 
   # Code is not reloaded between requests.
