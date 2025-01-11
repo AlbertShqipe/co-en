@@ -1,11 +1,14 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.x.mail_from = 'concours.entrelace@gmail.com'
-  config.action_mailer.default_url_options = { host: 'www.concours-entrelace.com' }
-  config.action_mailer.smtp_settings = { address: 'email-smtp.eu-north-1.amazonaws.com', user_name: 'AKIATBRPQPP5TU3LMEVK', password: 'BM58u4ihg7NjM2WzilHplo+5UTQ3dPQrb/Q8xstKGE8A' }
-  config.action_mailer.raise_delivery_errors = true
-
+  config.action_mailer.smtp_settings = {
+    address: 'email-smtp.eu-north-1.amazonaws.com', # Change region if needed
+    port: 587, # Or 465 for SSL
+    user_name: 'AKIATBRPQP5TU3LMEVK', # Your SMTP username
+    password: 'BM58u4ihg7NjM2WzilHplo+5UTQ3dPOrb/Q8xstKGE8A', # Your SMTP password
+    authentication: :login, # AWS SES requires login
+    enable_starttls_auto: true # Ensures secure connection
+  }
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
