@@ -23,6 +23,7 @@ module CoEn
     # Optionally, set the available locales
     config.i18n.available_locales = [:en, :fr]
 
+    config.action_mailer.default_url_options = { host: "www.concours-entrelace.com" }
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
