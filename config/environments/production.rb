@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'www.concours-entrelace.com' }
   config.action_mailer.smtp_settings = {
     address: 'email-smtp.eu-north-1.amazonaws.com', # Change region if needed
     port: 587, # Or 465 for SSL
