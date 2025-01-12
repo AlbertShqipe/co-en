@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.3.4"
 
+# Mailchimp
+gem "MailchimpTransactional", "~> 1.0.6"
+
 # Cloudinary Gem
 gem "cloudinary"
 
