@@ -4,15 +4,25 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'www.concours-entrelace.com' }
   config.action_mailer.smtp_settings = {
-    address: 'email-smtp.eu-north-1.amazonaws.com', # Change region if needed
-    port: 587, # Or 465 for SSL
-    user_name: ENV['AWS_SES_NAME'], # Your SMTP username
-    password: ENV['AWS_SES_PASS'], # Your SMTP password
-    authentication: :login, # AWS SES requires login
-    enable_starttls_auto: true # Ensures secure connection
+    address: 'smtp.mandrillapp.com',
+    port: 587,
+    user_name: 'AlbertNikolliWeb', # Replace with your Mandrill username
+    password: ENV['MAILCHIMP_API_TOKEN'], # Replace with your Mandrill API key
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'email-smtp.eu-north-1.amazonaws.com', # Change region if needed
+  #   port: 587, # Or 465 for SSL
+  #   user_name: ENV['AWS_SES_NAME'], # Your SMTP username
+  #   password: ENV['AWS_SES_PASS'], # Your SMTP password
+  #   authentication: :login, # AWS SES requires login
+  #   enable_starttls_auto: true # Ensures secure connection
+  # }
   # Code is not reloaded between requests.
   config.enable_reloading = false
+
+
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -63,8 +73,8 @@ Rails.application.configure do
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+  .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+  .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -86,6 +96,9 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
+
+  # Ensure emails are delivered in production
+  config.action_mailer.perform_deliveries = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
