@@ -14,15 +14,15 @@
                   required: true,
                   autofocus: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "input-session" } %>
       <%= f.input :password_confirmation,
                   label: t("devise_session.passwords.edit.text3"),
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: "input-session" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, t("devision_session.reset_password.text2") %>
+      <%= f.button :submit, t("devision_session.reset_password.text2"), class: "input-btn"  %>
     </div>
   <% end %>
 
