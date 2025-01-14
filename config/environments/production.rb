@@ -2,6 +2,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
+
+  # Maindrill configuration
   config.action_mailer.default_url_options = { host: 'www.concours-entrelace.com' }
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
@@ -11,14 +13,17 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
-  # config.action_mailer.smtp_settings = {
-  #   address: 'email-smtp.eu-north-1.amazonaws.com', # Change region if needed
-  #   port: 587, # Or 465 for SSL
-  #   user_name: ENV['AWS_SES_NAME'], # Your SMTP username
-  #   password: ENV['AWS_SES_PASS'], # Your SMTP password
-  #   authentication: :login, # AWS SES requires login
-  #   enable_starttls_auto: true # Ensures secure connection
-  # }
+
+  # Amazon SES configuration
+  config.action_mailer.ses_settings = {
+    address: 'email-smtp.eu-west-3.amazonaws.com', # 'email-smtp.<region>.amazonaws.com'
+    port: 587,       # 587
+    user_name: ENV['AWS_USERNAME'],
+    password: ENV['AWS_PASS'],
+    authentication: 'login',
+    enable_starttls_auto: true
+  }
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
