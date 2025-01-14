@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,4 +11,10 @@ class User < ApplicationRecord
   has_many :trios, dependent: :destroy
 
   enum role: { admin: 0, competitor: 1, jury: 2 }
+
+  private
+
+  def send_welcome_email
+    WelcomeMailer.welcome_email(self).deliver_later
+  end
 end
