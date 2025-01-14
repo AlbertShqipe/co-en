@@ -14,6 +14,8 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], namespace: 'concours-entrelace-1' }
+
   # # Amazon SES configuration
   # config.action_mailer.ses_settings = {
   #   address: 'email-smtp.eu-west-3.amazonaws.com', # 'email-smtp.<region>.amazonaws.com'
