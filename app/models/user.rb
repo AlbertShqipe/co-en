@@ -15,7 +15,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    WelcomeMailer.welcome_email(self).deliver_later
+    WelcomeMailer.welcome_email(self).deliver_now
   rescue StandardError => e
     Rails.logger.error "Failed to send welcome email: #{e.message}"
   end
