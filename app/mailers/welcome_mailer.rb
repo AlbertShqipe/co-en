@@ -4,7 +4,7 @@ class WelcomeMailer < ApplicationMailer
     @url = 'https://www.concours-entrelace.com/users/sign_in' # Adjust to your login URL
 
     # Attach the image
-    attachments.inline['LogoFullOrange1.png'] = File.read(Rails.root.join('app/assets/images/LogoFullOrange1.png'))
+    # attachments.inline['LogoFullOrange1.png'] = File.read(Rails.root.join('app/assets/images/LogoFullOrange1.png'))
 
     mail(
       to: @user.email,
