@@ -8,6 +8,9 @@ gem "MailchimpTransactional", "~> 1.0.6"
 # Cloudinary Gem
 gem "cloudinary"
 
+# To use ActiveRecord to queue the mail
+gem 'sidekiq'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
