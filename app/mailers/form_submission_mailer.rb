@@ -1,5 +1,5 @@
 class FormSubmissionMailer < ApplicationMailer
-  def solo_form_submission(solo)
+  def solo_submission(solo)
     @solo = solo
     @user =  solo.user
     @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
@@ -9,7 +9,7 @@ class FormSubmissionMailer < ApplicationMailer
     )
   end
 
-  def duo_form_submission(duo)
+  def duo_submission(duo)
     @duo = duo
 
     mail(
@@ -18,7 +18,7 @@ class FormSubmissionMailer < ApplicationMailer
     )
   end
 
-  def trio_form_submission(trio)
+  def trio_submission(trio)
     @trio = trio
     mail(
       to: trio.user.email,
@@ -26,7 +26,7 @@ class FormSubmissionMailer < ApplicationMailer
     )
   end
 
-  def group_form_submission(group)
+  def group_submission(group)
     @group = group
     mail(
       to: group.user.email,
