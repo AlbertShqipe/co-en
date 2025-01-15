@@ -1,0 +1,27 @@
+<html>
+  <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <h3>Confirmation de soumission du formulaire individuel</h3>
+    <p>Bonjour <%= @user.name.capitalize %> <%= @user.last_name.capitalize %>,</p>
+    <p>Nous vous remercions pour votre inscription en catégorie individuelle au Concours Entrelacé.<br>
+      Votre formulaire a été soumis avec succès.</p>
+
+    <h4>Rappel des informations importantes :</h4>
+    <ul>
+      <li><strong>Dates clés de la compétition :</strong> 19 & 20 AVRIL 2025</li>
+      <li><strong>Lieu de l’événement :</strong> Espace Albert Camus, 1 rue Maryse Bastié, 69500 BRON</li>
+      <li><strong>Règlement et programme :</strong> <a href="https://www.concours-entrelace.com/regulation?locale=fr" style="color: #eb4301;">Cliquez ici</a></li>
+    </ul>
+
+    <p>Vous pouvez consulter ou modifier vos informations via votre espace personnel :</p>
+    <p style="text-align: center; margin: 20px;">
+      <a href="<%= @url %>" style="background-color: #eb4301; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px;">Accéder à mon compte</a>
+    </p>
+
+    <p>Nous sommes ravis de vous compter parmi nos participants.<br>
+      Pour toute question, contactez-nous à : <a href="mailto:concours.entrelace@gmail.com" style="color: #eb4301;">concours.entrelace@gmail.com</a></p>
+
+    <p>Avec nos salutations artistiques,<br>
+      <strong>Almendra Navarro</strong><br>
+      Directrice Artistique</p>
+  </body>
+</html>

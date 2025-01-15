@@ -704,7 +704,7 @@ fr:
   individual_form_index:
     text: |
       <h3 class="text-center">Vous n'avez pas encore soumis de formulaires individuels</h3>
-    title_f: 'Formulaires Individuelles de '
+    title_f: 'Formulaires Individuels de '
     title_en: " "
 
   duo_form_index:

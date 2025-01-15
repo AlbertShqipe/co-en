@@ -1,5 +1,6 @@
 class IndividualForm < ApplicationRecord
   belongs_to :user
+  after_create :send_submission_email
 
   has_one_attached :photo
   has_one_attached :file
@@ -17,4 +18,10 @@ class IndividualForm < ApplicationRecord
   scope :by_style, ->(styles) { where(style: styles) if styles.present? }
   scope :by_level, ->(levels) { where(level: levels) if levels.present? }
   scope :after_date, ->(start_date) { where("created_at >= ?", start_date) if start_date.present? }
+
+  private
+
+  def send_submission_email
+    FormSubmissionMailer.solo_form_submission(self).deliver_now
+  end
 end
