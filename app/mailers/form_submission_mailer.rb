@@ -11,7 +11,8 @@ class FormSubmissionMailer < ApplicationMailer
 
   def duo_submission(duo)
     @duo = duo
-
+    @user =  duo.user
+    @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
     mail(
       to: duo.user.email,
       subject: "Confirmation de soumission du formulaire de Duo"

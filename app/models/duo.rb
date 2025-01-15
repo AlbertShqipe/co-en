@@ -1,5 +1,6 @@
 class Duo < ApplicationRecord
   belongs_to :user
+  after_create :send_submission_email
 
   has_many :duo_participants, inverse_of: :duo, dependent: :destroy
 
@@ -15,4 +16,12 @@ class Duo < ApplicationRecord
   scope :by_discipline, ->(disciplines) { where(discipline: disciplines) if disciplines.present? }
   scope :by_level, ->(levels) { where(level: levels) if levels.present? }
   scope :after_date, ->(start_date) { where("created_at >= ?", start_date) if start_date.present? }
+
+  private
+
+  def send_submission_email
+    FormSubmissionMailer.duo_submission(self).deliver_now
+  rescue StandardError => e
+    Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
+  end
 end
