@@ -1,5 +1,6 @@
 class GroupForm < ApplicationRecord
   belongs_to :user
+  after_create :send_submission_email
 
   has_many :participants, inverse_of: :group_form, dependent: :destroy
 
@@ -14,4 +15,12 @@ class GroupForm < ApplicationRecord
   scope :by_discipline, ->(disciplines) { where(discipline: disciplines) if disciplines.present? }
   scope :by_level, ->(levels) { where(level: levels) if levels.present? }
   scope :after_date, ->(start_date) { where("created_at >= ?", start_date) if start_date.present? }
+
+  private
+
+  def send_submission_email
+    FormSubmissionMailer.group_submission(self).deliver_now
+  rescue StandardError => e
+    Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
+  end
 end

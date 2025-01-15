@@ -31,6 +31,8 @@ class FormSubmissionMailer < ApplicationMailer
 
   def group_submission(group)
     @group = group
+    @user =  group.user
+    @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
     mail(
       to: group.user.email,
       subject: "Confirmation de soumission du formulaire de Groupe"
