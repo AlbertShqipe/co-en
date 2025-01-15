@@ -1,6 +1,6 @@
 class IndividualForm < ApplicationRecord
   belongs_to :user
-  after_create :send_submission_email
+  # after_create :send_submission_email
 
   has_one_attached :photo
   has_one_attached :file
