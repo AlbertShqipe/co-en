@@ -1,6 +1,6 @@
 class IndividualForm < ApplicationRecord
   belongs_to :user
-  # after_create :send_submission_email
+  after_create :send_submission_email
 
   has_one_attached :photo
   has_one_attached :file
@@ -21,9 +21,9 @@ class IndividualForm < ApplicationRecord
 
   private
 
-  def send_submission_email(self)
+  def send_submission_email
     FormSubmissionMailer.solo_form_submission(self).deliver_now
   rescue StandardError => e
-    Rails.logger.error "Failed to send welcome email: #{e.message}"
+    Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
   end
 end
