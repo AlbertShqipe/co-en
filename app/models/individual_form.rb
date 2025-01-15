@@ -21,7 +21,9 @@ class IndividualForm < ApplicationRecord
 
   private
 
-  def send_submission_email
+  def send_submission_email(self)
     FormSubmissionMailer.solo_form_submission(self).deliver_now
+  rescue StandardError => e
+    Rails.logger.error "Failed to send welcome email: #{e.message}"
   end
 end
