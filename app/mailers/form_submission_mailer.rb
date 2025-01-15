@@ -21,6 +21,8 @@ class FormSubmissionMailer < ApplicationMailer
 
   def trio_submission(trio)
     @trio = trio
+    @user =  trio.user
+    @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
     mail(
       to: trio.user.email,
       subject: "Confirmation de soumission du formulaire de Trio"
