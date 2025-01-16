@@ -4,9 +4,8 @@ class SubscriptionMailer < ApplicationMailer
     @type = type
     @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
 
-    admin_emails = User.where(role: :admin).pluck(:email)
     mail(
-      bcc: admin_emails.join(", "),
+      bcc: "concours.entrelace@gmail.com, albert_nikolli@icloud.com",
       subject: "Nouvelle inscription : #{@type}"
     )
   end
