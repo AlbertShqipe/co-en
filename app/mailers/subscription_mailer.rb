@@ -6,7 +6,7 @@ class SubscriptionMailer < ApplicationMailer
 
     admin_emails = User.where(role: :admin).pluck(:email)
     mail(
-      bbc: admin_emails.join(", "),
+      bcc: admin_emails.join(", "),
       subject: "Nouvelle inscription : #{@type}"
     )
   end
