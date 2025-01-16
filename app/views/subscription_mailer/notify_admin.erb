@@ -8,12 +8,8 @@
     <p>Une nouvelle inscription a été effectuée :</p>
     <ul>
       <li><strong>Type :</strong> <%= @subscription.type %></li>
-      <li><strong>Nom :</strong> <%= @subscription.name %></li>
-      <li><strong>Email :</strong> <%= @subscription.user.email %></li>
-      <li><strong>Téléphone :</strong> <%= @subscription.phone %></li>
-      <% if @subscription.type == 'Group' %>
-        <li><strong>Membres :</strong> <%= @subscription.members.join(', ') %></li>
-      <% end %>
+      <li><strong>Utilisateur•trice:</strong> <%= @subscription.user.name %> <%= @subscription.user.last_name %></li>
+      <li><strong>Email Utilisateur•trice:</strong> <%= @subscription.user.email %> </li>
     </ul>
     <p>Pour plus de détails, connectez-vous au panneau d'administration.</p>
     <a href="<%= @url %>" style="background-color: #eb4301; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px;">Je Regarde</a>
