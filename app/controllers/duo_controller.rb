@@ -98,6 +98,7 @@ class DuoController < ApplicationController
     if @duo.save
       notice_message = I18n.t('duo_form.create.success')
       redirect_to confirmation_form_path, notice: notice_message
+      SubscriptionMailer.notify_admin(@Duo, "Duo").deliver_now
     else
       render :new
     end

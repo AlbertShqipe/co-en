@@ -93,6 +93,7 @@ class TriosController < ApplicationController
     if @trio.save
       notice_message = I18n.t('trio_form.create.success')
       redirect_to confirmation_form_path, notice: notice_message
+      SubscriptionMailer.notify_admin(@trio, "Trio").deliver_now
     else
       render :new
     end

@@ -1,4 +1,4 @@
-<div style="width: 100%; height:100%;background-color:white; color:black; padding: 20px;">
+<div style="width: 100%; height:100%;background-color:white; color:black; padding: 20px">
   <div style="background-color:rgb(222, 222, 212); border-radius: 10px; padding: 20px; width: 85%; margin: 0 auto; color:black;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background-color:rgb(0, 0, 0); border-radius:10px; text-align: center; padding: 20px;">
       <tr>
@@ -18,22 +18,80 @@
         <li><strong>Utilisateur•trice:</strong> <%= @subscription.user.name %> <%= @subscription.user.last_name %></li>
         <li><strong>Email Utilisateur•trice:</strong> <%= @subscription.user.email %> </li>
       </ul>
-      <p>Informations Solo:</p>
-      <ul style="list-style-type: none;">
-        <li>Prénom: <%=@subscription.first_name%></li>
-        <li>Nom de Famille: <%=@subscription.last_name%></li>
-        <li>Date de Naissance: <%=@subscription.birth_date%></li>
-        <li>Address: <%=@subscription.address%></li>
-        <li>Numéro de Téléphone: <%=@subscription.phone%></li></li>
-        <li>Email: <%=@subscription.email%></li>
-        <li>Nom de l'enseignant•e: <%=@subscription.teacher_name%></li>
-        <li>Nom de l'École de Danse: <%=@subscription.dance_school%></li>
-        <li>Téléphone Enseignant•e: <%=@subscription.teacher_phone%></li>
-        <li>Email de l'enseignant•e: <%=@subscription.teacher_email%></li>
-        <li>Catégorie: <%=@subscription.category%></li>
-        <li>Style: <%=@subscription.style%></li>
-        <li>Niveau: <%=@subscription.level%></li>
-      </ul>
+      <%if @type == "solo" %>
+        <p>Informations Solo:</p>
+        <ul style="list-style-type: none;">
+          <li>Prénom: <%=@subscription.first_name%></li>
+          <li>Nom de Famille: <%=@subscription.last_name%></li>
+          <li>Date de Naissance: <%=@subscription.birth_date%></li>
+          <li>Address: <%=@subscription.address%></li>
+          <li>Numéro de Téléphone: <%=@subscription.phone%></li></li>
+          <li>Email: <%=@subscription.email%></li>
+          <li>Nom de l'enseignant•e: <%=@subscription.teacher_name%></li>
+          <li>Nom de l'École de Danse: <%=@subscription.dance_school%></li>
+          <li>Téléphone Enseignant•e: <%=@subscription.teacher_phone%></li>
+          <li>Email de l'enseignant•e: <%=@subscription.teacher_email%></li>
+          <li>Catégorie: <%=@subscription.category%></li>
+          <li>Style: <%=@subscription.style%></li>
+          <li>Niveau: <%=@subscription.level%></li>
+        </ul>
+      <%elsif @type == "Duo"%>
+        <p>Informations Duo:</p>
+        <ul style="list-style-type: none;">
+          <li>Nom du Duo: <%=@subscription.name%></li>
+          <li>Responsable du Duo: <%=@subscription.responsable%></li>
+          <li>Address: <%=@subscription.address%></li>
+          <li>Numéro de Téléphone: <%=@subscription.phone%></li>
+          <li>Discipline: <%=@subscription.discipline%></li>
+          <li>Niveau: <%=@subscription.level%></li>
+          <li>Titre de la Musique: <%=@subscription.title_of_music%></li>
+          <li><%=@subscription.composer%></li>
+          <li><%=@subscription.length_of_piece%></li>
+          <p style="margin-top:20px">Participant·e·s:</p>
+          <ul style="list-style-type: none;">
+            <li>Premier Membre: <%=@subscription.duo_participants.first.name%> <%=@subscription.second.last_name%></li>
+            <li>Deuxieme Membre: <%=@subscription.duo_participants.second.name%> <%=@subscription.second.last_name%></li>
+          </ul>
+        </ul>
+      <%elsif @type == "Trio"%>
+        <p>Informations Trio:</p>
+        <ul style="list-style-type: none;">
+          <li>Nom du Trio: <%=@trio.name%></li>
+          <li>Responsable du trio: <%=@trio.responsable%></li>
+          <li>Address: <%=@trio.address%></li>
+          <li>Numéro de Téléphone: <%=@trio.phone%></li></li>
+          <li>Email: <%=@trio.email%></li>
+          <li>Titre de la Musique: <%=@trio.title_of_music%></li>
+          <li>Compositeur•trice: <%=@trio.composer%></li>
+          <li>Durée de l'Oeuvre: <%=@trio.length_of_piece%></li>
+          <li>Style: <%=@trio.discipline%></li>
+          <p style="margin-top:30px"><strong>Participant·e·s:</strong></p>
+          <ul style="list-style-type: none;">
+            <li><%=@trio.trio_participants.first.name%> <%=@trio.trio_participants.first.last_name%>,  <%=@trio.trio_participants.first.age%> ans</li>
+            <li><%=@trio.trio_participants.second.name%> <%=@trio.trio_participants.second.last_name%>, <%=@trio.trio_participants.second.age%> ans</li>
+            <li><%=@trio.trio_participants.third.name%> <%=@trio.trio_participants.third.last_name%>, <%=@trio.trio_participants.third.age%> ans</li>
+          </ul>
+        </ul>
+      <%else%>
+        <p>Informations Group:</p>
+        <ul style="list-style-type: none;">
+          <li>Nom du Group: <%=@group.name%></li>
+          <li>Responsable du group: <%=@group.responsable%></li>
+          <li>Address: <%=@group.address%></li>
+          <li>Numéro de Téléphone: <%=@group.phone%></li></li>
+          <li>Email: <%=@group.email%></li>
+          <li>Titre de la Musique: <%=@group.title_of_music%></li>
+          <li>Compositeur•trice: <%=@group.composer%></li>
+          <li>Durée de l'Oeuvre: <%=@group.length_of_piece%></li>
+          <li>Style: <%=@group.discipline%></li>
+          <p style="margin-top:30px"><strong>Participant·e·s:</strong></p>
+          <ul style="list-style-type: none;">
+            <% @group.participants.each do |p| %>
+              <li><%=p.name%> <%=p.last_name%>,  <%=p.age%> ans</li>
+            <% end %>
+          </ul>
+        </ul>
+      <%end%>
       <p>Pour plus de détails, connectez-vous au panneau d'administration.</p>
       <a href="<%= @url %>" style="color: #eb4301; text-decoration: none; margin:20px;">Je Regarde</a>
       <p>Bonne journée,</p>

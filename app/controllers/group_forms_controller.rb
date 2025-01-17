@@ -102,6 +102,7 @@ class GroupFormsController < ApplicationController
     elsif @group_form.save
       notice_message = I18n.t('group_form.create.success')
       redirect_to confirmation_form_path, notice: notice_message
+      SubscriptionMailer.notify_admin(@group_form, "Group").deliver_now
     else
       alert_message1 = I18n.t('group_form.create.error')
       render :new, alert: alert_message1
