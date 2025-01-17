@@ -38,55 +38,55 @@
       <%elsif @type == "Duo"%>
         <p>Informations Duo:</p>
         <ul style="list-style-type: none;">
-          <li>Nom du Duo: <%=@subscription.name%></li>
-          <li>Responsable du Duo: <%=@subscription.responsable%></li>
-          <li>Address: <%=@subscription.address%></li>
-          <li>Numéro de Téléphone: <%=@subscription.phone%></li>
-          <li>Discipline: <%=@subscription.discipline%></li>
-          <li>Niveau: <%=@subscription.level%></li>
-          <li>Titre de la Musique: <%=@subscription.title_of_music%></li>
-          <li><%=@subscription.composer%></li>
-          <li><%=@subscription.length_of_piece%></li>
-          <p style="margin-top:20px">Participant·e·s:</p>
-          <ul style="list-style-type: none;">
-            <li>Premier Membre: <%=@subscription.duo_participants.first.name%> <%=@subscription.second.last_name%></li>
-            <li>Deuxieme Membre: <%=@subscription.duo_participants.second.name%> <%=@subscription.second.last_name%></li>
-          </ul>
+        <li>Nom du Duo: <%=@subscription.name%></li>
+        <li>Responsable du duo: <%=@subscription.responsable%></li>
+        <li>Address: <%=@subscription.address%></li>
+        <li>Numéro de Téléphone: <%=@subscription.phone%></li></li>
+        <li>Email: <%=@subscription.email%></li>
+        <li>Titre de la Musique: <%=@subscription.title_of_music%></li>
+        <li>Compositeur•trice: <%=@subscription.composer%></li>
+        <li>Durée de l'Oeuvre: <%=@subscription.length_of_piece%></li>
+        <li>Style: <%=@subscription.discipline%></li>
+        <p style="margin-top:30px"><strong>Participant·e·s:</strong></p>
+        <ul style="list-style-type: none;">
+          <li><%=@subscription.duo_participants.first.name%> <%=@subscription.duo_participants.first.last_name%>,  <%=@subscription.duo_participants.first.age%> ans</li>
+          <li><%=@subscription.duo_participants.second.name%> <%=@subscription.duo_participants.second.last_name%>, <%=@subscription.duo_participants.second.age%> ans</li>
         </ul>
+      </ul>
       <%elsif @type == "Trio"%>
         <p>Informations Trio:</p>
         <ul style="list-style-type: none;">
-          <li>Nom du Trio: <%=@trio.name%></li>
-          <li>Responsable du trio: <%=@trio.responsable%></li>
-          <li>Address: <%=@trio.address%></li>
-          <li>Numéro de Téléphone: <%=@trio.phone%></li></li>
-          <li>Email: <%=@trio.email%></li>
-          <li>Titre de la Musique: <%=@trio.title_of_music%></li>
-          <li>Compositeur•trice: <%=@trio.composer%></li>
-          <li>Durée de l'Oeuvre: <%=@trio.length_of_piece%></li>
-          <li>Style: <%=@trio.discipline%></li>
+          <li>Nom du Trio: <%=@subscription.name%></li>
+          <li>Responsable du trio: <%=@subscription.responsable%></li>
+          <li>Address: <%=@subscription.address%></li>
+          <li>Numéro de Téléphone: <%=@subscription.phone%></li></li>
+          <li>Email: <%=@subscription.email%></li>
+          <li>Titre de la Musique: <%=@subscription.title_of_music%></li>
+          <li>Compositeur•trice: <%=@subscription.composer%></li>
+          <li>Durée de l'Oeuvre: <%=@subscription.length_of_piece%></li>
+          <li>Style: <%=@subscription.discipline%></li>
           <p style="margin-top:30px"><strong>Participant·e·s:</strong></p>
           <ul style="list-style-type: none;">
-            <li><%=@trio.trio_participants.first.name%> <%=@trio.trio_participants.first.last_name%>,  <%=@trio.trio_participants.first.age%> ans</li>
-            <li><%=@trio.trio_participants.second.name%> <%=@trio.trio_participants.second.last_name%>, <%=@trio.trio_participants.second.age%> ans</li>
-            <li><%=@trio.trio_participants.third.name%> <%=@trio.trio_participants.third.last_name%>, <%=@trio.trio_participants.third.age%> ans</li>
+            <li><%=@subscription.trio_participants.first.name%> <%=@subscription.trio_participants.first.last_name%>,  <%=@subscription.trio_participants.first.age%> ans</li>
+            <li><%=@subscription.trio_participants.second.name%> <%=@subscription.trio_participants.second.last_name%>, <%=@subscription.trio_participants.second.age%> ans</li>
+            <li><%=@subscription.trio_participants.third.name%> <%=@subscription.trio_participants.third.last_name%>, <%=@subscription.trio_participants.third.age%> ans</li>
           </ul>
         </ul>
       <%else%>
         <p>Informations Group:</p>
         <ul style="list-style-type: none;">
-          <li>Nom du Group: <%=@group.name%></li>
-          <li>Responsable du group: <%=@group.responsable%></li>
-          <li>Address: <%=@group.address%></li>
-          <li>Numéro de Téléphone: <%=@group.phone%></li></li>
-          <li>Email: <%=@group.email%></li>
-          <li>Titre de la Musique: <%=@group.title_of_music%></li>
-          <li>Compositeur•trice: <%=@group.composer%></li>
-          <li>Durée de l'Oeuvre: <%=@group.length_of_piece%></li>
-          <li>Style: <%=@group.discipline%></li>
+          <li>Nom du Group: <%=@subscription.name%></li>
+          <li>Responsable du group: <%=@subscription.responsable%></li>
+          <li>Address: <%=@subscription.address%></li>
+          <li>Numéro de Téléphone: <%=@subscription.phone%></li></li>
+          <li>Email: <%=@subscription.email%></li>
+          <li>Titre de la Musique: <%=@subscription.title_of_music%></li>
+          <li>Compositeur•trice: <%=@subscription.composer%></li>
+          <li>Durée de l'Oeuvre: <%=@subscription.length_of_piece%></li>
+          <li>Style: <%=@subscription.discipline%></li>
           <p style="margin-top:30px"><strong>Participant·e·s:</strong></p>
           <ul style="list-style-type: none;">
-            <% @group.participants.each do |p| %>
+            <% @subscription.participants.each do |p| %>
               <li><%=p.name%> <%=p.last_name%>,  <%=p.age%> ans</li>
             <% end %>
           </ul>
