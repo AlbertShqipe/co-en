@@ -18,7 +18,7 @@
         <li><strong>Utilisateur•trice:</strong> <%= @subscription.user.name %> <%= @subscription.user.last_name %></li>
         <li><strong>Email Utilisateur•trice:</strong> <%= @subscription.user.email %> </li>
       </ul>
-      <%if @type == "solo" %>
+      <%if @type == "Solo" %>
         <p>Informations Solo:</p>
         <ul style="list-style-type: none;">
           <li>Prénom: <%=@subscription.first_name%></li>
