@@ -9,7 +9,7 @@ gem "MailchimpTransactional", "~> 1.0.6"
 gem "cloudinary"
 
 
-# gem 'sidekiq'
+gem 'sidekiq'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
