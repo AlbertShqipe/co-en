@@ -20,7 +20,7 @@ class Duo < ApplicationRecord
   private
 
   def send_submission_email
-    FormSubmissionMailer.duo_submission(self).deliver_now
+    FormSubmissionMailer.duo_submission(self).deliver_later
   rescue StandardError => e
     Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
   end

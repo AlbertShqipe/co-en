@@ -22,7 +22,7 @@ class IndividualForm < ApplicationRecord
   private
 
   def send_submission_email
-    FormSubmissionMailer.solo_submission(self).deliver_now
+    FormSubmissionMailer.solo_submission(self).deliver_later
   rescue StandardError => e
     Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
   end

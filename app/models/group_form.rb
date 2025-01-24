@@ -19,7 +19,7 @@ class GroupForm < ApplicationRecord
   private
 
   def send_submission_email
-    FormSubmissionMailer.group_submission(self).deliver_now
+    FormSubmissionMailer.group_submission(self).deliver_later
   rescue StandardError => e
     Rails.logger.error "Failed to send submission email for form ID #{id}: #{e.message}"
   end
