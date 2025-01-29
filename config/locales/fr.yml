@@ -277,7 +277,7 @@ fr:
             <div class="mt-4 mb-4">
               <p><a href="/?locale=fr">Accueil</a></p>
               <p><a href="/individual_forms">Mes Inscriptions</a></p>
-              <p><a href="/apply?locale=fr">S'inscrire</a></p>
+              <!-- <p><a href="/apply?locale=fr">S'inscrire</a></p> -->
               <p><a href="/contact?locale=fr">Contact</a></p>
             </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
@@ -295,6 +295,10 @@ fr:
           <h2>Individuels / Duos / Groupes </h2>
           <h3>CLASSIQUE - MODERN’JAZZ – CONTEMPORAIN - CARACTÈRE</h3>
           <h4>Section Loisir – Section Pré-professionnelle</h4>
+        </div>
+      text_complete: |
+        <div class="home-text-complete">
+          <h3>Les inscriptions pour le Concours Entrelacé 2025 sont désormais closes. Merci pour votre enthousiasme et votre engagement ! Nous avons hâte de retrouver tous les participants inscrits sur scène, et pour ceux qui ne le sont pas, nous espérons vous revoir lors d'une prochaine édition.</h3>
         </div>
 
     regulation:

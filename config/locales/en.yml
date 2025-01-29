@@ -296,6 +296,10 @@ en:
           <h3>CLASSICAL - MODERN'JAZZ - CONTEMPORARY - CHARACTER</h3>
           <h4>Leisure Section - Pre-professional Section</h4>
         </div>
+      text_complete: |
+        <div class="home-text-complete">
+          <h3>Registrations for the Concours Entrelacé 2025 are now closed. Thank you for your enthusiasm and commitment! We look forward to seeing all registered participants on stage, and for those who couldn’t join this time, we hope to see you in a future edition.</h3>
+        </div>
 
     regulation:
       title: "Regulation"
