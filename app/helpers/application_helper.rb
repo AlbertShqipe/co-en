@@ -63,7 +63,7 @@ module ApplicationHelper
     matching_file&.dig("url")
   end
 
-  / This helper function is used to render the file cell in the index page /
+  / This helper function is used to render the file cell in the index page as a clickable link/
   def render_file_cell(form, attachment, results_prod, results_prod_1, results_dev)
     return content_tag(:td, t('show.no_file')) unless form.public_send(attachment).attached?
 
@@ -76,6 +76,24 @@ module ApplicationHelper
         link_to(updated_url, target: "_blank") do
           image_tag(updated_url, alt: "", width: "50px")
         end
+      end
+    else
+      content_tag(:td, t('show.no_file'))
+    end
+  end
+
+  / This helper function is used to render the file cell in the index page as an image/
+  def render_file_image(form, attachment, results_prod, results_prod_1, results_dev)
+    return content_tag(:td, t('show.no_file')) unless form.public_send(attachment).attached?
+
+    key = form.public_send(attachment).key
+    url = matching_file_url(key, results_prod, results_prod_1, results_dev)
+
+    if url
+      updated_url = url.sub(/\.pdf\z/, '.png')
+
+      content_tag(:td, style: "text-align:center") do
+        image_tag(updated_url, alt: "")
       end
     else
       content_tag(:td, t('show.no_file'))
