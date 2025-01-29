@@ -93,7 +93,7 @@ module ApplicationHelper
       updated_url = url.sub(/\.pdf\z/, '.png')
 
       content_tag(:td, style: "text-align:center") do
-        image_tag(updated_url, alt: "")
+        image_tag(updated_url, alt: "", width: "300px")
       end
     else
       content_tag(:td, t('show.no_file'))
