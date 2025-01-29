@@ -74,6 +74,15 @@
       </div>
     </div>
 
+    <%# <div data-controller="no-sub-popup">
+      <div id="popup-end-sub" class="popup-end-sub" style="display: none;">
+        <div class="popup-content">
+          <div class="popup-img"></div>
+          <button id="close-popup" data-action="click->no-sub-popup#dismissPopup">x</button>
+        </div>
+      </div>
+    </div> %>
+
     <%= render "shared/flashes" %>
 
     <%= render "shared/expandable_div_left" unless  current_page?(new_user_session_path) ||
