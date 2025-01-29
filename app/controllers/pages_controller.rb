@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     @messages = Message.all
   end
 
+  def test
+    @users = User.includes(:individual_forms)
+  end
+
   def confirmation_form
   end
 
