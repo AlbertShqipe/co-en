@@ -73,7 +73,7 @@ class IndividualFormsController < ApplicationController
                                               .by_level(params[:level])
                                               .after_date(params[:start_date]) if params[:start_date].present?
 
-                                              # Filter by multiple categories
+    # Filter by multiple categories
     if params[:category].present?
       @individual_forms = @individual_forms.where(category: params[:category])
     end
