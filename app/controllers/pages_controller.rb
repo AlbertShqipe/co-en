@@ -56,7 +56,8 @@ class PagesController < ApplicationController
     [Duo, Trio, GroupForm].each do |form_class|
       form_class.all.each do |f|
         # Determine the participant association based on the form class
-          participants_key = case form_class.name
+          participants_key =
+          case form_class.name
           when "Duo"
             :duo_participants
           when "Trio"
@@ -66,7 +67,7 @@ class PagesController < ApplicationController
           end
 
         @forms << {
-          type: form_class.name,  # Saves "DuoForm", "TrioForm", or "GroupForm"
+          type: form_class.name,  # Saves "Duo", "Trio", or "GroupForm"
           name: f.name,
           responsable: f.responsable,
           address: f.address,
