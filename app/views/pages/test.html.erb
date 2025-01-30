@@ -24,7 +24,7 @@
         <!-- Correcting the file key check -->
         <% if form[:photo] %>
         <% key = form[:photo] %>
-          <% matching_file = @results_prod.find { |hash| form[:photo] == "production/#{key}" } || @results_prod_1.find { |hash| form[:photo] == "production/#{key}" } || @results_dev.find { |hash| form[:photo] == "development/#{key}" } %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
@@ -36,7 +36,7 @@
         <% end %>
         <% if form[:file] %>
           <%key = form[:file]%>
-          <% matching_file = @results_prod.find { |hash| form[:file] == "production/#{key}" } || @results_prod_1.find { |hash| form[:file] == "production/#{key}" } || @results_dev.find { |hash| form[:file] == "development/#{key}" } %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
@@ -48,7 +48,7 @@
         <% end %>
         <% if form[:id_card] %>
           <%key = form[:id_card]%>
-          <% matching_file = @results_prod.find { |hash| form[:id_card] == "production/#{key}" } || @results_prod_1.find { |hash| form[:id_card] == "production/#{key}" } || @results_dev.find { |hash| form[:id_card] == "development/#{key}" } %>
+          <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
@@ -82,7 +82,7 @@
             <!-- Correcting the file key check for participants -->
             <% if p[:photo] %>
               <% key = p[:photo] %>
-                  <% matching_file = @results_prod.find { |hash| p[:photo] == "production/#{key}" } || @results_prod_1.find { |hash| p[:photo] == "production/#{key}" } || @results_dev.find { |hash| p[:photo] == "development/#{key}" } %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
@@ -94,7 +94,7 @@
             <% end %>
             <% if p[:file] %>
             <% key = p[:file] %>
-              <% matching_file = @results_prod.find { |hash| p[:file] == "production/#{key}" } || @results_prod_1.find { |hash| p[:file] == "production/#{key}" } || @results_dev.find { |hash| p[:file] == "development/#{key}" } %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
@@ -106,7 +106,7 @@
             <% end %>
             <% if p[:id_card] %>
             <% key = p[:id_card] %>
-              <% matching_file = @results_prod.find { |hash| p[:id_card] == "production/#{key}" } || @results_prod_1.find { |hash| p[:id_card] == "production/#{key}" } || @results_dev.find { |hash| p[:id_card] == "development/#{key}" } %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
