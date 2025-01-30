@@ -59,8 +59,9 @@
                   <% end %>
         <% end %>
       </div>
-    <% elsif form[:type].in?(["DuoForm", "TrioForm", "GroupForm"]) %>
+    <% elsif form[:type].in?(["Duo", "Trio", "GroupForm"]) %>
       <div class="group-info">
+        <p><strong>Name:</strong> <%= form.user[:name] %></p>
         <p><strong>Responsable:</strong> <%= form[:responsable] %></p>
         <p><strong>Address:</strong> <%= form[:address] %></p>
         <p><strong>Phone:</strong> <%= form[:phone] %></p>
