@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def test
-    @users = User.includes(:duos).order(:name)
+    @users = User.includes(:trios).order(:name)
     # Code that runs only in development since it charges the assets uploaded in development
     @results_dev = Cloudinary::Api.resources(type: "upload", prefix: "development", max_results: 500)['resources']
 
