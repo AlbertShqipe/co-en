@@ -4,16 +4,20 @@
   <div class="user">
     <h2><%= user.name %> <%= user.last_name %></h2>
 
-    <% user.individual_forms.each do |form| %>
+    <% user.duos.each do |form| %>
       <div class="form">
-        <p><strong>Form Name:</strong> <%= form.first_name %> <%= form.last_name %></p>
-        <p><strong>Form File:</strong> <%= render_file_image(form, :file, @results_prod, @results_prod_1, @results_dev) %>
-        <p><strong>Form ID Card:</strong> <%= render_file_image(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+          <p><strong>Form Name:</strong> <%= form.name %> <%= form.responsable %></p>
+        <%form.duo_participants.each do |p|%>
+          <p><strong>Participant name:</strong> <%= p.name %></p>
+          <p><strong>Participant last_name:</strong> <%= p.last_name %></p>
+          <p><strong>Participant file <%= render_file_image(p, :file, @results_prod, @results_prod_1, @results_dev) %>
+          <p><strong>Participant id_card:</strong> <%= render_file_image(p, :id_card, @results_prod, @results_prod_1, @results_dev) %>
 
-        <% if form.photo.attached? %>
-          <p><strong>Photo:</strong></p>
-          <%= image_tag form.photo, alt: "Form Photo", width: 100 %>
-        <% end %>
+          <% if p.photo.attached? %>
+            <p><strong>Photo:</strong></p>
+            <%= image_tag p.photo, alt: "Form Photo", width: 100 %>
+          <% end %>
+        <%end%>
       </div>
     <% end %>
   </div>
