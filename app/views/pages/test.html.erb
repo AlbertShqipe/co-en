@@ -74,7 +74,7 @@
         <h4>Participants</h4>
         <% form[:participants].each do |p| %>
           <div class="participant-info">
-            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>First Name:</strong> <%= p[:name] %></p>
             <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
             <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
             <p><strong>Age:</strong> <%= p[:age] %></p>
@@ -121,7 +121,7 @@
 
         <% form[:duo_participants].each do |p| %>
           <div class="participant-info">
-            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>First Name:</strong> <%= p[:name] %></p>
             <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
             <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
             <p><strong>Age:</strong> <%= p[:age] %></p>
@@ -168,7 +168,7 @@
 
         <% form[:trio_participants].each do |p| %>
           <div class="participant-info">
-            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>First Name:</strong> <%= p[:name] %></p>
             <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
             <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
             <p><strong>Age:</strong> <%= p[:age] %></p>
