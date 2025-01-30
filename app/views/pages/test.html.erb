@@ -20,14 +20,16 @@
         <p><strong>Category:</strong> <%= form[:category] %></p>
         <p><strong>Style:</strong> <%= form[:style] %></p>
         <p><strong>Level:</strong> <%= form[:level] %></p>
+
+        <!-- Correcting the file key check -->
         <% if form[:photo] %>
-          <%=render_file_image(form, :photo, @results_prod, @results_prod_1, @results_dev)%>
+          <%= render_file_image(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
         <% end %>
         <% if form[:file] %>
-          <%=render_file_image(form, :file, @results_prod, @results_prod_1, @results_dev)%>
+          <%= render_file_image(form, :file, @results_prod, @results_prod_1, @results_dev) %>
         <% end %>
         <% if form[:id_card] %>
-          <%=render_file_image(form, :id_card, @results_prod, @results_prod_1, @results_dev)%>
+          <%= render_file_image(form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
         <% end %>
       </div>
     <% elsif form[:type].in?(["DuoForm", "TrioForm", "GroupForm"]) %>
@@ -49,14 +51,16 @@
             <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
             <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
             <p><strong>Age:</strong> <%= p[:age] %></p>
+
+            <!-- Correcting the file key check for participants -->
             <% if p[:photo] %>
-              <%=render_file_image(p, :photo, @results_prod, @results_prod_1, @results_dev)%>
+              <%= render_file_image(p, :photo, @results_prod, @results_prod_1, @results_dev) %>
             <% end %>
             <% if p[:file] %>
-              <%=render_file_image(p, :file, @results_prod, @results_prod_1, @results_dev)%>
+              <%= render_file_image(p, :file, @results_prod, @results_prod_1, @results_dev) %>
             <% end %>
             <% if p[:id_card] %>
-              <%=render_file_image(p, :id_card, @results_prod, @results_prod_1, @results_dev)%>
+              <%= render_file_image(p, :id_card, @results_prod, @results_prod_1, @results_dev) %>
             <% end %>
           </div>
         <% end %>
