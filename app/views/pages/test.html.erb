@@ -59,9 +59,8 @@
                   <% end %>
         <% end %>
       </div>
-    <% elsif form[:type].in?(["Duo", "Trio", "GroupForm"]) %>
+    <% elsif form[:type].in?(["DuoForm", "TrioForm", "GroupForm"]) %>
       <div class="group-info">
-        <p><strong>Name:</strong> <%= form.user[:name] %></p>
         <p><strong>Responsable:</strong> <%= form[:responsable] %></p>
         <p><strong>Address:</strong> <%= form[:address] %></p>
         <p><strong>Phone:</strong> <%= form[:phone] %></p>
@@ -87,7 +86,7 @@
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="150px"></a></td>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
                     <%=p[:photo]%>
                     <td><p><%=t('show.no_file')%></p></td>
@@ -99,7 +98,7 @@
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="150px"></a></td>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
                     <%=p[:file]%>
                     <td><p><%=t('show.no_file')%></p></td>
@@ -111,7 +110,7 @@
                   <% if matching_file != nil %>
                     <% url =  matching_file["url"] %>
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="150px"></a></td>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
                     <%=p[:id_card]%>
                     <td><p><%=t('show.no_file')%></p></td>
@@ -119,6 +118,101 @@
             <% end %>
           </div>
         <% end %>
+
+        <% form[:duo_participants].each do |p| %>
+          <div class="participant-info">
+            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
+            <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
+            <p><strong>Age:</strong> <%= p[:age] %></p>
+
+            <!-- Correcting the file key check for participants -->
+            <% if p[:photo] %>
+              <% key = p[:photo] %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:photo]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+            <% if p[:file] %>
+            <% key = p[:file] %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:file]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+            <% if p[:id_card] %>
+            <% key = p[:id_card] %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:id_card]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% form[:trio_participants].each do |p| %>
+          <div class="participant-info">
+            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
+            <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
+            <p><strong>Age:</strong> <%= p[:age] %></p>
+
+            <!-- Correcting the file key check for participants -->
+            <% if p[:photo] %>
+              <% key = p[:photo] %>
+                  <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:photo]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+            <% if p[:file] %>
+            <% key = p[:file] %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:file]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+            <% if p[:id_card] %>
+            <% key = p[:id_card] %>
+              <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
+                  <% if matching_file != nil %>
+                    <% url =  matching_file["url"] %>
+                    <% updated_url = url.sub(/\.pdf\z/, '.png') %>
+                    <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
+                    <% else %>
+                    <%=p[:id_card]%>
+                    <td><p><%=t('show.no_file')%></p></td>
+                  <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
       </div>
     <% end %>
   </div>
