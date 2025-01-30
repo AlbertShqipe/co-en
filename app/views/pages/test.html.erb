@@ -1,26 +1,68 @@
-<h1>Users and Their Individual Forms</h1>
+<% @forms.each do |form| %>
+  <div class="form-details">
+    <h3><%= form[:type] %> - <%= form[:name] || 'No Name' %></h3>
 
-<% @users.each do |user| %>
-  <div class="user">
-    <%if user.trios.present?%>
-      <h2><%= user.name %> <%= user.last_name %></h2>
+    <div class="form-meta">
+      <p><strong>Created At:</strong> <%= form[:created_at] %></p>
+      <p><strong>Updated At:</strong> <%= form[:updated_at] %></p>
+    </div>
 
-      <% user.trios.each do |form| %>
-        <div class="form">
-            <p><strong>Form Name:</strong> <%= form.name %> <%= form.responsable %></p>
-          <%form.trio_participants.each do |p|%>
-            <p><strong>Participant name:</strong> <%= p.name %></p>
-            <p><strong>Participant last_name:</strong> <%= p.last_name %></p>
-            <p><strong>Participant file <%= render_file_image(p, :file, @results_prod, @results_prod_1, @results_dev) %>
-            <p><strong>Participant id_card:</strong> <%= render_file_image(p, :id_card, @results_prod, @results_prod_1, @results_dev) %>
+    <% if form[:type] == "Individual" %>
+      <div class="individual-info">
+        <p><strong>First Name:</strong> <%= form[:name] %></p>
+        <p><strong>Last Name:</strong> <%= form[:last_name] %></p>
+        <p><strong>Birth Date:</strong> <%= form[:birth_date] %></p>
+        <p><strong>Address:</strong> <%= form[:address] %></p>
+        <p><strong>Phone:</strong> <%= form[:phone] %></p>
+        <p><strong>Email:</strong> <%= form[:email] %></p>
+        <p><strong>Teacher Name:</strong> <%= form[:teacher_name] %></p>
+        <p><strong>Dance School:</strong> <%= form[:dance_school] %></p>
+        <p><strong>Category:</strong> <%= form[:category] %></p>
+        <p><strong>Style:</strong> <%= form[:style] %></p>
+        <p><strong>Level:</strong> <%= form[:level] %></p>
+        <% if form[:photo] %>
+          <p><strong>Photo:</strong> <%= image_tag form[:photo] %></p>
+        <% end %>
+        <% if form[:file] %>
+          <p><strong>File:</strong> <%= link_to 'Download File', form[:file] %></p>
+        <% end %>
+        <% if form[:id_card] %>
+          <p><strong>ID Card:</strong> <%= link_to 'Download ID Card', form[:id_card] %></p>
+        <% end %>
+      </div>
+    <% elsif form[:type].in?(["DuoForm", "TrioForm", "GroupForm"]) %>
+      <div class="group-info">
+        <p><strong>Responsable:</strong> <%= form[:responsable] %></p>
+        <p><strong>Address:</strong> <%= form[:address] %></p>
+        <p><strong>Phone:</strong> <%= form[:phone] %></p>
+        <p><strong>Email:</strong> <%= form[:email] %></p>
+        <p><strong>Discipline:</strong> <%= form[:discipline] %></p>
+        <p><strong>Level:</strong> <%= form[:level] %></p>
+        <p><strong>Title of Music:</strong> <%= form[:title_of_music] %></p>
+        <p><strong>Composer:</strong> <%= form[:composer] %></p>
+        <p><strong>Length of Piece:</strong> <%= form[:length_of_piece] %></p>
 
-            <% if p.photo.attached? %>
-              <p><strong>Photo:</strong></p>
-              <%= image_tag p.photo, alt: "Form Photo", width: 100 %>
+        <h4>Participants</h4>
+        <% form[:participants].each do |p| %>
+          <div class="participant-info">
+            <p><strong>First Name:</strong> <%= p[:first_name] %></p>
+            <p><strong>Last Name:</strong> <%= p[:last_name] %></p>
+            <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
+            <p><strong>Age:</strong> <%= p[:age] %></p>
+            <% if p[:photo] %>
+              <p><strong>Photo:</strong> <%= image_tag p[:photo] %></p>
             <% end %>
-          <%end%>
-        </div>
-      <% end %>
-    <%end%>
+            <% if p[:file] %>
+              <p><strong>File:</strong> <%= link_to 'Download File', p[:file] %></p>
+            <% end %>
+            <% if p[:id_card] %>
+              <p><strong>ID Card:</strong> <%= link_to 'Download ID Card', p[:id_card] %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
+  <hr>
 <% end %>
