@@ -30,6 +30,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=form[:photo]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
         <% end %>
@@ -41,6 +42,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=form[:file]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
         <% end %>
@@ -52,6 +54,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=form[:id_card]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
         <% end %>
@@ -85,6 +88,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=p[:photo]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
             <% end %>
@@ -96,6 +100,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=p[:file]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
             <% end %>
@@ -107,6 +112,7 @@
                     <% updated_url = url.sub(/\.pdf\z/, '.png') %>
                     <td style="text-align:center"><a href="<%=updated_url%>" target="_blank"><img src="<%=updated_url%>" alt="" width="50px"></a></td>
                     <% else %>
+                    <%=p[:id_card]%>
                     <td><p><%=t('show.no_file')%></p></td>
                   <% end %>
             <% end %>
