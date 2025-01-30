@@ -21,13 +21,13 @@
         <p><strong>Style:</strong> <%= form[:style] %></p>
         <p><strong>Level:</strong> <%= form[:level] %></p>
         <% if form[:photo] %>
-          <p><strong>Photo:</strong> <%= image_tag form[:photo] %></p>
+          <%=render_file_image(form, :photo, @results_prod, @results_prod_1, @results_dev)%>
         <% end %>
         <% if form[:file] %>
-          <p><strong>File:</strong> <%= link_to 'Download File', form[:file] %></p>
+          <%=render_file_image(form, :file, @results_prod, @results_prod_1, @results_dev)%>
         <% end %>
         <% if form[:id_card] %>
-          <p><strong>ID Card:</strong> <%= link_to 'Download ID Card', form[:id_card] %></p>
+          <%=render_file_image(form, :id_card, @results_prod, @results_prod_1, @results_dev)%>
         <% end %>
       </div>
     <% elsif form[:type].in?(["DuoForm", "TrioForm", "GroupForm"]) %>
@@ -50,13 +50,13 @@
             <p><strong>Birth Date:</strong> <%= p[:birth_date] %></p>
             <p><strong>Age:</strong> <%= p[:age] %></p>
             <% if p[:photo] %>
-              <p><strong>Photo:</strong> <%= image_tag p[:photo] %></p>
+              <%=render_file_image(p, :photo, @results_prod, @results_prod_1, @results_dev)%>
             <% end %>
             <% if p[:file] %>
-              <p><strong>File:</strong> <%= link_to 'Download File', p[:file] %></p>
+              <%=render_file_image(p, :file, @results_prod, @results_prod_1, @results_dev)%>
             <% end %>
             <% if p[:id_card] %>
-              <p><strong>ID Card:</strong> <%= link_to 'Download ID Card', p[:id_card] %></p>
+              <%=render_file_image(p, :id_card, @results_prod, @results_prod_1, @results_dev)%>
             <% end %>
           </div>
         <% end %>
