@@ -131,7 +131,7 @@ GEM
       dotenv (= 3.1.2)
       railties (>= 6.1)
     drb (2.2.1)
-    error_highlight (0.6.0)
+    error_highlight (0.7.0)
     erubi (1.13.0)
     excon (0.112.0)
     execjs (2.9.1)
@@ -357,7 +357,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  error_highlight (>= 0.4.0)
+  error_highlight (>= 0.7.0)
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
