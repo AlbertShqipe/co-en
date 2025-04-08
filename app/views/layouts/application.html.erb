@@ -118,6 +118,6 @@
         document.getElementById("main").style.marginLeft= "0";
       }
     </script>
-    <script loading=async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvHb9G0A9MOGWlj6vjUBji4DADWFybLRo&callback=initMap" ></script>
+    <script loading=async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API_KEY']%>&callback=initMap" ></script>
   </body>
 </html>
