@@ -29,3 +29,11 @@ Built specifically for the needs of the performing arts world, the app reduces t
 - **Database:** PostgreSQL
 - **Deployment:** Heroku
 - **Languages:** French & English
+
+🧑‍💻 Developer
+
+Albert Nikolli
+
+GitHub [AlbertShqipe](https://github.com/AlbertShqipe)
+Freelance developer | Ballet dancer | Based in Lyon, France
+Passionate about clean design and building tools for artists
