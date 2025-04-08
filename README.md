@@ -9,7 +9,6 @@ The goal of this app is to make life easier for the organizers by automating:
 - Candidate registrations
 - Data management
 - Communications
-- Payment tracking (if applicable)
 
 Built specifically for the needs of the performing arts world, the app reduces the administrative burden and ensures smooth operation for a high-volume event.
 
@@ -30,10 +29,10 @@ Built specifically for the needs of the performing arts world, the app reduces t
 - **Deployment:** Heroku
 - **Languages:** French & English
 
-🧑‍💻 Developer
+## 🧑‍💻 Developer
 
 Albert Nikolli
 
-GitHub [AlbertShqipe](https://github.com/AlbertShqipe)
-Freelance developer | Ballet dancer | Based in Lyon, France
-Passionate about clean design and building tools for artists
+- GitHub [AlbertShqipe](https://github.com/AlbertShqipe)
+- Freelance developer | Ballet dancer | Based in Lyon, France
+- Passionate about clean design and building tools for artists
