@@ -2,31 +2,34 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["style", "category", "level"] // level = the WRAPPER div
+  static targets = ["style", "category", "level"] // level = WRAPPER div (not the select)
 
   connect() {
-    // Prefer declared targets; fall back to scoped queries INSIDE this.element
     const scope = this.element
 
+    // Resolve SELECT elements (prefer targets, then scoped fallbacks)
     this.styleEl =
-      (this.hasStyleTarget ? this.styleTarget : scope.querySelector('[data-level-filter-target="style"], #style select, #style')) || null
+      (this.hasStyleTarget
+        ? (this.styleTarget.tagName === "SELECT" ? this.styleTarget : this.styleTarget.querySelector("select"))
+        : scope.querySelector('[data-level-filter-target="style"] select, #individual_form_style')) || null
 
     this.categoryEl =
-      (this.hasCategoryTarget ? this.categoryTarget : scope.querySelector('[data-level-filter-target="category"], #categoryInput')) || null
+      (this.hasCategoryTarget
+        ? (this.categoryTarget.tagName === "SELECT" ? this.categoryTarget : this.categoryTarget.querySelector("select"))
+        : scope.querySelector('[data-level-filter-target="category"] select, #individual_form_category')) || null
 
-    // levelTarget is the WRAPPER; get the actual <select> INSIDE it
-    const levelWrap = this.hasLevelTarget ? this.levelTarget : scope.querySelector('[data-level-filter-target="level"], #level')
+    const levelWrap =
+      (this.hasLevelTarget ? this.levelTarget : scope.querySelector('[data-level-filter-target="level"]')) || null
+
     this.levelSelect =
-      (levelWrap?.querySelector?.('select')) ||
-      (levelWrap?.tagName === 'SELECT' ? levelWrap : null)
+      (levelWrap?.tagName === "SELECT" ? levelWrap : levelWrap?.querySelector?.("select")) || null
 
-    // Get localized prompt BEFORE rebuilding options
+    // Localized prompt (Rails) BEFORE we rebuild
     const existingPrompt = this.levelSelect?.querySelector?.('option[value=""]')?.textContent?.trim()
     this.promptText =
       existingPrompt ||
       this.levelSelect?.dataset?.prompt ||
-      levelWrap?.dataset?.prompt || // if you put data-prompt on the wrapper instead
-      this.levelSelect?.getAttribute?.('placeholder') ||
+      levelWrap?.dataset?.prompt ||
       ""
 
     // Listeners
@@ -40,26 +43,27 @@ export default class extends Controller {
     const sel = this.levelSelect
     if (!sel) return
 
-    const style = this.normalizeStyle(this.valueOf(this.styleEl))
+    const style    = this.normalizeStyle(this.valueOf(this.styleEl))
     const category = this.valueOf(this.categoryEl)
-    const allowed = RULES[style]?.[category] || []
+    const allowed  = RULES[style]?.[category] || []
 
     const prev = sel.value
     sel.innerHTML = ""
 
-    // prompt option (always insert; uses localized prompt)
+    // Always insert localized prompt
     const ph = document.createElement("option")
     ph.value = ""
     ph.textContent = this.promptText
     sel.appendChild(ph)
 
-    // allowed options
+    // Insert allowed options
     for (const lvl of allowed) {
       const opt = document.createElement("option")
       opt.value = opt.textContent = lvl
       sel.appendChild(opt)
     }
 
+    // Restore previous if still valid; otherwise show prompt
     sel.value = allowed.includes(prev) ? prev : ""
   }
 
@@ -70,13 +74,13 @@ export default class extends Controller {
 
   normalizeStyle(s) {
     const x = (s || "").toLowerCase().trim()
-    if (["classique"].includes(x)) return "Classique"
+    if (["classique","caractère","caractere"].includes(x)) return "Classique"
     if (["contemporain","modern’jazz","modern'jazz","modern jazz","modernjazz"].includes(x)) return "Contemporain/Modern’Jazz"
     return ""
   }
 }
 
-// minimal map
+// Minimal map of levels per (style, category)
 const RULES = {
   "Classique": {
     "Loisir": ["Préparatoire","Élémentaire 1","Élémentaire 2","Moyen","Avancée","Supérieur"],

@@ -128,12 +128,6 @@
               <% end %>
             </tr>
             <tr>
-              <td><%= t('index_individuals.td.profile_pic') %></td>
-              <% current_user.individual_forms.each do |form| %>
-                <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
-              <% end %>
-            </tr>
-            <tr>
               <td><%= t('index_individuals.td.file') %></td>
               <% current_user.individual_forms.each do |form| %>
                 <%= render_file_cell(form, :file, @results_prod, @results_prod_1, @results_dev) %>
@@ -349,12 +343,6 @@
                 <td><%= t("index_individuals.td.level") %></td>
                 <% @individual_forms.each do |form| %>
                   <td><%= form.level %></td>
-                <% end %>
-              </tr>
-              <tr>
-                <td><%= t('index_individuals.td.profile_pic') %></td>
-                <% @individual_forms.each do |form| %>
-                  <%= render_file_cell(form, :photo, @results_prod, @results_prod_1, @results_dev) %>
                 <% end %>
               </tr>
               <tr>

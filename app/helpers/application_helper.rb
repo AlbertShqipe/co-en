@@ -45,11 +45,11 @@ module ApplicationHelper
   / This helper function is used to see if all the participants assets exist in cloudinary /
   def all_participants_valid?(participants, results_prod, results_prod_1, results_dev)
     participants.all? do |participant|
-      photo_key = participant.photo.key
+      # photo_key = participant.photo.key
       file_key = participant.file.key
       id_card_key = participant.id_card.key
 
-      resource_exists?(photo_key, results_prod, results_prod_1, results_dev) &&
+      # resource_exists?(photo_key, results_prod, results_prod_1, results_dev) &&
       resource_exists?(file_key, results_prod, results_prod_1, results_dev) &&
       resource_exists?(id_card_key, results_prod, results_prod_1, results_dev)
     end
@@ -130,7 +130,8 @@ module ApplicationHelper
 
   / This helper function is used to see if all the attachments exist in cloudinary for individual forms/
   def all_attachments_valid?(individual_form, results_prod, results_prod_1, results_dev)
-    %i[photo file id_card].all? do |attachment|
+    # %i[photo file id_card].all? do |attachment|
+    %i[file id_card].all? do |attachment|
       next unless individual_form.send(attachment).attached?
 
       key = individual_form.send(attachment).key

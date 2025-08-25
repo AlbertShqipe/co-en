@@ -105,7 +105,7 @@ class GroupFormsController < ApplicationController
       SubscriptionMailer.notify_admin(@group_form, "Group").deliver_later
     else
       alert_message1 = I18n.t('group_form.create.error')
-      render :new, alert: alert_message1
+      render :new, status: :unprocessable_entity, alert: alert_message1
     end
   end
 

@@ -114,26 +114,6 @@
                   <% end %>
                 </tr>
                 <tr>
-                  <td><%= t('index_groups.td.participant_photo') %></td>
-                  <% group.participants.each do |participant| %>
-                      <% if participant.photo.attached? %>
-                        <% key = participant.photo.key %>
-                        <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                        <% if matching_file != nil %>
-                          <% url =  matching_file["url"] %>
-                          <%if url.include?('.pdf') %>
-                            <% url =  matching_file["url"].sub(/\.pdf\z/, '.png') %>
-                            <% else %>
-                            <% url =  matching_file["url"] %>
-                          <% end %>
-                          <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                          <% else %>
-                          <td><p><%=t('show.no_file')%></p></td>
-                        <% end %>
-                      <% end %>
-                  <% end %>
-                </tr>
-                <tr>
                   <td><%= t('index_groups.td.participant_file') %></td>
                   <% group.participants.each do |participant| %>
                       <% if participant.file.attached? %>
@@ -316,26 +296,6 @@
                       <p style="text-align:center"><%= participant.birth_date %></p>
                       <p style="text-align:center"><%= calculate_age(participant.birth_date) %> years old</p>
                     </td>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td><%= t('index_groups.td.participant_photo') %></td>
-                  <% group.participants.each do |participant| %>
-                      <% if participant.photo.attached? %>
-                        <% key = participant.photo.key %>
-                        <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                        <% if matching_file != nil %>
-                          <% url =  matching_file["url"] %>
-                          <%if url.include?('.pdf') %>
-                            <% url =  matching_file["url"].sub(/\.pdf\z/, '.png') %>
-                            <% else %>
-                            <% url =  matching_file["url"] %>
-                          <% end %>
-                          <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                          <% else %>
-                          <td><p><%=t('show.no_file')%></p></td>
-                        <% end %>
-                      <% end %>
                   <% end %>
                 </tr>
                 <tr>
