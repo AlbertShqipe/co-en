@@ -17,7 +17,7 @@ fr:
       link4: |
         <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
       link5: |
-        <a href="#media" class="nav-link">MÉDIAS</a>
+        <a href="#galerie" class="nav-link">GALERIE</a>
       link6: |
         <a href="/profile?locale=fr" class="dropdown-item">Mon Profil</a>
       link7: |
@@ -128,7 +128,7 @@ fr:
       link14: |
         <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
       link15: |
-        <a href="#media" class="nav-link">MÉDIAS</a>
+        <a href="#galerie" class="nav-link">GALERIE</a>
       link16: |
         <a href="/individual_forms?locale=fr" class="dropdown-item">Formulaires Individuels</a>
       link17: |
@@ -156,7 +156,7 @@ fr:
       link4: |
         <a href="/our_partners?locale=fr" class="nav-link">NOS PARTENAIRES</a>
       link5: |
-        <a href="/media?locale=fr" class="nav-link">MÉDIAS</a>
+        <a href="/galerie?locale=fr" class="nav-link">GALERIE</a>
       link6: |
         <a href="/profile?locale=fr">Mon Profil</a>
       link7: |
@@ -265,7 +265,7 @@ fr:
       link14: |
         <a href="/our_partners?locale=fr" class="nav-link">NOS PARTENAIRES</a>
       link15: |
-        <a href="/media?locale=fr" class="nav-link">MÉDIAS</a>
+        <a href="/galerie?locale=fr" class="nav-link">GALERIE</a>
       link16: |
         <a href="/faq?locale=fr" class="nav-link">Mes Messages</a>
 
@@ -314,7 +314,7 @@ fr:
             <ul>
               <li>Article 1 : Objectif</li>
               <li>Article 2 : Candidats</li>
-              <li>Article 3 : Prizes et Récompenses</li>
+              <li>Article 3 : Prix et Récompenses</li>
               <li>Article 4 : Photos et Vidéos</li>
               <li>Article 5 : Conditions de Participation</li>
               <li>Article 6 : Costumes et Accessoires</li>
@@ -383,9 +383,9 @@ fr:
         </div>
 
     media:
-      title: "Média"
+      title: "GALERIE"
       content: |
-        <div class="second-section-home-media container" id="media">
+        <div class="second-section-home-media container" id="galerie">
           <div class="second-section-home-media-image">
             <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
@@ -396,7 +396,7 @@ fr:
               <div class="image1">
               </div>
             </div>
-            <a href="media?locale=fr" class='button-home'>MÉDIA</a>
+            <a href="galerie?locale=fr" class='button-home'>GALERIE</a>
           </div>
         </div>
 
@@ -803,7 +803,7 @@ fr:
   regulation:
     download: "Telecharger le"
     container:
-      title: "<h1>Reglement 2025</h1>"
+      title: "<h1>Reglement 2026</h1>"
       div1: |
         <div style="width:80%; margin:auto">
           <h5>Article 1 : Objectif</h5>
@@ -834,13 +834,25 @@ fr:
             aménagés de type « Danse-Études/ CHAD » ou ayant une activité artistique intense avec plus de
             trois cours par semaine.
           </p>
+
+          <div class="news">
+            <h5>Nouveauté 2026</h5>
+            <h6><b>Catégorie Interprète</b></h6>
+            <p>
+              Les candidat·e·s doivent présenter deux variations, permettant d’évaluer leur capacité à s’adapter à des esthétiques variées. L’objectif est de valoriser les profils d’interprètes capables de naviguer entre plusieurs styles ou registres.
+            </p>
+            <p>
+              Tarif pour cette catégorie est de 80 €
+            </p>
+          </div>
+
           <p>
             Les candidat·e·s en formation professionnelle ou en formation EAT doivent s’inscrire sous cette
             dénomination.
           </p>
           <p style="text-decoration:underline">
             Les candidat·e·s ayant obtenu une médaille d’or en section loisir l’année précédente et souhaitant
-            participer à l’édition 2025 du Concours Entrelacé doivent s’inscrire en Section Préprofessionnelle.
+            participer à l’édition 2026 du Concours Entrelacé doivent s’inscrire en Section Préprofessionnelle.
           </p>
           <p>Pour les groupes deux catégories sont possibles :</p>
           <ul style="color: black">
@@ -876,55 +888,52 @@ fr:
             </thead>
             <tbody>
               <tr>
-                <td>Diplôme de participation</td>
-                <td>Inférieure à 10</td>
-              </tr>
-              <tr>
-                <td>Encouragements</td>
-                <td>10 à 10.99</td>
-              </tr>
-              <tr>
-                <td>3ème Mention</td>
-                <td>11 à 11.99</td>
-              </tr>
-              <tr>
-                <td>2ème Mention</td>
-                <td>12 à 12.99</td>
-              </tr>
-              <tr>
-                <td>1ère Mention</td>
-                <td>13 à 13.99</td>
-              </tr>
-              <tr>
-                <td>Médaille de bronze</td>
-                <td>14 à 14.99</td>
-              </tr>
-              <tr>
-                <td>Médaille d’argent</td>
-                <td>15 à 15.99</td>
-              </tr>
-              <tr>
-                <td>Médaille d’or</td>
-                <td>16 à 16.99</td>
+                <td>Médaille d’or avec les félicitations du jury</td>
+                <td>18 à 20</td>
               </tr>
               <tr>
                 <td>Médaille d’or à l’unanimité</td>
                 <td>17 à 17.99</td>
               </tr>
               <tr>
-                <td>Médaille d’or avec les félicitations du jury</td>
-                <td>18 à 20</td>
+                <td>Médaille d’or</td>
+                <td>16 à 16.99</td>
+              </tr>
+              <tr>
+                <td>Médaille d’argent</td>
+                <td>15 à 15.99</td>
+              </tr>
+              <tr>
+                <td>Médaille de bronze</td>
+                <td>14 à 14.99</td>
+              </tr>
+              <tr>
+                <td>1ère Mention</td>
+                <td>13 à 13.99</td>
+              </tr>
+              <tr>
+                <td>2ème Mention</td>
+                <td>12 à 12.99</td>
+              </tr>
+              <tr>
+                <td>3ème Mention</td>
+                <td>11 à 11.99</td>
+              </tr>
+              <tr>
+                <td>Encouragements</td>
+                <td>10 à 10.99</td>
+              </tr>
+              <tr>
+                <td>Diplôme de participation</td>
+                <td>Inférieure à 10</td>
               </tr>
             </tbody>
           </table>
           <p><b>
-            Des nombreuses bourses d’études en France et à l’étranger, bons d’achat et photos
-            récompenseront les meilleurs candidats.
+            Le concours offre plus de 30 000 € en bourses d’études, en France et à l’étranger, ainsi que des bons d’achat et des photos exclusives pour récompenser les talents les plus prometteurs.
           </b></p>
-          <p><b>
-            Grand PRIX 2025</b> sera attribué par le jury à un candidat solo toutes catégories et
-            disciplines confondues, qui aura marqué l’ensemble du concours.
-            <b>Ce prix sera accompagné d’un montant en espèces de 200 €.</b>
+          <p>
+            Le <b>Grand PRIX 2026</b> sera attribué par le jury à un·e candidat·e solo, toutes catégories et disciplines confondues, qui aura marqué l’ensemble du concours.
           </p>
         </div>
       div4: |
@@ -975,59 +984,61 @@ fr:
             <tbody>
               <tr>
                 <td>
-                  <strong>Préparatoire :</strong> de 8-9 ans<br>
+                  <strong>Préparatoire :</strong> 8-9 ans<br>
                   Une variation libre de 1 min 30 max sur ½ pointes
                 </td>
                 <td>
-                  <strong>Préparatoire :</strong> de 8-9 ans<br>
+                  <strong>Préparatoire :</strong> 8-9 ans<br>
                   Une variation libre de 1 min 30 max sur ½ pointes
                 </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Élémentaire 1 :</strong> de 10-11 ans<br>
+                  <strong>Élémentaire 1 :</strong> 10-11 ans<br>
                   Une variation libre de 1 min 45 max sur ½ pointes
                 </td>
                 <td>
-                  <strong>Élémentaire 1 :</strong> de 10-11 ans<br>
+                  <strong>Élémentaire 1 :</strong> 10-11 ans<br>
                   Une variation libre de 1 min 45 max sur ½ pointes
                 </td>
               </tr>
               <tr>
-                <td rowspan="2">
-                  <strong>Élémentaire 2 :</strong> de 12-13 ans<br>
+                <td>
+                  <strong>Élémentaire 2 :</strong> 12-13 ans<br>
                   Une variation libre de 1 min 45 max sur ½ pointes
                 </td>
                 <td>
-                  <strong>Élémentaire 2 :</strong> de 12-13 ans<br>
-                  Une variation libre de 1 min 45 max sur pointes.
+                  <strong>Élémentaire 2 :</strong> 12-13 ans<br>
+                  Une variation libre de 1 min 45 max sur pointes
                 </td>
               </tr>
               <tr>
+                <td></td>
                 <td>
-                  <strong>Élémentaire 2 B :</strong> de 12-13 ans<br>
-                  Une variation de répertoire sur pointes.
-                </td>
-              </tr>
-              <tr>
-                <td rowspan="2">
-                  <strong>Moyen 1 :</strong> de 14-15 ans<br>
-                  Une variation libre de 1 min 45 max sur ½ pointes
-                </td>
-                <td>
-                  <strong>Moyen 1 :</strong> de 14-15 ans<br>
-                  Une variation libre de 2 min max sur pointes
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Moyen 1 B :</strong> de 14-15 ans<br>
+                  <strong>Élémentaire 2 – Répertoire :</strong> 12-13 ans<br>
                   Une variation de répertoire sur pointes
                 </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Moyen 2 :</strong> à partir de 16 ans<br>
+                  <strong>Moyen :</strong> 14-15 ans<br>
+                  Une variation libre de 1 min 45 max sur ½ pointes
+                </td>
+                <td>
+                  <strong>Moyen :</strong> 14-15 ans<br>
+                  Une variation libre de 2 min max sur pointes
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <strong>Moyen – Répertoire :</strong> 14-15 ans<br>
+                  Une variation de répertoire sur pointes
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Avancée :</strong> à partir de 16 ans<br>
                   Une variation libre de 1 min 45 max sur ½ pointes
                 </td>
                 <td>
@@ -1037,8 +1048,8 @@ fr:
               </tr>
               <tr>
                 <td>
-                  <strong>Avancée :</strong> de 16-17 ans<br>
-                  Une variation libre de 1 min 45 max sur pointes
+                  <strong>Supérieur :</strong> à partir de 16 ans<br>
+                  Une variation libre de 1 min 45 max sur pointes (filles)
                 </td>
                 <td>
                   <strong>Supérieur :</strong> à partir de 16 ans<br>
@@ -1046,13 +1057,10 @@ fr:
                 </td>
               </tr>
               <tr>
+                <td></td>
                 <td>
-                  <strong>Supérieur :</strong> 18 ans et plus<br>
-                  Une variation libre 2 min max sur pointes
-                </td>
-                <td>
-                  <strong>Formation :</strong> à partir de 17 ans (Préparation EAT, cycle de professionnalisation)<br>
-                  Une variation du répertoire sur pointes
+                  <strong>Interprète :</strong> à partir de 15 ans<br>
+                  1 variation de répertoire classique sur pointes + 1 variation libre (contemporain, néo-classique, modern, etc…)
                 </td>
               </tr>
             </tbody>
@@ -1127,8 +1135,10 @@ fr:
                   Une variation libre de 2 min max
                 </td>
                 <td>
-                  <strong>Formation :</strong> à partir de 17 ans (Préparation EAT, cycle de professionnalisation)<br>
-                  Une variation libre de 2 min 30 max
+                  <strong>Interprète :</strong> à partir de 15 ans
+                  1 variation libre contemporaine ou jazz +
+                  + 1 variation libre (contemporain, néo-classique, modern, etc…)
+
                 </td>
               </tr>
             </tbody>
@@ -1156,7 +1166,7 @@ fr:
                 <td><strong>Supérieur :</strong> 16 et plus<br>Chorégraphie libre de 3 min 30 max</td>
               </tr>
               <tr>
-                <td><strong>Formation :</strong> Préparation EAT, cycle de professionnalisation à partir de 17 ans<br>Chorégraphie libre de 4 min 30 max</td>
+                <td><strong>Pré-Pro:</strong> Préparation EAT, cycle de professionnalisation à partir de 17 ans Chorégraphie libre de 4min 30 max
               </tr>
             </tbody>
           </table>
@@ -1199,24 +1209,20 @@ fr:
             Seul·e le·la professeur·e sera admis·e dans les vestiaires, tandis que <u>les coulisses seront
             accessibles uniquement aux danseur·euse·s.</u>
           </b></p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">MASTER CLASSES</h6>
           <p>
-            Le Concours International de Danse Entrelacé organise des master classes avec les membres du
-            jury afin de proposer aux jeunes danseur·euse·s une expérience enrichissante, supplémentaire et
-            différente de celle offerte par la participation au concours.
-            Les master classes sont ouvertes à tous les danseur·euse·s, qu’ils soient candidat·e·s ou non du
-            Concours International de Danse Entrelacé 2025, en fonction de leur âge et de leur niveau.
+            Le Concours International de Danse Entrelacé organise des master classes avec les membres du jury afin de proposer aux jeunes danseur·euse·s une expérience enrichissante, supplémentaire et différente de celle offerte par la participation au concours.
+            Les master classes sont ouvertes à tous les danseur·euse·s, qu’ils soient candidat·e·s ou non du Concours International de Danse Entrelacé 2026, en fonction de leur âge et de leur niveau.
           </p>
           <p>
-            Les master classes <b>sont facultatives</b> et n’interfèrent pas avec la notation du jury. Elles ne sont pas
-            comprises dans les frais d’inscription ; <b>un règlement de 25 € sera à effectuer pour chaque cours</b>.
+            Les master classes <b>sont facultatives</b> et n’interfèrent pas avec la notation du jury. Elles ne sont pas comprises dans les frais d’inscription, et nécessitent d’une inscription obligatoire; <b>un règlement de 25 € sera à effectuer pour chaque cours</b>.
           </p>
           <p>
-            Les master classes se dérouleront sur scène en fin de chaque journée du concours et n’interféreront
-            pas avec le déroulement des passages des candidat·e·s.
+            Les master classes se dérouleront sur scène et n’interféreront pas avec le déroulement des passages des candidat·e·s.
           </p>
           <p>L’horaire des master classes sera communiqué en même temps que le planning général du concours.</p>
-          <p>Le Concours International de Danse Entrelacé aura lieu le lendemain dimanche 14 avril 2024.</p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">ACCUEIL DU PUBLIC</h6>
           <p>Le concours est ouvert au public – billetterie sur place.</p>
           <p>Tarifs journée</p>
@@ -1256,7 +1262,7 @@ fr:
             le bon déroulement du concours ainsi que le confort des candidat·e·s et du jury</b></u>.
           </p>
           <div style="text-align:center">
-            <p class="warning">L’ACCÈS À LA SALLE NE SERA PAS AUTORISÉ PENDANT LE PASSAGE D’UNE CATEGORIE</p>
+            <p class="warning">L’ACCÈS À LA SALLE NE SERA PAS AUTORISÉ PENDANT LE PASSAGE D’UNE CATEGORIE.</p>
           </div>
         </div>
       div11: |
@@ -1287,58 +1293,54 @@ fr:
           <div class="mt-5" style="width:80%; margin:auto">
             <h5>Article 10 : Modalités d’inscription</h5>
             <div style="text-align:center">
-              <h6 class="warning">ATTENTION !</h6>
+              <h6 class="warning">ATTENTION!</h6>
             <p><b>
               Les inscriptions seront enregistrées dans l’ordre d’arrivée des dossiers en fonction des
               places disponibles.
             </b></p>
-            <p><b>Date limite d’inscription : 15 MARS 2025</b></p>
+            <p><b>Date limite d’inscription : 20 MARS 2026</b></p>
             <p><b>Les inscriptions seront closes si le quota maximum des candidat·e·s sera atteint.</b></p>
             </div>
             <p>
               Tous les documents doivent être joints pour valider l’inscription. Tout dossier incomplet ou
               insuffisamment affranchi ne sera pas pris en compte.
             </p>
+
             <h6 class="mt-5" style="font-weight:bolder; color:#EB4301"> • INDIVIDUELS</h6>
             <ul class="ul-regulation">
               <li>
-                <a href="/individual_forms/new">Fiche d’inscription individuel 2025</a> complété et renommé au nom de l'école/association (à remplir sur le
-                formulaire sur le nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )
+                <a href="/individual_forms/new">Formulaire d’inscription individuel 2026</a> complété et renommé au nom
+                du candidat (à remplir sur le formulaire sur nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )
               </li>
               <li>Attestation de participation signée par les candidats, ou par les parents si mineurs</li>
               <li>Photocopie ou scan de la pièce d’identité du candidat</li>
-              <li>Photo d’identité du candidat</li>
-              <li>Photo d’identité du professeur responsable</li>
-              <li>Règlement de <b>48€</b> pour une discipline, <b>80€</b> pour deux disciplines, <b>100€</b> pour 3 disciplines</li>
+              <li>Règlement de <b>49€</b> pour une discipline <b>(sauf catégorie Interprète 80€)</b>, <b>85€</b> pour deux disciplines, <b>100€</b> pour 3 disciplines</li>
             </ul>
-            <p><b><u>Un chèque libellé à l’ordre de <span class="warning">ENTRELACÉ</span> maximum 10 jours après l’envoi du dossier dématérialisé.</b></u></p>
+            <p><b><u>Un chèque libellé à l’ordre de <span class="warning">ENTRELACÉ</span> ou paiement en ligne maximum 10 jours après confirmation de réception du dossier d’inscription</b></u></p>
+
             <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">• DUO/ TRIO</h6>
             <ul class="ul-regulation">
               <li>
-                <a href="/duo/new">Fiche d’inscription DUO</a> au <a href="/trio/new">Fiche d’inscription TRIO</a> 2025</a> complété et renommé au nom de l'école/association (à remplir sur le
-                formulaire sur le nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )
+                <a href="/duo/new">Formulaire  d’inscription DUO</a> au <a href="/trio/new">Formulaire  d’inscription TRIO</a> 2026</a> complété et renommé au nom de l'école/association(à remplir sur le formulaire sur le nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )
               </li>
               <li>Attestations de participation signées par les candidats, ou par les parents si mineurs</li>
               <li>Photocopie ou scan de la pièce d’identité pour chaque membre du groupe</li>
-              <li>Photo d’identité de chaque candidat</li>
-              <li>Photo d’identité du professeur responsable</li>
-              <li>Règlement de <b>30€</b> pour chaque membre du groupe</li>
+              <li>Règlement de <b>30€ pour chaque membre du duo/ trio</b></li>
             </ul>
-            <p><b><u>Un chèque unique par école/association libellé à l’ordre de <span class="warning">ENTRELACÉ</span> maximum 10 jours après l’envoi du dossier dématérialisé.</b></u></p>
+            <p><b><u>Un chèque unique par école/association libellé à l’ordre de <span class="warning">ENTRELACÉ</span> ou paiement en ligne maximum 10 jours après confirmation de réception du dossier d’inscription.</b></u></p>
+
             <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">• GROUPES</h6>
             <ul class="ul-regulation">
               <li>
-                <a href="/group_forms/new">Fiche d’inscription GROUPE 2025 </a> complété et renommé au nom de l'école/association (à remplir sur le
-                formulaire sur le nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )<br>
+                <a href="/group_forms/new">Formulaire d’inscription GROUPE 2026 </a> complété et renommé au nom de l'école/association (à remplir sur le formulaire sur le nôtre site internet ou à envoyer par mail concours.entrelace@gmail.com )<br>
                 Dans le cas des « grands groupes » (+14 danseurs), joindre une deuxième fiche d’inscription si format papier.
               </li>
               <li>Attestations de participation signées par les candidats, ou par les parents si mineurs</li>
               <li>Photocopie ou scan de la pièce d’identité pour chaque membre du groupe</li>
-              <li>Photo d’identité de chaque candidat</li>
-              <li>Photo d’identité du professeur responsable</li>
-              <li>Règlement de <b>25€</b> pour chaque membre du groupe</li>
+              <li>Règlement de <b>25€ pour chaque membre du groupe</b></li>
             </ul>
-            <p><b><u>Un chèque unique par école/association libellé à l’ordre de <span class="warning">ENTRELACÉ</span> maximum 10 jours après l’envoi du dossier dématérialisé.</b></u></p>
+            <p><b><u>Un chèque unique par école/association libellé à l’ordre de <span class="warning">ENTRELACÉ</span> ou paiement en ligne maximum 10 jours après confirmation de réception du dossier d’inscription.</b></u></p>
+
             <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">MUSIQUE</h6>
             <p>
               Les musiques en format mp3 doivent être envoyées sur par mail à concours.entrelace@gmail.com
@@ -1366,6 +1368,17 @@ fr:
               Les droits d’inscription ne seront remboursés en aucun cas, sauf en cas d'annulation du
               concours ou d'impossibilité de participation avec justificatif médical.
             </p>
+
+            <h5 style="text-align:center; text-indent:0px">Dossier d'inscription à adresser à</h5>
+            <h6 style="margin-top:26px">Notre site internet</h6>
+            <p style="text-align:center; padding-top:0px"><a href="https://www.concours-entrelace.com" style="text-align:center">www.concours-entrelace.com</a></p>
+            <h6 style="text-align:center">Par courriel</h6>
+            <p style="text-align:center; padding-top:0px"><a href="mailto:concours.entrelace@gmail.com">concours.entrelace@gmail.com</a></p>
+            <h6 style="text-align:center">Par courrier</h6>
+            <p style="text-align:center; padding-top:0px">CONCOURS ENTRELACÉ 429 Cours Emile Zola 69100 VILLEURBANNE</p>
+            <p>Un accusé de réception vous parviendra dans la semaine suivant votre envoi, si ce n'est pas le cas merci de nous contacter.</p>
+            <h5>LA DATE ET LES HORAIRES DE PASSAGE SERONT COMMUNIQUÉS PAR CONVOCATION AU PLUS TARD DEUX SEMAINES AVANT LE CONCOURS</h5>
+
           </div>
 
   individual_form:
@@ -1417,7 +1430,7 @@ fr:
   phone_view:
     slideshow: |
       <a href="/?locale=fr">
-        <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+        <div class="avatar-logo-continous logo"></div>
       </a>
       <div class="mt-3 mb-0">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -1425,7 +1438,7 @@ fr:
         <p><a href="/who_we_are?locale=fr">QUI NOUS SOMMES</a></p>
         <p><a href="/practical_info?locale=fr">INFORMATIONS PRATIQUES</a></p>
         <p><a href="/our_partners?locale=fr">NOS PARTENAIRES</a></p>
-        <p><a href="/media?locale=fr">MÉDIAS</a></p>
+        <p><a href="/galerie?locale=fr">GALERIE</a></p>
         <p><a href="/contact?locale=fr">CONTACT</a></p>
       </div>
     practical_info:

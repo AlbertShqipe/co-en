@@ -2,13 +2,14 @@ class IndividualForm < ApplicationRecord
   belongs_to :user
   after_create :send_submission_email
 
-  has_one_attached :photo
+  # has_one_attached :photo
   has_one_attached :file
   has_one_attached :id_card
 
   validates :first_name, :last_name, :birth_date, :address, :phone, :email,
             :teacher_name, :dance_school, :teacher_phone, :teacher_email,
-            :category, :style, :level, :photo, :file, :id_card, presence: true
+            :category, :style, :level, :file, :id_card, presence: true
+            # :category, :style, :level, :photo, :file, :id_card, presence: true
 
   validates :category, presence: true, inclusion: { in: ['Loisir', 'Pré-professionnelle'] }
   validates :style, presence: true, inclusion: { in: ['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère'] }

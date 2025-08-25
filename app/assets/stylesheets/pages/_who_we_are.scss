@@ -53,3 +53,12 @@
     width: 50%;
   }
 }
+
+.logo-continous {
+  width: 220px;           /* set whatever size you need */
+  height: 220px;
+  margin: auto;
+  background-color: #deded4; /* <- exact color */
+  -webkit-mask: url('/assets/logo-continous-black.png') center/contain no-repeat;
+  mask: url('/assets/logo-continous-black.png') center/contain no-repeat;
+}

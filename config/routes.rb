@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     # Different pages for the website
     root to: "pages#home"
     get 'regulation' => 'pages#regulation'
-    get 'media' => 'pages#media'
+    get 'galerie' => 'pages#galerie'
     get 'who_we_are' => 'pages#who_we_are'
     get 'practical_info' => 'pages#practical_info'
     get 'contact' => 'pages#contact'
