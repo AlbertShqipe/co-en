@@ -90,7 +90,6 @@
           <td><%= t('index_individuals.td.level') %></td>
           <td><%= @individual_form.level %></td>
         </tr>
-        <%= render_attachment_row('index_individuals.td.profile_pic', @individual_form, :photo, @results_prod, @results_prod_1, @results_dev) %>
         <%= render_attachment_row('index_individuals.td.participant_file', @individual_form, :file, @results_prod, @results_prod_1, @results_dev) %>
         <%= render_attachment_row('index_individuals.td.participant_file1', @individual_form, :id_card, @results_prod, @results_prod_1, @results_dev) %>
         <% unless all_attachments_valid?(@individual_form, @results_prod, @results_prod_1, @results_dev) %>
