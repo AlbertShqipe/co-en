@@ -3,16 +3,16 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="duo-participants"
 export default class extends Controller {
   connect() {
-    const photoInput = document.getElementById("photo-input");
+    // const photoInput = document.getElementById("photo-input");
     const fileInput = document.getElementById("file-input");
     const idInput = document.getElementById("id-input");
 
-    if (photoInput) {
-      document.getElementById("photo-input").addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById("photo-name").textContent = photoName;
-      });
-    }
+    // if (photoInput) {
+    //   document.getElementById("photo-input").addEventListener("change", function() {
+    //     const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    //     document.getElementById("photo-name").textContent = photoName;
+    //   });
+    // }
     if (fileInput) {
       document.getElementById("file-input").addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "No file selected";
@@ -26,15 +26,15 @@ export default class extends Controller {
       });
     }
 
-    const photoInput1 = document.getElementById("photo-input1");
+    // const photoInput1 = document.getElementById("photo-input1");
     const fileInput1 = document.getElementById("file-input1");
     const idInput1 = document.getElementById("id-input1");
-    if (photoInput1) {
-      document.getElementById("photo-input1").addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById("photo-name1").textContent = photoName;
-      });
-    }
+    // if (photoInput1) {
+    //   document.getElementById("photo-input1").addEventListener("change", function() {
+    //     const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    //     document.getElementById("photo-name1").textContent = photoName;
+    //   });
+    // }
     if (fileInput1) {
       document.getElementById("file-input1").addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "No file selected";

@@ -3,16 +3,16 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="trio-participants"
 export default class extends Controller {
   connect() {
-    const photoInput = document.getElementById("photo-input");
+    // const photoInput = document.getElementById("photo-input");
     const fileInput = document.getElementById("file-input");
     const idInput = document.getElementById("id-input");
 
-    if (photoInput) {
-      photoInput.addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById("photo-name").textContent = photoName;
-      });
-    }
+    // if (photoInput) {
+    //   photoInput.addEventListener("change", function() {
+    //     const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    //     document.getElementById("photo-name").textContent = photoName;
+    //   });
+    // }
     if (fileInput) {
       fileInput.addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "No file selected";
@@ -26,15 +26,16 @@ export default class extends Controller {
       });
     }
 
-    const photoInput1 = document.getElementById("photo-input1");
+    // const photoInput1 = document.getElementById("photo-input1");
     const fileInput1 = document.getElementById("file-input1");
     const idInput1 = document.getElementById("id-input1");
-    if (photoInput1) {
-      photoInput1.addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById("photo-name1").textContent = photoName;
-      });
-    }
+
+    // if (photoInput1) {
+    //   photoInput1.addEventListener("change", function() {
+    //     const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    //     document.getElementById("photo-name1").textContent = photoName;
+    //   });
+    // }
     if (fileInput1) {
       fileInput1.addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "No file selected";
@@ -48,15 +49,16 @@ export default class extends Controller {
       });
     }
 
-    const photoInput2 = document.getElementById("photo-input2");
+    // const photoInput2 = document.getElementById("photo-input2");
     const fileInput2 = document.getElementById("file-input2");
     const idInput2 = document.getElementById("id-input2");
-    if (photoInput2) {
-      photoInput2.addEventListener("change", function() {
-        const photoName = this.files[0] ? this.files[0].name : "No file selected";
-        document.getElementById("photo-name2").textContent = photoName;
-      });
-    }
+
+    // if (photoInput2) {
+    //   photoInput2.addEventListener("change", function() {
+    //     const photoName = this.files[0] ? this.files[0].name : "No file selected";
+    //     document.getElementById("photo-name2").textContent = photoName;
+    //   });
+    // }
     if (fileInput2) {
       fileInput2.addEventListener("change", function() {
         const fileName = this.files[0] ? this.files[0].name : "No file selected";

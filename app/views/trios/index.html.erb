@@ -107,22 +107,6 @@
               <% end %>
             </tr>
             <tr>
-              <td><%= t('index_trio.td.participant_photo') %></td>
-              <% trio.trio_participants.each do |participant| %>
-                  <% if participant.photo.attached? %>
-                    <% key = participant.photo.key %>
-                    <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                    <% if matching_file != nil %>
-                      <% url =  matching_file["url"] %>
-                      <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                      <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                      <% else %>
-                      <td><p>Aucun fichier correspondant trouvé.</p></td>
-                    <% end %>
-                  <% end %>
-              <% end %>
-            </tr>
-            <tr>
               <td><%= t('index_trio.td.participant_file') %></td>
               <% trio.trio_participants.each do |participant| %>
                   <% if participant.file.attached? %>
@@ -302,22 +286,6 @@
                     <p style="text-align:center"><%= participant.birth_date %></p>
                     <p style="text-align:center"><%= calculate_age(participant.birth_date) %> years old</p>
                   </td>
-                <% end %>
-              </tr>
-              <tr>
-                <td><%= t('index_trio.td.participant_photo') %></td>
-                <% trio.trio_participants.each do |participant| %>
-                    <% if participant.photo.attached? %>
-                      <% key = participant.photo.key %>
-                      <% matching_file = @results_prod.find { |hash| hash["public_id"] == "production/#{key}" } || @results_prod_1.find { |hash| hash["public_id"] == "production/#{key}" } || @results_dev.find { |hash| hash["public_id"] == "development/#{key}" } %>
-                      <% if matching_file != nil %>
-                        <% url =  matching_file["url"] %>
-                        <%# <% updated_url = url.sub(/\.pdf\z/, '.png') %>
-                        <td style="text-align:center"><a href="<%=url%>" target="_blank"><img src="<%=url%>" alt="" width="50px"></a></td>
-                        <% else %>
-                        <td><p>Aucun fichier correspondant trouvé.</p></td>
-                      <% end %>
-                    <% end %>
                 <% end %>
               </tr>
               <tr>

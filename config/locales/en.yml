@@ -17,7 +17,7 @@ en:
       link4: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link5: |
-        <a href="#media" class="nav-link">MEDIA</a>
+        <a href="#galerie" class="nav-link">GALLERY</a>
       link6: |
         <a href="/profile?locale=en" class="dropdown-item">My Profile</a>
       link7: |
@@ -128,7 +128,7 @@ en:
       link14: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link15: |
-        <a href="#media" class="nav-link">MEDIA</a>
+        <a href="#galerie" class="nav-link">GALLERY</a>
       link16: |
         <a href="/individual_forms?locale=en" class="dropdown-item">Individual Forms</a>
       link17: |
@@ -156,7 +156,7 @@ en:
       link4: |
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link5: |
-        <a href="/media?locale=en" class="nav-link">MEDIA</a>
+        <a href="/galerie?locale=en" class="nav-link">GALLERY</a>
       link6: |
         <a href="/profile?locale=en" class="dropdown-item">My Profile</a>
       link7: |
@@ -265,7 +265,7 @@ en:
       link14: |
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link15: |
-        <a href="/media?locale=en" class="nav-link">MEDIA</a>
+        <a href="/galerie?locale=en" class="nav-link">GALLERY</a>
       link16: |
         <a href="/faq?locale=en" class="nav-link">My Messages</a>
 
@@ -273,7 +273,7 @@ en:
     content: |
       <div class="expandable-div-left">
         <div class="content">
-          <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+          <div class="logo"></div>
           <div class="mt-4 mb-4">
             <p><a href="/?locale=en">Home</a></p>
             <p><a href="/individual_forms">My Applications</a></p>
@@ -383,20 +383,20 @@ en:
         </div>
 
     media:
-      title: "MEDIA"
+      title: "GALLERY"
       content: |
-        <div class="second-section-home-media container" id="media">
+        <div class="second-section-home-media container" id="galerie">
           <div class="second-section-home-media-image">
             <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <div class="second-section-home-media-content d-flex flex-column">
-            <h1>MEDIA</h1>
+            <h1>GALLERY</h1>
             <p>The ENTRELACÉ International Dance Competition collaborates with specialized media and image professionals to capture and broadcast the highlights of our events. Thanks to them, the dancers' performances shine beyond the stage, whether on social media, online, or in dedicated publications. Here, you will also find highlights from previous editions, allowing you to relive the memorable moments of the competition.</p>
             <div class="image">
               <div class="image1">
               </div>
             </div>
-            <a href="media?locale=en" class='button-home'>MEDIA</a>
+            <a href="galerie?locale=en" class='button-home'>GALLERY</a>
           </div>
         </div>
 
@@ -804,7 +804,7 @@ en:
   regulation:
     download: "Download the"
     container:
-      title: "<h1>Regulation 2025</h1>"
+      title: "<h1>Regulation 2026</h1>"
       div1: |
         <div style="width:80%; margin:auto">
           <h5>Article 1: Objective</h5>
@@ -823,13 +823,23 @@ en:
           </p>
           <p>A candidate can perform a <b>maximum of four times</b> (solo, duo, and group).</p>
           <p>
-              The <b>pre-professional</b> categories are dedicated to candidates enrolled in special school schedules such as "Danse-Études/CHAD" or those with intense artistic activity, with more than three classes per week.
+            The <b>pre-professional</b> categories are dedicated to candidates enrolled in special school schedules such as "Danse-Études/CHAD" or those with intense artistic activity, with more than three classes per week.
           </p>
+          <div class="news">
+            <h5>News 2026</h5>
+            <h6><b>Category Interprète</b></h6>
+            <p>
+              Candidates must present two variations, allowing their ability to adapt to different aesthetics to be assessed. The aim is to highlight performers who can navigate between multiple styles or registers.
+            </p>
+            <p>
+              The fee for this category is €80.
+            </p>
+          </div>
           <p>
               Candidates in professional training or preparing for the EAT exam must register under this designation.
           </p>
           <p style="text-decoration:underline">
-              Candidates who won a gold medal in the leisure section the previous year and wish to participate in the 2025 edition of the Concours Entrelacé must register in the Pre-Professional Section.
+              Candidates who won a gold medal in the leisure section the previous year and wish to participate in the 2026 edition of the Concours Entrelacé must register in the Pre-Professional Section.
           </p>
           <p>For groups, two categories are available:</p>
           <ul style="color: black">
@@ -852,61 +862,60 @@ en:
           </p>
           <h6>Prize Table</h6>
           <table class="table-regulation">
-              <thead>
-                  <tr>
-                      <th>Prize</th>
-                      <th>Score Range</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Participation Certificate</td>
-                      <td>Below 10</td>
-                  </tr>
-                  <tr>
-                      <td>Encouragement</td>
-                      <td>10 to 10.99</td>
-                  </tr>
-                  <tr>
-                      <td>3rd Mention</td>
-                      <td>11 to 11.99</td>
-                  </tr>
-                  <tr>
-                      <td>2nd Mention</td>
-                      <td>12 to 12.99</td>
-                  </tr>
-                  <tr>
-                      <td>1st Mention</td>
-                      <td>13 to 13.99</td>
-                  </tr>
-                  <tr>
-                      <td>Bronze Medal</td>
-                      <td>14 to 14.99</td>
-                  </tr>
-                  <tr>
-                      <td>Silver Medal</td>
-                      <td>15 to 15.99</td>
-                  </tr>
-                  <tr>
-                      <td>Gold Medal</td>
-                      <td>16 to 16.99</td>
-                  </tr>
-                  <tr>
-                      <td>Gold Medal by Unanimous Decision</td>
-                      <td>17 to 17.99</td>
-                  </tr>
-                  <tr>
-                      <td>Gold Medal with Jury Commendations</td>
-                      <td>18 to 20</td>
-                  </tr>
-              </tbody>
+            <thead>
+              <tr>
+                <th>Award</th>
+                <th>Score Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gold Medal with Jury’s Congratulations</td>
+                <td>18 to 20</td>
+              </tr>
+              <tr>
+                <td>Gold Medal by Unanimous Decision</td>
+                <td>17 to 17.99</td>
+              </tr>
+              <tr>
+                <td>Gold Medal</td>
+                <td>16 to 16.99</td>
+              </tr>
+              <tr>
+                <td>Silver Medal</td>
+                <td>15 to 15.99</td>
+              </tr>
+              <tr>
+                <td>Bronze Medal</td>
+                <td>14 to 14.99</td>
+              </tr>
+              <tr>
+                <td>1st Mention</td>
+                <td>13 to 13.99</td>
+              </tr>
+              <tr>
+                <td>2nd Mention</td>
+                <td>12 to 12.99</td>
+              </tr>
+              <tr>
+                <td>3rd Mention</td>
+                <td>11 to 11.99</td>
+              </tr>
+              <tr>
+                <td>Encouragements</td>
+                <td>10 to 10.99</td>
+              </tr>
+              <tr>
+                <td>Certificate of Participation</td>
+                <td>Below 10</td>
+              </tr>
+            </tbody>
           </table>
           <p><b>
-              Numerous scholarships in France and abroad, gift vouchers, and photos will reward the top candidates.
+            The competition offers more than €30,000 in scholarships, in France and abroad, as well as gift vouchers and exclusive photos to reward the most promising talents.
           </b></p>
-          <p><b>
-              Grand PRIX 2025</b> will be awarded by the jury to a solo candidate, all categories and disciplines combined, who stands out throughout the competition.
-              <b>This prize will be accompanied by a cash amount of €200.</b>
+          <p>
+            The <b>Grand PRIZE 2026</b> will be awarded by the jury to a solo candidate, across all categories and disciplines, who has left a significant mark on the entire competition.
           </p>
         </div>
       div4: |
@@ -945,91 +954,90 @@ en:
                 <th colspan="2">CLASSICAL DANCE ~ INDIVIDUAL</th>
               </tr>
               <tr>
-                <th style="width:50%">AMATEUR</th>
-                <th style="width:50%">PRE-PROFESSIONAL</th>
+                <th style="width:50%">LOISIR</th>
+                <th style="width:50%">PRÉ- PROFESSIONNELLE</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
                   <strong>Préparatoire:</strong> 8-9 years old<br>
-                  A free variation of up to 1 min 30 sec on demi-pointe
+                  One free variation, max 1 min 30, on demi-pointe
                 </td>
                 <td>
                   <strong>Préparatoire:</strong> 8-9 years old<br>
-                  A free variation of up to 1 min 30 sec on demi-pointe
+                  One free variation, max 1 min 30, on demi-pointe
                 </td>
               </tr>
               <tr>
                 <td>
                   <strong>Élémentaire 1:</strong> 10-11 years old<br>
-                  A free variation of up to 1 min 45 sec on demi-pointe
+                  One free variation, max 1 min 45, on demi-pointe
                 </td>
                 <td>
                   <strong>Élémentaire 1:</strong> 10-11 years old<br>
-                  A free variation of up to 1 min 45 sec on demi-pointe
+                  One free variation, max 1 min 45, on demi-pointe
                 </td>
               </tr>
               <tr>
-                <td rowspan="2">
-                  <strong>Élémentaire 2:</strong> 12-13 years old<br>
-                  A free variation of up to 1 min 45 sec on demi-pointe
-                </td>
                 <td>
                   <strong>Élémentaire 2:</strong> 12-13 years old<br>
-                  A free variation of up to 1 min 45 sec on pointe
+                  One free variation, max 1 min 45, on demi-pointe
+                </td>
+                <td>
+                  <strong>Élémentaire 2:</strong> 12-13 years old<br>
+                  One free variation, max 1 min 45, on pointe
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <strong>Élémentaire 2 – Répertoire:</strong> 12-13 years old<br>
+                  One repertoire variation on pointe
                 </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Élémentaire 2 B:</strong> 12-13 years old<br>
-                  A repertoire variation on pointe
+                  <strong>Moyen:</strong> 14-15 years old<br>
+                  One free variation, max 1 min 45, on demi-pointe
+                </td>
+                <td>
+                  <strong>Moyen:</strong> 14-15 years old<br>
+                  One free variation, max 2 min, on pointe
                 </td>
               </tr>
               <tr>
-                <td rowspan="2">
-                  <strong>Moyen 1:</strong> 14-15 years old<br>
-                  A free variation of up to 1 min 45 sec on demi-pointe
-                </td>
+                <td></td>
                 <td>
-                  <strong>Moyen 1:</strong> 14-15 years old<br>
-                  A free variation of up to 2 min on pointe
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Moyen 1 B:</strong> 14-15 years old<br>
-                  A repertoire variation on pointe
+                  <strong>Moyen – Répertoire:</strong> 14-15 years old<br>
+                  One repertoire variation on pointe
                 </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Moyen 2:</strong> 16 years and older<br>
-                  A free variation of up to 1 min 45 sec on demi-pointe
+                  <strong>Avancée:</strong> from 16 years old<br>
+                  One free variation, max 1 min 45, on demi-pointe
                 </td>
                 <td>
-                  <strong>Avancée:</strong> 16 years and older<br>
-                  A free variation of up to 2 min on pointe
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Avancée:</strong> 16-17 years old<br>
-                  A free variation of up to 1 min 45 sec on pointe
-                </td>
-                <td>
-                  <strong>Supérieur:</strong> 16 years and older<br>
-                  A repertoire variation on pointe
+                  <strong>Avancée:</strong> from 16 years old<br>
+                  One free variation, max 2 min, on pointe
                 </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Supérieur:</strong> 18 years and older<br>
-                  A free variation of up to 2 min on pointe
+                  <strong>Supérieur:</strong> from 16 years old<br>
+                  One free variation, max 1 min 45, on pointe (girls)
                 </td>
                 <td>
-                  <strong>Formation:</strong> 17 years and older (EAT preparation, professionalization cycle)<br>
-                  A repertoire variation on pointe
+                  <strong>Supérieur:</strong> from 16 years old<br>
+                  One repertoire variation on pointe
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <strong>Interprète:</strong> from 15 years old<br>
+                  1 classical repertoire variation on pointe + 1 free variation (contemporary, neo-classical, modern, etc.)
                 </td>
               </tr>
             </tbody>
@@ -1104,8 +1112,9 @@ en:
                   A free variation of up to 2 min
                 </td>
                 <td>
-                  <strong>Formation:</strong> 17 years and older (EAT preparation, professionalization cycle)<br>
-                  A free variation of up to 2 min 30 sec
+                  <strong>Interprète :</strong> from 15 years old
+                  1 free contemporary or jazz variation +
+                  1 free variation (contemporary, neo-classical, modern, etc.)
                 </td>
               </tr>
             </tbody>
@@ -1133,7 +1142,7 @@ en:
                 <td><strong>Supérieur:</strong> 16 years and older<br>Free choreography of up to 3 min 30 sec</td>
               </tr>
               <tr>
-                <td><strong>Formation:</strong> EAT preparation, professionalization cycle from 17 years old<br>Free choreography of up to 4 min 30 sec</td>
+                <td><strong>Pré-Pro:</strong> EAT Preparation, professional training cycle from 17 years old free choreography, maximum 4 min 30</td>
               </tr>
             </tbody>
           </table>
@@ -1175,21 +1184,22 @@ en:
             <u>Only the teacher will be allowed in the dressing rooms, while the backstage area will be
             accessible only to the dancers.</u>
           </b></p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">MASTER CLASSES</h6>
           <p>
-            The Entrelacé International Dance Competition organizes master classes with jury members to
-            provide young dancers with an enriching and different experience from the one offered by participating
-            in the competition.
+            The Entrelacé International Dance Competition organizes master classes with the members of the jury in order to offer young dancers an enriching experience, additional and different from that provided by participating in the competition.
+            The master classes are open to all dancers, whether or not they are candidates of the Entrelacé International Dance Competition 2026, depending on their age and level.
           </p>
           <p>
-            The master classes <b>are optional</b> and do not interfere with the jury's scoring. They are not included
-            in the registration fees; <b>a fee of €25 will be required for each class.</b>.
+            The master classes <b>are optional</b> and do not affect the jury’s scoring. They are not included in the registration fees and require a separate registration; <b>a fee of €25 will be charged for each class</b>.
           </p>
           <p>
-            The master classes will take place on stage at the end of each competition day and will not interfere
-            with the candidates’ performance schedule.
+            The master classes will take place on stage and will not interfere with the candidates’ performances.
           </p>
-          <p>The schedule of master classes will be communicated along with the overall competition schedule.</p>
+          <p>
+            The schedule of the master classes will be communicated at the same time as the general competition schedule.
+          </p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">ACCUEIL DU PUBLIC</h6>
           <p>The competition is open to the public – tickets can be purchased on-site.</p>
           <p>Ticket Prices:</p>
@@ -1227,7 +1237,7 @@ en:
             <p>Specific entry and exit time slots will be defined and must be respected to ensure the smooth
               running of the competition and the comfort of candidates and the jury.</p>
           <div style="text-align:center">
-            <p class="warning">ACCESS TO THE AUDITORIUM WILL NOT BE ALLOWED DURING THE PERFORMANCE OF A CATEGORY.</p>
+            <p class="warning">ACCESS TO THE STAGE WILL NOT BE ALLOWED DURING THE PERFORMANCE OF A CATEGORY.</p>
           </div>
         </div>
       div11: |
@@ -1257,12 +1267,12 @@ en:
         <div class="mt-5" style="width:80%; margin:auto">
           <h5>Article 10 : Registration Procedures</h5>
           <div style="text-align:center">
-            <h6 class="warning">ATTENTION !</h6>
+            <h6 class="warning">ATTENTION!</h6>
           <p><b>
             Registrations will be recorded in the order in which the completed applications are
             received, based on the availability of spots.
           </b></p>
-          <p><b>Registration deadline: MARCH 15, 2025</b></p>
+          <p><b>Registration deadline: MARCH 20, 2026</b></p>
           <p><b>Registrations will close once the maximum quota of candidates is reached.</b></p>
           </div>
           <p>
@@ -1272,45 +1282,44 @@ en:
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301"> • INDIVIDUALS</h6>
           <ul class="ul-regulation">
             <li>
-              <a href="/individual_forms/new">Individual Registration Form 2025</a> completed and renamed with the candidate's or
-              school's/association's name (to be completed via the form on our website or sent by
-              email to concours.entrelace@gmail.com)
+              <a href="/individual_forms/new">Individual Registration Form 2026</a> completed and renamed with the candidate’s name
+              (to be filled out on the form on our website or sent by email to concours.entrelace@gmail.com)
             </li>
-            <li>Participation certificates signed by the candidates, or by parents if minors</li>
-            <li>Photocopy or scan of the candidate's identity document</li>
-            <li>Passport-size photo of the candidate</li>
-            <li>Passport-size photo of the responsible teacher</li>
-            <li>Payment of <b>48€</b> for one discipline, <b>80€</b> for two disciplines, <b>100€</b> for three disciplines</li>
+            <li>Authorization for Participation signed by the candidates, or by the parents if minors</li>
+            <li>Photocopy or scan of the candidate’s ID</li>
+            <li>Payment of <b>€49</b> for one discipline <b>(except Performer category €80)</b>, <b>€85</b> for two disciplines, <b>€100</b> for three disciplines</li>
           </ul>
           <p><b><u>A payment to <span class="warning">ENTRELACÉ</span> must be sent within 10 days of submitting the digital application.</b></u></p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">• DUO/ TRIO</h6>
           <ul class="ul-regulation">
             <li>
-              <a href="/duo/new">DUO Registration Form</a> or <a href="/trio/new">TRIO Registration Form</a> 2025</a> completed and renamed with the school/association's name (to
-              be completed via the form on our website or sent by email to concours.entrelace@gmail.com)
+              <a href="/duo/new">DUO Registration Form</a> or <a href="/trio/new">TRIO Registration Form</a> 2026 completed and renamed with the name of the school/association
+              (to be filled out on the form on our website or sent by email to concours.entrelace@gmail.com)
             </li>
-            <li>Participation certificates signed by the candidates, or by parents if minors</li>
-            <li>Photocopy or scan of the identity document for each group member</li>
-            <li>Passport-size photo of each candidate</li>
-            <li>Passport-size photo of the responsible teacher</li>
-            <li>Payment of <b>30€</b> for each duo/trio member</li>
+            <li>Authorization for Participation signed by the candidates, or by the parents if minors</li>
+            <li>Photocopy or scan of the ID for each member of the duo/ trio</li>
+            <li>Payment of <b>€30 for each member of the duo/ trio</b></li>
           </ul>
-          <p><b><u>A single payment per school/association to <span class="warning">ENTRELACÉ</span> must be sent within 10 days of submitting the digital application.</b></u></p>
+          <p>
+            <b><u>A single check per school/association made payable to <span class="warning">ENTRELACÉ</span> or online payment within a maximum of 10 days after confirmation of receipt of the registration file.</u></b>
+          </p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">• GROUP</h6>
           <ul class="ul-regulation">
             <li>
-              <a href="/group_forms/new">Group Registration Form 2025 </a> completed and renamed with the school/association's name (to
-              be completed via the form on our website or sent by email to
-              concours.entrelace@gmail.com) . For "large groups" (more than 14 dancers), attach a
-              second registration form if paper format is used.
+              <a href="/group_forms/new">GROUP Registration Form 2026</a> completed and renamed with the name of the school/association
+              (to be filled out on the form on our website or sent by email to concours.entrelace@gmail.com)<br>
+              In the case of “large groups” (+14 dancers), attach a second registration form if using paper format.
             </li>
-            <li>Participation certificates signed by the candidates, or by parents if minors</li>
-            <li>Photocopy or scan of the identity document for each group member</li>
-            <li>Passport-size photo of each candidate</li>
-            <li>Passport-size photo of the responsible teache</li>
-            <li>Payment of €25 for each group member</li>
+            <li>Authorization for Participation signed by the candidates, or by the parents if minors</li>
+            <li>Photocopy or scan of the ID for each member of the group</li>
+            <li>Payment of <b>€25 for each group member</b></li>
           </ul>
-          <p><b><u>A single payment per school/association to <span class="warning">ENTRELACÉ</span> must be sent within 10 days of submitting the digital application.</b></u></p>
+          <p>
+            <b><u>A single check per school/association made payable to <span class="warning">ENTRELACÉ</span> or online payment within a maximum of 10 days after confirmation of receipt of the registration file.</u></b>
+          </p>
+
           <h6 class="mt-5" style="font-weight:bolder; color:#EB4301">MUSIC</h6>
           <p>
             Music files in mp3 format must be sent by email to concours.entrelace@gmail.com with the
@@ -1337,6 +1346,16 @@ en:
             Registration fees will not be refunded under any circumstances, except in the event of
             cancellation of the competition or inability to participate with a medical certificate.
           </p>
+
+          <h5 style="text-align:center; text-indent:0px">Registration file to be sent to</h5>
+          <h6 style="margin-top:26px">Our website</h6>
+          <p style="text-align:center; padding-top:0px"><a href="https://www.concours-entrelace.com" style="text-align:center">www.concours-entrelace.com</a></p>
+          <h6 style="text-align:center">By email</h6>
+          <p style="text-align:center; padding-top:0px"><a href="mailto:concours.entrelace@gmail.com">concours.entrelace@gmail.com</a></p>
+          <h6 style="text-align:center">By post</h6>
+          <p style="text-align:center; padding-top:0px">CONCOURS ENTRELACÉ 429 Cours Emile Zola 69100 VILLEURBANNE</p>
+          <p>An acknowledgment of receipt will be sent to you within the week following your submission; if not, please contact us.</p>
+          <h5>THE DATE AND TIME OF THE PERFORMANCES WILL BE COMMUNICATED BY OFFICIAL NOTICE NO LATER THAN TWO WEEKS BEFORE THE COMPETITION</h5>
         </div>
 
   individual_form:
@@ -1388,7 +1407,7 @@ en:
   phone_view:
     slideshow: |
       <a href="/?locale=en">
-        <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+        <div class="avatar-logo-continous"></div>
       </a>
       <div class="mt-3 mb-0">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -1396,7 +1415,7 @@ en:
         <p><a href="/who_we_are?locale=en">WHO WE ARE</a></p>
         <p><a href="/practical_info?locale=en" >PRACTICAL INFO</a></p>
         <p><a href="/our_partners?locale=en">OUR PARTNERS</a></p>
-        <p><a href="/media?locale=en">MEDIA</a></p>
+        <p><a href="/galerie?locale=en">GALLERY</a></p>
         <p><a href="/contact?locale=en">CONTACT</a></p>
       </div>
     practical_info:

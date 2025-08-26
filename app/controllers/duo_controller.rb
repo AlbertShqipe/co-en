@@ -242,7 +242,7 @@ class DuoController < ApplicationController
                                                   birth_date:  I18n.l(participant.birth_date, format: :long, locale: :fr), # This will translate the date to French,,
                                                   age_day_competition: calculate_age(participant.birth_date.strftime("%Y-%m-%d")),
                                                   age: participant.age,
-                                                  photo: participant.photo.key,
+                                                  # photo: participant.photo.key,
                                                   file: participant.file,
                                                   id_card: participant.id_card,
                                                   asset_id: participant.asset_id
@@ -261,7 +261,9 @@ class DuoController < ApplicationController
       :title_of_music, :composer, :length_of_piece,
       :discipline, :level,
       duo_participants_attributes: [
-        :id, :name, :last_name, :birth_date, :age, :photo, :file, :id_card
+        :id, :name, :last_name, :birth_date, :age,
+        :file, :id_card
+        # :photo, :file, :id_card
       ]
     )
   end

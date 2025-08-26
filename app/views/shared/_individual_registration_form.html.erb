@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container" >
   <div class=" container registration-form">
   <div class="registration-form-inner text-center">
     <div style="z-index:1000">
@@ -66,48 +66,55 @@
             </div>
           </div>
 
-          <div class="individual-registration-form-forth">
-            <div id="category">
-              <%# <%= f.label :category, class: "label" %>
-              <span id="categoryError" class="error-message" style="color: red; display: none;">Please select a category.</span>
-              <%= f.select :category,  options_for_select(['Loisir', 'Pré-professionnelle']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category'), class: "input-session", id: "categoryInput" %> <br>
+          <div class="individual-registration-form-forth" data-controller="level-filter">
+            <div id="category" data-level-filter-target="category">
+              <span id="categoryError" class="error-message" style="color:red;display:none">
+                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.category_required', default: 'Please select a category.') %>
+              </span>
+              <%= f.select :category,
+                    options_for_select(['Loisir','Pré-professionnelle']),
+                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category') },
+                    class: "input-session" %>
             </div>
 
-            <div id="style">
-              <%# <%= f.label :style, class: "label" %>
-              <span id="styleError" class="error-message" style="color: red; display: none;">Please select a style.</span>
-              <%= f.select :style,  options_for_select(['Classique', 'Modern’Jazz', 'Contemporain', 'Caractère']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style'), class: "input-session", id:"style" %><br>
+            <div id="style" data-level-filter-target="style">
+              <span id="styleError" class="error-message" style="color:red;display:none">
+                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.style_required', default: 'Please select a style.') %>
+              </span>
+              <%= f.select :style,
+                    options_for_select(['Classique','Modern’Jazz','Contemporain']),
+                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style') },
+                    class: "input-session" %>
             </div>
 
-            <div id="level">
-              <%# <%= f.label :level, class: "label" %>
-              <span id="levelError" class="error-message" style="color: red; display: none;">Please select a level.</span>
-              <%= f.select :level,  options_for_select(['Préparatoire', 'Elémentaire 1', 'Elémentaire 2', 'Elémentaire 2B', 'Moyen', 'Moyen 1', 'Moyen 1B', 'Moyen 2', 'Avancée', 'Supérieur', 'Formation']), prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level'), class: "input-session", id:"level" %> <br>
+            <div id="level" data-level-filter-target="level">
+              <span id="levelError" class="error-message" style="color:red;display:none">
+                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.level_required', default: 'Please select a level.') %>
+              </span>
+              <%= f.select :level,
+                    options_for_select([]),
+                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') },
+                    class: "input-session",
+                    data: { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') } %>
             </div>
           </div>
 
           <div class="individual-registration-form-fifth">
             <div class="custom-file-input">
-              <span>Format (.jpeg, .jpg, .png)</span><br>
-              <%= f.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input", required: true %>
-              <label for="photo-input" id="photo-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.pic') %></label>
-              <span id="photo-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-            </div>
-            <div class="custom-file-input">
               <span>Format (pdf)</span><br>
               <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input", required: true %>
-              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label>
+              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
               <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
             <div class="custom-file-input">
               <span>Format (pdf)</span><br>
               <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input", required: true %>
-              <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label>
+              <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
               <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
             </div>
           </div>
 
-          <div class="mx-auto">
+          <div style="width:200px; margin:auto">
             <%= f.submit "#{t('individual_registration_form.registration_form_inner_text.individual.btn.create')}", class: "input-btn" %>
           </div>
         <% end %>

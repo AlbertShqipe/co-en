@@ -37,8 +37,15 @@
     flex-direction: column;
     justify-content: center;
 
+
     .logo {
-      width: 90px;
+      width: 80px;           /* set whatever size you need */
+      height: 80px;
+      border-radius: 50px;
+      margin: auto;
+      background-color: #deded4; /* <- exact color */
+      -webkit-mask: url('/assets/logo-continous-black.png') center/contain no-repeat;
+      mask: url('/assets/logo-continous-black.png') center/contain no-repeat;
     }
 
     .divider{

@@ -94,23 +94,7 @@
           </td>
         <% end %>
       </tr>
-      <tr>
-        <td><%= t('index_duo.td.participant_photo') %></td>
-        <% @duo.duo_participants.each do |participant| %>
-          <% if participant.photo.attached? %>
-            <% url = matching_file_url(participant.photo.key, @results_prod, @results_prod_1, @results_dev) %>
-            <% if url %>
-              <td style="text-align:center">
-                <a href="<%= url %>" target="_blank"><img src="<%= url %>" alt="" width="50px"></a>
-              </td>
-            <% else %>
-              <td><p><%= t('show.no_file') %></p></td>
-            <% end %>
-          <% else %>
-            <td><p><%= t('show.no_file') %></p></td>
-          <% end %>
-        <% end %>
-      </tr>
+
 
       <tr>
         <td><%= t('index_duo.td.participant_file') %></td>

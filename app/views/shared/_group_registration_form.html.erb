@@ -54,7 +54,7 @@
             </div>
             <div id="level">
               <%# <%= f.label :level %>
-              <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Formation']), prompt: t('group_registration_form.registration_form_inner_text.group.prompts.level'), class: "input-session", id:"category"%>
+              <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Pré-Pro']), prompt: t('group_registration_form.registration_form_inner_text.group.prompts.level'), class: "input-session", id:"category"%>
             </div>
           </div>
 
@@ -82,21 +82,15 @@
                   </div>
                   <div class="group-registration-form-participant-second">
                     <div class="custom-file-input">
-                      <span>Format (.jpeg, .jpg, .png)</span><br>
-                      <%= p.file_field :photo, accept: "image/jpeg, image/jpg, image/png", id: "photo-input", class: "file-input" %>
-                      <label for="photo-input" id="photo-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.pic') %></label>
-                      <span id="photo-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
-                    </div>
-                    <div class="custom-file-input">
                       <span>Format (pdf)</span><br>
                       <%= p.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input" %>
-                      <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label>
+                      <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label><br>
                       <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
                       <span>Format (pdf)</span><br>
                       <%= p.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input" %>
-                      <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label>
+                      <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label><br>
                       <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                   </div>
@@ -124,18 +118,13 @@
               </div>
               <div class="group-registration-form-participant-second">
                 <div class="custom-file-input">
-                  <input type="file" name="group_form[participants_attributes][NEW_RECORD][photo]" id="photo-inputNEW_RECORD" class="file-input" accept="image/jpeg, image/jpg, image/png">
-                  <label for="photo-inputNEW_RECORD" id="photo-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.pic') %></label>
-                  <span id="photo-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
-                </div>
-                <div class="custom-file-input">
                   <input type="file" name="group_form[participants_attributes][NEW_RECORD][file]" id="file-inputNEW_RECORD" class="file-input" accept="application/pdf">
-                  <label for="file-inputNEW_RECORD" id="file-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label>
+                  <label for="file-inputNEW_RECORD" id="file-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file') %></label><br>
                   <span id="file-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
                 <div class="custom-file-input">
                   <input type="file" name="group_form[participants_attributes][NEW_RECORD][id_card]" id="id-inputNEW_RECORD" class="file-input" accept="application/pdf">
-                  <label for="id-inputNEW_RECORD" id="id-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file1') %></label>
+                  <label for="id-inputNEW_RECORD" id="id-labelNEW_RECORD" class="file-label"><%= t('group_registration_form.registration_form_inner_text.group.participant.input_text.file1') %></label><br>
                   <span id="id-nameNEW_RECORD"><%=t('group_registration_form.registration_form_inner_text.group.participant.span.no_file')%></span>
                 </div>
                 <div style="padding-top:13px">
@@ -145,7 +134,7 @@
             </div>
           </template>
           <button type="button" id="add-participant" class="btn btn-secondary"><%= t('group_registration_form.registration_form_inner_text.group.participant.btn.add') %></button>
-          <div  style="width:200px">
+          <div  style="width:200px; margin:auto">
             <%= f.submit "#{t('group_registration_form.registration_form_inner_text.group.participant.btn.create')}", class: "input-btn" %>
           </div>
         <% end %>

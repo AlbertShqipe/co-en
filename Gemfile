@@ -8,6 +8,10 @@ gem "MailchimpTransactional", "~> 1.0.6"
 # Cloudinary Gem
 gem "cloudinary"
 
+# Inline SVG for Rails
+gem "inline_svg"
+
+
 
 gem 'sidekiq'
 gem "redis", ">= 4.0.1"

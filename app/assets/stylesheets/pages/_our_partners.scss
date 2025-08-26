@@ -1,3 +1,26 @@
+
+@mixin partners-base {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  margin-top: 2px;
+  filter: grayscale(100%);
+}
+
+@mixin partners-mobile {
+  display: block;
+  width: 100%;
+  height: 73vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+
 .cont-partners {
   display: flex;
   overflow: hidden;
@@ -12,26 +35,23 @@
     align-items: start;
   }
 
-  .partners {
-    display: block;
-    width: 100%;
-    height: 80vh;
+  .partners-2024 {
+    @include partners-base;
     background-image: url('PARTENAIRES2024.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    overflow: hidden;
-    margin-top: 2px;
 
     @media (max-width: 560px) {
-      display: block;
-      width: 100%;
-      height: 73vh;
-      background-image: url('PARTENAIRES2024.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      overflow: hidden;
+      @include partners-mobile;
+      /* background-image remains the same */
+    }
+  }
+
+  .partners-2025 {
+    @include partners-base;
+    background-image: url('PARTENAIRES2025.png');
+
+    @media (max-width: 560px) {
+      @include partners-mobile;
+      /* background-image remains the same */
     }
   }
 

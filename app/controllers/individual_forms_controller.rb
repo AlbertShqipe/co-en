@@ -212,7 +212,7 @@ class IndividualFormsController < ApplicationController
       category: @solo.category,
       style: @solo.style,
       level: @solo.level,
-      photo: @solo.photo.key,
+      # photo: @solo.photo.key,
       file: @solo.file,
       id_card: @solo.id_card,
       solos_list: @results
@@ -225,6 +225,11 @@ class IndividualFormsController < ApplicationController
   private
 
   def individual_form_params
-    params.require(:individual_form).permit(:first_name, :last_name, :birth_date, :address, :phone, :email, :teacher_name, :dance_school, :teacher_phone, :teacher_email, :category, :style, :level, :photo, :file, :id_card)
+    params.require(:individual_form).permit(
+      :first_name, :last_name, :birth_date, :address,
+      :phone, :email, :teacher_name, :dance_school, :teacher_phone,
+      :teacher_email, :category, :style, :level,
+      :file, :id_card)
+      # :photo, :file, :id_card)
   end
 end
