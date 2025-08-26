@@ -273,7 +273,7 @@ fr:
     content: |
       <div class="expandable-div-left">
         <div class="content">
-          <img src="/assets/logoLightGray-b35cfc3dbf7248748f783885ed3111206a56bcc1612a11b9f5a2a54a617863a0.png" class="logo">
+          <div class="logo"></div>
             <div class="mt-4 mb-4">
               <p><a href="/?locale=fr">Accueil</a></p>
               <p><a href="/individual_forms">Mes Inscriptions</a></p>
