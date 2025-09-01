@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     # Different pages for the website
     root to: "pages#home"
     get 'regulation' => 'pages#regulation'
-    get 'galerie' => 'pages#galerie'
+    # get 'galerie' => 'pages#galerie'
     get 'who_we_are' => 'pages#who_we_are'
     get 'practical_info' => 'pages#practical_info'
     get 'contact' => 'pages#contact'
@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     get "messages" => 'pages#messages'
     get "confirmation_form" => 'pages#confirmation_form'
     get 'test' => 'pages#test'
+
+    #Gallery Controller
+    get "galerie",       to: "gallery#index", as: :gallery
+    get "galerie/:year", to: "gallery#show",  as: :gallery_year,
+                        constraints: { year: /\d{4}/ }
 
     # Popup
     get 'dismiss_welcome_popup', to: 'pages#dismiss_welcome_popup'

@@ -120,3 +120,37 @@
     height: 200px;
   }
 }
+
+.gallery-index-row {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: 560px) {
+    position: unset;
+    transform: unset;
+    margin-bottom: 30px;
+  }
+
+  // .gallery-index-card {
+  //   background-color:#eb430199;
+  //   width: 300px;
+  //   height: 320px;
+  //   padding: 10px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
+}
+
+.image-show-gallery {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+
+  &:hover {
+    transform: scale(1.05); // makes it 5% bigger on hover
+  }
+}
