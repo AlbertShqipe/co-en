@@ -17,7 +17,15 @@ fr:
       link4: |
         <a href="#our_partners" class="nav-link">NOS PARTENAIRES</a>
       link5: |
-        <a href="#galerie" class="nav-link">GALERIE</a>
+        <div class="dropdown">
+          <a href="#galerie" class="nav-link">GALERIE <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <div class="dropdown-content">
+            <p>EDITIONS</p>
+            <a href="/gallery/2023?locale=fr">2025</a><br>
+            <a href="/gallery/2022?locale=fr">2024</a><br>
+            <a href="/gallery/2021?locale=fr">2023</a>
+          </div>
+        </div>
       link6: |
         <a href="/profile?locale=fr" class="dropdown-item">Mon Profil</a>
       link7: |
