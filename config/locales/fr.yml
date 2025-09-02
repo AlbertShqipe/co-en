@@ -687,7 +687,7 @@ fr:
       created_at: "Date de Subscription"
 
   apply:
-    sub: "Les inscriptions sont fermées jusqu’à nouvel ordre."
+    sub: "Les inscriptions sont fermées jusqu’au 1er octobre."
     important_information:
       title: "Informations importantes pour la soumission du formulaire"
       paragraph1: "Pour chaque formulaire individuel et chaque participant dans un groupe, vous devez fournir le formulaire d'autorisation approprié en fonction de l'âge du participant au moment de la soumission :"
