@@ -317,9 +317,9 @@ en:
   home:
     info:
       link1: |
-        <a href="/apply?locale=en" class='button-light-gray'>REGISTER</a>
+        <a href="/apply?locale=en" class='button-light-gray'>APPLY</a>
       link2: |
-        <a href="/apply?locale=en" class='button-light-gray'>REGISTER</a>
+        <a href="/apply?locale=en" class='button-light-gray'>APPLY</a>
       text: |
         <div>
           <h2>Solos / Duos / Groups</h2>

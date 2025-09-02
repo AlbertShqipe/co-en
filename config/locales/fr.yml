@@ -307,7 +307,7 @@ fr:
             <div class="mt-4 mb-4">
               <p><a href="/?locale=fr">Accueil</a></p>
               <p><a href="/individual_forms">Mes Inscriptions</a></p>
-              <!-- <p><a href="/apply?locale=fr">S'inscrire</a></p> -->
+              <p><a href="/apply?locale=fr">S'inscrire</a></p>
               <p><a href="/contact?locale=fr">Contact</a></p>
             </div>
           <img src="/assets/dividerGray-573e96d15615aa95b04fdcad4ef272d99fdfe70874c70405bec659e429c32df4.png" class="divider">
