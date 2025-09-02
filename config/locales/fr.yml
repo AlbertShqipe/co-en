@@ -153,6 +153,8 @@ fr:
         <a href="/group_forms?locale=fr" class="dropdown-item">Formulaires de Groupe</a>
       link20: |
         <a href="/messages?locale=fr" class="dropdown-item">Mes Messages</a>
+      link21: |
+        <a href="/weekend_workshops?locale=fr" class="dropdown-item">ACTUALITÉS</a>
 
   navbar:
     content:

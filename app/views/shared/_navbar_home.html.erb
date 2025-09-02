@@ -19,6 +19,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= t('navbar_home.content.link21').html_safe %>
+          </li>
+          <li class="nav-item">
             <%= t('navbar_home.content.link1').html_safe %>
           </li>
           <li class="nav-item">
@@ -60,6 +63,9 @@
             </div>
           </li>
         <% else %>
+          <li class="nav-item">
+            <%= t('navbar_home.content.link21').html_safe %>
+          </li>
           <li class="nav-item">
             <%= t('navbar_home.content.link11').html_safe %>
           </li>

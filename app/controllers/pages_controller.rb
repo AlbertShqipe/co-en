@@ -151,6 +151,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def weekend_workshops
+  end
+
   private
 
   # Check if the user has the 'admin' role
