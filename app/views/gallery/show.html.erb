@@ -1,12 +1,12 @@
 <%= render "shared/navbar"%>
 
-<nav>
+<nav style="margin-top: 70px; text-align: center; margin-bottom: 20px;">
   <% @years.each do |yr| %>
-    <%= link_to yr, gallery_year_path(yr), class: (yr.to_s == @year ? "active" : "") %>
+    <%link_to yr, gallery_year_path(yr), class: (yr.to_s == @year ? "active" : "") %>
   <% end %>
 </nav>
 
-<h1>Edition <%= @year %></h1>
+<h1 class="gallery-title">Edition <%= @year %></h1>
 
 <div class="portfolio-cont" data-controller="media-tabs" data-media-tabs-default-value="images">
   <div class="portfolio-t-b" >
