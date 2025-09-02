@@ -1,0 +1,23 @@
+<%= form_with model: @professor, local: true do |f| %>
+  <div>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+    <%= @professor.errors.full_messages_for(:first_name).join(", ") %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+    <%= @professor.errors.full_messages_for(:last_name).join(", ") %>
+  </div>
+
+  <div>
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+    <%= @professor.errors.full_messages_for(:school).join(", ") %>
+  </div>
+
+  <div style="margin-top:1rem;">
+    <%= f.submit "Subscribe" %>
+  </div>
+<% end %>

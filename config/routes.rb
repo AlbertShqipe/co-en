@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'professors/new'
+  get 'professors/create'
   scope "(:locale)", locale: /en|fr/ do
     # Different pages for the website
     root to: "pages#home"
@@ -55,6 +57,9 @@ Rails.application.routes.draw do
 
     # Info of a specific group form
     get '/group_forms/:id/info', to: 'group_forms#info'
+
+    # Professors routes
+    resources :professors, only: [:new, :create]
 
     # Messages routes
     resources :messages, only: [:index, :new, :create]

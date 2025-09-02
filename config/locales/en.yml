@@ -156,7 +156,7 @@ en:
       link20: |
         <a href="/messages?locale=en" class="dropdown-item">My Messages</a>
       link21: |
-        <a href="/weekend_workshops?locale=en" class="dropdown-item">NEWS</a>
+        <a href="/weekend_workshops?locale=en" class="nav-link">NEWS</a>
 
   navbar:
     content:

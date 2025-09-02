@@ -1,126 +1,126 @@
 <div class="main-container" >
   <div class=" container registration-form">
-  <div class="registration-form-inner text-center">
-    <div style="z-index:1000">
-      <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px", class:"text-center"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px", class:"text-center"), url_for(locale: 'fr') %>
-      <%= t('individual_registration_form.registration_form_inner_text.h1').html_safe %>
+    <div class="registration-form-inner text-center">
+      <div style="z-index:1000">
+        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px", class:"text-center"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px", class:"text-center"), url_for(locale: 'fr') %>
+        <%= t('individual_registration_form.registration_form_inner_text.h1').html_safe %>
 
-      <%= t('individual_registration_form.registration_form_inner_text.h3').html_safe %>
-      <div class="container">
-        <%= form_with(
-                      model: @individual_form,
-                      class: "form",
-                      url: individual_forms_path,
-                      multipart: true,
-                      local: true,
-                      data: { controller: "flatpickr ind-candidate" }) do |f| %>
-          <div class="individual-registration-form-first">
-            <div>
-              <%# <%= f.label :first_name, "First Name" %>
-              <%= f.text_field :first_name, required: true, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
-            </div>
-            <div>
-              <%# <%= f.label :last_name, "Last Name"  %>
-              <%= f.text_field :last_name, required: true, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
-            </div>
-            <div>
-              <%# <%= f.label :birth_date, "Birthday" %>
-              <span id="birthDateError" class="error-message" style="margin-bottom:-20px;text-align:left;color: red;display:none">Please fill in your birthday.</span>
-              <%= f.date_field :birth_date, required: true, id:"myID", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday'), class: "input-form birthday" %> <br>
-            </div>
+        <%= t('individual_registration_form.registration_form_inner_text.h3').html_safe %>
+        <div class="container">
+          <%= form_with(
+                        model: @individual_form,
+                        class: "form",
+                        url: individual_forms_path,
+                        multipart: true,
+                        local: true,
+                        data: { controller: "flatpickr ind-candidate" }) do |f| %>
+            <div class="individual-registration-form-first">
+              <div>
+                <%# <%= f.label :first_name, "First Name" %>
+                <%= f.text_field :first_name, required: true, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.name'), class: "input-form" %>
+              </div>
+              <div>
+                <%# <%= f.label :last_name, "Last Name"  %>
+                <%= f.text_field :last_name, required: true, placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.last_name'), class: "input-form" %>
+              </div>
+              <div>
+                <%# <%= f.label :birth_date, "Birthday" %>
+                <span id="birthDateError" class="error-message" style="margin-bottom:-20px;text-align:left;color: red;display:none">Please fill in your birthday.</span>
+                <%= f.date_field :birth_date, required: true, id:"myID", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.birthday'), class: "input-form birthday" %> <br>
+              </div>
 
-            </div>
-          </div>
-
-          <div class="individual-registration-form-second">
-            <div>
-              <%# <%= f.label :phone  %>
-              <%= f.text_field :phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
-            </div>
-            <div>
-              <%# <%= f.label :email %>
-              <%= f.email_field :email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
-            </div>
-            <div>
-              <%# <%= f.label :address, class: "address" %>
-              <%= f.text_field :address, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
-            </div>
-          </div>
-
-          <div class="individual-registration-form-third">
-            <div>
-              <%# <%= f.label :dance_school %>
-              <%= f.text_field :dance_school, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
-            </div>
-            <div>
-              <%# <%= f.label :teacher_name %>
-              <%= f.text_field :teacher_name, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
-            </div>
-            <div>
-              <%# <%= f.label :teacher_phone %>
-              <%= f.text_field :teacher_phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
-            </div>
-            <div>
-              <%# <%= f.label :teacher_email %>
-              <%= f.email_field :teacher_email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
-            </div>
-          </div>
-
-          <div class="individual-registration-form-forth" data-controller="level-filter">
-            <div id="category" data-level-filter-target="category">
-              <span id="categoryError" class="error-message" style="color:red;display:none">
-                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.category_required', default: 'Please select a category.') %>
-              </span>
-              <%= f.select :category,
-                    options_for_select(['Loisir','Pré-professionnelle']),
-                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category') },
-                    class: "input-session" %>
+              </div>
             </div>
 
-            <div id="style" data-level-filter-target="style">
-              <span id="styleError" class="error-message" style="color:red;display:none">
-                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.style_required', default: 'Please select a style.') %>
-              </span>
-              <%= f.select :style,
-                    options_for_select(['Classique','Modern’Jazz','Contemporain']),
-                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style') },
-                    class: "input-session" %>
+            <div class="individual-registration-form-second">
+              <div>
+                <%# <%= f.label :phone  %>
+                <%= f.text_field :phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.phone') %>
+              </div>
+              <div>
+                <%# <%= f.label :email %>
+                <%= f.email_field :email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.email') %>
+              </div>
+              <div>
+                <%# <%= f.label :address, class: "address" %>
+                <%= f.text_field :address, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.address') %>
+              </div>
             </div>
 
-            <div id="level" data-level-filter-target="level">
-              <span id="levelError" class="error-message" style="color:red;display:none">
-                <%= t('individual_registration_form.registration_form_inner_text.individual.errors.level_required', default: 'Please select a level.') %>
-              </span>
-              <%= f.select :level,
-                    options_for_select([]),
-                    { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') },
-                    class: "input-session",
-                    data: { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') } %>
+            <div class="individual-registration-form-third">
+              <div>
+                <%# <%= f.label :dance_school %>
+                <%= f.text_field :dance_school, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.school') %>
+              </div>
+              <div>
+                <%# <%= f.label :teacher_name %>
+                <%= f.text_field :teacher_name, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher') %>
+              </div>
+              <div>
+                <%# <%= f.label :teacher_phone %>
+                <%= f.text_field :teacher_phone, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_phone') %>
+              </div>
+              <div>
+                <%# <%= f.label :teacher_email %>
+                <%= f.email_field :teacher_email, required: true,  class: "input-form", placeholder: t('individual_registration_form.registration_form_inner_text.individual.placeholders.teacher_email') %>
+              </div>
             </div>
-          </div>
 
-          <div class="individual-registration-form-fifth">
-            <div class="custom-file-input">
-              <span>Format (pdf)</span><br>
-              <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input", required: true %>
-              <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
-              <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-            </div>
-            <div class="custom-file-input">
-              <span>Format (pdf)</span><br>
-              <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input", required: true %>
-              <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
-              <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
-            </div>
-          </div>
+            <div class="individual-registration-form-forth" data-controller="level-filter">
+              <div id="category" data-level-filter-target="category">
+                <span id="categoryError" class="error-message" style="color:red;display:none">
+                  <%= t('individual_registration_form.registration_form_inner_text.individual.errors.category_required', default: 'Please select a category.') %>
+                </span>
+                <%= f.select :category,
+                      options_for_select(['Loisir','Pré-professionnelle']),
+                      { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.category') },
+                      class: "input-session" %>
+              </div>
 
-          <div style="width:200px; margin:auto">
-            <%= f.submit "#{t('individual_registration_form.registration_form_inner_text.individual.btn.create')}", class: "input-btn" %>
-          </div>
-        <% end %>
+              <div id="style" data-level-filter-target="style">
+                <span id="styleError" class="error-message" style="color:red;display:none">
+                  <%= t('individual_registration_form.registration_form_inner_text.individual.errors.style_required', default: 'Please select a style.') %>
+                </span>
+                <%= f.select :style,
+                      options_for_select(['Classique','Modern’Jazz','Contemporain']),
+                      { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.style') },
+                      class: "input-session" %>
+              </div>
+
+              <div id="level" data-level-filter-target="level">
+                <span id="levelError" class="error-message" style="color:red;display:none">
+                  <%= t('individual_registration_form.registration_form_inner_text.individual.errors.level_required', default: 'Please select a level.') %>
+                </span>
+                <%= f.select :level,
+                      options_for_select([]),
+                      { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') },
+                      class: "input-session",
+                      data: { prompt: t('individual_registration_form.registration_form_inner_text.individual.prompts.level') } %>
+              </div>
+            </div>
+
+            <div class="individual-registration-form-fifth">
+              <div class="custom-file-input">
+                <span>Format (pdf)</span><br>
+                <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input", required: true %>
+                <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
+                <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+              </div>
+              <div class="custom-file-input">
+                <span>Format (pdf)</span><br>
+                <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input", required: true %>
+                <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
+                <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
+              </div>
+            </div>
+
+            <div style="width:200px; margin:auto">
+              <%= f.submit "#{t('individual_registration_form.registration_form_inner_text.individual.btn.create')}", class: "input-btn" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </div>
 <script>
