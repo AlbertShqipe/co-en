@@ -20,9 +20,9 @@ fr:
         <div class="dropdown">
           <a style="display:inline-flex !important;" href="#galerie" class="nav-link">EDITIONS <span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
           <div class="dropdown-content">
-            <a href="/gallery/2023?locale=fr">2025</a><br>
-            <a href="/gallery/2022?locale=fr">2024</a><br>
-            <a href="/gallery/2021?locale=fr">2023</a>
+            <a href="/galerie/2023?locale=fr">2025</a><br>
+            <a href="/galerie/2022?locale=fr">2024</a><br>
+            <a href="/galerie/2021?locale=fr">2023</a>
           </div>
         </div>
       link6: |
@@ -172,8 +172,6 @@ fr:
       link5: |
           <div class="dropdown">
           <a style="display: inline-flex; align-items: center;" href="/galerie" class="nav-link dropbtn">EDITIONS<span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
-              EDITIONS <span class="material-symbols-outlined">arrow_drop_down</span>
-            </a>
             <div class="dropdown-content">
               <a href="/galerie/2025?locale=fr">2025</a><br>
               <a href="/galerie/2024?locale=fr">2024</a><br>
