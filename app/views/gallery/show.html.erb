@@ -1,0 +1,66 @@
+<%= render "shared/navbar"%>
+
+<nav style="margin-top: 70px; text-align: center; margin-bottom: 20px;">
+  <% @years.each do |yr| %>
+    <%link_to yr, gallery_year_path(yr), class: (yr.to_s == @year ? "active" : "") %>
+  <% end %>
+</nav>
+
+<h1 class="gallery-title">Edition <%= @year %></h1>
+
+<div class="portfolio-cont" data-controller="media-tabs" data-media-tabs-default-value="images">
+  <div class="portfolio-t-b" >
+    <ul>
+      <li data-media-tabs-target="link" data-action="click->media-tabs#open" data-id="images" class="active">Images</li>
+      <li data-media-tabs-target="link" data-action="click->media-tabs#open" data-id="laureats">Laureats</li>
+      <li data-media-tabs-target="link" data-action="click->media-tabs#open" data-id="videos" >Videos</li>
+    </ul>
+  </div>
+  <div class="portfolio-cont" data-media-tabs-target="tab" data-media-tabs-type-value="images" data-id="images">
+    <% if @images != nil %>
+      <div data-controller="slideshow">
+        <div class="slideshow-container">
+          <% @images.each_with_index do |image, index| %>
+            <div class="mySlides" data-slideshow-target="slide">
+              <div class="numbertext"><%= index + 1 %> / <%= @images.size %></div>
+              <%= image_tag image["secure_url"], width:'50%', class:'img' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="thumbnail-container container">
+          <% @images.each_with_index do |image, index| %>
+            <div class="thumbnail" data-action="click->slideshow#selectSlide">
+              <%= image_tag image["secure_url"], style:"width:30px !important;height:40px", data: { index: index + 1 }, class: 'img' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div style="text-align:center">
+        <p>Pas des photos pour l'instant</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="portfolio-cont hidden" data-media-tabs-target="tab" data-media-tabs-type-value="videos" data-id="videos">
+    <% if @videos.present? %>
+      <div class="text-center">
+        <% @videos.each do |yt_id| %>
+          <iframe
+            class="video"
+            src="https://www.youtube.com/embed/<%= yt_id %>"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe><br>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <p>Aucune vidéo pour <%= @year %> pour l’instant.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>

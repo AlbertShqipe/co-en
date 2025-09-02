@@ -1,0 +1,20 @@
+<%= render "shared/navbar"%>
+<h1 class="gallery-title">Editions</h1>
+
+<div class="gallery-index-row">
+  <%# <div class="logo-continous logo-media"></div> %>
+  <div class="row">
+    <% @years.each do |year| %>
+      <div class="col-12 col-md-6 mb-3 text-center">
+        <div class="card m-auto gallery-index-card">
+          <%= link_to gallery_year_path(year), class: "d-block text-decoration-none" do %>
+            <%= image_tag cover_image_for(year),
+                  class: "image-show-gallery",
+                  alt: "Concours #{year}" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer_fixed" %>

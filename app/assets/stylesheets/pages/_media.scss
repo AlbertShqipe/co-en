@@ -120,3 +120,43 @@
     height: 200px;
   }
 }
+
+.gallery-title {
+  font-family: Georgia, serif !important;
+  text-align: center !important;
+}
+
+.gallery-index-row {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  height: auto;
+
+  @media (max-width: 560px) {
+    position: unset;
+    transform: unset;
+    margin-bottom: 30px;
+  }
+
+  .logo-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    @media (max-width: 560px) {
+      display: none;
+    }
+  }
+}
+
+.image-show-gallery {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+
+  &:hover {
+    transform: scale(1.05); // makes it 5% bigger on hover
+  }
+}

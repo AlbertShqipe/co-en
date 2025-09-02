@@ -17,7 +17,15 @@ en:
       link4: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link5: |
-        <a href="#galerie" class="nav-link">GALLERY</a>
+        <div class="dropdown">
+          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS<span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          </a>
+          <div class="dropdown-content">
+            <a href="/galerie/2025">2025</a><br>
+            <a href="/galerie/2024">2024</a><br>
+            <a href="/galerie/2023">2023</a>
+          </div>
+        </div>
       link6: |
         <a href="/profile?locale=en" class="dropdown-item">My Profile</a>
       link7: |
@@ -128,7 +136,15 @@ en:
       link14: |
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link15: |
-        <a href="#galerie" class="nav-link">GALLERY</a>
+        <div class="dropdown">
+          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS<span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          </a>
+          <div class="dropdown-content">
+            <a href="/galerie/2025">2025</a><br>
+            <a href="/galerie/2024">2024</a><br>
+            <a href="/galerie/2023">2023</a>
+          </div>
+        </div>
       link16: |
         <a href="/individual_forms?locale=en" class="dropdown-item">Individual Forms</a>
       link17: |
@@ -157,12 +173,11 @@ en:
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link5: |
         <div class="dropdown">
-          <a href="/galerie?locale=en" class="nav-link">GALLERY <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display: inline-flex !important;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS <span class="material-symbols-outlined">arrow_drop_down</span></a>
           <div class="dropdown-content">
-            <p>EDITIONS</p>
-            <a href="/galerie?locale=en#edition_2023">2025</a><br>
-            <a href="/galerie?locale=en#edition_2022">2024</a><br>
-            <a href="/galerie?locale=en#edition_2021">2023</a>
+            <a href="/galerie/2025?locale=en">2025</a><br>
+            <a href="/galerie/2024?locale=en">2024</a><br>
+            <a href="/galerie/2023?locale=en">2023</a>
           </div>
         </div>
       link6: |
@@ -273,7 +288,14 @@ en:
       link14: |
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link15: |
-        <a href="/galerie?locale=en" class="nav-link">GALLERY</a>
+        <div class="dropdown">
+          <a style="display: inline-flex !important;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <div class="dropdown-content">
+            <a href="/galerie/2025?locale=en">2025</a><br>
+            <a href="/galerie/2024?locale=en">2024</a><br>
+            <a href="/galerie/2023?locale=en">2023</a>
+          </div>
+        </div>
       link16: |
         <a href="/faq?locale=en" class="nav-link">My Messages</a>
 
