@@ -1,6 +1,6 @@
 <%= render "shared/navbar"%>
 
-<nav style="margin-top: 70px; text-align: center; margin-bottom: 20px;">
+<nav style="text-align: center; margin-bottom: 20px;">
   <% @years.each do |yr| %>
     <%link_to yr, gallery_year_path(yr), class: (yr.to_s == @year ? "active" : "") %>
   <% end %>
