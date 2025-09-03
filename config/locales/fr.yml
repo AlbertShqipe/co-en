@@ -153,6 +153,8 @@ fr:
         <a href="/group_forms?locale=fr" class="dropdown-item">Formulaires de Groupe</a>
       link20: |
         <a href="/messages?locale=fr" class="dropdown-item">Mes Messages</a>
+      link21: |
+        <a href="/weekend_workshops?locale=fr" class="nav-link">ACTUALITÉS</a>
 
   navbar:
     content:
@@ -582,6 +584,22 @@ fr:
             create: "Créer un groupe"
             remove_participant: "Retirer le·a participant·e"
 
+  professors_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">FORMULAIRE D'INSCRIPTION</h1>
+      h2: |
+        <h2 class="text-center">Inscription Enseignant·e·s</h2>
+      h3: |
+        <h3 class="text-center">Remplissez un formulaire par enseignant·e</h3>
+      professor:
+        placeholders:
+          first_name: "Prénom"
+          last_name: "Nom de Famille"
+          school: "Nom de l'École de Danse"
+        btn:
+          create: "Créer le Profil Enseignant·e"
+
   index_groups:
     th:
       attributes: "Attributes"
@@ -730,6 +748,15 @@ fr:
             <p class="card-text">Solo</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
             <a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
+          </div>
+        </div>
+      professor_registration_form: |
+        <div class="card-body">
+          <h5 class="card-title">Formulaire d'Inscription Enseignant·e·s</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text">Enseignant·e·s</p>
+            <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
+            <a href="/professors/new?locale=fr" class="btn card-button">Voir</a>
           </div>
         </div>
     text: "Pour une meilleure expérience et afin de vous assurer de pouvoir compléter l’inscription au concours, veuillez accéder à ce formulaire depuis un ordinateur. Les appareils mobiles ou tablettes peuvent ne pas prendre en charge toutes les fonctionnalités nécessaires à la procédure d’inscription."

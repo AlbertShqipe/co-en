@@ -82,6 +82,10 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.7.0", platforms: [:ruby]
+
+  # Preview emails in the browser instead of sending them
+  gem "letter_opener"
+  gem "letter_opener_web"
 end
 
 group :test do

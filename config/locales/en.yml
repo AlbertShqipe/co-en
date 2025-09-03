@@ -155,6 +155,8 @@ en:
           <a href="/group_forms?locale=en" class="dropdown-item">Group Forms</a>
       link20: |
         <a href="/messages?locale=en" class="dropdown-item">My Messages</a>
+      link21: |
+        <a href="/weekend_workshops?locale=en" class="nav-link">NEWS</a>
 
   navbar:
     content:
@@ -584,6 +586,24 @@ en:
             create: "Create Group"
             remove_participant: "Remove Participant"
 
+  professors_registration_form:
+    registration_form_inner_text:
+      h1: |
+        <h1 class="text-center">REGISTRATION FORM</h1>
+      h2: |
+        <h2 class="text-center">Professor Subscription</h2>
+      h3: |
+        <h3 class="text-center">Fill out one form per professor</h3>
+      professor:
+        placeholders:
+          first_name: "First Name"
+          last_name: "Last Name"
+          school: "Dance School Name"
+          school_address: "Dance School Address"
+        input_text:
+          pic: "Profile Picture"
+        btn:
+            create: "Submit Candidature"
   index_groups:
     th:
       attributes: "Attributes"
@@ -732,6 +752,15 @@ en:
             <p class="card-text" >Solo</p>
             <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
             <a href="/individual_forms/new?locale=en" class="btn card-button">View</a>
+          </div>
+        </div>
+      professor_registration_form: |
+        <div class="card-body">
+          <h5 class="card-title">Professor Registration Form</h5>
+          <div class="d-flex justify-content-around flex-column">
+            <p class="card-text" >Professor</p>
+            <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
+            <a href="/professors/new?locale=en" class="btn card-button">View</a>
           </div>
         </div>
     text: "For the best experience and to ensure you can complete the registration for the competition, please access this form using a computer. Mobile or tablet devices may not support all features required for the registration process."

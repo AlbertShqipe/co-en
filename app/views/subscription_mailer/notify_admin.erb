@@ -18,7 +18,7 @@
         <li><strong>Utilisateur•trice:</strong> <%= @subscription.user.name %> <%= @subscription.user.last_name %></li>
         <li><strong>Email Utilisateur•trice:</strong> <%= @subscription.user.email %> </li>
       </ul>
-      <%if @type == "Solo" %>
+      <% if @type == "Solo" %>
         <p>Informations Solo:</p>
         <ul style="list-style-type: none;">
           <li>Prénom: <%=@subscription.first_name%></li>
@@ -35,7 +35,7 @@
           <li>Style: <%=@subscription.style%></li>
           <li>Niveau: <%=@subscription.level%></li>
         </ul>
-      <%elsif @type == "Duo"%>
+      <% elsif @type == "Duo"%>
         <p>Informations Duo:</p>
         <ul style="list-style-type: none;">
         <li>Nom du Duo: <%=@subscription.name%></li>
@@ -53,7 +53,7 @@
           <li><%=@subscription.duo_participants.second.name%> <%=@subscription.duo_participants.second.last_name%>, <%=@subscription.duo_participants.second.age%> ans</li>
         </ul>
       </ul>
-      <%elsif @type == "Trio"%>
+      <% elsif @type == "Trio"%>
         <p>Informations Trio:</p>
         <ul style="list-style-type: none;">
           <li>Nom du Trio: <%=@subscription.name%></li>
@@ -72,7 +72,7 @@
             <li><%=@subscription.trio_participants.third.name%> <%=@subscription.trio_participants.third.last_name%>, <%=@subscription.trio_participants.third.age%> ans</li>
           </ul>
         </ul>
-      <%else%>
+      <% elsif @tyoe == "Group "%>
         <p>Informations Group:</p>
         <ul style="list-style-type: none;">
           <li>Nom du Group: <%=@subscription.name%></li>
@@ -91,6 +91,15 @@
             <% end %>
           </ul>
         </ul>
+      <% elsif @type == "Professor" %>
+        <p>Informations Professeur•e:</p>
+        <ul style="list-style-type: none;">
+          <li>Prénom: <%=@subscription.first_name%></li>
+          <li>Nom de Famille: <%=@subscription.last_name%></li>
+          <li>Nom de l'École de Danse: <%=@subscription.school%></li>
+        </ul>
+      <% else %>
+        <p>Type d'inscription inconnu.</p>
       <%end%>
       <p>Pour plus de détails, connectez-vous au panneau d'administration.</p>
       <a href="<%= @url %>" style="color: #eb4301; text-decoration: none; margin:20px;">Je Regarde</a>

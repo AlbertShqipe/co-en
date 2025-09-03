@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'professors/new'
+  get 'professors/create'
   scope "(:locale)", locale: /en|fr/ do
     # Different pages for the website
     root to: "pages#home"
     get 'regulation' => 'pages#regulation'
-    # get 'galerie' => 'pages#galerie'
+    get 'weekend_workshops' => 'pages#weekend_workshops'
     get 'who_we_are' => 'pages#who_we_are'
     get 'practical_info' => 'pages#practical_info'
     get 'contact' => 'pages#contact'
@@ -14,6 +16,11 @@ Rails.application.routes.draw do
     get "messages" => 'pages#messages'
     get "confirmation_form" => 'pages#confirmation_form'
     get 'test' => 'pages#test'
+
+    # Letter Opener for emails in development
+    if Rails.env.development?
+      mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
 
     #Gallery Controller
     get "galerie",       to: "gallery#index", as: :gallery
@@ -55,6 +62,9 @@ Rails.application.routes.draw do
 
     # Info of a specific group form
     get '/group_forms/:id/info', to: 'group_forms#info'
+
+    # Professors routes
+    resources :professors, only: [:new, :create]
 
     # Messages routes
     resources :messages, only: [:index, :new, :create]
