@@ -3,11 +3,11 @@ class IndividualFormsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-      if current_user.admin?
-        @individual_form = IndividualForm.find(params[:id]) # Admins can access any duo
-      else
-        @individual_form = current_user.individual_forms.find(params[:id]) # Competitors can access only their own duos
-      end
+    if current_user.admin?
+      @individual_form = IndividualForm.find(params[:id]) # Admins can access any solo
+    else
+      @individual_form = current_user.individual_forms.find(params[:id]) # Competitors can access only their own solos
+    end
 
     @results = []
     IndividualForm.order(created_at: :asc).all.each_with_index do |solo, index|

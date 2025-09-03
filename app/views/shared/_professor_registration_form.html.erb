@@ -1,23 +1,38 @@
-<%= form_with model: @professor, local: true do |f| %>
-  <div>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-    <%= @professor.errors.full_messages_for(:first_name).join(", ") %>
-  </div>
+<%= render "shared/navbar" %>
+<div class="main-container" style="height:100%">
+  <div class="container registration-form">
+    <div class="registration-form-inner text-center">
+      <div style="z-index:1000" class="mt-4">
+        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px", class:"text-center"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px", class:"text-center"), url_for(locale: 'fr') %>
+        <%= t('professors_registration_form.registration_form_inner_text.h1').html_safe %>
+        <%= t('professors_registration_form.registration_form_inner_text.h2').html_safe %>
+        <%= t('professors_registration_form.registration_form_inner_text.h3').html_safe %>
+        <%= form_with model: @professor, local: true do |f| %>
+          <div class="individual-registration-form-first mt-5">
+            <div>
+              <%# <%= f.label :first_name, "First Name" %>
+              <%= f.text_field :first_name, required: true, placeholder: t('professors_registration_form.registration_form_inner_text.professor.placeholders.first_name'), class: "input-form" %>
+              <%= @professor.errors.full_messages_for(:first_name).join(", ") %>
+            </div>
 
-  <div>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-    <%= @professor.errors.full_messages_for(:last_name).join(", ") %>
-  </div>
+            <div>
+              <%# <%= f.label :first_name, "First Name" %>
+              <%= f.text_field :last_name, required: true, placeholder: t('professors_registration_form.registration_form_inner_text.professor.placeholders.last_name'), class: "input-form" %>
+              <%= @professor.errors.full_messages_for(:last_name).join(", ") %>
+            </div>
 
-  <div>
-    <%= f.label :school %><br>
-    <%= f.text_field :school %>
-    <%= @professor.errors.full_messages_for(:school).join(", ") %>
+            <div>
+              <%# <%= f.label :first_name, "First Name" %>
+              <%= f.text_field :school, required: true, placeholder: t('professors_registration_form.registration_form_inner_text.professor.placeholders.school'), class: "input-form" %>
+              <%= @professor.errors.full_messages_for(:school).join(", ") %>
+            </div>
+          </div>
+          <div style="width:300px; margin:auto" class="mt-4">
+            <%= f.submit "#{t('professors_registration_form.registration_form_inner_text.professor.btn.create')}", class: "input-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div style="margin-top:1rem;">
-    <%= f.submit "Subscribe" %>
-  </div>
-<% end %>
+</div>
+<%= render "shared/footer_fixed" %>

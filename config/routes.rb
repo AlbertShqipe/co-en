@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     get "confirmation_form" => 'pages#confirmation_form'
     get 'test' => 'pages#test'
 
+    # Letter Opener for emails in development
+    if Rails.env.development?
+      mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
+
     #Gallery Controller
     get "galerie",       to: "gallery#index", as: :gallery
     get "galerie/:year", to: "gallery#show",  as: :gallery_year,

@@ -38,4 +38,14 @@ class FormSubmissionMailer < ApplicationMailer
       subject: "Confirmation de soumission du formulaire de Groupe"
     )
   end
+
+  def professor_submission(professor)
+    @professor = professor
+    @user =  professor.user
+    @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
+    mail(
+      to: professor.user.email,
+      subject: "Confirmation de soumission du formulaire Enseignant"
+    )
+  end
 end
