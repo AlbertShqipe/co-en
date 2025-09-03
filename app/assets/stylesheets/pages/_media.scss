@@ -3,12 +3,13 @@
   max-width: 80%;
   position: relative;
   margin: auto;
+  height: 400px;
 
   .mySlides {
     display: none;
     text-align: center;
     width: 700px;
-    height: 680px;
+    height: 550px;
     overflow: hidden;
 
     @media (max-width: 560px) {
