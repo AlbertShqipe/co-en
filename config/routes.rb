@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     # Different pages for the website
     root to: "pages#home"
     get 'regulation' => 'pages#regulation'
-    get 'weekend_workshops' => 'pages#weekend_workshops'
+    get 'news' => 'pages#news'
     get 'who_we_are' => 'pages#who_we_are'
     get 'practical_info' => 'pages#practical_info'
     get 'contact' => 'pages#contact'

@@ -1,0 +1,20 @@
+<%= render "shared/navbar" %>
+  <div class="first-container-news">
+
+    <div class="info">
+      <div class="text">
+        <%= t('news.text_plus_link').html_safe %>
+      </div>
+    </div>
+    <div class="image-news">
+      <%= image_tag "dividerGray.png", alt: "divider image" %>
+    </div>
+    <div class="news-weekendWorkshops">
+      <%= t("news.weekend_workshops").html_safe %>
+      <div class="image-wws">
+        <%= image_tag "WW-logo.png", alt:"Weekend Workshops logo" %>
+      </div>
+
+    </div>
+  </div>
+<%= render "shared/footer_fixed" %>

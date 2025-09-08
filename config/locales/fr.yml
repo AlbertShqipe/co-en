@@ -154,7 +154,7 @@ fr:
       link20: |
         <a href="/messages?locale=fr" class="dropdown-item">Mes Messages</a>
       link21: |
-        <a href="/weekend_workshops?locale=fr" class="nav-link">ACTUALITÉS</a>
+        <a href="/news?locale=fr" class="nav-link">ACTUALITÉS</a>
 
   navbar:
     content:
@@ -1496,6 +1496,7 @@ fr:
         <p><a href="/practical_info?locale=fr">INFORMATIONS PRATIQUES</a></p>
         <p><a href="/our_partners?locale=fr">NOS PARTENAIRES</a></p>
         <p><a href="/galerie?locale=fr">EDITIONS</a></p>
+        <p><a href="/news?locale=fr">ACTUALITÉS</a></p>
         <p><a href="/contact?locale=fr">CONTACT</a></p>
       </div>
     practical_info:
@@ -1554,3 +1555,22 @@ fr:
         <li>Enregistrement des modifications<br>
           Une fois que vous êtes certain(e) que toutes les informations sont correctes et complètes, cliquez sur le bouton “Enregistrer les modifications” pour valider vos mises à jour.</li>
       </ol>
+
+  news:
+    title: "Actualités"
+    no_news: "No news available at the moment. Please check back later."
+    read_more: "Read more"
+    back: "Back to News"
+    text_plus_link: |
+      <div class='mt-5 mb-4'>
+        <h1>4ᵉ ÉDITION - 2026</h1>
+        <h3>18 & 19 AVRIL 2026 - Espace Albert Camus BRON (69)</h3>
+        <h2>Individuels / Duos / Groupes </h2>
+        <h3>CLASSIQUE - MODERN’JAZZ – CONTEMPORAIN - CARACTÈRE</h3>
+        <h4>Section Loisir – Section Pré-professionnelle</h4>
+      </div>
+      <a href='/apply?locale=en' class='button-light-gray-news'>S'INSCRIRE</a>
+    weekend_workshops: |
+      <h3>✨ Weekend Workshops Entrelacé ✨</h3>
+      <p>Entrelacé crée les Weekend Workshops : 2 jours intensifs pour vous offrir une immersion artistique unique. Encadrés par des professionnels passionnés, vous aurez l’opportunité d’expérimenter différentes matières techniques, styles et univers chorégraphiques – de la danse classique aux danses urbaines.</p>
+      <p>Tout au long de la saison 2025-2026, plusieurs Weekend Workshops vous seront proposés… restez connectés pour découvrir la programmation !</p>

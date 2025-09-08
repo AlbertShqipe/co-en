@@ -156,7 +156,7 @@ en:
       link20: |
         <a href="/messages?locale=en" class="dropdown-item">My Messages</a>
       link21: |
-        <a href="/weekend_workshops?locale=en" class="nav-link">NEWS</a>
+        <a href="/news?locale=en" class="nav-link">NEWS</a>
 
   navbar:
     content:
@@ -604,6 +604,7 @@ en:
           pic: "Profile Picture"
         btn:
             create: "Submit Candidature"
+
   index_groups:
     th:
       attributes: "Attributes"
@@ -1477,6 +1478,7 @@ en:
         <p><a href="/practical_info?locale=en" >PRACTICAL INFO</a></p>
         <p><a href="/our_partners?locale=en">OUR PARTNERS</a></p>
         <p><a href="/galerie?locale=en">EDITIONS</a></p>
+        <p><a href="/news?locale=en">NEWS</a></p>
         <p><a href="/contact?locale=en">CONTACT</a></p>
       </div>
     practical_info:
@@ -1525,3 +1527,22 @@ en:
         <li>Save your changes<br>
             Once you’re certain that all the information is correct and complete, click the “Save changes” button to validate your updates.</li>
       </ol>
+
+  news:
+    title: "News"
+    no_news: "No news available at the moment. Please check back later."
+    read_more: "Read more"
+    back: "Back to News"
+    text_plus_link: |
+      <div class='mt-5 mb-4'>
+        <h1>4th EDITION - 2026</h1>
+        <h3>APRIL 18 & 19, 2026 - Espace Albert Camus BRON (69)</h3>
+        <h2>Solos / Duos / Groups</h2>
+        <h3>CLASSICAL - MODERN'JAZZ - CONTEMPORARY - CHARACTER</h3>
+        <h4>Leisure Section - Pre-professional Section</h4>
+      </div>
+      <a href='/apply?locale=en' class='button-light-gray-news'>APPLY</a>
+    weekend_workshops: |
+      <h3>✨ Weekend Workshops Entrelacé ✨</h3>
+      <p>Entrelacé is creating the Weekend Workshops: 2 intensive days to offer you a unique artistic immersion. Guided by passionate professionals, you will have the opportunity to experience different technical approaches, styles, and choreographic worlds – from classical dance to urban dances.</p>
+      <p>Throughout the 2025-2026 season, several Weekend Workshops will be offered… stay tuned to discover the program!</p>

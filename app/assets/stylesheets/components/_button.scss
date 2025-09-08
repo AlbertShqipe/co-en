@@ -113,6 +113,28 @@
   }
 }
 
+.button-light-gray-news {
+  text-decoration: none;
+  background-color: $light-gray;
+  color: black;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 35px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(222, 222, 212, 0.35);
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $orange;
+    color: $light-gray;
+  }
+
+  @media (max-width:560px) {
+    display: none;
+  }
+}
+
 .button-home-gray {
   width: 20%;
   margin: auto;

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :regulation, :who_we_are, :practical_info, :contact, :our_partners, :confirmation_form ]
+  skip_before_action :authenticate_user!, only: [ :home, :regulation, :who_we_are, :practical_info, :contact, :our_partners, :confirmation_form, :news ]
   before_action :admin_only, only: [:messages] # Restrict access to certain actions
 
   def messages
@@ -151,7 +151,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def weekend_workshops
+  def news
   end
 
   private
