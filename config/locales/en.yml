@@ -415,20 +415,20 @@ en:
         </div>
 
     media:
-      title: "GALLERY"
+      title: "EDITIONS"
       content: |
         <div class="second-section-home-media container" id="galerie">
           <div class="second-section-home-media-image">
             <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <div class="second-section-home-media-content d-flex flex-column">
-            <h1>GALLERY</h1>
+            <h1>EDITIONS</h1>
             <p>The ENTRELACÉ International Dance Competition collaborates with specialized media and image professionals to capture and broadcast the highlights of our events. Thanks to them, the dancers' performances shine beyond the stage, whether on social media, online, or in dedicated publications. Here, you will also find highlights from previous editions, allowing you to relive the memorable moments of the competition.</p>
             <div class="image">
               <div class="image1">
               </div>
             </div>
-            <a href="galerie?locale=en" class='button-home'>GALLERY</a>
+            <a href="galerie?locale=en" class='button-home'>EDITIONS</a>
           </div>
         </div>
 
@@ -715,7 +715,7 @@ en:
       list:
         li1: "If the participant is 18 years old or older: You must download, complete, and upload the 'Authorization for Participation - Adult Candidate' form."
         li2: "If the participant is under 18 years old: You must download, complete, and upload the 'Authorization for Participation - Minor Candidate' form."
-      paragraph2: "These forms must be uploaded at the time of submitting your individual or group registration. Please ensure that the correct form is completed and uploaded for each participant to ensure their eligibility. Incomplete or incorrect submissions may result in delays or disqualification."
+      paragraph2: "These forms must be uploaded when submitting your individual or group registration. Please make sure that each participant has completed and uploaded the correct form so that their registration can be validated. Missing or incorrect forms will prevent the registration from being approved."
       pdf1:  "Authorization for Participation - Adult Candidate"
       pdf2: "Authorization for Participation - Minor Candidate"
     cards:

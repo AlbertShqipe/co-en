@@ -413,20 +413,20 @@ fr:
         </div>
 
     media:
-      title: "GALERIE"
+      title: "EDITIONS"
       content: |
         <div class="second-section-home-media container" id="galerie">
           <div class="second-section-home-media-image">
             <img src="/assets/divider-b1e972099a10da14f3220af4c2555034dbfa5c9378ffe9e2de2efcd15441030a.png">
           </div>
           <div class="second-section-home-media-content d-flex flex-column">
-            <h1>MÉDIA</h1>
+            <h1>EDITIONS</h1>
             <p>Le Concours International de Danse ENTRELACÉ collabore avec des médias spécialisés et des professionnels de l'image pour capturer et diffuser les moments forts de nos événements. Grâce à eux, les performances des danseurs rayonnent au-delà de la scène, que ce soit sur les réseaux sociaux, en ligne ou dans des publications dédiées. Ici, vous trouverez également les highlights des éditions précédentes, pour revivre les instants marquants du concours.</p>
             <div class="image">
               <div class="image1">
               </div>
             </div>
-            <a href="galerie?locale=fr" class='button-home'>GALERIE</a>
+            <a href="galerie?locale=fr" class='button-home'>EDITIONS</a>
           </div>
         </div>
 
@@ -710,7 +710,7 @@ fr:
       list:
         li1: "Si le participant a 18 ans ou plus : Vous devez télécharger, remplir, et ajouter le formulaire 'Autorisation de participation - Candidat Majeur'."
         li2: "Si le participant a moins de 18 ans : Vous devez télécharger, remplir, et ajouter le formulaire 'Autorisation de participation - Candidat Mineur'."
-      paragraph2: "Ces formulaires doivent être téléversés au moment de la soumission de votre inscription individuelle ou de groupe. Veuillez vous assurer que le formulaire correct est rempli et téléversé pour chaque participant afin de garantir leur éligibilité. Les soumissions incomplètes ou incorrectes peuvent entraîner des retards ou une disqualification."
+      paragraph2: "Ces formulaires doivent être téléchargés lors de la soumission de votre inscription individuelle ou en groupe. Assurez-vous que chaque participant ait rempli et téléchargé le bon formulaire afin que son inscription puisse être validée. Les formulaires manquants ou incorrects empêcheront la validation de l’inscription."
       pdf1: "Autorisation de participation - Candidat Majeur"
       pdf2: "Autorisation de participation - Candidat Mineur"
     cards:

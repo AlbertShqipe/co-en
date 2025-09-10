@@ -1,18 +1,21 @@
 <%= render "shared/navbar" %>
   <div class="first-container-news">
 
-    <div class="info">
+    <div class="info d-flex justify-content-around align-items-center container">
+      <div class="image-news">
+        <%= image_tag "concours26.jpeg", alt: "news image" %>
+      </div>
       <div class="text">
         <%= t('news.text_plus_link').html_safe %>
       </div>
     </div>
-    <div class="image-news">
-      <%= image_tag "dividerGray.png", alt: "divider image" %>
-    </div>
-    <div class="news-weekendWorkshops">
+    <div class="news-weekendWorkshops second-section-news container">
+      <div class="image-news mb-5">
+        <%= image_tag "divider.png", alt: "divider image" %>
+      </div>
       <%= t("news.weekend_workshops").html_safe %>
       <div class="image-wws">
-        <%= image_tag "WW-logo.png", alt:"Weekend Workshops logo" %>
+        <%= image_tag "WW-logo-transparent.png", alt:"Weekend Workshops logo" %>
       </div>
 
     </div>
