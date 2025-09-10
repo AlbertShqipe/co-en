@@ -4,7 +4,7 @@ class GalleryController < ApplicationController
   VIDEOS_BY_YEAR = {
     2023 => %w[U4OS7-JBLYw],
     2024 => %w[LxrUJcbGgBY],
-    # 2025 => %w[...],
+    2025 => %w[jcJAjR27ysI],
     # 2026 => %w[...],
   }.freeze
 
