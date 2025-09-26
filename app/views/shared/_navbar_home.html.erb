@@ -9,9 +9,12 @@
         </a>
       </div>
       <div class="icon">
-      <a href="https://www.youtube.com/@concoursEntrelace" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="25px" version="1.1" id="Layer_1" viewBox="0 0 461.001 461.001" xml:space="preserve"><g><path class="youtube" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728   c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137   C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607   c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/></g></svg>
-      </a>
+        <a href="https://www.youtube.com/@concoursEntrelace" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="25px" version="1.1" id="Layer_1" viewBox="0 0 461.001 461.001" xml:space="preserve"><g><path class="youtube" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728   c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137   C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607   c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/></g></svg>
+        </a>
+      </div>
+      <div class="lang-icons z-index-0 d-flex gap-2">
+        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
       </div>
     </div>
 
@@ -82,22 +85,19 @@
             <%= t('navbar_home.content.link15').html_safe %>
           </li>
           <li class="nav-item">
-            <%= link_to t("navbar.login"),
+            <%= link_to t("navbar.log_in"),
               new_user_session_path,
               class: "nav-link",
               id: "login" %>
           </li>
           <li class="nav-item z-index-100">
-            <%= link_to t("navbar.signup"),
+            <%= link_to t("navbar.sign_up"),
               new_user_registration_path,
               class: "nav-link",
               id: "signup" %>
           </li>
         <% end %>
       </ul>
-      <div class="lang-icons z-index-0">
-        <%= link_to image_tag("eng.png", style:"width:20px;margin-left:100px"), url_for(locale: 'en') %> | <%= link_to image_tag("fr.png", style:"width:20px;margin-right:100px"), url_for(locale: 'fr') %>
-      </div>
     </div>
 
     <div id="main" style="margin-left: 0px;">

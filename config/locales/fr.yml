@@ -157,6 +157,8 @@ fr:
         <a href="/news?locale=fr" class="nav-link">ACTUALITÉS</a>
 
   navbar:
+    sign_up: "S'inscrire"
+    log_in: "Se connecter"
     content:
       link1: |
         <a href="/regulation?locale=fr" class="nav-link">RÈGLEMENT</a>

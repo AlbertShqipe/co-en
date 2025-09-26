@@ -159,6 +159,8 @@ en:
         <a href="/news?locale=en" class="nav-link">NEWS</a>
 
   navbar:
+    sign_up: "Sign Up"
+    log_in: "Log In"
     content:
       link1: |
         <a href="/regulation?locale=en" class="nav-link">REGULATION</a>
