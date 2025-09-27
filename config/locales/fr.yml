@@ -1449,10 +1449,13 @@ fr:
 
           </div>
 
+  pdf_max_size: "Format pdf (max 5Mo)"
+
   individual_form:
     create:
       success: 'Formulaire individuel créé avec succès.'
-      error: 'Un problème est survenu lors de la création du formulaire individuel.'
+      error: "Un problème est survenu lors de la création du formulaire. Assurez-vous que tous les champs soient complétés, que les fichiers soient au format PDF et que leur taille ne dépasse pas 5 Mo."
+
 
   duo_form:
     create:

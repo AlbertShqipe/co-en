@@ -101,13 +101,13 @@
 
             <div class="individual-registration-form-fifth">
               <div class="custom-file-input">
-                <span>Format (pdf)</span><br>
+                <span><%= t("pdf_max_size") %></span><br>
                 <%= f.file_field :file, accept: "application/pdf",  id:"file-input", class:"file-input", required: true %>
                 <label for="file-input" id="file-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file') %></label><br>
                 <span id="file-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
               </div>
               <div class="custom-file-input">
-                <span>Format (pdf)</span><br>
+                <span><%= t("pdf_max_size") %></span><br>
                 <%= f.file_field :id_card, accept: "application/pdf",  id:"id-input", class:"file-input", required: true %>
                 <label for="id-input" id="id-label" class="file-label"><%= t('individual_registration_form.registration_form_inner_text.individual.input_text.file1') %></label><br>
                 <span id="id-name"><%= t('individual_registration_form.registration_form_inner_text.individual.span.no_file') %></span>
@@ -123,6 +123,16 @@
     </div>
   </div>
 </div>
+<% if @individual_form.errors.any? %>
+  <div class="alert alert-danger">
+    <h2>Erreurs :</h2>
+    <ul>
+      <% @individual_form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Select elements

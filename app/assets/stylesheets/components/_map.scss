@@ -3,24 +3,24 @@
   height: 400px; /* The height is 400 pixels */
   width: 40%; /* The width is the width of the web page */
   margin-top: 0px;
-  border-bottom: 2px solid rgb(246, 202, 46);
-  border-top: 2px solid rgb(246, 202, 46);
+  border-bottom: 2px solid rgb(235, 67, 1);
+  border-top: 2px solid rgb(235, 67, 1);
   margin: auto;
 
   @media (max-width: 768px) {
     height: 300px; /* The height is 400 pixels */
     width: 80%; /* The width is the width of the web page */
     margin-top: 0px;
-    border-bottom: 2px solid rgb(246, 202, 46);
-    border-top: 2px solid rgb(246, 202, 46);
+    border-bottom: 2px solid rgb(235, 67, 1);
+    border-top: 2px solid rgb(235, 67, 1);
     margin: auto; // Adjust letter spacing for smartphones /* Adjust height as needed */
   }
   @media (max-width: 576px) {
     height: 200px; /* The height is 400 pixels */
     width: 80%; /* The width is the width of the web page */
     margin-top: 0px;
-    border-bottom: 2px solid rgb(246, 202, 46);
-    border-top: 2px solid rgb(246, 202, 46);
+    border-bottom: 2px solid rgb(235, 67, 1);
+    border-top: 2px solid rgb(235, 67, 1);
     margin: auto; // Adjust letter spacing for smartphones /* Adjust height as needed */
   }
 }

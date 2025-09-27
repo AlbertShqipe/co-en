@@ -29,17 +29,24 @@
 
     <!--Google Maps-->
     <%# <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> %>
+    <%# Only call initMap if #map exists %>
     <script>
       function initMap() {
-        let camus = {lat: 45.7277, lng: 4.92016};
-        let map = new google.maps.Map(
-          document.getElementById('map'), {
-          zoom: 16,
-          center: camus
-        });
-        let marker = new google.maps.Marker({
-          position: camus,
-          map: map
+        document.addEventListener("DOMContentLoaded", function () {
+          const mapDiv = document.getElementById('map');
+          if (!mapDiv) return;
+
+          const camus = { lat: 45.7277, lng: 4.92016 };
+
+          const map = new google.maps.Map(mapDiv, {
+            zoom: 16,
+            center: camus
+          });
+
+          new google.maps.Marker({
+            position: camus,
+            map: map
+          });
         });
       }
     </script>

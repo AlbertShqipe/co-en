@@ -112,8 +112,9 @@ class IndividualFormsController < ApplicationController
       redirect_to confirmation_form_path, notice: notice_message
       SubscriptionMailer.notify_admin(@individual_form, "Solo").deliver_later
     else
-      alert_message1 = I18n.t('individual_form.create.error')
-      render :new, alert: alert_message1
+      Rails.logger.debug @individual_form.errors.full_messages
+      flash[:alert] = I18n.t('individual_form.create.error')
+      render :new, status: :unprocessable_entity
     end
   end
 

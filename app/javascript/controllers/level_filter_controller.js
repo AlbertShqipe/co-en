@@ -84,7 +84,7 @@ export default class extends Controller {
 const RULES = {
   "Classique": {
     "Loisir": ["Préparatoire","Élémentaire 1","Élémentaire 2","Moyen","Avancée","Supérieur"],
-    "Pré-professionnelle": ["Préparatoire","Élémentaire 1","Élémentaire 2","Élémentaire 2 – Répertoire","Moyen","Moyen – Répertoire","Avancée","Supérieur","Interprète"]
+    "Pré-professionnelle": ["Préparatoire","Élémentaire 1","Élémentaire 2","Élémentaire 2 – Répertoire","Moyen","Moyen - Répertoire","Avancée","Supérieur","Interprète"]
   },
   "Contemporain/Modern’Jazz": {
     "Loisir": ["Préparatoire","Élémentaire 1","Élémentaire 2","Moyen","Avancée","Supérieur"],

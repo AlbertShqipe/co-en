@@ -1434,10 +1434,12 @@ en:
           <h5>THE DATE AND TIME OF THE PERFORMANCES WILL BE COMMUNICATED BY OFFICIAL NOTICE NO LATER THAN TWO WEEKS BEFORE THE COMPETITION</h5>
         </div>
 
+  pdf_max_size: "Format pdf (max 5MB)"
+
   individual_form:
     create:
       success: 'Individual Form successfully created.'
-      error: 'There was an issue creating the individual form.'
+      error: "There was an issue creating the individual form. Please make sure all fields are completed, the files are in PDF format, and their size does not exceed 5 megabytes."
 
   duo_form:
     create:

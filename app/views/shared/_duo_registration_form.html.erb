@@ -56,7 +56,7 @@
             <div id="level">
               <%# <%= f.label :level %>
               <span id="levelError" class="error-message" style="color: red; display: none;">Please select a level.</span>
-              <%= f.select :level ,options_for_select(['Préparatoire', 'Elémentaire', 'Moyen', 'Supérieur', 'Pré-Pro']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.level'), class: "input-session", id:"category level"%>
+              <%= f.select :level ,options_for_select(['Préparatoire', 'Élémentaire', 'Moyen', 'Supérieur', 'Pré-Pro']), prompt: t('duo_registration_form.registration_form_inner_text.duo.prompts.level'), class: "input-session", id:"category level"%>
             </div>
           </div>
 
@@ -84,13 +84,13 @@
                   </div>
                   <div class="duo-registration-form-participant-second">
                     <div class="custom-file-input">
-                      <span>Format (pdf)</span><br>
+                      <span><%= t("pdf_max_size") %></span><br>
                       <%= p.file_field :file, accept: "application/pdf", id: "file-input", class: "file-input", required: true %>
                       <label for="file-input" id="file-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label><br>
                       <span id="file-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                     </div>
                     <div class="custom-file-input">
-                      <span>Format (pdf)</span><br>
+                      <span><%= t("pdf_max_size") %></span><br>
                       <%= p.file_field :id_card, accept: "application/pdf", id: "id-input", class: "file-input", required: true %>
                       <label for="id-input" id="id-label" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label><br>
                       <span id="id-name"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
@@ -116,13 +116,13 @@
                 </div>
                 <div class="duo-registration-form-participant-second">
                   <div class="custom-file-input">
-                    <span>Format (pdf)</span><br>
+                    <span><%= t("pdf_max_size") %></span><br>
                     <input type="file" required name="duo[duo_participants_attributes][1][file]" id="file-input1" class="file-input" accept="application/pdf">
                     <label for="file-input1" id="file-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file') %></label><br>
                     <span id="file-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
                   </div>
                   <div class="custom-file-input">
-                    <span>Format (pdf)</span><br>
+                    <span><%= t("pdf_max_size") %></span><br>
                     <input type="file" required name="duo[duo_participants_attributes][1][id_card]" id="id-input1" class="file-input" accept="application/pdf">
                     <label for="id-input1" id="id-label1" class="file-label"><%= t('duo_registration_form.registration_form_inner_text.duo.participant.input_text.file1') %></label><br>
                     <span id="id-name1"><%=t('duo_registration_form.registration_form_inner_text.duo.participant.span.no_file')%></span>
