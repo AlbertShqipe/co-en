@@ -794,6 +794,12 @@ en:
     title_f: ' '
     title_en: "'s Group Forms"
 
+  professor_form_index:
+    text: |
+      <h3 class="text-center">You have not submitted any Professor forms yet</h
+    title_f: ' '
+    title_en: "'s Professor Forms"
+
   session_links:
     link1: "Log in"
     link2: "Sign up"

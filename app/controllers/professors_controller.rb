@@ -9,7 +9,14 @@ class ProfessorsController < ApplicationController
   end
 
   def index
+    @results = []
     @professors = Professor.all.order(created_at: :asc)
+    @professors.each_with_index do |solo, index|
+      @results << {
+        count: index + 1,
+        id: solo.id,
+      }
+    end
   end
 
   def new
