@@ -153,6 +153,8 @@ en:
         <a href="/trios?locale=en" class="dropdown-item">Trio Forms</a>
       link19: |
           <a href="/group_forms?locale=en" class="dropdown-item">Group Forms</a>
+      link22: |
+        <a href="/professors?locale=en" class="dropdown-item">Teacher Forms</a>
       link20: |
         <a href="/messages?locale=en" class="dropdown-item">My Messages</a>
       link21: |

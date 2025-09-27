@@ -153,6 +153,8 @@ fr:
         <a href="/group_forms?locale=fr" class="dropdown-item">Formulaires de Groupe</a>
       link20: |
         <a href="/messages?locale=fr" class="dropdown-item">Mes Messages</a>
+      link22: |
+        <a href="/professors?locale=fr" class="dropdown-item">Formulaires de Prof</a>
       link21: |
         <a href="/news?locale=fr" class="nav-link">ACTUALITÉS</a>
 
