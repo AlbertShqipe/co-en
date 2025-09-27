@@ -607,6 +607,16 @@ en:
         btn:
             create: "Submit Candidature"
 
+  index_professors:
+    th:
+      attributes: "Attributes"
+      professor_form: "Professor"
+    td:
+      first_name: "First Name"
+      last_name: "Last Name"
+      school: "Dance School"
+      created_at: "Date of Subscription"
+
   index_groups:
     th:
       attributes: "Attributes"
@@ -1487,6 +1497,7 @@ en:
     th2: "Duo Forms"
     th3: "Trio Forms"
     th4: "Group Forms"
+    th5: "Teacher Forms"
 
   phone_view:
     slideshow: |

@@ -15,7 +15,7 @@
           <a href="/group_forms"><%= t('table.th4') %></a>
         </div>
       </div>
-      <h1 style="text-align:center"><%= t('table.th') %></h1>
+      <h1 style="text-align:center"><%= t('table.th5') %></h1>
     <% else %>
       <div class="index-links-containers">
         <div class="link-container">
@@ -30,43 +30,78 @@
         <div class="link-container">
           <a href="/group_forms"><%= t('table.th4') %></a>
         </div>
+        <div class="link-container">
+          <a href="/professors"><%= t('table.th5') %></a>
+        </div>
       </div>
       <h1 style="text-align:center"><%= t('professor_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('professor_form_index.title_en') %></h1>
     <% end %>
     <div class="individual-forms">
-      <% if current_user.role == "admin" %>
+      <% if current_user.role == "competitor" && current_user.professors.present?%>
+        <table class="table-form mx-auto">
+          <caption style="color:white"></caption>
+          <thead>
+            <tr style="width:50px">
+              <th><%= t('index_individuals.th.attributes') %></th>
+                <% current_user.professors.each_with_index do |form, index| %>
+                  <th><%= t('index_individuals.th.individual_form') %> <%= index + 1 %></th>
+                <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= t('index_individuals.td.first_name') %></td>
+              <% current_user.professors.each do |form| %>
+                <td><%= form.first_name.capitalize %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_individuals.td.last_name') %></td>
+              <% current_user.professors.each do |form| %>
+                <td><%= form.last_name.capitalize %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td><%= t('index_individuals.td.dance_school') %></td>
+              <% current_user.professors.each do |form| %>
+                <td><%= form.school %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      <% elsif current_user.role == "admin" %>
         <div style="style=width: 100%; overflow-x:scroll;">
           <table class="table-form mx-auto">
             <thead>
               <tr>
-                <th><%= t("index_individuals.th.attributes") %></th>
+                <th><%= t('table.th5') %></th>
                 <% @professors.each_with_index do |form, index| %>
                   <% matching_form = @results.find { |hash| hash[:id] == form.id } %>
-                  <th><%= t('index_individuals.th.individual_form') %> <%= matching_form[:count] %></th>
+                  <th><%= t('index_professors.th.professor_form') %> <%= matching_form[:count] %></th>
                 <% end %>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><%= t("index_individuals.td.first_name") %></td>
+                <td><%= t("index_professors.td.first_name") %></td>
                 <% @professors.each do |form| %>
                   <td><%= form.first_name %></td>
                 <% end %>
               </tr>
               </tr>
-                <td><%= t("index_individuals.td.last_name") %></td>
+                <td><%= t("index_professors.td.last_name") %></td>
                 <% @professors.each do |form| %>
                   <td><%= form.last_name %></td>
                 <% end %>
               </tr>
               <tr>
-                <td><%= t("index_individuals.td.dance_school") %></td>
+                <td><%= t("index_professors.td.school") %></td>
                 <% @professors.each do |form| %>
-                  <td><%= form.dance_school %></td>
+                  <td><%= form.school %></td>
                 <% end %>
               </tr>
               <tr>
-                <td><%= t("index_individuals.td.created_at") %></td>
+                <td><%= t("index_professors.td.created_at") %></td>
                 <% @professors.each do |form| %>
                   <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
                 <%end%>

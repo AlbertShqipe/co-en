@@ -602,6 +602,16 @@ fr:
         btn:
           create: "Créer le Profil Enseignant·e"
 
+  index_professors:
+    th:
+      attributes: "Attributes"
+      professor_form: "Enseignant·e"
+    td:
+      first_name: "Prénom"
+      last_name: "Nom"
+      school: "École de Danse"
+      created_at: "Date of Subscription"
+
   index_groups:
     th:
       attributes: "Attributes"
@@ -1503,6 +1513,7 @@ fr:
     th2: "Formulaires des Duos"
     th3: "Formulaires des Trios"
     th4: "Formulaires des Groupes"
+    th5: "Formulaires des Professeurs"
 
   phone_view:
     slideshow: |
