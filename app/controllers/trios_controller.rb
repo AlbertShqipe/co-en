@@ -95,7 +95,9 @@ class TriosController < ApplicationController
       redirect_to confirmation_form_path, notice: notice_message
       SubscriptionMailer.notify_admin(@trio, "Trio").deliver_later
     else
-      render :new
+      Rails.logger.debug @trio.errors.full_messages
+      flash[:alert] = I18n.t('individual_form.create.error')
+      render :new, status: :unprocessable_entity
     end
   end
 

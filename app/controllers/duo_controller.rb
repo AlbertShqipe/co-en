@@ -100,7 +100,7 @@ class DuoController < ApplicationController
       redirect_to confirmation_form_path, notice: notice_message
       SubscriptionMailer.notify_admin(@duo, "Duo").deliver_later
     else
-      Rails.logger.debug @individual_form.errors.full_messages
+      Rails.logger.debug @duo.errors.full_messages
       flash[:alert] = I18n.t('individual_form.create.error')
       render :new, status: :unprocessable_entity
     end
