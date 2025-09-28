@@ -5,7 +5,7 @@ class SubscriptionMailer < ApplicationMailer
     @url = 'https://www.concours-entrelace.com/users/sign_in?locale=fr'
 
     mail(
-      bcc: "concours.entrelace@gmail.com, albert_nikolli@icloud.com",
+      bcc: "concours.entrelace@gmail.com",
       subject: "Nouvelle inscription : #{@type}"
     )
   end
