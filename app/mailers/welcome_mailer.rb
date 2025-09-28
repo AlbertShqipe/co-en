@@ -8,7 +8,7 @@ class WelcomeMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      bcc: "concours.entrelace@gmail.com, albert_nikolli@icloud.com",
+      bcc: "concours.entrelace@gmail.com",
       subject: 'Bienvenue au Concours Entrelacé!'
     )
   end
