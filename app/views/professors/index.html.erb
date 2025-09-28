@@ -1,39 +1,25 @@
 <%= render "shared/navbar"%>
   <div class="container">
-    <% if current_user.role == "admin" %>
-      <div class="index-links-containers">
-        <div class="link-container">
-          <a href="/individual_forms"><%= t('table.th') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/duo"><%= t('table.th2') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/trios"><%= t('table.th3') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/group_forms"><%= t('table.th4') %></a>
-        </div>
+    <div class="index-links-containers">
+      <div class="link-container">
+        <a href="/individual_forms"><%= t('table.th') %></a>
       </div>
+      <div class="link-container">
+        <a href="/duo"><%= t('table.th2') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/trios"><%= t('table.th3') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/group_forms"><%= t('table.th4') %></a>
+      </div>
+      <div class="link-container">
+        <a href="/professors"><%= t('table.th5') %></a>
+      </div>
+    </div>
+    <% if current_user.role == "admin" %>
       <h1 style="text-align:center"><%= t('table.th5') %></h1>
     <% else %>
-      <div class="index-links-containers">
-        <div class="link-container">
-          <a href="/individual_forms"><%= t('table.th') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/duo"><%= t('table.th2') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/trios"><%= t('table.th3') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/group_forms"><%= t('table.th4') %></a>
-        </div>
-        <div class="link-container">
-          <a href="/professors"><%= t('table.th5') %></a>
-        </div>
-      </div>
       <h1 style="text-align:center"><%= t('professor_form_index.title_f') %><%= current_user.name.capitalize %> <%= current_user.last_name.capitalize %><%= t('professor_form_index.title_en') %></h1>
     <% end %>
     <div class="individual-forms">
@@ -70,6 +56,26 @@
           </tbody>
         </table>
       <% elsif current_user.role == "admin" %>
+        <div class="filter">
+          <%= form_with url: professors_path, method: :get, local: true do |form| %>
+            <div>
+              <div class="row">
+                <!-- Date Filters -->
+                <div class="col-sm" style="margin-top:20px">
+                  <h4>Filtrer par Date</h4>
+                    <div>
+                      <label for="start_date">À partir de:</label>
+                      <%= form.date_field :start_date, value: params[:start_date] %>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <%= form.submit "Filtrer" %>
+            </div>
+          <% end %>
+        </div>
         <div style="style=width: 100%; overflow-x:scroll;">
           <table class="table-form mx-auto">
             <thead>

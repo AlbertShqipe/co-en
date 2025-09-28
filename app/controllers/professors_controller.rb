@@ -17,6 +17,11 @@ class ProfessorsController < ApplicationController
         id: solo.id,
       }
     end
+
+    # Filter by date
+    if params[:start_date].present?
+      @professors = @professors.where("created_at >= ?", params[:start_date]) if params[:start_date].present?
+    end
   end
 
   def new
