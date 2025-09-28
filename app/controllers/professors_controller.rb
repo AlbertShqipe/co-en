@@ -40,6 +40,25 @@ class ProfessorsController < ApplicationController
     end
   end
 
+  def info
+    professor = Professor.find(params[:id])
+
+    @results = []
+    Professor.all.each_with_index do |prof, index|
+      @results << {
+        count: index + 1,
+        id: prof.id,
+      }
+    end
+
+    render json: {
+      id: professor.id,
+      first_name: professor.first_name,
+      last_name: professor.last_name,
+      school_name: professor.school,
+      professor_lists: @results
+    }
+  end
   private
 
   def professor_params

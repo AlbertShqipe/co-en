@@ -63,6 +63,9 @@ Rails.application.routes.draw do
     # Info of a specific group form
     get '/group_forms/:id/info', to: 'group_forms#info'
 
+    # Info of a specific professor
+    get '/professors/:id/info', to: 'professors#info'
+
     # Professors routes
     resources :professors, only: [:new, :create, :index]
 

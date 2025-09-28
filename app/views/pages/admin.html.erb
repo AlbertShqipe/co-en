@@ -6,6 +6,7 @@
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="duos">Duos</li>
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="trios">Trios</li>
       <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="group">Groups</li>
+      <li data-tabs-admin-target="link" data-action="click->tabs-admin#open" data-id="professors">Professors</li>
     </ul>
   </div>
   <div class="portfolio-con" data-tabs-admin-target="tab" data-tabs-admin-type-value="solos" data-id="solos">
@@ -97,6 +98,29 @@
           <% end %>
         </p>
         <p>Veuillez sélectionner un Group pour voir ses informations.</p>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-con hidden" data-tabs-admin-target="tab" data-tabs-admin-type-value="professors" data-id="professors">
+    <div class="portfolio-container" data-controller="tabs">
+      <div class="portfolio-tab-bar">
+        <select id="professor-select">
+          <option value="">Sélectionnez un Professeur</option>
+          <% @professors.order(created_at: :asc).each_with_index do |prof, index| %>
+            <option value="<%= prof.id %>"><%= index + 1 %> <%= prof.first_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="professor-info" data-tabs-target="professorInfo" class="portfolio-content">
+        <!-- This will be dynamically populated based on the selected group -->
+        <p><%= @professors.count %>
+          <% if @professors.count == 1 %>
+            <%= "Professor Form" %>
+          <% else %>
+            <%= "Professor Forms" %>
+          <% end %>
+        </p>
+        <p>Veuillez sélectionner un Professeur pour voir ses informations.</p>
       </div>
     </div>
   </div>

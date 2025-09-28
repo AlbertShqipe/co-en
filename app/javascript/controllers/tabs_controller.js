@@ -8,8 +8,8 @@ export default class extends Controller {
     const duoSelect = document.getElementById("duo-select");
     const trioSelect = document.getElementById("trio-select");
     const groupSelect = document.getElementById("group-select");
-    const duoTableSelect = document.getElementById("duo-table-select");
-    // console.log(groupSelect)
+    const professorSelect = document.getElementById("professor-select");
+    // console.log(professorSelect)
     if (soloSelect) {
       // Set up event listener for changes in the select element
       soloSelect.addEventListener('change', (event) => {
@@ -43,6 +43,15 @@ export default class extends Controller {
         const selectedGroupId = event.target.value;
         // console.log("Selected Group ID:", selectedGroupId);
         this.fetchGroupInfo(selectedGroupId);
+      });
+    }
+
+    if (professorSelect) {
+      // Set up event listener for changes in the select element
+      professorSelect.addEventListener('change', (event) => {
+        const selectedProfessorId = event.target.value;
+        // console.log("Selected Professor ID:", selectedProfessorId);
+        this.fetchProfessorInfo(selectedProfessorId);
       });
     }
   }
@@ -425,6 +434,52 @@ export default class extends Controller {
     }
 
   }
+
+  fetchProfessorInfo(selectedProfessorId) {
+    const professorInfoDiv = document.getElementById("professor-info");
+    // console.log(professorInfoDiv)
+    if (selectedProfessorId) {
+      // Fetch the professor details using AJAX
+      fetch(`/professors/${selectedProfessorId}/info`) // Modify this route as necessary
+      .then(response => response.json())
+      .then(data => {
+        const professorData = data.professor_lists.find(prof => prof.id === data.id);
+        const professorCount = professorData ? professorData.count : 'N/A'; // Use 'N/A' if count is not found
+        // console.log("Fetched data:", data);
+        // Populate the HTML with the fetched data
+        professorInfoDiv.innerHTML = `
+          <table border="1" cellpadding="20" class="mx-auto" style="width:500px">
+            <tr>
+              <th colspan="2">Professeur ${professorCount}</th>
+            </tr>
+            <tr>
+              <th colspan="2">Information Professeur </th>
+            </tr>
+            <tr>
+              <td>Prénom</td>
+              <td>${data.first_name}</td>
+            </tr>
+            <tr>
+              <td>Nom</td>
+              <td>${data.last_name}</td>
+            </tr>
+            <tr>
+              <td>École de Danse</td>
+              <td>${data.school_name}</td>
+            </tr>
+          </table>`.replace(/[;,]/g, "");;
+      })
+      .catch(error => {
+        console.error("Error fetching professor data:", error);
+        professorInfoDiv.innerHTML = "<p>Error loading professor information.</p>";
+      });
+    } else {
+      // Reset the professor info content if no professor is selected
+      professorInfoDiv.innerHTML = "<p>Please select a professor to view its information.</p>";
+    }
+  }
+
+
   // Images for the candidates are included in the data below
   // fetchSoloInfo(selectedSoloId) {
   //   const soloInfoDiv = document.getElementById("solo-info");
