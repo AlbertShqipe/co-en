@@ -33,6 +33,7 @@ class ProfessorsController < ApplicationController
     if @professor.save
       redirect_to confirmation_form_path, notice: "Thanks! You’re subscribed."
       SubscriptionMailer.notify_admin(@professor, "Professor").deliver_later
+      FormSubmissionMailer.professor_submission(@professor).deliver_later
       # Or redirect_to some_thank_you_path
     else
       flash.now[:alert] = "Please fix the errors below."
