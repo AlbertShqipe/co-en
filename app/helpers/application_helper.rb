@@ -5,7 +5,7 @@ module ApplicationHelper
     birthdate = birthdate.is_a?(String) ? Date.parse(birthdate) : birthdate
 
     # Calculate the age based on the day of the competition
-    reference_date = Date.new(2026, 4, 18)
+    reference_date = Date.new(2026, 4, 19)
 
     # Calculate the age based on today's date
     # today = Date.today
