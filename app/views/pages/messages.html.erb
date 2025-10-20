@@ -7,6 +7,7 @@
       <div class="message-header">
         <h3 class="user-name"><%= message.name %></h3>
         <span class="user-email"><%= message.email %></span>
+        <span class="user-email"><%= message.created_at.strftime("%a, %d %b %Y")%></span>
       </div>
       <div class="message-body">
         <p class="message-content"><%= message.message %></p>
