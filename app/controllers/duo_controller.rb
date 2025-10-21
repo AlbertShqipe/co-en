@@ -36,6 +36,94 @@ class DuoController < ApplicationController
     # raise
   end
 
+  def download_report
+    @application = Duo.find(params[:id])
+    pdf = Prawn::Document.new
+
+    # ===============================
+    # PAGE 1 — Duo + Participants Info
+    # ===============================
+    logo_path = Rails.root.join("app/assets/images/LogoFullOrange1.png")
+    if File.exist?(logo_path)
+      y_position = pdf.cursor - 50
+      pdf.image logo_path, width: 200, position: :left, at: [pdf.bounds.width / 2 - 100, y_position]
+    end
+
+    pdf.move_down 110
+    pdf.text "Fiche Duo", size: 16, style: :bold, align: :center
+    pdf.move_down 20
+    pdf.text "Informations générales", size: 12, style: :bold
+    pdf.move_down 10
+
+    data = [
+      ["Nom du duo", @application.name],
+      ["Responsable", @application.responsable],
+      ["Adresse", @application.address],
+      ["Téléphone", @application.phone],
+      ["Email", @application.email],
+      ["Style", @application.discipline],
+      ["Niveau", @application.level],
+      ["Titre de la musique", @application.title_of_music],
+      ["Compositeur", @application.composer],
+      ["Durée du morceau", @application.length_of_piece]
+    ]
+
+    @application.duo_participants.each_with_index do |participant, index|
+      data << ["Participant #{index + 1}", "#{participant.name} #{participant.last_name}"]
+      data << ["Date de naissance", participant.birth_date.strftime("%d/%m/%Y")]
+      data << ["Âge", participant.age]
+    end
+
+    pdf.table(data, row_colors: ["F0F0F0", "FFFFFF"], cell_style: { padding: [5, 10], size: 10 }, width: pdf.bounds.width)
+    pdf.move_down 30
+    pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
+
+    # ===============================
+    # Pages 2–5 — Each participant's docs
+    # ===============================
+    @application.duo_participants.each_with_index do |participant, index|
+      if participant.id_card.attached?
+        pdf.start_new_page
+        pdf.text "Carte d'identité — Participant #{index + 1}", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          key = participant.id_card.key.sub(/\.\w+$/, '')
+          cloud_name = Cloudinary.config.cloud_name
+          env = Rails.env.production? ? "production" : "development"
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/v1761044962/#{env}/#{key}.png"
+          image = URI.open(preview_url)
+          pdf.image image, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      end
+
+      if participant.file.attached?
+        pdf.start_new_page
+        pdf.text "Formulaire — Participant #{index + 1}", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          key = participant.file.key.sub(/\.\w+$/, '')
+          cloud_name = Cloudinary.config.cloud_name
+          env = Rails.env.production? ? "production" : "development"
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/v1761044962/#{env}/#{key}.png"
+          image = URI.open(preview_url)
+          pdf.image image, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu du formulaire : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      end
+    end
+
+    # ===============================
+    # SEND PDF
+    # ===============================
+    send_data pdf.render,
+              filename: "fiche_duo_#{@application.name.parameterize}.pdf",
+              type: "application/pdf",
+              disposition: "inline"
+  end
+
   def index
     @duos = Duo.order(created_at: :asc)
     @duo = current_user.duos.find(params[:id]) if params[:id].present?

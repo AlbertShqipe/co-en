@@ -97,51 +97,98 @@ class IndividualFormsController < ApplicationController
     pdf.move_down 30
     pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
 
-    ### PAGE 2 — ID CARD
-    # Insert applicant id card from Cloudinary (if attached)
-    if @application.id_card.attached?
-      pdf.start_new_page
-      pdf.text "Carte d'identité", size: 14, style: :bold
-      pdf.move_down 30
-      begin
-        # Use Cloudinary's preview feature to convert first page of PDF to image
-        # Use ActiveStorage key to build the Cloudinary image URL
-        key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
-        version = "v1761044962" # optional if you want to force a specific version
+    if Rails.env.development?
+      ### PAGE 2 — ID CARD
+      if @application.id_card.attached?
+        pdf.start_new_page
+        pdf.text "Carte d'identité", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          # Use Cloudinary's preview feature to convert first page of PDF to image
+          # Use ActiveStorage key to build the Cloudinary image URL
+          key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
+          version = "v1761044962" # optional if you want to force a specific version
 
-        cloud_name = Cloudinary.config.cloud_name
-        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
+          cloud_name = Cloudinary.config.cloud_name
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
 
-        preview_image = URI.open(preview_url)
-        pdf.image preview_image, width: 450, position: :center
-      rescue => e
-        pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+          preview_image = URI.open(preview_url)
+          pdf.image preview_image, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      else
+        pdf.text "Carte d'identité non fournie", size: 10, style: :italic
+      end
+
+      ### PAGE 3 — OTHER FILE
+      if @application.file.attached?
+        pdf.start_new_page
+        pdf.text "Formulaire d'Autorisation", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          # Use Cloudinary's preview feature to convert first page of PDF to image
+          # Use ActiveStorage key to build the Cloudinary image URL
+          key = @application.file.key.sub(/\.\w+$/, '') # remove extension
+          version = "v1761044962" # optional if you want to force a specific version
+
+          cloud_name = Cloudinary.config.cloud_name
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+
+          preview_file = URI.open(preview_url)
+          pdf.image preview_file, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu du formulaire : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      else
+        pdf.text "Formulaire non fournie", size: 10, style: :italic
       end
     else
-      pdf.text "Carte d'identité non fournie", size: 10, style: :italic
-    end
+      ### PAGE 2 — ID CARD
+      if @application.id_card.attached?
+        pdf.start_new_page
+        pdf.text "Carte d'identité", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          # Use Cloudinary's preview feature to convert first page of PDF to image
+          # Use ActiveStorage key to build the Cloudinary image URL
+          key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
+          version = "v1761044962" # optional if you want to force a specific version
 
-    ### PAGE 3 — OTHER FILE
-    if @application.file.attached?
-      pdf.start_new_page
-      pdf.text "Formulaire d'Autorisation", size: 14, style: :bold
-      pdf.move_down 30
-      begin
-        # Use Cloudinary's preview feature to convert first page of PDF to image
-        # Use ActiveStorage key to build the Cloudinary image URL
-        key = @application.file.key.sub(/\.\w+$/, '') # remove extension
-        version = "v1761044962" # optional if you want to force a specific version
+          cloud_name = Cloudinary.config.cloud_name
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
 
-        cloud_name = Cloudinary.config.cloud_name
-        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
-
-        preview_file = URI.open(preview_url)
-        pdf.image preview_file, width: 450, position: :center
-      rescue => e
-        pdf.text "Impossible de charger l'aperçu du formulaire : #{e.message}", size: 9, style: :italic, color: "ff0000"
+          preview_image = URI.open(preview_url)
+          pdf.image preview_image, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      else
+        pdf.text "Carte d'identité non fournie", size: 10, style: :italic
       end
-    else
-      pdf.text "Formulaire non fournie", size: 10, style: :italic
+
+      ### PAGE 3 — OTHER FILE
+      if @application.file.attached?
+        pdf.start_new_page
+        pdf.text "Formulaire d'Autorisation", size: 14, style: :bold
+        pdf.move_down 30
+        begin
+          # Use Cloudinary's preview feature to convert first page of PDF to image
+          # Use ActiveStorage key to build the Cloudinary image URL
+          key = @application.file.key.sub(/\.\w+$/, '') # remove extension
+          version = "v1761044962" # optional if you want to force a specific version
+
+          cloud_name = Cloudinary.config.cloud_name
+          preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
+
+          preview_file = URI.open(preview_url)
+          pdf.image preview_file, width: 450, position: :center
+        rescue => e
+          pdf.text "Impossible de charger l'aperçu du formulaire : #{e.message}", size: 9, style: :italic, color: "ff0000"
+        end
+      else
+        pdf.text "Formulaire non fournie", size: 10, style: :italic
+      end
     end
 
     ### SEND PDF

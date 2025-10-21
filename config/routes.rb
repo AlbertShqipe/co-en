@@ -43,6 +43,10 @@ Rails.application.routes.draw do
     # User form application duo
     resources :duo, only: [:show, :index, :new, :create, :edit, :update] do
       resources :duo_participants, only: [:create, :destroy]
+
+      member do
+        get :download_report
+      end
     end
 
     # User form application trio

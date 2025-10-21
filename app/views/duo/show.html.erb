@@ -141,6 +141,14 @@
           <td colspan="<%=@duo.duo_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_duo_path(@duo), class:"modify" %></td>
         <% end %>
       </tr>
+      <% if current_user.role == "admin"%>
+          <tr>
+            <td>PDF</td>
+            <td class="text-center">
+              <%= link_to t("table.pdf"), download_report_duo_path(@duo), target: "_blank", class: "modify" %>
+            </td>
+          </tr>
+        <% end %>
     </tbody>
   </table>
 </div>
