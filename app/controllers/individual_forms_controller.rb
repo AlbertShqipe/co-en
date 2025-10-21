@@ -110,7 +110,7 @@ class IndividualFormsController < ApplicationController
         version = "v1761044962" # optional if you want to force a specific version
 
         cloud_name = Cloudinary.config.cloud_name
-        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
 
         preview_image = URI.open(preview_url)
         pdf.image preview_image, width: 450, position: :center
@@ -133,7 +133,7 @@ class IndividualFormsController < ApplicationController
         version = "v1761044962" # optional if you want to force a specific version
 
         cloud_name = Cloudinary.config.cloud_name
-        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/production/#{key}.png"
 
         preview_file = URI.open(preview_url)
         pdf.image preview_file, width: 450, position: :center
