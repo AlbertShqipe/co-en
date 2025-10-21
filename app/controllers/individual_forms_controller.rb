@@ -46,15 +46,24 @@ class IndividualFormsController < ApplicationController
     pdf = Prawn::Document.new
 
     # Insert applicant id card from Cloudinary (if attached)
-    if @application.id_card.attached?
-      begin
-        image_url = url_for(@application.id_card)
-        image_file = URI.open(image_url)
-        pdf.image image_file, width: 150, height: 150, position: :right
-      rescue => e
-        Rails.logger.warn "Could not load id card: #{e.message}"
-      end
-    end
+    # if @application.id_card.attached?
+    #   begin
+    #     # Use Cloudinary's preview feature to convert first page of PDF to image
+    #     # Use ActiveStorage key to build the Cloudinary image URL
+    #     key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
+    #     version = "v1761044962" # optional if you want to force a specific version
+
+    #     cloud_name = Cloudinary.config.cloud_name
+    #     preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+
+    #     preview_image = URI.open(preview_url)
+    #     pdf.image preview_image, width: 150, height: 150, position: :right
+    #   rescue => e
+    #     pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+    #   end
+    # else
+    #   pdf.text "Carte d'identité non fournie", size: 10, style: :italic
+    # end
 
     # Candidate data
     full_name     = "#{@application.first_name} #{@application.last_name}"
@@ -73,10 +82,10 @@ class IndividualFormsController < ApplicationController
 
     # Logo header
     banner_height = 100
-    logo_path = Rails.root.join("app/assets/images/logo-continous-black.png")
+    logo_path = Rails.root.join("app/assets/images/LogoFullOrange1.png")
     if File.exist?(logo_path)
       y_position = pdf.cursor - (banner_height / 2) + 40
-      pdf.image logo_path, width: 80, position: :left, at: [pdf.bounds.width / 2 - 50, y_position]
+      pdf.image logo_path, width: 200, position: :left, at: [pdf.bounds.width / 2 - 100, y_position]
     end
 
     pdf.fill_color "000000"
@@ -110,7 +119,7 @@ class IndividualFormsController < ApplicationController
     )
 
     pdf.move_down 30
-    pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
+    pdf.text "Informations généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
 
     send_data pdf.render,
               filename: "fiche_candidat_#{full_name.parameterize}.pdf",

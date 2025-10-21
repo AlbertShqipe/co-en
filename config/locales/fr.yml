@@ -1516,6 +1516,7 @@ fr:
     th3: "Formulaires des Trios"
     th4: "Formulaires des Groupes"
     th5: "Formulaires des Professeurs"
+    pdf: "Voir la fiche PDF"
 
   phone_view:
     slideshow: |

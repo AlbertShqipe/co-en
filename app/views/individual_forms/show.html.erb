@@ -100,12 +100,17 @@
             </td>
           </tr>
         <% end %>
+        <% if current_user.role == "admin"%>
+        <tr>
+          <td>PDF</td>
+          <td class="text-center">
+            <%= link_to t("table.pdf"), download_report_individual_form_path(@individual_form), target: "_blank", class: "modify" %>
+          </td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
 
-  <% if current_user.role == "admin"%>
-    <%= link_to "Voir la fiche PDF", download_report_individual_form_path(@individual_form), target: "_blank" %>
-  <% end %>
 
 <%= render("shared/footer") %>
