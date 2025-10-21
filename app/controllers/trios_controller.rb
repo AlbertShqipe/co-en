@@ -79,7 +79,7 @@ class TriosController < ApplicationController
       data << ["Âge", participant.age]
     end
 
-    pdf.table(data, row_colors: ["F0F0F0", "FFFFFF"], cell_style: { padding: [5, 10], size: 10 }, width: pdf.bounds.width)
+    pdf.table(data, row_colors: ["F0F0F0", "FFFFFF"], cell_style: { padding: [5, 10], size: 9 }, width: pdf.bounds.width)
     pdf.move_down 30
     pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
 
