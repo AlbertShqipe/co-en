@@ -1,5 +1,8 @@
 class IndividualFormsController < ApplicationController
+  include ApplicationHelper
+  include Rails.application.routes.url_helpers
   require 'cloudinary'
+  require "open-uri"
   before_action :authenticate_user!
 
   def show
@@ -35,6 +38,84 @@ class IndividualFormsController < ApplicationController
       @results_prod_1 = []
     end
     # raise
+  end
+
+  def download_report
+    @application = IndividualForm.find(params[:id])
+
+    pdf = Prawn::Document.new
+
+    # Insert applicant id card from Cloudinary (if attached)
+    if @application.id_card.attached?
+      begin
+        image_url = url_for(@application.id_card)
+        image_file = URI.open(image_url)
+        pdf.image image_file, width: 150, height: 150, position: :right
+      rescue => e
+        Rails.logger.warn "Could not load id card: #{e.message}"
+      end
+    end
+
+    # Candidate data
+    full_name     = "#{@application.first_name} #{@application.last_name}"
+    birth_date    = @application.birth_date
+    age           = calculate_age(birth_date)
+    address       = @application.address
+    phone         = @application.phone
+    email         = @application.email
+    teacher_name  = @application.teacher_name
+    teacher_phone = @application.teacher_phone
+    teacher_email = @application.teacher_email
+    dance_school  = @application.dance_school
+    category      = @application.category
+    style         = @application.style
+    level         = @application.level
+
+    # Logo header
+    banner_height = 100
+    logo_path = Rails.root.join("app/assets/images/logo-continous-black.png")
+    if File.exist?(logo_path)
+      y_position = pdf.cursor - (banner_height / 2) + 40
+      pdf.image logo_path, width: 80, position: :left, at: [pdf.bounds.width / 2 - 50, y_position]
+    end
+
+    pdf.fill_color "000000"
+    pdf.move_down banner_height + 10
+    pdf.text "Fiche Candidat", size: 16, style: :bold, align: :center
+
+    pdf.move_down 20
+    pdf.text "Informations personnelles", size: 12, style: :bold
+    pdf.move_down 10
+
+    data = [
+      ["Nom complet", full_name],
+      ["Date de naissance", birth_date.strftime("%d/%m/%Y")],
+      ["Âge", age],
+      ["Adresse", address],
+      ["Téléphone", phone],
+      ["Email", email],
+      ["École de danse", dance_school],
+      ["Enseignant.e", teacher_name],
+      ["Téléphone enseignant.e", teacher_phone],
+      ["Email enseignant.e", teacher_email],
+      ["Catégorie", category],
+      ["Style", style],
+      ["Niveau", level]
+    ]
+
+    pdf.table(data,
+      row_colors: ["F0F0F0", "FFFFFF"],
+      cell_style: { padding: [5, 10], size: 10 },
+      width: pdf.bounds.width
+    )
+
+    pdf.move_down 30
+    pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
+
+    send_data pdf.render,
+              filename: "fiche_candidat_#{full_name.parameterize}.pdf",
+              type: "application/pdf",
+              disposition: "inline"
   end
 
   def index

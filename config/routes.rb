@@ -34,7 +34,11 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { registrations: 'registrations' }
 
     # User form
-    resources :individual_forms, only: [:show, :index, :new, :create, :edit, :update]
+    resources :individual_forms, only: [:show, :index, :new, :create, :edit, :update] do
+      member do
+        get :download_report
+      end
+    end
 
     # User form application duo
     resources :duo, only: [:show, :index, :new, :create, :edit, :update] do

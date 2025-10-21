@@ -103,4 +103,9 @@
       </tbody>
     </table>
   </div>
+
+  <% if current_user.role == "admin"%>
+    <%= link_to "Voir la fiche PDF", download_report_individual_form_path(@individual_form), target: "_blank" %>
+  <% end %>
+
 <%= render("shared/footer") %>
