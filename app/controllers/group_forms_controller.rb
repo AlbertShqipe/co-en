@@ -51,7 +51,7 @@ class GroupFormsController < ApplicationController
 
     pdf.fill_color "000000"
     pdf.move_down banner_height + 10
-    pdf.text "Fiche Trio", size: 16, style: :bold, align: :center
+    pdf.text "Fiche Group", size: 16, style: :bold, align: :center
 
     pdf.move_down 20
     pdf.text "Informations générales", size: 12, style: :bold
