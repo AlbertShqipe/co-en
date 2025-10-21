@@ -84,7 +84,7 @@ class DuoController < ApplicationController
     @application.duo_participants.each_with_index do |participant, index|
       if participant.id_card.attached?
         pdf.start_new_page
-        pdf.text "Carte d'identité — Participant #{index + 1}", size: 14, style: :bold
+        pdf.text "Carte d'identité — Participant #{index + 1}, #{participant.name} #{participant.last_name}" , size: 14, style: :bold
         pdf.move_down 30
         begin
           key = participant.id_card.key.sub(/\.\w+$/, '')
@@ -100,7 +100,7 @@ class DuoController < ApplicationController
 
       if participant.file.attached?
         pdf.start_new_page
-        pdf.text "Formulaire — Participant #{index + 1}", size: 14, style: :bold
+        pdf.text "Formulaire — Participant #{index + 1}, #{participant.name} #{participant.last_name}", size: 14, style: :bold
         pdf.move_down 30
         begin
           key = participant.file.key.sub(/\.\w+$/, '')
