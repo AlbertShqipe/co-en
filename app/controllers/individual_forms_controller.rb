@@ -45,25 +45,6 @@ class IndividualFormsController < ApplicationController
 
     pdf = Prawn::Document.new
 
-    # Insert applicant id card from Cloudinary (if attached)
-    # if @application.id_card.attached?
-    #   begin
-    #     # Use Cloudinary's preview feature to convert first page of PDF to image
-    #     # Use ActiveStorage key to build the Cloudinary image URL
-    #     key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
-    #     version = "v1761044962" # optional if you want to force a specific version
-
-    #     cloud_name = Cloudinary.config.cloud_name
-    #     preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
-
-    #     preview_image = URI.open(preview_url)
-    #     pdf.image preview_image, width: 150, height: 150, position: :right
-    #   rescue => e
-    #     pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
-    #   end
-    # else
-    #   pdf.text "Carte d'identité non fournie", size: 10, style: :italic
-    # end
 
     # Candidate data
     full_name     = "#{@application.first_name} #{@application.last_name}"
@@ -97,32 +78,75 @@ class IndividualFormsController < ApplicationController
     pdf.move_down 10
 
     data = [
-      ["Nom complet", full_name],
-      ["Date de naissance", birth_date.strftime("%d/%m/%Y")],
-      ["Âge", age],
-      ["Adresse", address],
-      ["Téléphone", phone],
-      ["Email", email],
-      ["École de danse", dance_school],
-      ["Enseignant.e", teacher_name],
-      ["Téléphone enseignant.e", teacher_phone],
-      ["Email enseignant.e", teacher_email],
-      ["Catégorie", category],
-      ["Style", style],
-      ["Niveau", level]
+      ["Nom complet", "#{@application.first_name} #{@application.last_name}"],
+      ["Date de naissance", @application.birth_date.strftime("%d/%m/%Y")],
+      ["Âge", calculate_age(@application.birth_date)],
+      ["Adresse", @application.address],
+      ["Téléphone", @application.phone],
+      ["Email", @application.email],
+      ["École de danse", @application.dance_school],
+      ["Enseignant.e", @application.teacher_name],
+      ["Téléphone enseignant.e", @application.teacher_phone],
+      ["Email enseignant.e", @application.teacher_email],
+      ["Catégorie", @application.category],
+      ["Style", @application.style],
+      ["Niveau", @application.level]
     ]
 
-    pdf.table(data,
-      row_colors: ["F0F0F0", "FFFFFF"],
-      cell_style: { padding: [5, 10], size: 10 },
-      width: pdf.bounds.width
-    )
-
+    pdf.table(data, row_colors: ["F0F0F0", "FFFFFF"], cell_style: { padding: [5, 10], size: 10 }, width: pdf.bounds.width)
     pdf.move_down 30
-    pdf.text "Informations généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
+    pdf.text "Rapport généré le #{Date.today.strftime('%d/%m/%Y')}", align: :right, size: 8
 
+    ### PAGE 2 — ID CARD
+    # Insert applicant id card from Cloudinary (if attached)
+    if @application.id_card.attached?
+      pdf.start_new_page
+      pdf.text "Carte d'identité", size: 14, style: :bold
+      pdf.move_down 30
+      begin
+        # Use Cloudinary's preview feature to convert first page of PDF to image
+        # Use ActiveStorage key to build the Cloudinary image URL
+        key = @application.id_card.key.sub(/\.\w+$/, '') # remove extension
+        version = "v1761044962" # optional if you want to force a specific version
+
+        cloud_name = Cloudinary.config.cloud_name
+        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+
+        preview_image = URI.open(preview_url)
+        pdf.image preview_image, width: 450, position: :center
+      rescue => e
+        pdf.text "Impossible de charger l'aperçu de la carte : #{e.message}", size: 9, style: :italic, color: "ff0000"
+      end
+    else
+      pdf.text "Carte d'identité non fournie", size: 10, style: :italic
+    end
+
+    ### PAGE 3 — OTHER FILE
+    if @application.file.attached?
+      pdf.start_new_page
+      pdf.text "Formulaire d'Autorisation", size: 14, style: :bold
+      pdf.move_down 30
+      begin
+        # Use Cloudinary's preview feature to convert first page of PDF to image
+        # Use ActiveStorage key to build the Cloudinary image URL
+        key = @application.file.key.sub(/\.\w+$/, '') # remove extension
+        version = "v1761044962" # optional if you want to force a specific version
+
+        cloud_name = Cloudinary.config.cloud_name
+        preview_url = "https://res.cloudinary.com/#{cloud_name}/image/upload/#{version}/development/#{key}.png"
+
+        preview_file = URI.open(preview_url)
+        pdf.image preview_file, width: 450, position: :center
+      rescue => e
+        pdf.text "Impossible de charger l'aperçu du formulaire : #{e.message}", size: 9, style: :italic, color: "ff0000"
+      end
+    else
+      pdf.text "Formulaire non fournie", size: 10, style: :italic
+    end
+
+    ### SEND PDF
     send_data pdf.render,
-              filename: "fiche_candidat_#{full_name.parameterize}.pdf",
+              filename: "fiche_candidat_#{@application.first_name.parameterize}.pdf",
               type: "application/pdf",
               disposition: "inline"
   end
