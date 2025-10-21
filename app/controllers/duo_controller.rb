@@ -40,21 +40,25 @@ class DuoController < ApplicationController
     @application = Duo.find(params[:id])
     pdf = Prawn::Document.new
 
-    # ===============================
-    # PAGE 1 — Duo + Participants Info
-    # ===============================
+    # Logo header
+    banner_height = 100
     logo_path = Rails.root.join("app/assets/images/LogoFullOrange1.png")
     if File.exist?(logo_path)
-      y_position = pdf.cursor - 50
+      y_position = pdf.cursor - (banner_height / 2) + 40
       pdf.image logo_path, width: 200, position: :left, at: [pdf.bounds.width / 2 - 100, y_position]
     end
 
-    pdf.move_down 110
+    pdf.fill_color "000000"
+    pdf.move_down banner_height + 10
     pdf.text "Fiche Duo", size: 16, style: :bold, align: :center
+
     pdf.move_down 20
     pdf.text "Informations générales", size: 12, style: :bold
     pdf.move_down 10
 
+    # ===============================
+    # PAGE 1 — Duo + Participants Info
+    # ===============================
     data = [
       ["Nom du duo", @application.name],
       ["Responsable", @application.responsable],
