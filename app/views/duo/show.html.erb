@@ -142,13 +142,13 @@
         <% end %>
       </tr>
       <% if current_user.role == "admin"%>
-          <tr>
-            <td>PDF</td>
-            <td colspan="<%=@duo.duo_participants.count%>" class="text-center">
-              <%= link_to t("table.pdf"), download_report_duo_path(@duo), target: "_blank", class: "modify" %>
-            </td>
-          </tr>
-        <% end %>
+        <tr>
+          <td>PDF</td>
+          <td colspan="<%=@duo.duo_participants.count%>" class="text-center">
+            <%= link_to t("table.pdf"), download_report_duo_path(@duo), target: "_blank", class: "modify" %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

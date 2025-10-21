@@ -52,11 +52,19 @@ Rails.application.routes.draw do
     # User form application trio
     resources :trios, only: [:index, :show, :new, :create, :edit, :update] do
       resources :trio_participants, only: [:create, :destroy]
+
+      member do
+        get :download_report
+      end
     end
 
     # User form application group
     resources :group_forms, only: [:index, :show, :new, :create, :edit, :update] do
       resources :participants, only: [:create, :destroy, :update]
+
+      member do
+        get :download_report
+      end
     end
 
     # Info of a specific solo form

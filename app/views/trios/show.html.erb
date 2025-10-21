@@ -134,6 +134,14 @@
             <td colspan="<%=@trio.trio_participants.count%>" style="text-align:center"><%= link_to t('edit.edit'), edit_trio_path(@trio), class:"modify" %></td>
           <% end %>
         </tr>
+        <% if current_user.role == "admin"%>
+          <tr>
+            <td>PDF</td>
+            <td colspan="<%=@trio.trio_participants.count%>" class="text-center">
+              <%= link_to t("table.pdf"), download_report_trio_path(@trio), target: "_blank", class: "modify" %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
