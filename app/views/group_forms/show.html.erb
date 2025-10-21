@@ -137,6 +137,14 @@
             </td>
           <% end %>
         </tr>
+        <% if current_user.role == "admin"%>
+          <tr>
+            <td>PDF</td>
+            <td colspan="<%=@group_form.participants.count%>" class="text-center">
+              <%= link_to t("table.pdf"), download_report_group_form_path(@group_form), target: "_blank", class: "modify" %>
+            </td>
+          </tr>
+        <% end %>
       <tbody>
     </table>
   </div>
