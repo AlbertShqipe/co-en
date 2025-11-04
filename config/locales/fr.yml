@@ -758,11 +758,11 @@ fr:
       individual_registration_form: |
         <div class="card-body">
           <h5 class="card-title">Formulaire d'Inscription Individuelle</h5>
-          <div class="d-flex justify-content-around flex-column">
+          <!--<div class="d-flex justify-content-around flex-column">
             <p class="card-text">Solo</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
-            <a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
-          </div>
+            a href="/individual_forms/new?locale=fr" class="btn card-button">Voir</a>
+          </div>-->
         </div>
       professor_registration_form: |
         <div class="card-body">

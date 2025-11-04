@@ -763,11 +763,11 @@ en:
       individual_registration_form: |
         <div class="card-body">
           <h5 class="card-title">Individual Registration Form</h5>
-          <div class="d-flex justify-content-around flex-column">
+          <!--<div class="d-flex justify-content-around flex-column">
             <p class="card-text" >Solo</p>
             <p class="card-text mb-0">Please make sure to fill up all the boxes</p><br>
             <a href="/individual_forms/new?locale=en" class="btn card-button">View</a>
-          </div>
+          </div>-->
         </div>
       professor_registration_form: |
         <div class="card-body">
