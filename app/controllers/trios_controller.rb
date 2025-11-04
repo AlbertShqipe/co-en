@@ -1,5 +1,6 @@
 class TriosController < ApplicationController
   before_action :authenticate_user!
+  before_action :prevent_new_submissions, only: [:new, :create]
 
   def show
     if current_user.admin?
@@ -301,6 +302,11 @@ class TriosController < ApplicationController
   end
 
   private
+
+  def prevent_new_submissions
+    flash[:alert] = "Les inscriptions sont maintenant fermées."
+    redirect_to root_path
+  end
 
   def trio_params
     params.require(:trio).permit(

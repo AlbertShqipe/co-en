@@ -4,6 +4,7 @@ class IndividualFormsController < ApplicationController
   require 'cloudinary'
   require "open-uri"
   before_action :authenticate_user!
+  before_action :prevent_new_submissions, only: [:new, :create]
 
   def show
     if current_user.admin?
@@ -385,6 +386,11 @@ class IndividualFormsController < ApplicationController
   end
 
   private
+
+  def prevent_new_submissions
+    flash[:alert] = "Les inscriptions sont maintenant fermées."
+    redirect_to root_path
+  end
 
   def individual_form_params
     params.require(:individual_form).permit(

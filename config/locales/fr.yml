@@ -731,29 +731,29 @@ fr:
       group_registration_form: |
         <div class="card-body">
           <h5 class="card-title">Formulaire d'Inscription de Groupe</h5>
-          <div class="d-flex justify-content-around flex-column">
+          <!--<div class="d-flex justify-content-around flex-column">
             <p class="card-text">Min 4 participant·e·s</p>
             <p class="card-text mb-0">Veuillez remplir toutes les cases</p><br>
             <a href="/group_forms/new?locale=fr" class="btn card-button">Voir</a>
-          </div>
+          </div>-->
         </div>
       trio: |
         <div class="card-body">
           <h5 class="card-title">Formulaire d'inscription Trio</h5>
-          <div class="d-flex justify-content-around flex-column">
+          <!--<div class="d-flex justify-content-around flex-column">
             <p class="card-text">Trio</p>
             <p class="card-text mb-0">Veuillez vous assurer de remplir toutes les cases</p><br>
             <a href="/trios/new?locale=fr" class="btn card-button">Voir</a>
-          </div>
+          </div>-->
         </div>
       duo: |
         <div class="card-body">
           <h5 class="card-title">Formulaire d'inscription Duo</h5>
-          <div class="d-flex justify-content-around flex-column">
+          <!--<div class="d-flex justify-content-around flex-column">
             <p class="card-text">Duo</p>
             <p class="card-text mb-0">Veuillez vous assurer de remplir toutes les cases</p><br>
             <a href="/duo/new?partial=duo?locale=fr" class="btn card-button">Voir</a>
-          </div>
+          </div>-->
         </div>
       individual_registration_form: |
         <div class="card-body">

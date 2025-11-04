@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     # Devise authentication routes
     devise_for :users, controllers: { registrations: 'registrations' }
 
-    # User form
+    # User form Individual solo
     resources :individual_forms, only: [:show, :index, :new, :create, :edit, :update] do
       member do
         get :download_report
