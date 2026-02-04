@@ -1,0 +1,55 @@
+.swiper-button-prev, .swiper-button-next {
+  color: #deded4 !important;
+  width: 30px;
+  height: 30px;
+
+  &:after {
+    font-size: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Pagination dots
+.swiper-pagination-bullet-active {
+  background-color: #deded4;
+}
+
+.carousel {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    margin: 0 auto;
+    height: 600px;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(235, 67, 1, 0.6) !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide img {
+    height: 400px;
+  }
+
+  .swiper-slide img.left {
+    object-position: 30% center; /* shifts focal point left (showing more right of image) */
+  }
+
+}

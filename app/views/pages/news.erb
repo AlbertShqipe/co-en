@@ -19,5 +19,26 @@
       </div>
 
     </div>
+    <div class="image-news mb-5">
+      <%= image_tag "dividerGray.png", alt: "divider image" %>
+    </div>
+    <!-- Swiper Carousel -->
+    <div data-controller="swiper" class="swiper carousel carousel">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide">
+          <%= image_tag "WW1.png", alt: "Weekend Workshop 1", loading: "lazy" %>
+        </div>
+        <div class="swiper-slide slide">
+          <%= image_tag "WW2.png", alt: "Weekend Workshop 2", loading: "lazy" %>
+        </div>
+        <div class="swiper-slide slide">
+          <%= image_tag "WW3.png", alt: "Weekend Workshop 3", class: "left", loading: "lazy" %>
+        </div>
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
 <%= render "shared/footer_fixed" %>

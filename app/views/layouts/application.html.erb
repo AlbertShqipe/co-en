@@ -27,6 +27,11 @@
     <!--Fontawesome-->
     <script src="https://kit.fontawesome.com/920586024b.js"></script>
 
+    <!-- Swiper CSS (only preload if actually used above the fold) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
     <!--Google Maps-->
     <%# <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> %>
     <%# Only call initMap if #map exists %>

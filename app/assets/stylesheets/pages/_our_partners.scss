@@ -56,6 +56,17 @@
       @include partners-mobile;
       /* background-image remains the same */
     }
+
+  }
+  .partners-2026 {
+    @include partners-base;
+    background-image: url('PARTENAIRES2026.png');
+    max-height: 580px;
+
+    @media (max-width: 560px) {
+      @include partners-mobile;
+      /* background-image remains the same */
+    }
   }
 
   a {
