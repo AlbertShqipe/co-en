@@ -9,7 +9,17 @@ en:
         <a href="#who_we_are" class="nav-link">WHO WE ARE</a>
       link3: |
         <div class="dropdown">
-          <a style="display:inline-flex !important;" href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display:inline-flex !important;" href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO
+          <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
           <div class="dropdown-content">
             <a href="/contact?locale=en">Contact</a>
           </div>
@@ -18,7 +28,16 @@ en:
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link5: |
         <div class="dropdown">
-          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS<span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS
+          <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
           </a>
           <div class="dropdown-content">
             <a href="/galerie/2025">2025</a><br>
@@ -128,7 +147,17 @@ en:
         <a href="#who_we_are" class="nav-link">WHO WE ARE</a>
       link13: |
         <div class="dropdown">
-          <a style="display: inline-flex; align-items: center;" href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO <span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          <a style="display: inline-flex; align-items: center;" href="#practical_info" class="nav-link dropbtn">PRACTICAL INFO
+            <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
           <div class="dropdown-content">
             <a href="/contact?locale=en">Contact</a>
           </div>
@@ -137,7 +166,16 @@ en:
         <a href="#our_partners" class="nav-link">OUR PARTNERS</a>
       link15: |
         <div class="dropdown">
-          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS<span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          <a style="display: inline-flex; align-items: center;" href="#galerie" class="nav-link dropbtn">EDITIONS
+          <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
           </a>
           <div class="dropdown-content">
             <a href="/galerie/2025">2025</a><br>
@@ -170,7 +208,17 @@ en:
         <a href="/who_we_are?locale=en" class="nav-link">WHO WE ARE</a>
       link3: |
         <div class="dropdown">
-          <a style="display: inline-flex !important;" href="/practical_info?locale=en" class="nav-link dropbtn">PRACTICAL INFO <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display: inline-flex !important;" href="/practical_info?locale=en" class="nav-link dropbtn">PRACTICAL INFO
+            <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
           <div class="dropdown-content">
             <a href="/contact?locale=en">Contact</a>
           </div>
@@ -179,7 +227,17 @@ en:
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link5: |
         <div class="dropdown">
-          <a style="display: inline-flex !important;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display: inline-flex !important;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS
+          <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
           <div class="dropdown-content">
             <a href="/galerie/2025?locale=en">2025</a><br>
             <a href="/galerie/2024?locale=en">2024</a><br>
@@ -286,7 +344,16 @@ en:
         <a href="/who_we_are?locale=en" class="nav-link">WHO WE ARE</a>
       link13: |
         <div class="dropdown">
-          <a style="display: inline-flex;align-items: center;" href="/practical_info?locale=en" class="nav-link dropbtn">PRACTICAL INFO <span class="material-symbols-outlined" style="font-size:18px">arrow_drop_down</span></a>
+          <a style="display: inline-flex;align-items: center;" href="/practical_info?locale=en" class="nav-link dropbtn">PRACTICAL INFO
+            <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
           <div class="dropdown-content">
             <a href="/contact?locale=en">Contact</a>
           </div>
@@ -295,7 +362,17 @@ en:
         <a href="/our_partners?locale=en" class="nav-link">OUR PARTNERS</a>
       link15: |
         <div class="dropdown">
-          <a style="display: inline-flex !important;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS <span class="material-symbols-outlined">arrow_drop_down</span></a>
+          <a style="display: inline-flex; align-items: center;" href="/galerie?locale=en" class="nav-link dropbtn">EDITIONS
+            <span style="margin-left: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" height="10px" version="1.1" viewBox="0 0 16 16" width="10px">
+                <g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1">
+                  <g fill="white" id="Group" transform="translate(-336.000000, -336.000000)">
+                    <path d="M344,339 L352,349 L336,349 L344,339 Z M344,339" id="Triangle 185 copy" transform="translate(344.000000, 344.000000) scale(1, -1) translate(-344.000000, -344.000000) "/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
           <div class="dropdown-content">
             <a href="/galerie/2025?locale=en">2025</a><br>
             <a href="/galerie/2024?locale=en">2024</a><br>
@@ -1582,3 +1659,4 @@ en:
       <h3>✨ Weekend Workshops Entrelacé ✨</h3>
       <p>Entrelacé is creating the Weekend Workshops: 2 intensive days to offer you a unique artistic immersion. Guided by passionate professionals, you will have the opportunity to experience different technical approaches, styles, and choreographic worlds – from classical dance to urban dances.</p>
       <p>Throughout the 2025-2026 season, several Weekend Workshops will be offered… stay tuned to discover the program!</p>
+    a: "Discover the program of the Weekend Workshops"

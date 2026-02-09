@@ -93,4 +93,22 @@
     color: black;
   }
 
+  .news-link {
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+    color: $light-gray;
+    font-size:2rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+
+    &:hover {
+      color: $orange;
+
+      svg g {
+        fill: $orange;
+      }
+    }
+  }
+
 }

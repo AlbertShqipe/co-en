@@ -42,6 +42,10 @@
       background-color: transparent !important;
       color: $orange;
       border-bottom: 1px solid $orange;
+
+      svg g {
+        fill: $orange;
+      }
     }
 
   }
